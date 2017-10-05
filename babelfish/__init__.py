@@ -79,7 +79,7 @@ def classify_report(filepath,threshold=.5,guessifnone=False,info=False,coefset='
     else:
         print "\'output\' argument should be 'console' or 'csv'. Aborting."
 
-def tag_report(filepath,threshold=.5,padding=0,coefset='technique',output='json'):
+def tag_report(text,filename,threshold=.5,padding=0,coefset='technique',output='json'):
     """
     @param filepath : any parsable filetype or url
     @param threshold : min peak conf required to accept a classification
@@ -90,7 +90,7 @@ def tag_report(filepath,threshold=.5,padding=0,coefset='technique',output='json'
     # initialize
     step = 50 #lower = faster run, higher = more resolution
     if output == 'html': padding = 0
-    text = extract_text(filepath)
+    #text = extract_text(filepath)
     with open(os.path.join(os.path.dirname(__file__), r'coef_' + coefset)) as f:
         coef  = pickle.load(f)
         vocab = pickle.load(f)
@@ -186,7 +186,7 @@ def tag_report(filepath,threshold=.5,padding=0,coefset='technique',output='json'
         text = re.sub(r'[\n|\r|\r\n|\n\r]','<br>',text)
         # set header information
         
-        html = re.sub(r'\[filename\]',os.path.basename(filepath),html)
+        html = re.sub(r'\[filename\]',filename,html)
         html = re.sub(r'\[coefset\]',coefset,html)
         for i in xrange(num_colors): 
             if i<max_classifications:
@@ -397,9 +397,9 @@ def plot_report(filepath,threshold=0.0,coefset='technique',output='console'):
             axplot[counter]={"attack":cat[i],"data":[ci,predicted_prob[i].tolist()]}
         counter = counter + 1
             #axplot.append([ci,predicted_prob[i]])
-    return axplot    
+    return axplot,text    
     if output=='console':
-        return axplot
+        return (axplot,text)
     elif output=='png':
         UPLOAD_FOLDER = '/tmp/'
         plt.savefig(UPLOAD_FOLDER + filename + '_plot')

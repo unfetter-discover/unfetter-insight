@@ -30,8 +30,8 @@ def report():
         report = request.files['file']
         fullpath = os.path.join(UPLOAD_FOLDER, report.filename)
         report.save(fullpath)
-        plotdata = babelfish.plot_report(fullpath,threshold,coefset)
-        tag_results = babelfish.tag_report(fullpath, 0.5, 0, coefset, 'json')
+        plotdata,text = babelfish.plot_report(fullpath,threshold,coefset)
+        tag_results = babelfish.tag_report(text,report.filename, 0.5, 0, coefset, 'json')
         tagged_report = tag_results[0]['text']
         chart_labels = []
         chart_values = []

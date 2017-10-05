@@ -70,7 +70,7 @@ def extract_text(filepath):
             text = f.read()
         else:
             try:
-                text = process(filepath) 
+                text = process(filepath)
             except:    
                 print "Conversion fail: " + filepath
                 return False
