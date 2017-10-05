@@ -1,0 +1,788 @@
+# -*- coding: utf-8 -*-
+###############################################################################
+# INTRODUCTION                                                                #
+###############################################################################
+# BABELFISH is software that is taught topics with a wiki-style corpus,
+# and then may be asked to detect the presence of those topics within any
+# document or audio file.
+# Version:    1.07
+# Author:     William Kinsman
+# Date:       2017_05_03
+#UNRELEASED
+
+###############################################################################
+# IMPORTS                                                                     #
+###############################################################################
+# verify all required packages are present
+import imp
+required_packages = ['chardet','nltk','numpy','matplotlib','scipy','sklearn','tqdm']
+needed_packages = ''
+for package in required_packages:
+    try:    imp.find_module(package)
+    except: needed_packages = needed_packages + '\n\'' + package + "\' python package"
+if needed_packages:
+    raise ImportError('\nRequired babelfish dependencies not detected. Please install:' + needed_packages)
+
+import os
+import re
+import csv
+import json
+import pickle
+import numpy as np
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from tqdm import tqdm
+
+# native to babelfish
+from text_tools.parsing import extract_text,is_url
+from text_tools.convolution import convolve_text,tf_vectorizer,strip_low_info_convolutions
+from text_tools.preprocessing import preprocess,stem_all
+
+###############################################################################
+# FUNCTIONS                                                                   #
+###############################################################################
+def classify_report(filepath,threshold=.5,guessifnone=False,info=False,coefset='technique',output='console'):
+    """
+    @param filepath : any parsable filetype or url
+    @param threshold : min peak conf required to accept a classification
+    @param guessifnone : if none are over threshold, make educated guess
+    @param info : return 'max' and 'mean' confidence also.
+    @param coefset : Classifier. 'technique' or 'chain'.
+    @param output : 'console' or 'csv'.
+    output : relevant ATT&CK Techniques OR top chain
+    """
+    # initialize
+    text = extract_text(filepath)
+    if text==False: return False
+    results = _classify_report_text(text,threshold=threshold,
+                                    guessifnone=guessifnone,
+                                    sortby='max',coefset=coefset)
+                                    #results = (classif,conf_max,conf_mean) 
+    if info==False or output=='csv': 
+        results = [x[0] for x in results] #return clasifiers only
+        results.sort()
+    
+    # output
+    if output=='console':
+        return results
+    elif output=='csv':
+        if is_url(filepath):
+            filename = "".join([c for c in filepath if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+        else:
+            filename = os.path.splitext(os.path.basename(filepath))[0]
+        with open(filename + ".csv", "wb") as f:
+            writer = csv.writer(f)
+            writer.writerows([results])
+            print '\'' + filename + '.csv\' has been saved to your present working directory.'
+            return
+    else:
+        print "\'output\' argument should be 'console' or 'csv'. Aborting."
+
+def tag_report(filepath,threshold=.5,padding=0,coefset='technique',output='json'):
+    """
+    @param filepath : any parsable filetype or url
+    @param threshold : min peak conf required to accept a classification
+    @param padding : if 'console', number of trailing/leading chars to add
+    @param coefset : Classifier. 'technique' or 'chain'.
+    @param output : 'html', 'console', or 'json'.
+    """
+    # initialize
+    step = 50 #lower = faster run, higher = more resolution
+    if output == 'html': padding = 0
+    text = extract_text(filepath)
+    with open(os.path.join(os.path.dirname(__file__), r'coef_' + coefset)) as f:
+        coef  = pickle.load(f)
+        vocab = pickle.load(f)
+        cat   = pickle.load(f)
+        windowsize = pickle.load(f)
+    if text==False: return False
+    conv,ci = convolve_text(text,windowsize=windowsize,ws_trim=False,word_trim=True,fence=False,return_ci=True)
+    conv = preprocess(conv)
+    conv = stem_all(conv)
+    conv = strip_low_info_convolutions(conv,vocab,min_vocab=13)
+    
+    # for each classifier evaluate all convolutions
+    predicted_prob = []
+    input_vectors = tf_vectorizer(conv,vocab,parallel=True)
+    for i in xrange(len(cat)):    
+        predicted_prob.append(coef[i].predict_proba(input_vectors)[:,1]) #P(1)
+    
+    # for each classifier identify clustered ranges
+    tags = []
+    count = 1
+    max_dist = int(windowsize/step)-1
+    for i in xrange(len(cat)):
+        idx = _threshold_clustering_1d(predicted_prob[i],clustering_radius=max_dist,threshold=threshold)
+
+        # convert convolution ranges to index ranges (index_start,index_end,count,classification)
+        for j in xrange(len(idx)):
+            idx[j][0] = max(int(ci[idx[j][0]]-(windowsize/2))-padding,0)
+            idx[j][1] = min(int(ci[idx[j][1]]+(windowsize/2))+padding,len(text))
+            peak_conf = '{:.2f}'.format(idx[j][2])
+            tags.append((idx[j][0],idx[j][1],count,cat[i],peak_conf))
+            count += 1
+    # create output filename
+    #if is_url(filepath):
+    #    filename = "".join([c for c in filepath if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+    #else:
+    #    filename = filepath.filename
+    #load the template 
+    with open(os.path.join(os.path.dirname(__file__), r'tag_template.html'),'r') as f:
+        html = f.read()
+        colors = re.findall(r'(?<=BACKGROUND-COLOR: ).*(?=">)',html)
+        num_colors = len(colors)
+        
+        # the num of classifications tagged is limited by 'n' template colors
+        classifiers_present = list(set([i[3] for i in tags]))
+        max_classifications = num_colors
+        if len(classifiers_present) < num_colors: 
+            max_classifications = len(classifiers_present) 
+        # get top n classifications sorted by peak confidence
+        top_classif = []
+        tags.sort(key=lambda tup: tup[4], reverse=True)
+        for i in xrange(len(tags)):
+            if tags[i][3] not in top_classif: top_classif.append(tags[i][3])
+            if len(top_classif) == max_classifications: break
+        tags = [x for x in tags if x[3] in top_classif]
+        
+        #REPAIR INDICES TO PREVENT OVERLAPPING
+        # add top classification locations first
+        tags_no_overlaps = []
+        for i in xrange(len(tags)-1,-1,-1):
+            if tags[i][3] == top_classif[0]: 
+                tags_no_overlaps.append(tags[i])
+                tags.remove(tags[i])
+        # repair tag ranges to prevent overlapping in order by classification
+        for i in xrange(len(top_classif)-1,0,-1):
+            for tag in tags:
+                
+                #shortcircuit if not current classification
+                if tag[3] != top_classif[i]: continue
+                
+                # redifine the tag so it does not overlap another
+                tags.remove(tag)
+                ranges = ([[x[0],x[1]] for x in tags_no_overlaps])
+                tag_range = [tag[0],tag[1]]
+                for j in xrange(len(ranges)): tag_range = _repair_overlap(tag_range,ranges[j])
+                tags_no_overlaps.append((tag_range[0],tag_range[1],tag[2],tag[3],tag[4]))
+        
+        tags = tags_no_overlaps
+        
+        locs_start = [x[0] for x in tags]
+        locs_end = [x[1] for x in tags]
+        locs_all = locs_start + locs_end
+        locs_all.sort(reverse=True) 
+        for loc in locs_all:
+            if loc in locs_end:
+                idx = locs_end.index(loc)
+                font_tag = '</FONT>'
+            else:
+                idx = locs_start.index(loc)
+                font_tag = "<FONT style=\"BACKGROUND-COLOR: " + colors[top_classif.index(tags[idx][3])] + "\">"
+            text = text[:loc] + font_tag + text[loc:]
+            
+        #convert text to html
+        text = re.sub(r'[\n|\r|\r\n|\n\r]','<br>',text)
+        # set header information
+        
+        html = re.sub(r'\[filename\]',os.path.basename(filepath),html)
+        html = re.sub(r'\[coefset\]',coefset,html)
+        for i in xrange(num_colors): 
+            if i<max_classifications:
+                html = re.sub('\[cl_'+str(i)+'\]',top_classif[i],html)
+            else:
+                html = re.sub(r'<FONT .*\[cl_' +str(i)+ r'\] <br>','',html)
+        html = html.replace(r'<!-- DOCUMENT GOES HERE -->',text.decode('ascii','ignore'))
+    # sort tags and place into text
+    if output == 'html':
+        
+        #load the template 
+        with open(os.path.join(os.path.dirname(__file__), r'tag_template.html'),'r') as f:
+            html = f.read()
+            colors = re.findall(r'(?<=BACKGROUND-COLOR: ).*(?=">)',html)
+            num_colors = len(colors)
+        
+        # the num of classifications tagged is limited by 'n' template colors
+        classifiers_present = list(set([i[3] for i in tags]))
+        max_classifications = num_colors
+        if len(classifiers_present) < num_colors: 
+            max_classifications = len(classifiers_present)    
+        
+        # get top n classifications sorted by peak confidence
+        top_classif = []
+        tags.sort(key=lambda tup: tup[4], reverse=True)
+        for i in xrange(len(tags)):
+            if tags[i][3] not in top_classif: top_classif.append(tags[i][3])
+            if len(top_classif) == max_classifications: break
+        tags = [x for x in tags if x[3] in top_classif]
+        
+        #REPAIR INDICES TO PREVENT OVERLAPPING
+        # add top classification locations first
+        tags_no_overlaps = []
+        for i in xrange(len(tags)-1,-1,-1):
+            if tags[i][3] == top_classif[0]: 
+                tags_no_overlaps.append(tags[i])
+                tags.remove(tags[i])
+        
+        # repair tag ranges to prevent overlapping in order by classification
+        for i in xrange(len(top_classif)-1,0,-1):
+            for tag in tags:
+                
+                #shortcircuit if not current classification
+                if tag[3] != top_classif[i]: continue
+                
+                # redifine the tag so it does not overlap another
+                tags.remove(tag)
+                ranges = ([[x[0],x[1]] for x in tags_no_overlaps])
+                tag_range = [tag[0],tag[1]]
+                for j in xrange(len(ranges)): tag_range = _repair_overlap(tag_range,ranges[j])
+                tags_no_overlaps.append((tag_range[0],tag_range[1],tag[2],tag[3],tag[4]))
+        
+        tags = tags_no_overlaps
+        locs_start = [x[0] for x in tags]
+        locs_end = [x[1] for x in tags]
+        locs_all = locs_start + locs_end
+        locs_all.sort(reverse=True)    
+        for loc in locs_all:
+            if loc in locs_end:
+                idx = locs_end.index(loc)
+                font_tag = '</FONT>'
+            else:
+                idx = locs_start.index(loc)
+                font_tag = "<FONT style=\"BACKGROUND-COLOR: " + colors[top_classif.index(tags[idx][3])] + "\">"
+            text = text[:loc] + font_tag + text[loc:]
+        
+        #convert text to html
+        text = re.sub(r'[\n|\r|\r\n|\n\r]','<br>',text)
+        
+        # set header information
+        html = re.sub(r'\[filename\]',os.path.basename(filepath),html)
+        html = re.sub(r'\[coefset\]',coefset,html)
+        for i in xrange(num_colors): 
+            if i<max_classifications:
+                html = re.sub('\[cl_'+str(i)+'\]',top_classif[i],html)
+            else:
+                html = re.sub(r'<FONT .*\[cl_' +str(i)+ r'\] <br>','',html)
+        html = html.replace(r'<!-- DOCUMENT GOES HERE -->',text.decode('ascii','ignore'))
+        
+        # save the html file
+        with open(filename + '_tagged.html','w') as f:
+            f.write(html)
+        print "\'" + filename + ".html\' has been saved to the present working directory."
+
+    elif output == 'console':
+           
+        # get the vocab in the text
+        sorted_vocab = vocab
+        sorted_vocab.sort(key=len,reverse=True)
+        for i in xrange(len(sorted_vocab)): sorted_vocab[i] = ''.join([r'\b',sorted_vocab[i],r'\b'])
+        regex = re.compile('|'.join(sorted_vocab))
+        
+        # sort by starting location
+        tags.sort(key=lambda tup: tup[1])
+        for i in xrange(len(tags)):
+            
+            # get relevant vocab
+            found = list(set(re.findall(regex,stem_all(preprocess(text[tags[i][0]:tags[i][1]])))))
+            found.sort()
+            found = ','.join(found)
+            print '___________________________________________________________'
+            print 'DETECTED: ' + tags[i][3] + '   (' + str(i+1) + ' of ' + str(len(tags)) + ')'
+            print 'PEAK CONFIDENCE: ' + tags[i][4]
+            print 'FILEPATH: ' + filepath
+            print '\n'
+            print text[tags[i][0]:tags[i][1]]
+            print '\n'
+            print 'STEMMED VOCAB PRESENT: ' + found
+    
+    elif output == 'json':
+           
+        # get the vocab in the text
+        sorted_vocab = vocab
+        sorted_vocab.sort(key=len,reverse=True)
+        for i in xrange(len(sorted_vocab)): sorted_vocab[i] = ''.join([r'\b',sorted_vocab[i],r'\b'])
+        regex = re.compile('|'.join(sorted_vocab))
+        
+        # sort by starting location
+        tags.sort(key=lambda tup: tup[1])
+        jsondict = {i:{'detected':None,'confidence':None,'vocab':None,'text':html} for i in range(len(tags))}
+        for i in xrange(len(tags)):
+            
+            # get relevant vocab
+            found = list(set(re.findall(regex,stem_all(preprocess(text[tags[i][0]:tags[i][1]])))))
+            found.sort()
+            found = ','.join(found)
+            jsondict[i]['detected'] = tags[i][3]
+            jsondict[i]['confidence'] = tags[i][4]
+            jsondict[i]['vocab'] = found
+            #jsondict[i]['text'] = text[tags[i][0]:tags[i][1]]
+        return jsondict
+    else:
+        print "\'output\' argument should be 'html' or 'console'. Aborting."
+
+def plot_report(filepath,threshold=0.0,coefset='technique',output='console'):
+    """
+    @param filepath : any parsable file type or url
+    @param threshold : min peak conf required to accept a classification
+    @param coefset : Classifier. 'technique' or 'chain'
+    @param output : 'console', 'png', or 'csv'
+    output : timeline of the 6 MOST detected ATT&CK Techniques in a report 
+    """
+    top_classifiers = 6
+    text = extract_text(filepath)
+    if text==False: return False
+    with open(os.path.join(os.path.dirname(__file__),r'coef_'+coefset)) as f:
+        coef  = pickle.load(f)
+        vocab = pickle.load(f)
+        cat   = pickle.load(f)
+        windowsize = pickle.load(f)
+    conv,ci = convolve_text(text,windowsize=windowsize,fence=False,return_ci=True)
+    conv = preprocess(conv)
+    conv = stem_all(conv)
+    conv = strip_low_info_convolutions(conv,vocab,min_vocab=13)
+    
+    # for each classifier evaluate all convolutions
+    predicted_prob = []
+    input_vectors = tf_vectorizer(conv,vocab,parallel=False)
+    for i in xrange(len(cat)):    
+        predicted_prob.append(coef[i].predict_proba(input_vectors)[:,1]) #P(1)
+    
+    # get top n classifiers
+    rank = []
+    for i in range(len(cat)):
+        rank.append(max(predicted_prob[i])) #max or sum
+    rank = np.array(rank)
+    rank = rank.argsort()[-top_classifiers:][::-1]
+
+    #name output
+    #if is_url(filepath.filename):
+    #    filename = "".join([c for c in filepath if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+    #else:
+    #    filename = filepath.filename
+        #filename = os.path.splitext(os.path.basename(filepath))[0]
+
+    if output=='csv':
+        cat = [''] + cat
+        predicted_prob = np.vstack((ci,predicted_prob))
+        predicted_prob = predicted_prob.tolist()
+        for i in range(len(predicted_prob)):
+            predicted_prob[i] = [cat[i]] + predicted_prob[i]
+        with open(filename + ".csv", "wb") as f:
+            writer = csv.writer(f)
+            writer.writerows(predicted_prob)
+            print '\'' + filename + '.csv\' has been saved to your present working directory.'
+            return
+
+    # plot each classifier
+    """ax = plt.figure(figsize=(13,4))
+    ax = plt.axes()
+    for i in rank:
+        max_presence = max(predicted_prob[i])
+        mean_presence = np.mean(predicted_prob[i])
+        if max_presence>=threshold:
+            ax.plot(ci,predicted_prob[i],label=('Avg: ' + str(format(round(mean_presence,3),'.3f')) + ' ' + cat[i]))
+    ax.set_title("Confidence of Presence of Top 6 Classifications using the '" + coefset + "' Classifier")
+    ax.set_xlabel('Center Character Index Within Text')
+    ax.set_ylabel('Confidence of Detection')
+    ax.set_xlim([0,max(ci)+(windowsize/2)])
+    ax.set_ylim([0,1])
+    ax.legend(loc='upper right')"""
+    axplot = {}
+    counter = 0
+    for i in rank:
+        max_presence = max(predicted_prob[i])
+        mean_presence = np.mean(predicted_prob[i])
+        if max_presence>=threshold:
+            axplot[counter]={"attack":cat[i],"data":[ci,predicted_prob[i].tolist()]}
+        counter = counter + 1
+            #axplot.append([ci,predicted_prob[i]])
+    return axplot    
+    if output=='console':
+        return axplot
+    elif output=='png':
+        UPLOAD_FOLDER = '/tmp/'
+        plt.savefig(UPLOAD_FOLDER + filename + '_plot')
+        print '\'' + filename + '_plot.png\' has been saved to your present working directory.'
+    else:
+        print "\'output\' argument should be 'plot', 'png', or 'csv'."
+
+def rank_classifiers(output='png'):
+    """
+    Plot topics in descending efficiency as determined by the training data
+    @param output : 'png' or 'csv' 
+    Efficiency = mean(P(self-detection)) - mean(P(alt-detection))
+    """
+    assert output in ['png','csv'],"\'output\' argument should be 'png' or 'csv'. Aborting."
+    presence_term=2 #(uses mean as a metric)
+    with open(os.path.join(os.path.dirname(__file__),'dict_wiki')) as f:
+        wiki_dict = pickle.load(f)
+    keys = wiki_dict.keys()
+    keys.sort()
+    classif = []
+
+    # classify each wiki
+    for i in xrange(len(wiki_dict)):
+       results = _classify_report_text(wiki_dict.get(keys[i]),threshold=0)
+       results = sorted(results, key=lambda x: x[0])
+       classif.append(results)
+    for i in classif:
+        for j in xrange(len(i)):
+            i[j] = i[j][presence_term] #(classif,classif_prob_max,classif_prob_mean) 
+    classif = np.array(classif)
+    
+    tags = []
+    for i in xrange(len(keys)):
+        tags.append((keys[i],(classif[i][i]-((np.sum(classif[i])-classif[i][i])/(len(classif)-1)))))
+    tags.sort(key=lambda tup: tup[1])
+    keys = [i[0] for i in tags]
+    scores = [i[1] for i in tags]
+    
+    #save csv
+    if output=='csv':
+        with open("rank_classifiers.csv", "wb") as f:
+            writer = csv.writer(f)
+            writer.writerows(tags)
+            print '\'rank_classifiers.csv\' has been saved to your present working directory.'
+        return
+            
+    # plot results
+    elif output=='png':
+        plt.figure(figsize=(15,len(tags)*.2))
+        y_pos = np.arange(len(tags))+.5
+        plt.barh(y_pos,scores,align='center',alpha=.5)
+        plt.ylabel('Topic')
+        plt.xlabel('Score out of 1')
+        plt.title('Ranking of Topics By Relative Accuracy')# using the \'' + coefset + '\' Classifier')
+        plt.yticks(y_pos,keys)
+        plt.ylim(0,max(y_pos)+.5)
+        UPLOAD_FOLDER = '/tmp/'
+        plt.savefig(UPLOAD_FOLDER + "/" + 'rank_classifiers')
+        print '\'rank_classifiers.png\' has been saved to your present working directory.'
+    else:
+        print "\'output\' argument should be 'png' or 'csv'. Aborting."
+
+def rank_vocab(classifier=None,coefset='technique',output='png'):
+    """
+    Plot the vocab for a given topic in descending utility.
+    @param classifier : key name of a classifier. returns keys if empty
+    @param coefset : Classifier. 'technique' or 'chain'.
+    @param output : 'png' saves the output as image. 'csv' saves a csv
+    """
+    # load coefs,vocab,categories
+    with open(os.path.join(os.path.dirname(__file__),r'coef_'+coefset)) as f:
+        coefs = pickle.load(f)
+        vocab = pickle.load(f)
+        cat   = pickle.load(f)
+    
+    # print classifiers if empty else get index
+    if classifier is None: 
+        cat.sort()
+        #for i in cat: print i
+        #print '\nPlease use one of the above classifiers as an input paramater.'
+        return cat
+    assert classifier in cat, ('Classifier does not exist. Aborting.')
+    idx = cat.index(classifier)
+    
+    # get vocab and sort by coefs
+    coef  = coefs[idx].coef_.tolist()[0]
+    data = sorted(zip(coef,vocab), key=lambda x: x[0],reverse=False)
+    coef  = [i[0] for i in data]
+    vocab = [i[1] for i in data]
+    
+    #name file
+    slugified = "".join([c for c in classifier if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+    
+    # make the csv data
+    if output=='csv':
+        with open("rank_vocab_" + slugified +".csv", "wb") as f:
+            writer = csv.writer(f)
+            writer.writerows(zip(vocab,coef))
+            print 'rank_vocab_' + slugified + '.csv has been saved to your present working directory.'
+    
+    elif output=='png':
+        # plot results
+        plt.figure(figsize=(15,len(vocab)*.2))
+        y_pos = np.arange(len(vocab))+.5
+        plt.barh(y_pos,coef,align='center',alpha=.5)
+        plt.ylabel('Phrase')
+        plt.xlabel('Coefficient Magnitude')
+        plt.title('Stemmed Vocabulary Coefficients for the \'' + classifier + '\' Classification using the \'' + coefset + '\' Classifier')
+        plt.yticks(y_pos,vocab)
+        plt.ylim(0,max(y_pos)+.5)
+        UPLOAD_FOLDER = '/tmp/'
+        plt.savefig(UPLOAD_FOLDER + 'rank_vocab.png')
+        print 'rank_vocab_' + slugified + '.png has been saved to your present working directory.'
+    else:
+        print "\'output\' argument should be 'png' or 'csv'. Aborting."
+
+def train_model(JSONfilepath):
+    """
+    @param JSONfilepath : points to unfetter JSON file.
+    given a json, this will redefine the dictionaries and training coefs
+    """
+    assert os.path.exists(JSONfilepath),('Filepath not found! Aborting. "' + JSONfilepath + '"')
+    print "This can take up to an hour depending on processing power and internet speed."
+    print "If this fails at any point, coeffients will revert to previous used."
+    option = raw_input("Would like to continue [y/n]? ")
+    if option.lower()=='y' or option.lower()=='yes':
+        from babelfish.update_dictionaries import update_dictionaries
+        print "Scraping the internet to update dictionaries..."
+        update_dictionaries(JSONfilepath)
+        print "Updating attack technique coefficients..."
+        import babelfish.train_technique_classifier as train_tech
+        train_tech.main()
+        print "Updating attack chain coefficients..."
+        import babelfish.train_chain_classifier as train_chain
+        train_chain.main()
+        print "Re-training of the model is complete."
+
+###############################################################################
+# PRIVATE FUNCTIONS mostly lower-level or for development                     #
+###############################################################################
+def _classify_report_text(text,threshold=.5,guessifnone=False,sortby='max',coefset='technique'):
+    """
+    @param text : text as a utf-8 or ascii string
+    @param threshold : min PEAK confidence required to accept a classification
+    @param guessifnone : if true and none over threshold, makes educated guess
+    @param sortyby : sort possible classifications by 'max' or 'mean' presence
+    @param coefset : name of coef set used. must sit in root babelfish folder
+                     as 'coef_<name>'
+    NOTE: for mean, threshold is still applied to the maximum value,
+    not the mean confidence
+    output : relevant ATT&CK Techniques to the text using convolution 
+    """
+    # load coefs,vocabs,classifications
+    with open(os.path.join(os.path.dirname(__file__),r'coef_'+coefset)) as f:
+        coef  = pickle.load(f)
+        vocab = pickle.load(f)
+        cat   = pickle.load(f)
+        windowsize = pickle.load(f)
+    conv = convolve_text(text,windowsize=windowsize)
+    conv = preprocess(conv)
+    conv = stem_all(conv)
+    conv = strip_low_info_convolutions(conv,vocab,min_vocab=13)
+    input_vectors = tf_vectorizer(conv,vocab)
+    
+    # get probabilities
+    predicted_prob = []    
+    for i in xrange(len(cat)):
+        predicted_prob.append(coef[i].predict_proba(input_vectors)[:,1]) #P(1)
+    
+    # output the classifications over threshold
+    classif = []                #classifier name
+    classif_prob_max = []       #peak probability
+    classif_prob_mean = []      #mean probability
+    means = []
+    for i in xrange(len(cat)):
+        
+        # get peak confidence AND mean of windows IF peak confidence > threshold
+        relevance_max = max(predicted_prob[i])
+        relevance_mean = np.mean(predicted_prob[i])
+        means.append(relevance_mean)
+        if relevance_max >= threshold:
+            classif.append(cat[i])
+            classif_prob_max.append(round(relevance_max,3))
+            classif_prob_mean.append(round(relevance_mean,3))
+    
+    # get best guess if requested (based on mean presence)
+    if len(classif)==0 and guessifnone==True:
+           i = means.index(max(means))
+           classif.append(cat[i])
+           classif_prob_max.append(round(max(predicted_prob[i]),3))
+           classif_prob_mean.append(round(np.mean(predicted_prob[i]),3))
+           
+    # rank by max or mean presence
+    results = zip(classif,classif_prob_max,classif_prob_mean)
+    if sortby == 'max':    #sort by decreasing MAX probability
+        results = sorted(results, key=lambda x: x[1],reverse=True)
+    elif sortby == 'mean': #sort by decreasing MEAN probability of sliding windows
+        results = sorted(results, key=lambda x: x[2],reverse=True)
+    else:
+        raise ValueError("Bad input for sortby. Use 'max' or 'mean'")
+    return results
+
+def _classifier_heatmap(presence_term='mean'):
+    """
+    @param presence_term : map by 'max' or 'mean' presence
+    Creates a heatmap of detection of each classifier in each classifying wiki
+    Assumes ALL classifiers are trained
+    """
+    import seaborn as sns
+    
+    # set how you are detecting
+    if presence_term=='max': presence_term=1
+    elif presence_term=='mean': presence_term=2
+    else: print "Incorrect term input. Use 'mean' or 'max'. Aborting."
+    
+    #load wikidata
+    with open(os.path.join(os.path.dirname(__file__),'dict_wiki')) as f:
+        wiki_dict = pickle.load(f)
+    keys = wiki_dict.keys()
+    keys.sort()
+    classif = []
+
+    # classify each wiki
+    for i in xrange(len(wiki_dict)):
+       results = _classify_report_text(wiki_dict.get(keys[i]),threshold=0)
+       results = sorted(results, key=lambda x: x[0])
+       classif.append(results)
+    for i in classif:
+        for j in xrange(len(i)):
+            i[j] = i[j][presence_term] #(classif,classif_prob_max,classif_prob_mean) 
+    classif = np.array(classif)
+    
+    # plot
+    fig, ax = plt.subplots(figsize=(30,30))
+    plt.title('Maximum Detection of each Classification in each Wiki Page')
+    plt.xlabel('Wiki Page Evaluated')
+    plt.ylabel('Classifier Used')
+    sns.heatmap(classif,ax=ax,yticklabels=keys,xticklabels=keys,vmin=0,vmax=1)
+    
+    # get quantified accuracy (mean(diagonal)-mean(non-diagonal)
+    diag_sum = classif.trace()
+    score1 = diag_sum/len(classif)
+    score0 = (np.sum(classif)-diag_sum)/float(len(classif)**2-len(classif))
+    print "Score1: " + str(score1)
+    print "Score0: " + str(score0)
+    print "Score: " + str(score1-score0)
+    
+def _training_length_bargraph(dictionary='dict_wiki'):
+    
+    # get the wikis
+    with open(os.path.join(os.path.dirname(__file__),dictionary)) as f:
+        wiki_dict = pickle.load(f)
+    keys = wiki_dict.keys()
+    lengths = []
+    for key in keys:
+        lengths.append(len(wiki_dict.get(key)))
+    
+    # sort by decreasing length    
+    data = sorted(zip(keys,lengths), key=lambda x: x[1])
+    keys = [i[0] for i in data]
+    y    = [i[1] for i in data]
+    
+    # plot
+    plt.figure(figsize=(15,30))
+    y_pos = np.arange(len(keys))
+    plt.barh(y_pos,y,align='center',alpha=.5)
+    plt.ylabel('Classifier')
+    plt.xlabel('Wiki Character Length')
+    plt.title('Length of Wiki Articles')
+    plt.ylim([0,len(keys)])
+    plt.yticks(y_pos,keys)
+    plt.show()
+
+
+def _coef_info(coefset='technique'):
+    #simply prints general coefficient information
+    with open(os.path.join(os.path.dirname(__file__),r'coef_'+coefset)) as f:
+        _ = pickle.load(f)
+        vocab = pickle.load(f)
+        cat   = pickle.load(f)
+        windowsize = pickle.load(f)
+    cat.sort()
+    print "Coefficient set:\t" + coefset
+    print "Window size:\t\t" + str(windowsize)
+    print "Vocabulary num:\t\t" + str(len(vocab))
+    print "Classification num:\t" + str(len(cat))
+    print "Classifications:\t" + ','.join(cat)
+
+def _classify_directory(dirpath,coefset='technique'):
+    """
+    THIS IS PRIVATE BECUASE IT CURRENTLY HAS NO REAL UTILITY
+    @param dirpath: directory path
+    @param coefset : Classifier. 'technique' or 'chain'.
+    do: drop a pickle file called "classifier_data" into the directory,
+        this is a dict where keys are classifier names and values lists of
+        filepath names in decending order of relevency to a key.
+        value used for ranking is MAXdetection*MEANdetection
+    """
+    #load data
+    with open(os.path.join(os.path.dirname(__file__),r'coef_'+coefset)) as f:
+        _ = pickle.load(f)
+        _ = pickle.load(f)
+        cat = pickle.load(f)
+    
+    # get filepaths
+    fp = [os.path.join(dirpath,fn) for fn in next(os.walk(dirpath))[2]]
+    output_destination = os.path.join(dirpath,'classifier_data')
+    if os.path.isfile(output_destination):
+        fp.remove(output_destination)
+    output = dict.fromkeys(cat)
+    
+    # create a set of (filepath,classifier,value) for all files
+    information = set()
+    for i in tqdm(xrange(len(fp))):
+       results = classify_report(fp[i],threshold=0,info=True) #zip(classif,classif_prob_max,classif_prob_mean) 
+       for j in xrange(len(results)):
+           information.add((os.path.basename(fp[i]),results[j][0],results[j][1]*results[j][2]))
+    
+    # create a dictionary, keys=classifier, values=list of (filename,value) for each doc
+    for classifier in output.keys():
+        tuple_list = [item for item in information if item[1]==classifier]
+        tuple_list = [(y[0],round(y[2],3)) for y in tuple_list]
+        output[classifier] = sorted(tuple_list,key=lambda x: x[1],reverse=True)
+    
+    # drop a pickled dictionary in the directory initially provided
+    with open(output_destination,'wb') as f:
+        pickle.dump(output,f)
+    
+def _threshold_clustering_1d(vector,clustering_radius,threshold=.5):
+    """
+    given : a vector, radius, and a threshold
+    return : lists of clusters over threshold as [start_idx,end_idx,peak value]
+    """
+    # initialize
+    bool_vector = [c >= threshold for c in vector]
+    if len(vector)<=2: return bool_vector
+    
+    # cluster booleans
+    i = 0
+    while i < len(bool_vector)-1:
+        # look for [True,False] pattern
+        if bool_vector[i]==True and bool_vector[i+1]==False:
+            j = i + 1
+            while j<len(bool_vector) and j<=i+clustering_radius:
+                if bool_vector[j]==True:
+                    for k in xrange(i,j): bool_vector[k]=True
+                    i += 1
+                    break
+                j += 1
+        i += 1
+    
+    # get idx of start/end of clusters
+    output = []
+    i = 0
+    while i < len(bool_vector):
+        if bool_vector[i]==True:
+            j = i
+            while bool_vector[j]==True:
+                j += 1
+                if j==len(bool_vector) or bool_vector[j]==False:
+                    output.append([i,j-1])
+                    i = j
+                    break
+        i += 1
+    # append peakval [[start_idx,end_idx,peak],[start_idx,end_idx,peak],...]]
+    for i in xrange(len(output)):
+           output[i].append(max(vector[output[i][0]:output[i][1]+1]))
+    return output
+    
+def _repair_overlap(a,b):
+    """
+    given: 2 lists of 2 numbers
+    a to be changed (returned)
+    b is dominant
+    """
+    if len(b)==0: return a
+    assert len(a)==len(b)==2
+    a.sort()
+    b.sort()
+    if a[1]<b[0] or a[0]>b[1]: return a #non-overlap case
+    if a[0]<b[0] or a[1]>b[1]: return a #nested case (a longer)
+    if a[0]>b[0] or a[1]<b[1]: return a #nested case (a shorter)
+    if a[0]<=b[0] and b[0]<=a[1]<=b[1]: return [a[0],b[0]-1] #a[1] overlapping b 
+    if a[1]>=b[1] and b[0]<=a[0]<=b[1]: return [b[1]+1,a[1]] #a[0] overlapping b
+
+

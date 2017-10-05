@@ -1,0 +1,156 @@
+{% extends "base_site.html" %}
+
+{% block stylesheets %}
+  {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+      <div class="right_col" role="main">
+      <div class="">
+        <div class="page-title">
+          <div class="title_left">
+            <h3>Report</h3>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="dashboard_graph">
+      
+                <div class="row x_title">
+                  <div class="col-md-6">
+                    <h3>Confidence of Presence <small>Top 6 Classifications</small></h3>
+                  </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12" style="position: relative; height:40vh; width:80vw">
+                    <canvas id="chart1"></canvas>
+                      <script>
+                          var json = JSON.parse('{{ plotdata | tojson | safe}}');
+                          var linechart = document.getElementById("chart1").getContext("2d");
+                          new Chart(linechart, {
+                            type: 'line',
+                            data: {
+                              labels: json[0].data[0],
+                              datasets: [{ 
+                                  data: json[0].data[1],
+                                  label: json[0].attack,
+                                  borderColor: "#3e95cd",
+                                  fill: false
+                                },
+                                {
+                                  data: json[1].data[1],
+                                  label: json[1].attack,
+                                  borderColor: "#8e5ea2",
+                                  fill: false
+                                },
+                                {
+                                  data: json[2].data[1],
+                                  label: json[2].attack,
+                                  borderColor: "#3cba9f",
+                                  fill: false
+                                },
+                                {
+                                  data: json[3].data[1],
+                                  label: json[3].attack,
+                                  borderColor: "#e8c3b9",
+                                  fill: false
+                                },
+                                {
+                                  data:json[4].data[1],
+                                  label: json[4].attack,
+                                  borderColor: "#c45850",
+                                  fill: false
+                                },
+                                {
+                                  data:json[5].data[1],
+                                  label: json[5].attack,
+                                  borderColor:"#613763",
+                                  fill:false
+                                }
+                              ]
+                            },
+                            options: {
+                              maintainAspectRatio: false,
+                              legend: {
+                                position: "right"
+                              }
+                            }
+                          });
+
+                  </script>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+          <br />
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>{{filename}}</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content pre-scrollable" >
+                {{ report }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h2>Confidence </h2>
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                      <h5></h5>
+                      <canvas id="chart2">
+                        </canvas>
+                        <script>
+                          var barData = {
+                            labels : [{% for label in chart_labels %}
+                                      "{{label}}",
+                                      {% endfor %}],
+                            datasets : [
+                               {
+                                data : [{% for item in chart_values %}
+                                        {{item}},
+                                        {% endfor %}],
+                                        backgroundColor:["rgba(153, 20, 230, 1)","rgba(20, 93, 230, 1)","rgba(199, 0, 0, 1)","rgba(22, 188, 16, 1)"]
+                               },
+                               ]
+                            }
+                            var mychart = document.getElementById("chart2").getContext("2d");
+                            new Chart(mychart,{
+                                      type: 'doughnut',
+                                     data: barData,
+                                     options: {
+                                     legend: {position: "right"}
+                                    }
+                            });
+                         </script>
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+                    </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+{% block javascripts %}
+  {{ block.super}}
+{% endblock javascripts %}

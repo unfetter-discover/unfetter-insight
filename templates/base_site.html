@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+      {% block meta %}
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      {% endblock meta %}
+
+      <title>UNFetter Insight!</title>
+
+      {% block styles %}
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/bootstrap/dist/css/bootstrap.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/font-awesome/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/nprogress/nprogress.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='build/css/custom.css')}}">        
+      {% endblock styles %}
+    {% endblock head %}
+  </head>
+
+  <body class="{% block body_class %}nav-md {% endblock body_class %}">
+    {% block body %}
+      <div class="container body">
+        <div class="main_container">
+          {% block top_navigation %}
+            <div class="top_nav">
+              {% include "top_navigation.html" %}
+            </div>
+          {% endblock top_navigation %}
+          {% block content %}
+          {% endblock content %}
+        </div>
+      </div>
+        <script type="text/javascript" src="{{ url_for('static', filename='vendors/jquery/dist/jquery.min.js') }}"></script> 
+        <script type="text/javascript" src="{{ url_for('static', filename='vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>         
+        <script type="text/javascript" src="{{ url_for('static', filename='vendors/fastclick/lib/fastclick.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='vendors/nprogress/nprogress.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='vendors/jquery.hotkeys/jquery.hotkeys.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='vendors/bootstrap-notify/bootstrap-notify.js') }}"></script>       
+        <script type="text/javascript" src="{{ url_for('static', filename='build/js/custom.js') }}"></script>
+    {% endblock body %}
+  </body>
+</html>

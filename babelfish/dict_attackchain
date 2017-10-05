@@ -1,0 +1,338 @@
+(dp0
+S'defense-evasion'
+p1
+(lp2
+S'Binary Padding'
+p3
+aS'Bypass User Account Control'
+p4
+aS'Code Signing'
+p5
+aS'Component Firmware'
+p6
+aS'DLL Injection'
+p7
+aS'DLL Search Order Hijacking'
+p8
+aS'DLL Side-Loading'
+p9
+aS'Disabling Security Tools'
+p10
+aS'Exploitation of Vulnerability'
+p11
+aS'File Deletion'
+p12
+aS'File System Logical Offsets'
+p13
+aS'Indicator Blocking'
+p14
+aS'Indicator Removal from Tools'
+p15
+aS'Indicator Removal on Host'
+p16
+aS'InstallUtil'
+p17
+aS'Legitimate Credentials'
+p18
+aS'Masquerading'
+p19
+aS'Modify Registry'
+p20
+aS'NTFS Extended Attributes'
+p21
+aS'Obfuscated Files or Information'
+p22
+aS'Process Hollowing'
+p23
+aS'Redundant Access'
+p24
+aS'Regsvcs/Regasm'
+p25
+aS'Regsvr32'
+p26
+aS'Rootkit'
+p27
+aS'Rundll32'
+p28
+aS'Scripting'
+p29
+aS'Software Packing'
+p30
+aS'Timestomp'
+p31
+asS'lateral-movement'
+p32
+(lp33
+S'Application Deployment Software'
+p34
+aS'Exploitation of Vulnerability'
+p35
+aS'Logon Scripts'
+p36
+aS'Pass the Hash'
+p37
+aS'Pass the Ticket'
+p38
+aS'Remote Desktop Protocol'
+p39
+aS'Remote File Copy'
+p40
+aS'Remote Services'
+p41
+aS'Replication Through Removable Media'
+p42
+aS'Shared Webroot'
+p43
+aS'Taint Shared Content'
+p44
+aS'Third-party Software'
+p45
+aS'Windows Admin Shares'
+p46
+aS'Windows Remote Management'
+p47
+asS'privilege-escalation'
+p48
+(lp49
+S'Accessibility Features'
+p50
+aS'AppInit DLLs'
+p51
+aS'Bypass User Account Control'
+p52
+aS'DLL Injection'
+p53
+aS'DLL Search Order Hijacking'
+p54
+aS'Exploitation of Vulnerability'
+p55
+aS'Legitimate Credentials'
+p56
+aS'Local Port Monitor'
+p57
+aS'New Service'
+p58
+aS'Path Interception'
+p59
+aS'Scheduled Task'
+p60
+aS'Service File Permissions Weakness'
+p61
+aS'Service Registry Permissions Weakness'
+p62
+aS'Web Shell'
+p63
+asS'credential-access'
+p64
+(lp65
+S'Brute Force'
+p66
+aS'Credential Dumping'
+p67
+aS'Credential Manipulation'
+p68
+aS'Credentials in Files'
+p69
+aS'Exploitation of Vulnerability'
+p70
+aS'Input Capture'
+p71
+aS'Network Sniffing'
+p72
+aS'Two-Factor Authentication Interception'
+p73
+asS'collection'
+p74
+(lp75
+S'Automated Collection'
+p76
+aS'Clipboard Data'
+p77
+aS'Data Staged'
+p78
+aS'Data from Local System'
+p79
+aS'Data from Network Shared Drive'
+p80
+aS'Data from Removable Media'
+p81
+aS'Email Collection'
+p82
+aS'Input Capture'
+p83
+aS'Screen Capture'
+p84
+asS'exfiltration'
+p85
+(lp86
+S'Automated Exfiltration'
+p87
+aS'Data Compressed'
+p88
+aS'Data Encrypted'
+p89
+aS'Data Transfer Size Limits'
+p90
+aS'Exfiltration Over Alternative Protocol'
+p91
+aS'Exfiltration Over Command and Control Channel'
+p92
+aS'Exfiltration Over Other Network Medium'
+p93
+aS'Exfiltration Over Physical Medium'
+p94
+aS'Scheduled Transfer'
+p95
+asS'command-and-control'
+p96
+(lp97
+S'Commonly Used Port'
+p98
+aS'Communication Through Removable Media'
+p99
+aS'Connection Proxy'
+p100
+aS'Custom Command and Control Protocol'
+p101
+aS'Custom Cryptographic Protocol'
+p102
+aS'Data Obfuscation'
+p103
+aS'Fallback Channels'
+p104
+aS'Multi-Stage Channels'
+p105
+aS'Multiband Communication'
+p106
+aS'Multilayer Encryption'
+p107
+aS'Remote File Copy'
+p108
+aS'Standard Application Layer Protocol'
+p109
+aS'Standard Cryptographic Protocol'
+p110
+aS'Standard Non-Application Layer Protocol'
+p111
+aS'Uncommonly Used Port'
+p112
+aS'Web Service'
+p113
+asS'execution'
+p114
+(lp115
+S'Command-Line Interface'
+p116
+aS'Component Firmware'
+p117
+aS'Execution through API'
+p118
+aS'Graphical User Interface'
+p119
+aS'InstallUtil'
+p120
+aS'PowerShell'
+p121
+aS'Process Hollowing'
+p122
+aS'Redundant Access'
+p123
+aS'Regsvcs/Regasm'
+p124
+aS'Regsvr32'
+p125
+aS'Rundll32'
+p126
+aS'Scheduled Task'
+p127
+aS'Scripting'
+p128
+aS'Service Execution'
+p129
+aS'Third-party Software'
+p130
+aS'Windows Management Instrumentation'
+p131
+aS'Windows Remote Management'
+p132
+asS'persistence'
+p133
+(lp134
+S'Accessibility Features'
+p135
+aS'AppInit DLLs'
+p136
+aS'Basic Input/Output System'
+p137
+aS'Bootkit'
+p138
+aS'Change Default File Association'
+p139
+aS'DLL Search Order Hijacking'
+p140
+aS'Hypervisor'
+p141
+aS'Legitimate Credentials'
+p142
+aS'Local Port Monitor'
+p143
+aS'Logon Scripts'
+p144
+aS'Modify Existing Service'
+p145
+aS'New Service'
+p146
+aS'Path Interception'
+p147
+aS'Registry Run Keys / Start Folder'
+p148
+aS'Scheduled Task'
+p149
+aS'Security Support Provider'
+p150
+aS'Service File Permissions Weakness'
+p151
+aS'Service Registry Permissions Weakness'
+p152
+aS'Shortcut Modification'
+p153
+aS'Web Shell'
+p154
+aS'Windows Management Instrumentation Event Subscription'
+p155
+aS'Winlogon Helper DLL'
+p156
+asS'discovery'
+p157
+(lp158
+S'Account Discovery'
+p159
+aS'Application Window Discovery'
+p160
+aS'File and Directory Discovery'
+p161
+aS'Local Network Configuration Discovery'
+p162
+aS'Local Network Connections Discovery'
+p163
+aS'Network Service Scanning'
+p164
+aS'Peripheral Device Discovery'
+p165
+aS'Permission Groups Discovery'
+p166
+aS'Process Discovery'
+p167
+aS'Query Registry'
+p168
+aS'Remote System Discovery'
+p169
+aS'Security Software Discovery'
+p170
+aS'System Information Discovery'
+p171
+aS'System Owner/User Discovery'
+p172
+aS'System Service Discovery'
+p173
+as.

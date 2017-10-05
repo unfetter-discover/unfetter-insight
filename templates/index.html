@@ -1,0 +1,75 @@
+{% extends "base_site.html" %}
+
+{% block title %} Dashboard 1 {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+
+      <div class="right_col" role="main" style="height:100vh;">
+        <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <div class="x_panel tile fixed_height_320">
+                    <div class="x_title">
+                      <h2>File Processing</h2>
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                      <div class="row">
+                            <form id="fileupload" action="report.html" method="post" enctype=multipart/form-data>
+                                  <div class="form-group files">
+                                    <input type="file" id="file" class="form-control" onchange="validate_fileupload(this.value);" name="file" accept="application/pdf,text/plain" >
+                                  </div>
+                              <div class="col-md-12 col-sm-12">
+                                <input type="submit" class="btn btn-success" style="float:right" onClick="return empty(file.value)"></input>
+                              </div>
+                            </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <div class="x_panel tile fixed_height_320 overflow_hidden">
+                    <div class="x_title">
+                      <h2>Report URL</h2>
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                      <form id="urlform">
+                      <div class="row">
+                  <div class="form-group">
+                      <div class="input-group">
+                          <input class="form-control" type="text" id="url" name="search" placeholder="Enter website name" required/>
+                          <span class="input-group-btn">
+                              <input type="submit" class="btn btn-success" ><span class="glyphicon glyphicon-search" aria-hidden="true"><span style="margin-left:10px;">Search</span></input>
+                          </span>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>            
+</div>
+{% endblock content %}
+{% block javascripts %}
+  {{ block.super}}
+{% endblock javascripts %}

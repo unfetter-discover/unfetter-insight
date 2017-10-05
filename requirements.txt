@@ -1,0 +1,13 @@
+Flask==0.10.1
+tqdm==4.14.0
+nltk==3.2.3
+chardet==2.3.0
+clize==4.0.1
+html2text==2016.9.19
+numpy==1.11.2
+scipy==0.18.1
+matplotlib==2.0.2
+scikit-learn==0.17.1
+textract==1.6.1
+pdf2text==1.0.0
+requests==2.14.2
