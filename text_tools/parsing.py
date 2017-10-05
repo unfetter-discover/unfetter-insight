@@ -71,6 +71,8 @@ def extract_text(filepath):
         else:
             try:
                 text = process(filepath)
+                text = "".join([s for s in text.strip().splitlines(True) if s.strip()])
+
             except:    
                 print "Conversion fail: " + filepath
                 return False
