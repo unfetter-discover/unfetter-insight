@@ -51,13 +51,13 @@
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                      <form id="urlform">
+                      <form id="urlform" method="post" enctype=multipart/form-data action="report.html">
                       <div class="row">
                   <div class="form-group">
                       <div class="input-group">
-                          <input class="form-control" type="text" id="url" name="search" placeholder="Enter website name" required/>
+                          <input class="form-control" type="text" id="url" name="url" onchange="return validateUrl()" placeholder="Enter website name" required/>
                           <span class="input-group-btn">
-                              <input type="submit" class="btn btn-success" ><span class="glyphicon glyphicon-search" aria-hidden="true"><span style="margin-left:10px;">Search</span></input>
+                              <button id="submit_url" class="btn btn-success" ><span class="glyphicon glyphicon-search" aria-hidden="true"><span style="margin-left:10px;">Search</span></button>
                           </span>
                           </span>
                       </div>

@@ -145,7 +145,6 @@ def tag_report(text,filename,threshold=.5,padding=0,coefset='technique',output='
             if tags[i][3] not in top_classif: top_classif.append(tags[i][3])
             if len(top_classif) == max_classifications: break
         tags = [x for x in tags if x[3] in top_classif]
-        
         #REPAIR INDICES TO PREVENT OVERLAPPING
         # add top classification locations first
         tags_no_overlaps = []
@@ -168,7 +167,6 @@ def tag_report(text,filename,threshold=.5,padding=0,coefset='technique',output='
                 tags_no_overlaps.append((tag_range[0],tag_range[1],tag[2],tag[3],tag[4]))
         
         tags = tags_no_overlaps
-        
         locs_start = [x[0] for x in tags]
         locs_end = [x[1] for x in tags]
         locs_all = locs_start + locs_end
@@ -193,7 +191,10 @@ def tag_report(text,filename,threshold=.5,padding=0,coefset='technique',output='
                 html = re.sub('\[cl_'+str(i)+'\]',top_classif[i],html)
             else:
                 html = re.sub(r'<FONT .*\[cl_' +str(i)+ r'\] <br>','',html)
+        if isinstance(text,unicode):
+            text = text.encode('ascii','ignore')
         html = html.replace(r'<!-- DOCUMENT GOES HERE -->',text.decode('ascii','ignore'))
+
     # sort tags and place into text
     if output == 'html':
         

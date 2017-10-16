@@ -57,12 +57,12 @@ def extract_text(filepath):
     @param path: filepath
     return : text string or false on failure
     """
-    filename = str(filepath).split("/")[-1]
     # get extension and convert accordingly, else skip it if incompatible
     if is_url(filepath):
         text = extract_web_text(filepath)
         if text == False: return False
     else:
+        filename = str(filepath).split("/")[-1]
         #assert os.path.exists(filepath),('Filepath not found! Aborting. "' + filepath + '"')
         #assert os.path.isfile(filepath),('Path does not point to a file! Aborting. "' + filepath + '"')
         if filename.split('.')[-1] == "txt":
