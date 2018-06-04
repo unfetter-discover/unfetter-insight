@@ -1,0 +1,15 @@
+{
+  "name": "jquery-3.3.1.min",
+  "_cacheHeaders": {
+    "ETag": "W/\"5a637bd4-1538f\"",
+    "Last-Modified": "Sat, 20 Jan 2018 17:26:44 GMT",
+    "Content-Length": "35358",
+    "Content-Type": "application/javascript; charset=utf-8"
+  },
+  "_release": "e-tag:W/\"5a637bd",
+  "main": "index.js",
+  "_source": "https://code.jquery.com/jquery-3.3.1.min.js",
+  "_target": "*",
+  "_originalSource": "https://code.jquery.com/jquery-3.3.1.min.js",
+  "_direct": true
+}
