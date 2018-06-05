@@ -39,10 +39,6 @@ def report():
             filename = report.filename
             report = fullpath
         plotdata,text = babelfish.plot_report(report,threshold,coefset)
-        
-        # Error exception handling
-        #if(plotdata == False): 
-
         tag_results = babelfish.tag_report(text,filename, 0.5, 0, coefset, 'json')
         tagged_report = tag_results[0]['text']
         chart_labels = []

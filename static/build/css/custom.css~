@@ -7,7 +7,7 @@
    color: white;
    font-family: Georgia, serif;
    font-size: 30px;
-   margin-left:40%;
+   margin-left:55%;
    margin-right:5%;
    
 }
@@ -25,9 +25,4 @@
    margin-right:auto;
    width:100%;
    display:block;
-   padding-left:2%;
-}
-.btn-fixed {
-   position:relative;
-   bottom:40px;
 }

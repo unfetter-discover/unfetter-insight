@@ -376,7 +376,7 @@ def plot_report(filepath,threshold=0.0,coefset='technique',output='console'):
             return
 
     # plot each classifier
-    """"ax = plt.figure(figsize=(13,4))
+    ax = plt.figure(figsize=(13,4))
     ax = plt.axes()
     for i in rank:
         max_presence = max(predicted_prob[i])
@@ -388,8 +388,8 @@ def plot_report(filepath,threshold=0.0,coefset='technique',output='console'):
     ax.set_ylabel('Confidence of Detection')
     ax.set_xlim([0,max(ci)+(windowsize/2)])
     ax.set_ylim([0,1])
-    ax.legend(loc='upper right') """""
-    axplot = {}
+    ax.legend(loc='upper right')
+    #axplot = {}
     counter = 0
     for i in rank:
         max_presence = max(predicted_prob[i])
