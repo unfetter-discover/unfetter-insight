@@ -79,7 +79,7 @@ def classify_report(filepath,threshold=.5,guessifnone=False,info=False,coefset='
     else:
         print "\'output\' argument should be 'console' or 'csv'. Aborting."
 
-def tag_report(text,filename,threshold=.5,padding=0,coefset='technique',output='json'):
+def tag_report(text, filename,threshold=0.5,padding=0,coefset='technique',output='json'):
     """
     @param filepath : any parsable filetype or url
     @param threshold : min peak conf required to accept a classification
@@ -91,19 +91,21 @@ def tag_report(text,filename,threshold=.5,padding=0,coefset='technique',output='
     step = 50 #lower = faster run, higher = more resolution
     if output == 'html': padding = 0
     #text = extract_text(filepath)
+    if text==False: return False
     with open(os.path.join(os.path.dirname(__file__), r'coef_' + coefset)) as f:
         coef  = pickle.load(f)
         vocab = pickle.load(f)
         cat   = pickle.load(f)
         windowsize = pickle.load(f)
-    if text==False: return False
     conv,ci = convolve_text(text,windowsize=windowsize,ws_trim=False,word_trim=True,fence=False,return_ci=True)
     conv = preprocess(conv)
     conv = stem_all(conv)
-    conv = strip_low_info_convolutions(conv,vocab,min_vocab=13)
+    conv = strip_low_info_convolutions(conv,vocab,min_vocab=13)  #min_vocab=13
     
     # for each classifier evaluate all convolutions
     predicted_prob = []
+    
+    # Problem starts here ====================================================>
     input_vectors = tf_vectorizer(conv,vocab,parallel=True)
     for i in xrange(len(cat)):    
         predicted_prob.append(coef[i].predict_proba(input_vectors)[:,1]) #P(1)
@@ -113,7 +115,7 @@ def tag_report(text,filename,threshold=.5,padding=0,coefset='technique',output='
     count = 1
     max_dist = int(windowsize/step)-1
     for i in xrange(len(cat)):
-        idx = _threshold_clustering_1d(predicted_prob[i],clustering_radius=max_dist,threshold=threshold)
+        idx = _threshold_clustering_1d(predicted_prob[i],clustering_radius=max_dist,threshold=threshold) 
 
         # convert convolution ranges to index ranges (index_start,index_end,count,classification)
         for j in xrange(len(idx)):
@@ -123,10 +125,11 @@ def tag_report(text,filename,threshold=.5,padding=0,coefset='technique',output='
             tags.append((idx[j][0],idx[j][1],count,cat[i],peak_conf))
             count += 1
     # create output filename
-    #if is_url(filepath):
-    #    filename = "".join([c for c in filepath if c.isalpha() or c.isdigit() or c==' ']).rstrip()
-    #else:
-    #    filename = filepath.filename
+    if output != 'json':
+        if is_url(filepath):
+            filename = "".join([c for c in filepath if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+        else:
+            filename = filepath.filename
     #load the template 
     with open(os.path.join(os.path.dirname(__file__), r'tag_template.html'),'r') as f:
         html = f.read()
@@ -332,6 +335,7 @@ def plot_report(filepath,threshold=0.0,coefset='technique',output='console'):
     """
     top_classifiers = 6
     text = extract_text(filepath)
+     
     if text==False: return False
     with open(os.path.join(os.path.dirname(__file__),r'coef_'+coefset)) as f:
         coef  = pickle.load(f)
@@ -357,12 +361,12 @@ def plot_report(filepath,threshold=0.0,coefset='technique',output='console'):
     rank = rank.argsort()[-top_classifiers:][::-1]
 
     #name output
-    #if is_url(filepath.filename):
-    #    filename = "".join([c for c in filepath if c.isalpha() or c.isdigit() or c==' ']).rstrip()
-    #else:
-    #    filename = filepath.filename
-        #filename = os.path.splitext(os.path.basename(filepath))[0]
-
+    """if is_url(filepath.filename):
+        filename = "".join([c for c in filepath if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+    else:
+        filename = filepath.filename
+        filename = os.path.splitext(os.path.basename(filepath))[0]
+    """
     if output=='csv':
         cat = [''] + cat
         predicted_prob = np.vstack((ci,predicted_prob))
@@ -391,6 +395,7 @@ def plot_report(filepath,threshold=0.0,coefset='technique',output='console'):
     ax.legend(loc='upper right') """""
     axplot = {}
     counter = 0
+ 
     for i in rank:
         max_presence = max(predicted_prob[i])
         mean_presence = np.mean(predicted_prob[i])

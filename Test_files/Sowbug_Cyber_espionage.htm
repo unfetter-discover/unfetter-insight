@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>         <html class="no-js lt-ie9" xmlns:wb="http://open.weibo.com/wb"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="symantecConnect" ng-controller="CommunityPageController as pageCtrl" xmlns:wb="http://open.weibo.com/wb"> <!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+  <base href="/connect" />
+  <script type="text/javascript">
+    var pattern = /MSIE 9\./;
+    if (pattern.test(navigator.userAgent)) {
+      var baseTag = document.getElementsByTagName('base')[0];
+      baseTag.setAttribute('href', '/connect/app');
+      if (window.location.pathname == '/connect/') {
+        window.location.href = window.location.href + 'app#!';
+      }
+    }
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title ng-bind-html="pageCtrl.navData.headTitle">Sowbug: Cyber espionage group targets South American and Southeast Asian governments | Symantec Connect</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/connect/sites/default/themes/connect4/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/connect/sites/default/themes/connect4/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/connect/sites/default/themes/connect4/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/connect/sites/default/themes/connect4/icons/manifest.json">
+  <link rel="mask-icon" href="/connect/sites/default/themes/connect4/icons/safari-pinned-tab.svg" color="#f1af29">
+  <link rel="shortcut icon" href="/connect/sites/default/themes/connect4/icons/favicon.ico">
+  <meta name="msapplication-config" content="/connect/sites/default/themes/connect4/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="nid" content="3721751" />
+<meta name="lang" content="English" />
+<meta name="generator" content="Lithium" />
+<meta name="doctype" content="forum" />
+<meta name="PRODUCT_ENTITY" content="56176, 54626, 54619" />
+<meta name="om.blog_forum_name" content="blog_Security Response" />
+<meta name="om.report_suite" content="veritasnonconsumer,veritasconnect" />
+<meta name="om.site_country" content="us" />
+<meta name="om.site_language" content="en" />
+<meta name="om.site_section" content="Connect" />
+<meta name="om.site_sub_section" content="Security" />
+<meta name="om.content_format" content="html" />
+<meta name="om.page_name" content="connect:us:security:blogs:sowbug: cyber espionage group targets south american and southeast asian governments" />
+<meta name="om.content_type" content="page" />
+<meta name="om.content_id" content="3721751" />
+<meta name="om.content_publish_dte" content="11072017" />
+<meta name="om.content_title" content="Sowbug: Cyber espionage group targets South American and Southeast Asian governments" />
+<meta name="om.content_parent_title" content="Sowbug: Cyber espionage group targets South American and Southeast Asian governments" />
+<meta name="om.connect_utility" content="blogs" />
+<meta name="om.connect_product" content="Endpoint Protection" />
+<meta name="om.author_id" content="1017241" />
+<meta name="om.content_item_tags" content="Products,Endpoint Protection,Security Response,AIT,APJ,Backdoor.Felismus,espionage,Government,Investigation,Latin America,Trojan.Starloader" />
+<meta name="om.user_id" content="0" />
+<meta name="om.content_language" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Sowbug: Cyber espionage group targets South American and Southeast Asian governments" />
+<meta property="og:image" content="http://www.symantec.com/connect/sites/default/files/feature_images/EB-Espionage_5.jpg" />
+<meta property="og:description" content="Group uses custom Felismus malware and has a particular interest in South American foreign policy." />
+<meta property="og:url" content="http://www.symantec.com/connect/blogs/sowbug-cyber-espionage-group-targets-south-american-and-southeast-asian-governments" />
+<meta property="article:publisher" content="https://www.facebook.com/Symantec" />
+<meta property="og:site_name" content="Symantec Security Response" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Sowbug: Cyber espionage group targets South American and Southeast Asian governments" />
+<meta name="twitter:image" content="http://www.symantec.com/connect/sites/default/files/feature_images/EB-Espionage_5.jpg" />
+<meta name="twitter:description" content="Group uses custom Felismus malware and has a particular interest in South American foreign policy." />
+<meta name="twitter:site" content="@Symantec" />
+<meta name="twitter:domain" content="symantec.com" />
+<meta name="twitter:creator" content="@threatintel" />
+<meta property="fb:pages" content="8988037875" />
+<meta name="description" content="Group uses custom Felismus malware and has a particular interest in South American foreign policy." />
+<meta name="abstract" content="Symantec Connect -- the peer-to-peer community site for Symantec business customers and partners." />
+<meta name="copyright" content="Copyright 2010-2018 Symantec Corporation" />
+<link rel="canonical" href="https://www.symantec.com/connect/blogs/sowbug-cyber-espionage-group-targets-south-american-and-southeast-asian-governments" />
+<meta name="revisit-after" content="1 day" />
+  <link type="text/css" rel="stylesheet" media="all" href="/connect/sites/default/themes/connect4/stylesheets/style.css?z" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.7/angular-material.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
+<script src="//nexus.ensighten.com/symantec/core/Bootstrap.js" type="text/javascript"></script>
+<script src="//www.symantec.com/script/omniture/om_code.js" type="text/javascript"></script>
+<script src="//www.symantec.com/script/omniture/s_code.js" type="text/javascript"></script></head>
+<body data-status="{{pageStatus}}" class="{{page.bodyClasses}}">
+  <!--[if lt IE 10]><div class="lt-ie10-wrapper page-wrapper"><![endif]-->
+  <!--[if gt IE 9]><!--><div class="page-wrapper"><!--<![endif]-->
+  <div ng-if="!pageCtrl.appLoading">
+    <community-sidebar-navigation data-is-logged-in="isLoggedIn" data-sidebar-nav="pageCtrl.navData"></community-sidebar-navigation>
+  </div>
+
+  <div ng-if="pageCtrl.contentLoading && !pageCtrl.appLoading" class="page-content-loading">
+    <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+  </div>
+
+  <div ng-if="pageCtrl.appLoading" id="page-app-loading">
+    <div id="loading-message">
+      <div id="loading-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 578 91" version="1.1"><title>logo-symantec-dark-source</title><g id="logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="connect-dark" transform="translate(-66.000000, -56.000000)"><g id="Symantec-Logo" transform="translate(66.000000, 56.000000)"><path d="M39.5 91C17.73 91 0 73.28 0 51.5 0 29.72 17.73 12 39.5 12 61.28 12 79 29.72 79 51.5 79 73.28 61.28 91 39.5 91ZM39.5 24.49C32.29 24.49 25.51 27.31 20.41 32.4 15.31 37.51 12.5 44.29 12.5 51.5 12.5 58.71 15.31 65.49 20.41 70.6 25.51 75.69 32.29 78.5 39.5 78.5 46.71 78.5 53.49 75.69 58.6 70.59 63.69 65.49 66.5 58.71 66.5 51.5 66.5 44.29 63.69 37.51 58.59 32.4 53.49 27.31 46.71 24.49 39.5 24.49Z" id="circle" fill="#F2B02A"/><path d="M81.85 6.04L85 6.04 85 9.06 81.85 9.06 81.85 6.04ZM81.85 0L85 0 85 3.03 81.85 3.03 81.85 0ZM73 9.04L75.94 9.04 75.94 12 73 12 73 9.04Z" id="checkmark-dots" fill="#F1AF2A"/><path d="M67.69 14.98L70.58 14.98 70.58 17.84 67.69 17.84 67.69 14.98ZM76.23 12.09L79.45 12.09 79.45 14.98 76.23 14.98 76.23 12.09ZM64.82 12.23L67.69 12.23 67.69 14.98 64.82 14.98 64.82 12.23ZM73.37 14.98L76.23 14.98 76.23 17.84 73.37 17.84 73.37 14.98ZM78.97 3L82 3 82 6.05 78.97 6.05 78.97 3ZM73.37 6.05L78.97 6.05 78.97 9.09 73.37 9.09 73.37 6.05ZM70.58 9.09L73.37 9.09 73.37 14.98 70.58 14.98 70.58 9.09ZM70.58 17.84L70.58 20.74 67.69 20.74 67.69 17.84 62.9 17.84 62.9 19.93 60.33 19.93 60.33 22.5 63.2 22.5 63.2 25.36 60.33 25.36 60.33 22.5 57.29 22.5 57.29 26.99 54.4 26.99 54.4 29.85 52.49 29.85 52.49 32.73 50.38 32.73C48.02 36.25 42.1 47.22 40.31 51.69 33.86 42.69 28.85 39.13 24.91 37.84 22.78 37.2 20.22 39.52 23.75 43.17 31.87 52.11 34.43 59.51 36.89 65.42 38.2 68.53 44.05 69.02 45.23 65.84 47.72 59.14 51.35 51.62 55.64 45.43L55.64 42.22 57.93 42.22 57.93 39.34 60.33 39.34 60.33 35.99 63.21 35.99 63.21 32.76 60.3 32.76 60.3 29.82 63.21 29.82 63.21 32.76 66.06 32.76 66.05 29.85 68.33 29.85 68.33 26.35 70.9 26.35 70.9 23.94 73.37 23.94 73.37 17.84 70.58 17.84Z" id="checkmark" fill="#FFFFFF"/><path d="M101.56 73.64C112.38 73.64 117.94 68.07 117.94 60.33 117.94 50.73 110.78 47.72 104.57 45.8 99.06 44.14 95.8 43.5 95.8 39.72 95.8 36.9 98.04 35.37 102.46 35.37 106.1 35.37 109.69 36.39 112.38 37.67L115.64 30.31C112.63 28.52 107.77 27.24 102.14 27.24 93.18 27.24 86.78 31.72 86.78 40.04 86.78 48.49 92.34 51.5 97.72 53.42 104.82 55.91 108.54 56.62 108.54 60.46 108.54 63.66 105.78 65.45 101.37 65.45 96.76 65.45 92.22 63.78 89.21 61.67L84.92 68.71C88.31 71.21 94.01 73.64 101.56 73.64L101.56 73.64ZM130.47 74.54C129.06 76.9 127.4 77.99 123.81 77.99 122.6 77.99 121.83 77.86 120.55 77.74L119.52 84.52C122.08 85.03 123.49 85.1 124.96 85.1 133.35 85.1 137.32 80.3 139.36 73.45L149.28 39.91 139.88 39.91 134.63 64.1 128.42 39.91 118.37 39.91 130.47 74.54ZM178.06 44.26C176.85 41.51 174.74 39.14 170.06 39.14 165.71 39.14 162.13 41.64 159.25 44.97L157.33 39.91 151.31 39.91 151.31 73 161.04 73 161.04 49.96C162.58 48.3 164.69 47.14 166.48 47.14 168.91 47.14 169.55 48.74 169.55 51.11L169.55 73 179.28 73 179.28 49.83C181.07 48.23 183.06 47.14 184.72 47.14 187.15 47.14 187.79 48.74 187.79 51.11L187.79 73 197.52 73 197.52 51.24C197.52 45.42 195.73 39.14 188.3 39.14 184.34 39.14 180.82 41.32 178.06 44.26L178.06 44.26ZM218.94 51.82C211.26 52.9 206.97 54.25 204.22 56.3 201.66 58.15 200.83 60.71 200.83 63.98 200.83 70.12 205.5 73.64 211.2 73.64 215.29 73.64 218.49 71.72 220.92 69.48 220.99 69.48 222.65 73 222.65 73L228.67 73 228.67 51.56C228.67 43.75 224.25 39.14 215.36 39.14 210.49 39.14 206.33 40.3 201.92 42.86L205.24 49.26C208.7 47.66 211.77 46.7 214.52 46.7 217.85 46.7 218.94 48.1 218.94 50.98L218.94 51.82ZM218.94 64.81C217.4 66.09 215.36 66.79 213.76 66.79 211.84 66.79 210.36 65.77 210.36 63.27 210.36 62.06 210.56 61.42 211.26 60.65 212.28 59.43 214.72 58.66 218.94 57.83L218.94 64.81ZM233.51 73L243.24 73 243.24 49.96C244.78 48.3 247.02 47.14 248.94 47.14 251.5 47.14 252.26 48.74 252.26 51.11L252.26 73 261.99 73 261.99 51.24C261.99 45.42 260.39 39.14 252.52 39.14 247.91 39.14 244.33 41.64 241.45 44.97L239.53 39.91 233.51 39.91 233.51 73ZM269.2 46.57L269.2 63.02C269.2 70.76 273.17 73.64 279.64 73.64 282.96 73.64 285.52 72.94 287.06 72.42L285.91 65.7C284.82 66.02 283.16 66.34 282.52 66.34 279.57 66.34 278.93 65.32 278.93 62.5L278.93 46.57 285.97 46.57 285.97 39.91 278.93 39.91 278.93 30.5 271 30.5 269.33 39.91 264.34 39.91 264.34 46.57 269.2 46.57ZM298.18 59.3L318.14 59.3 318.14 56.74C318.14 47.08 313.79 39.14 303.49 39.14 293.7 39.14 288.13 46.63 288.13 56.81 288.13 67.24 294.4 73.64 304.06 73.64 310.91 73.64 314.11 71.53 317.31 69.16L313.47 63.02C311.1 64.36 308.54 65.9 304.77 65.9 300.48 65.9 298.62 63.72 298.18 59.3L298.18 59.3ZM298.18 53.61C298.69 48.23 300.42 46.12 303.42 46.12 306.75 46.12 308.22 48.81 308.22 53.61L298.18 53.61ZM335.98 73.64C341.29 73.64 344.56 71.98 347.44 69.1L342.76 63.08C340.65 64.74 338.92 65.7 336.17 65.7 331.82 65.7 330.09 62.44 330.09 56.49 330.09 50.73 331.88 47.08 336.04 47.08 338.86 47.08 340.2 47.72 342.38 49.32L346.92 42.86C343.4 39.78 340.01 39.14 335.98 39.14 325.48 39.14 320.04 46.89 320.04 56.62 320.04 66.22 324.91 73.64 335.98 73.64L335.98 73.64Z" id="Symantec" fill="#FFFFFF"/><path d="M353.81 73L355.18 73 355.18 67.78 356.76 67.78 356.76 66.67 352.22 66.67 352.22 67.78 353.81 67.78 353.81 73ZM357.63 73L358.89 73 358.89 69.66C358.89 69.2 358.85 68 358.85 68 358.85 68 359.14 69.18 359.25 69.58L360.19 73 361.38 73 362.32 69.58C362.45 69.11 362.73 68 362.73 68 362.73 68 362.69 69.14 362.69 69.66L362.69 73 364.01 73 364.01 66.67 361.99 66.67 361.15 70.01C361.04 70.47 360.9 71.25 360.86 71.56 360.81 71.25 360.66 70.48 360.53 70L359.64 66.67 357.63 66.67 357.63 73Z" id="TM" fill="#FFFFFF"/><path d="M398.5 74.51C395.9 74.51 393.53 73.99 391.4 72.94 389.27 71.9 387.44 70.39 385.93 68.43 384.41 66.47 383.24 64.05 382.41 61.17 381.58 58.29 381.16 55.03 381.16 51.41 381.16 47.87 381.55 44.67 382.34 41.81 383.13 38.95 384.29 36.53 385.8 34.54 387.31 32.56 389.15 31.03 391.3 29.97 393.46 28.9 395.9 28.37 398.63 28.37 401.15 28.37 403.47 28.82 405.61 29.71 407.74 30.61 409.75 32.17 411.62 34.38L408.68 37.2C407.23 35.58 405.69 34.36 404.07 33.55 402.45 32.74 400.62 32.34 398.57 32.34 396.43 32.34 394.58 32.79 393 33.71 391.42 34.63 390.12 35.92 389.1 37.58 388.07 39.25 387.31 41.27 386.82 43.66 386.33 46.05 386.09 48.72 386.09 51.66 386.09 57.55 387.1 62.16 389.13 65.49 391.15 68.82 394.32 70.48 398.63 70.48 401.15 70.48 403.23 69.96 404.87 68.91 406.51 67.87 408.04 66.53 409.45 64.91L412.39 67.66C410.73 69.84 408.78 71.53 406.54 72.72 404.3 73.91 401.62 74.51 398.5 74.51L398.5 74.51ZM427.96 74.51C425.92 74.51 424.07 74.14 422.43 73.39 420.79 72.65 419.39 71.57 418.24 70.16 417.08 68.75 416.2 67.03 415.58 65.01 414.96 62.98 414.65 60.71 414.65 58.19 414.65 55.67 414.97 53.38 415.61 51.31 416.25 49.24 417.15 47.47 418.3 46 419.45 44.53 420.85 43.4 422.49 42.61 424.13 41.82 425.96 41.42 427.96 41.42 429.97 41.42 431.79 41.81 433.44 42.58 435.08 43.34 436.48 44.43 437.63 45.84 438.78 47.25 439.68 48.94 440.32 50.93 440.96 52.91 441.28 55.12 441.28 57.55 441.28 62.84 440.09 66.99 437.72 70 435.36 73.01 432.1 74.51 427.96 74.51L427.96 74.51ZM427.96 70.93C429.59 70.93 430.94 70.6 432.03 69.94 433.12 69.27 433.98 68.35 434.62 67.15 435.26 65.96 435.71 64.53 435.96 62.86 436.22 61.2 436.35 59.37 436.35 57.36 436.35 53.35 435.65 50.29 434.27 48.18 432.88 46.06 430.76 45.01 427.9 45.01 425.04 45.01 422.94 46.17 421.6 48.5 420.25 50.82 419.58 54.03 419.58 58.13 419.58 62.1 420.25 65.22 421.6 67.5 422.94 69.79 425.06 70.93 427.96 70.93L427.96 70.93ZM446.86 42L449.49 42 450.83 47.44C452.33 45.78 454.02 44.36 455.92 43.18 457.82 42.01 459.98 41.42 462.42 41.42 464.12 41.42 465.53 41.72 466.64 42.32 467.75 42.92 468.62 43.72 469.26 44.72 469.9 45.72 470.35 46.85 470.61 48.11 470.86 49.37 470.99 50.64 470.99 51.92L470.99 74 466.38 74 466.38 51.98C466.38 51.13 466.32 50.31 466.19 49.52 466.06 48.73 465.81 48.03 465.42 47.41 465.04 46.79 464.5 46.3 463.79 45.94 463.09 45.57 462.16 45.39 461.01 45.39 459.39 45.39 457.75 45.86 456.11 46.8 454.47 47.74 452.92 48.98 451.47 50.51L451.47 74 446.86 74 446.86 42ZM478.63 42L481.25 42 482.6 47.44C484.09 45.78 485.79 44.36 487.68 43.18 489.58 42.01 491.75 41.42 494.18 41.42 495.89 41.42 497.29 41.72 498.4 42.32 499.51 42.92 500.39 43.72 501.03 44.72 501.67 45.72 502.12 46.85 502.37 48.11 502.63 49.37 502.76 50.64 502.76 51.92L502.76 74 498.15 74 498.15 51.98C498.15 51.13 498.08 50.31 497.96 49.52 497.83 48.73 497.57 48.03 497.19 47.41 496.8 46.79 496.26 46.3 495.56 45.94 494.85 45.57 493.92 45.39 492.77 45.39 491.15 45.39 489.52 45.86 487.88 46.8 486.23 47.74 484.69 48.98 483.24 50.51L483.24 74 478.63 74 478.63 42ZM512.82 59.28C512.99 63.03 513.74 65.89 515.06 67.86 516.39 69.82 518.5 70.8 521.4 70.8 522.34 70.8 523.19 70.73 523.96 70.58 524.73 70.43 525.45 70.2 526.14 69.9 526.82 69.61 527.49 69.26 528.15 68.88 528.81 68.5 529.49 68.07 530.17 67.6L532.15 70.29C531.38 70.93 530.62 71.51 529.85 72.05 529.08 72.58 528.26 73.03 527.38 73.39 526.51 73.75 525.56 74.03 524.54 74.22 523.51 74.42 522.34 74.51 521.02 74.51 519.01 74.51 517.21 74.13 515.61 73.36 514.01 72.59 512.64 71.49 511.51 70.06 510.38 68.63 509.51 66.9 508.89 64.85 508.27 62.8 507.96 60.52 507.96 58 507.96 55.53 508.26 53.26 508.86 51.22 509.45 49.17 510.31 47.42 511.42 45.97 512.53 44.52 513.85 43.4 515.38 42.61 516.92 41.82 518.65 41.42 520.57 41.42 524.49 41.42 527.52 42.83 529.66 45.65 531.79 48.46 532.86 52.67 532.86 58.26L532.86 59.28 512.82 59.28ZM528.12 55.95C527.86 48.61 525.37 44.94 520.63 44.94 518.46 44.94 516.67 45.83 515.29 47.6 513.9 49.37 513.1 52.15 512.89 55.95L528.12 55.95ZM548.88 74.51C546.49 74.51 544.47 74.02 542.83 73.04 541.19 72.06 539.85 70.8 538.83 69.26 537.8 67.73 537.06 65.99 536.59 64.05 536.12 62.11 535.88 60.18 535.88 58.26 535.88 56.29 536.1 54.31 536.52 52.3 536.95 50.3 537.68 48.5 538.7 46.9 539.72 45.3 541.07 43.98 542.73 42.96 544.4 41.94 546.44 41.42 548.88 41.42 550.92 41.42 552.74 41.7 554.32 42.26 555.89 42.81 557.35 43.64 558.67 44.75L556.75 47.82C555.77 47.06 554.6 46.42 553.26 45.9 551.92 45.39 550.45 45.14 548.88 45.14 547.04 45.14 545.59 45.56 544.52 46.42 543.46 47.27 542.65 48.36 542.09 49.68 541.54 51 541.17 52.43 541 53.97 540.83 55.5 540.75 56.95 540.75 58.32 540.75 59.6 540.84 60.97 541.04 62.42 541.23 63.87 541.61 65.22 542.19 66.48 542.76 67.74 543.61 68.77 544.72 69.58 545.83 70.39 547.3 70.8 549.13 70.8 550.84 70.8 552.31 70.51 553.55 69.94 554.79 69.36 555.96 68.58 557.07 67.6L559.24 70.22C558.13 71.38 556.74 72.38 555.05 73.23 553.37 74.09 551.31 74.51 548.88 74.51L548.88 74.51ZM560.48 45.33L560.48 42 565.41 42 566.75 32.85 569.89 32.85 569.89 42 577.06 42 577.06 45.33 569.89 45.33 569.89 66.13C569.89 67.66 570.1 68.85 570.53 69.68 570.95 70.51 571.94 70.93 573.47 70.93 574.15 70.93 574.76 70.87 575.3 70.77 575.83 70.66 576.46 70.5 577.18 70.29L577.89 73.49C577.29 73.79 576.59 74.03 575.78 74.22 574.97 74.42 574.13 74.51 573.28 74.51 570.46 74.51 568.43 73.83 567.17 72.46 565.91 71.1 565.28 69.09 565.28 66.45L565.28 45.33 560.48 45.33Z" id="text-connect" fill="#CBCBCB"/></g></g></g></svg>
+</div>
+      <div id="loading-text">Loading Your Community Experience</div>
+    </div>
+  </div>
+
+  <!-- Top nav bar -->
+  <div id="top-nav-wrapper" class="contain-to-grid hide-container">
+    <nav class="top-bar" data-options="is_hover:false" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <a ng-class="pageCtrl.getLogoClass()" href="/connect/" target="_self">Symantec Connect</a>
+        </li>
+      </ul>
+
+      <a class="right icon-menu mobile-menu-link" ng-click="pageCtrl.toggleSidebarNav()"></a>
+
+      <div class="top-bar-section user-menu" ng-controller="navigationController as navCtrl">
+        <ul class="right" ng-include class="top-bar-section" src="menu_template.url">
+        </ul>
+      </div>
+    </nav>
+  </div><!-- /.top-bar -->
+ <!--[if lt IE 9]>
+    <div id="lt-ie9-warning-wrapper">
+      <div id="warning-center" class="row">
+        <div id="message">
+          <div id="message-title">Notice to Internet Explorer 8 (IE8) Users</div>
+          <div id="message-body">In our efforts to provide the community with modern web based tools Symantec Connect only supports Internet Explorer versions 9 and newer.<br />We recommend upgrading to the latest <a href="http://windows.microsoft.com/ie">Internet Explorer</a>, <a href="http://www.google.com/chrome/browser/">Chrome</a>, or <a href="http://www.mozilla.org/firefox">Firefox</a>. If you are using IE9 or later and are seeing this message, please make sure you turn off "Compatibility View".</div>
+        </div>
+      </div>
+    </div>
+  <![endif]-->
+  <noscript>
+    <div id="no-script-wrapper">
+      <div id="no-script-message" class="row">You will need to enable Javascript in your browser to access this site.</div>
+    </div>
+  </noscript>
+
+  <div class="hide-container">
+    <div id="main-nav">
+      <div class="row">
+
+        <community-main-navigation></community-main-navigation>
+
+        <div id="header-search-widget-wrapper">
+          <div id="header-search-widget">
+            <form method="post" id="search-header" ng-controller="headerSearchController as headerSearchCtrl">
+              <div id="header-search-widget-input">
+                <input type="text" id="search-terms" name="keys" placeholder="{{ 'search_connect' | translate }}" ng-model="headerSearchCtrl.searchKeysHeader" />
+              </div>
+              <div id="header-search-widget-submit">
+                <input ng-click="headerSearchCtrl.doSearch()" id="search-submit" type="submit" name="op" value="" class="header-search-button" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="breadcrumb-nav">
+      <div class="row">
+        <div id="options-menu" ng-show="pageCtrl.navData.localMenuTasks.length && isLoggedIn" ng-cloak>
+
+          <div dropdown-menu="pageCtrl.navData.localMenuTasks" dropdown-disabled="dropdownsDisabled" class="dropdown-menu__toggle options-button">
+            <i class="icon-cog"></i>
+            <span translate="options"></span>
+          </div>
+
+        </div>
+        <div ng-if="pageCtrl.navData.breadcrumbs.length">
+          <ul id="breadcrumb-items" ng-cloak>
+            <li ng-repeat="item in pageCtrl.navData.breadcrumbs"><span class="divider icon-right-open-big" ng-show="$index > 0"></span>
+              <connect-link ng-if="!$last" link="item"></connect-link>
+              <connect-link ng-if="$last" ng-click="pageCtrl.breadcrumbClickHandler()" link="item"></connect-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="page">
+      <div class="row page-background">
+        <community-system-messages></community-system-messages>
+        <community-announcement ng-if="pageCtrl.announcement" announcement="pageCtrl.announcement"></community-announcement>
+
+        <div id="layout-main" ng-controller="mainController" ng-class="{'two-columns': two_columns === 1}">
+          <div id="content">
+
+            <div id="brand-banner" ng-controller="bannerController as bannerCtrl" class="{{bannerCtrl.banner.data.bannerTypeClass}}" style="background-color:{{banner.backgroundColor}}" ng-cloak>
+              <div ng-if="bannerCtrl.banner.data.displayBanner && !bannerCtrl.bannerIsLoading" id="banner-display">
+                <a ng-if="bannerCtrl.banner.data.image" href="{{bannerCtrl.banner.data.bannerHref}}">
+                  <div ng-bind-html="bannerCtrl.banner.data.image" class="banner-image"></div>
+                </a>
+                <div ng-if="bannerCtrl.banner.data.title" class="banner-title" ng-bind="bannerCtrl.banner.data.title"></div>
+                <ul class="brand-banner-social-links">
+                  <li ng-if="bannerCtrl.banner.data.socialLinkFacebook">
+                    <connect-link link="bannerCtrl.banner.data.socialLinkFacebook"></connect-link>
+                  </li>
+                  <li ng-if="bannerCtrl.banner.data.socialLinkTwitter">
+                    <connect-link link="bannerCtrl.banner.data.socialLinkTwitter"></connect-link>
+                  </li>
+                  <li ng-if="bannerCtrl.banner.data.socialLinkLinkedin">
+                    <connect-link link="bannerCtrl.banner.data.socialLinkLinkedin"></connect-link>
+                  </li>
+                  <li ng-if="bannerCtrl.banner.data.rssLink">
+                    <connect-link link="bannerCtrl.banner.data.rssLink"></connect-link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div ng-controller="noticeController" id="content-notice">
+              <connect-notice ng-show="notice.displayNotice" notice="notice"></connect-notice>
+            </div>
+            <div ng-view></div>
+          </div><!-- /#content -->
+        </div><!-- /#layout-main -->
+        <div id="layout-sidebar-second">
+          <community-sidebar></community-sidebar>
+        </div><!-- /#layout-sidebar-second -->
+      </div><!-- /.row -->
+
+      <div class="row">
+        <div id="footer" ng-show="pageCtrl.navData.footerMenuItems">
+          <div class="content">
+            <ul id="footer-menu" ng-cloak>
+              <li ng-repeat="item in pageCtrl.navData.footerMenuItems"><a ng-href="{{item.href}}" ng-bind="item.title" target="_self"></a></li>
+            </ul>
+            <div class="copyright">&copy; 2018 <span ng-bind="pageCtrl.companyName"></div>
+            <div class="social-links">
+              <connect-link ng-repeat="item in pageCtrl.socialLinksFooter" link="item"></connect-link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /#page -->
+
+  </div><!-- /.hide-container -->
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-messages.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-aria.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-cookies.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-sanitize.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.7/angular-material.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <script type="text/javascript">var symantec = symantec || {}; symantec.connectSettings = symantec.connectSettings || {}; symantec.connectSettings.baseUrl = "\/connect";
+symantec.connectSettings.communityURLIds = ["endpoint-management","endpoint-virtualization","managing-mobility","security","partners","inside-symantec","developers"];
+symantec.connectSettings.drupalFileDirectory = "sites\/default\/files";
+symantec.connectSettings.drupalMessages = [];
+symantec.connectSettings.headTitle = "Sowbug: Cyber espionage group targets South American and Southeast Asian governments | Symantec Connect";
+symantec.connectSettings.phraseGotIt = "Got it!";
+symantec.connectSettings.utilityURLIds = ["forums","articles","blogs","downloads","events","groups","ideas","issues","videos"];
+symantec.connectSettings.allForumPaths = ["security\/forums\/advanced-threat-protection","security\/forums\/advanced-threat-protection-email","security\/forums\/altiris-software-development-kit-asdk","security\/forums\/asset-management-suite-0","security\/forums\/blue-coat-data-loss-prevention-dlp","security\/forums\/cacheflow","security\/forums\/client-management","security\/forums\/cloud-data-protection-and-security","security\/forums\/cloud-workload-protection","security\/forums\/cloud-delivered-web-security-services","security\/forums\/cloudsoc-audit-shadow-it","security\/forums\/cloudsoc-casb-gateway","security\/forums\/command-line","security\/forums\/content-malware-analysis","security\/forums\/control-compliance-suite","security\/forums\/critical-system-protection","security\/forums\/cyber-security-exercise","security\/forums\/data-center-security-server","security\/forums\/data-loss-prevention-vontu","security\/forums\/data-loss-prevention-and-casb-symantec-dlp-cloud-and-symantec-cloudsoc","security\/forums\/data-loss-prevention-cloud-service-email","security\/forums\/deepsight-technical-intelligence","security\/forums\/deployment-solution","security\/forums\/desktop-email-encryption","security\/forums\/device-certificate-service","security\/forums\/email-securitycloud","security\/forums\/encrypted-traffic-management","security\/forums\/endpoint-detection-and-response-edr","security\/forums\/endpoint-encryption-0","security\/forums\/endpoint-protection-antivirus","security\/forums\/endpoint-protection-cloud","security\/forums\/endpoint-protection-mobile","security\/forums\/endpoint-protection-small-business-edition","security\/forums\/endpoint-suite","security\/forums\/enterprise-security-manager","security\/forums\/file-share-encryption","security\/forums\/gateway-email-encryption","security\/forums\/general-symantec","security\/forums\/ghost-solution-suite","security\/forums\/helpdesk-solution","security\/forums\/hp-management-products","security\/forums\/identity-and-authentication-services","security\/forums\/im-manager","security\/forums\/information-centric-tagging","security\/forums\/asset-management-suite","security\/forums\/it-management-suite-documentation","security\/forums\/mail-security-microsoft-exchange","security\/forums\/malware-analysis-service","security\/forums\/managed-security-services","security\/forums\/management-center","security\/forums\/messaging-gateway","security\/forums\/network-access-control","security\/forums\/network-forensics-security-analytics","security\/forums\/norton-secure-login","security\/forums\/packetshaper","security\/forums\/patch-management-solution","security\/forums\/pcanywhere","security\/forums\/phishing-readiness","security\/forums\/protection-engine-cloud-services","security\/forums\/protection-engine-network-attached-storage","security\/forums\/protection-sharepoint-servers","security\/forums\/protection-suite-enterprise-edition","security\/forums\/secure-web-gateway-proxysg-asg","security\/forums\/securityexpressions","security\/forums\/server-management-suite","security\/forums\/servicedesk","security\/forums\/shared-service-provider-pki-federal-and-non-federal","security\/forums\/ssl-visibility-appliance","security\/forums\/storage-protection","security\/forums\/symantec-connect","security\/forums\/server-management-suite-0","security\/forums\/symantec-mobility-device-management","security\/forums\/symantec-protection-suites-sps","security\/forums\/symantec-security-information-manager","security\/forums\/symantec-website-security","security\/forums\/touchdown","security\/forums\/vip-validation-id-protection","security\/forums\/vip-access-manager","security\/forums\/web-application-firewall-reverse-proxy","security\/forums\/web-gateway","security\/forums\/web-isolation","security\/forums\/web-securitycloud","security\/forums\/webfilter-intelligence-services","security\/forums\/wise-packaging","security\/forums\/workflow-solution","security\/forums\/workspace-profiles","partners\/forums","partners\/forums","partners\/forums","partners\/forums","developers\/forums","developers\/forums","developers\/forums","developers\/forums","developers\/forums","developers\/forums"];
+symantec.connectSettings.basePath = "\/connect\/";
+symantec.connectSettings.languages = {"en":{"language":"en","name":"English","native":"English","direction":"0","enabled":"1","plurals":"0","formula":"","domain":"","prefix":"","weight":"-1","javascript":""},"zh-hans":{"language":"zh-hans","name":"Chinese, Simplified","native":"\u7b80\u4f53\u4e2d\u6587","direction":"0","enabled":"1","plurals":"0","formula":"","domain":"","prefix":"zh-hans","weight":"0","javascript":"4be50d7785914ba81174a23b836ae7c7"},"fr":{"language":"fr","name":"French","native":"Fran\u00e7ais","direction":"0","enabled":"1","plurals":"2","formula":"($n\u003e1)","domain":"","prefix":"fr","weight":"0","javascript":"a09e118b335c605851ad113e54e7bae1"},"de":{"language":"de","name":"German","native":"Deutsch","direction":"0","enabled":"1","plurals":"2","formula":"($n!=1)","domain":"","prefix":"de","weight":"0","javascript":"674ec5ac3d66c3810910cebffa295af5"},"ja":{"language":"ja","name":"Japanese","native":"\u65e5\u672c\u8a9e","direction":"0","enabled":"1","plurals":"1","formula":"0","domain":"","prefix":"ja","weight":"0","javascript":"b97942f4369afaae2cb26855d898c31b"},"es":{"language":"es","name":"Spanish","native":"Espa\u00f1ol","direction":"0","enabled":"1","plurals":"2","formula":"($n!=1)","domain":"","prefix":"es","weight":"0","javascript":"34220ef2d480c870e3a14ea03685c0f8"}};
+symantec.connectSettings.connectAngularJSControllers = ["blogController","blogsDiscoverController","communityController","dynamicRouteController","helpfulVoteController","linkListController","mainController","nodeLinkListController","noticeController","personalizationController","searchController","HelpNodeController","solrFacetsController","votingController"];
+symantec.connectSettings.contentLoadingFallback = 1000;
+symantec.connectSettings.siteName = "Symantec Connect Community";
+symantec.connectSettings.authState = false;
+symantec.connectSettings.authCheckTimeout = "300000";
+symantec.connectSettings.commentsBeginDomId = "comments-begin";
+symantec.connectSettings.flagNameBookmarks = "bookmarks";
+symantec.connectSettings.viewMoreButtonLabel = "View More";
+symantec.connectSettings.solvedForumLabel = "Thread has been solved.";
+symantec.connectSettings.solvedForumLinktext = "View Solution";
+symantec.connectSettings.showPersonalization = false;
+symantec.connectSettings.messageNoSearchTerms = "Enter search text.";
+symantec.connectSettings.labelNeedsSolution = "Thread Needs Solution";
+symantec.connectSettings.labelSearch = "Search";
+symantec.connectSettings.searchPath = "search";
+symantec.connectSettings.userSearchPath = "search\/user";
+symantec.connectSettings.csrfToken = "dbc1af08fa5cac6e31485cfda019f996";
+symantec.connectSettings.defaultSolrRows = 20;
+symantec.connectSettings.defaultUserSearchRows = 50;
+symantec.connectSettings.loginLink = {"link_text":"Login","href":"\/connect\/user\/login?destination=node%2F3721751","attributes":{"target":"_self","rel":"nofollow"}};
+symantec.connectSettings.loginHref = "\/connect\/user\/login?destination=node%2F3721751";
+symantec.connectSettings.registerLink = {"link_text":"Sign Up","href":"\/connect\/user\/register?destination=node%2F3721751","attributes":{"target":"_self","rel":"nofollow"}};
+symantec.connectSettings.registerHref = "\/connect\/user\/register?destination=node%2F3721751";
+symantec.connectSettings.useContentHighlighting = false;
+symantec.connectSettings.connect4Search = true;
+symantec.connectSettings.searchTrackingDefaultPageName = "connect:us:search";
+symantec.connectSettings.userCanPostComments = false;
+symantec.connectSettings.useProductSearchWidget = true;
+symantec.connectSettings.D8ApiHost = "https:\/\/content.connect.symantec.com";
+symantec.connectSettings.nortonPassiveSsoUrl = "\/connect\/sso-get-norton-passive-url";
+symantec.connectSettings.nortonPassiveSsoCookie = "nortonCommunitySsoRetry";
+symantec.connectSettings.showCommunityStats = true;
+symantec.connectSettings.registeredUsers = "635923";
+symantec.connectSettings.postsCount = 707654;
+symantec.connectSettings.externalLinks = {"linkedIn":{"link_text":"LinkedIn","href":"https:\/\/www.linkedin.com\/company\/symantec","attributes":{"class":"icon-linkedin"}},"twitter":{"link_text":"Twitter","href":"https:\/\/twitter.com\/symantec","attributes":{"class":"icon-twitter"}},"facebook":{"link_text":"Facebook","href":"https:\/\/www.facebook.com\/Symantec","attributes":{"class":"icon-facebook"}},"companyHome":{"link_text":"Symantec","href":"https:\/\/www.symantec.com","attributes":{"class":"company-home icon-home"}},"companySupport":{"link_text":"Technical Support","href":"https:\/\/support.symantec.com\/en_US.html","attributes":{"class":"company-tech-support icon-lifebuoy"}},"youtube":{"link_text":"Youtube","href":"https:\/\/www.youtube.com\/channel\/UCVb__XbSVgaxo1d6B1x2ZoQ","attributes":{"class":"icon-youtube-play"}},"slideshare":{"link_text":"Slideshare","href":"http:\/\/www.slideshare.net\/VeritasTechLLC","attributes":{"class":"icon-slideshare"}},"instagram":{"link_text":"Instagram","href":"https:\/\/instagram.com\/veritastechllc\/","attributes":{"class":"icon-instagram"}}};
+symantec.connectSettings.phraseFollowCompany = "Follow Symantec";
+symantec.connectSettings.systemState = "Connect";
+symantec.connectSettings.cacheBustingValue = "z";
+symantec.connectSettings.homepageRoute = "home";
+var Drupal = {'settings': {}, 'behaviors': {}};
+Drupal.settings.ckeditor = {"module_path":"\/connect\/sites\/default\/modules\/contrib\/ckeditor","editor_path":"\/connect\/sites\/default\/modules\/contrib\/ckeditor\/ckeditor","ajaxToken":"869c2d02f78da0adf7e0adcca9f54180","xss_url":"\/connect\/ckeditor\/xss","default_input_format":"1","theme":"connect4","autostart":0,"settings":{}};</script>  <script type="text/javascript" src="/connect/sites/default/themes/connect4/dist/connect-ui_bundle.compress.js?z"></script>
+  <script src="/connect/sites/default/modules/contrib/ckeditor/ckeditor/ckeditor.js"></script>
+<script src="/connect/sites/default/modules/contrib/ckeditor/includes/ckeditor.utils.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+  <script>(function(d,b,a,s,e){ var t = b.createElement(a), fs = b.getElementsByTagName(a)[0]; t.async=1; t.id=e; t.src=('https:'==document.location.protocol ? 'https://' : 'http://') + s; fs.parentNode.insertBefore(t, fs); })(window,document,'script','scripts.demandbase.com/nATCTxai.min.js','demandbase_js_lib');</script>  <div ng-if="pageCtrl.doSsoPassiveLogin && pageCtrl.ssoUrl">
+    <iframe name="naAutoLogin" frameborder="0" style="overflow-x:hidden;overflow-y:hidden;display:none;" ng-src="{{pageCtrl.ssoUrl}}"></iframe>
+  </div>
+</div>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"d64731b77f","applicationID":"19876527","transactionName":"MgAGbUVZWREHAERdCgtKJVpDUVgMSQ1fUAA6FQVeUmdBCwMU","queueTime":0,"applicationTime":1076,"atts":"HkcFGw1DSh8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

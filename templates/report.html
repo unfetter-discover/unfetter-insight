@@ -118,7 +118,7 @@
                     </div>
                     <div class="x_content">
                       <h5></h5>
-                      <canvas id="chart2">
+                      <canvas id="chart2" style="width:1000px">
                         </canvas>
                         <script>
                           var barData = {
@@ -129,17 +129,19 @@
                                {
                                 data : [{% for item in chart_values %}
                                         {{item}},
-                                        {% endfor %}],
+                                        {% endfor %}, 0],
                                         backgroundColor:["rgba(153, 20, 230, 1)","rgba(20, 93, 230, 1)","rgba(199, 0, 0, 1)","rgba(22, 188, 16, 1)"]
                                },
                                ]
-                            }
+                            };
                             var mychart = document.getElementById("chart2").getContext("2d");
+                            console.log(barData);
                             new Chart(mychart,{
-                                      type: 'doughnut',
+                                      type: 'horizontalBar',
                                      data: barData,
+                                    responsive:true,
                                      options: {
-                                     legend: {position: "right"}
+                                      legend: {position: "right"}
                                     }
                             });
                          </script>

@@ -88,6 +88,7 @@ def tag_report(text,filename,threshold=.5,padding=0,coefset='technique',output='
     @param output : 'html', 'console', or 'json'.
     """
     # initialize
+    print "initialize"
     step = 50 #lower = faster run, higher = more resolution
     if output == 'html': padding = 0
     #text = extract_text(filepath)
@@ -103,12 +104,16 @@ def tag_report(text,filename,threshold=.5,padding=0,coefset='technique',output='
     conv = strip_low_info_convolutions(conv,vocab,min_vocab=13)
     
     # for each classifier evaluate all convolutions
+    print "for each classifier evaluate all convolutions."
     predicted_prob = []
+    print "conv:", conv
+    print "vocab:", vocab
     input_vectors = tf_vectorizer(conv,vocab,parallel=True)
     for i in xrange(len(cat)):    
         predicted_prob.append(coef[i].predict_proba(input_vectors)[:,1]) #P(1)
     
     # for each classifier identify clustered ranges
+    print "for each classifier identify clustered ranges"
     tags = []
     count = 1
     max_dist = int(windowsize/step)-1
@@ -128,6 +133,8 @@ def tag_report(text,filename,threshold=.5,padding=0,coefset='technique',output='
     #else:
     #    filename = filepath.filename
     #load the template 
+    
+    print "render tag_template.html"
     with open(os.path.join(os.path.dirname(__file__), r'tag_template.html'),'r') as f:
         html = f.read()
         colors = re.findall(r'(?<=BACKGROUND-COLOR: ).*(?=">)',html)
@@ -181,6 +188,7 @@ def tag_report(text,filename,threshold=.5,padding=0,coefset='technique',output='
             text = text[:loc] + font_tag + text[loc:]
             
         #convert text to html
+        print "convert text to html"
         text = re.sub(r'[\n|\r|\r\n|\n\r]','<br>',text)
         # set header information
         
@@ -332,6 +340,8 @@ def plot_report(filepath,threshold=0.0,coefset='technique',output='console'):
     """
     top_classifiers = 6
     text = extract_text(filepath)
+    print "After call to extract_text"
+    
     if text==False: return False
     with open(os.path.join(os.path.dirname(__file__),r'coef_'+coefset)) as f:
         coef  = pickle.load(f)
@@ -344,12 +354,14 @@ def plot_report(filepath,threshold=0.0,coefset='technique',output='console'):
     conv = strip_low_info_convolutions(conv,vocab,min_vocab=13)
     
     # for each classifier evaluate all convolutions
+    print "for each classifier evaluate all convolutions."
     predicted_prob = []
     input_vectors = tf_vectorizer(conv,vocab,parallel=False)
     for i in xrange(len(cat)):    
         predicted_prob.append(coef[i].predict_proba(input_vectors)[:,1]) #P(1)
     
     # get top n classifiers
+    print "get top n classifiers"
     rank = []
     for i in range(len(cat)):
         rank.append(max(predicted_prob[i])) #max or sum
@@ -357,12 +369,12 @@ def plot_report(filepath,threshold=0.0,coefset='technique',output='console'):
     rank = rank.argsort()[-top_classifiers:][::-1]
 
     #name output
-    #if is_url(filepath.filename):
-    #    filename = "".join([c for c in filepath if c.isalpha() or c.isdigit() or c==' ']).rstrip()
-    #else:
-    #    filename = filepath.filename
-        #filename = os.path.splitext(os.path.basename(filepath))[0]
-
+    """if is_url(filepath.filename):
+        filename = "".join([c for c in filepath if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+    else:
+        filename = filepath.filename
+        filename = os.path.splitext(os.path.basename(filepath))[0]
+    """
     if output=='csv':
         cat = [''] + cat
         predicted_prob = np.vstack((ci,predicted_prob))
@@ -376,7 +388,7 @@ def plot_report(filepath,threshold=0.0,coefset='technique',output='console'):
             return
 
     # plot each classifier
-    ax = plt.figure(figsize=(13,4))
+    """"ax = plt.figure(figsize=(13,4))
     ax = plt.axes()
     for i in rank:
         max_presence = max(predicted_prob[i])
@@ -388,9 +400,11 @@ def plot_report(filepath,threshold=0.0,coefset='technique',output='console'):
     ax.set_ylabel('Confidence of Detection')
     ax.set_xlim([0,max(ci)+(windowsize/2)])
     ax.set_ylim([0,1])
-    ax.legend(loc='upper right')
-    #axplot = {}
+    ax.legend(loc='upper right') """""
+    axplot = {}
     counter = 0
+    print "appending to list."
+
     for i in rank:
         max_presence = max(predicted_prob[i])
         mean_presence = np.mean(predicted_prob[i])

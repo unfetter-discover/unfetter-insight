@@ -28,7 +28,7 @@
                       <div class="row">
                             <form id="fileupload" class="form-inline" action="report.html" method="post" enctype=multipart/form-data>
                                   <div class="files">
-                                    <input type="file" id="file" class="form-control" onchange="validate_fileupload(this.value);" name="file" accept="application/pdf,text/plain" >
+                                    <input type="file" id="file" class="form-control" onchange="validate_fileupload(this.value);" name="file" accept="application/pdf,text/plain, text/html" >
                                   </div>
                               <div class="col-md-12 col-sm-12">
                                 <input type="submit" class="btn btn-success btn-fixed" style="float:right" onClick="return empty(file.value)"></input>
@@ -52,7 +52,7 @@
                     </div>
                     <div class="x_content">
                       <form id="urlform" method="post" enctype=multipart/form-data action="report.html">
-                      <div class="row">
+                      <div class="row url-submit">
                   <div class="form-group">
                       <div class="input-group">
                           <input class="form-control" type="text" id="url" name="url" onchange="return validateUrl()" placeholder="Enter website name" required/>

@@ -1,0 +1,1064 @@
+
+<!doctype html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Adobe -->
+  <script src="//assets.adobedtm.com/90b129d72f4716e69353423cbd3d35a4caed23e2/satelliteLib-c3d7b7de9b02c9d954ceaaf6bbd23274ad622720.js"></script>
+  <!-- End Adobe -->
+
+  <!-- Typekit -->
+  <script src="//use.typekit.net/itd3sep.js"></script>
+  <script>try{Typekit.load({async:true});}catch(e){}</script>
+  <!-- End Typekit -->
+
+  <!-- jQuery 1.12 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!-- End jQuery -->
+
+  <!-- Unit42 Scripts -->
+  <script type="text/javascript" src="https://www.paloaltonetworks.com/content/dam/pan/en_US/includes/attribution.js"></script>
+  <!-- End Unit42 Scripts -->
+  <!-- Start WP HEAD -->
+    
+<link rel="apple-touch-icon" sizes="57x57" href="/wp-content/icons/xapple-icon-57x57.png.pagespeed.ic.QRIacHcgnM.webp">
+<link rel="apple-touch-icon" sizes="60x60" href="/wp-content/icons/xapple-icon-60x60.png.pagespeed.ic.hYAh2zNJMP.webp">
+<link rel="apple-touch-icon" sizes="72x72" href="/wp-content/icons/xapple-icon-72x72.png.pagespeed.ic.AFWEKQvRgw.webp">
+<link rel="apple-touch-icon" sizes="76x76" href="/wp-content/icons/xapple-icon-76x76.png.pagespeed.ic.lePm3RSCC9.webp">
+<link rel="apple-touch-icon" sizes="114x114" href="/wp-content/icons/xapple-icon-114x114.png.pagespeed.ic.3f_BsEHHzl.webp">
+<link rel="apple-touch-icon" sizes="120x120" href="/wp-content/icons/xapple-icon-120x120.png.pagespeed.ic.SpS6axIXIs.webp">
+<link rel="apple-touch-icon" sizes="144x144" href="/wp-content/icons/xapple-icon-144x144.png.pagespeed.ic.5P8r1p6Fqo.webp">
+<link rel="apple-touch-icon" sizes="152x152" href="/wp-content/icons/xapple-icon-152x152.png.pagespeed.ic.sINVciu3d6.webp">
+<link rel="apple-touch-icon" sizes="180x180" href="/wp-content/icons/xapple-icon-180x180.png.pagespeed.ic.zprl5wpeLB.webp">
+<link rel="icon" type="image/png" sizes="192x192" href="/wp-content/icons/xandroid-icon-192x192.png.pagespeed.ic.9Jb8OTo5cF.webp">
+<link rel="icon" type="image/png" sizes="32x32" href="/wp-content/icons/xfavicon-32x32.png.pagespeed.ic.Z1k7HuA3Xa.webp">
+<link rel="icon" type="image/png" sizes="96x96" href="/wp-content/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/wp-content/icons/xfavicon-16x16.png.pagespeed.ic.zoN7gW7cMA.webp">
+<link rel="manifest" href="/wp-content/icons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/wp-content/icons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+
+
+  <title>Prince of Persia – Game Over - Palo Alto Networks Blog</title>
+<link rel="alternate" hreflang="en" href="https://researchcenter.paloaltonetworks.com/2016/06/unit42-prince-of-persia-game-over/"/>
+		<script type="text/javascript">var ajaxurl='https://researchcenter.paloaltonetworks.com/wp-admin/admin-ajax.php';</script>
+		
+<!-- This site is optimized with the Yoast SEO plugin v3.4 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Unit 42 identified 456 Infy malware agents and successfully gained control of multiple C2 domains to disable attacker’s access to victims in the campaign."/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://researchcenter.paloaltonetworks.com/2016/06/unit42-prince-of-persia-game-over/"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Prince of Persia – Game Over - Palo Alto Networks Blog"/>
+<meta property="og:description" content="Unit 42 identified 456 Infy malware agents and successfully gained control of multiple C2 domains to disable attacker’s access to victims in the campaign."/>
+<meta property="og:url" content="https://researchcenter.paloaltonetworks.com/2016/06/unit42-prince-of-persia-game-over/"/>
+<meta property="og:site_name" content="Palo Alto Networks Blog"/>
+<meta property="article:tag" content="C2"/>
+<meta property="article:tag" content="Infy"/>
+<meta property="article:section" content="Malware"/>
+<meta property="article:published_time" content="2016-06-28T15:00:38-07:00"/>
+<meta property="article:modified_time" content="2016-06-28T14:57:46-07:00"/>
+<meta property="og:updated_time" content="2016-06-28T14:57:46-07:00"/>
+<meta property="og:image" content="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-1-500x275.png"/>
+<meta property="og:image" content="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-2-500x259.png"/>
+<meta property="og:image" content="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-3-500x474.png"/>
+<meta property="og:image" content="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-4.png"/>
+<meta property="og:image" content="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-5.png"/>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//s.w.org'/>
+<link rel="alternate" type="application/rss+xml" title="Palo Alto Networks Blog &raquo; Feed" href="https://researchcenter.paloaltonetworks.com/feed/"/>
+<link rel="alternate" type="application/rss+xml" title="Palo Alto Networks Blog &raquo; Comments Feed" href="https://researchcenter.paloaltonetworks.com/comments/feed/"/>
+<link rel="alternate" type="application/rss+xml" title="Palo Alto Networks Blog &raquo; Prince of Persia – Game Over Comments Feed" href="https://researchcenter.paloaltonetworks.com/2016/06/unit42-prince-of-persia-game-over/feed/"/>
+		<script type="text/javascript">window._wpemojiSettings={"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/researchcenter.paloaltonetworks.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.6.11"}};!function(a,b,c){function d(a){var c,d,e,f,g,h=b.createElement("canvas"),i=h.getContext&&h.getContext("2d"),j=String.fromCharCode;if(!i||!i.fillText)return!1;switch(i.textBaseline="top",i.font="600 32px Arial",a){case"flag":return i.fillText(j(55356,56806,55356,56826),0,0),!(h.toDataURL().length<3e3)&&(i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,65039,8205,55356,57096),0,0),c=h.toDataURL(),i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,55356,57096),0,0),d=h.toDataURL(),c!==d);case"diversity":return i.fillText(j(55356,57221),0,0),e=i.getImageData(16,16,1,1).data,f=e[0]+","+e[1]+","+e[2]+","+e[3],i.fillText(j(55356,57221,55356,57343),0,0),e=i.getImageData(16,16,1,1).data,g=e[0]+","+e[1]+","+e[2]+","+e[3],f!==g;case"simple":return i.fillText(j(55357,56835),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode8":return i.fillText(j(55356,57135),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode9":return i.fillText(j(55358,56631),0,0),0!==i.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity","unicode9"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);</script>
+		<style type="text/css">img.wp-smiley,img.emoji{display:inline!important;border:none!important;box-shadow:none!important;height:1em!important;width:1em!important;margin:0 .07em!important;vertical-align:-.1em!important;background:none!important;padding:0!important}</style>
+<link rel='stylesheet' id='crayon-css' href='https://researchcenter.paloaltonetworks.com/wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css?ver=_2.7.2_beta' type='text/css' media='all'/>
+<link rel='stylesheet' id='crayon-theme-classic-css' href='https://researchcenter.paloaltonetworks.com/wp-content/plugins/crayon-syntax-highlighter/themes/classic/classic.css?ver=_2.7.2_beta' type='text/css' media='all'/>
+<link rel='stylesheet' id='crayon-font-monaco-css' href='https://researchcenter.paloaltonetworks.com/wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css?ver=_2.7.2_beta' type='text/css' media='all'/>
+<link rel='stylesheet' id='contact-form-7-css' href='https://researchcenter.paloaltonetworks.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.4.2' type='text/css' media='all'/>
+<link rel='stylesheet' id='dashicons-css' href='https://researchcenter.paloaltonetworks.com/wp-includes/css/dashicons.min.css?ver=4.6.11' type='text/css' media='all'/>
+<link rel='stylesheet' id='post-views-counter-frontend-css' href='https://researchcenter.paloaltonetworks.com/wp-content/plugins/post-views-counter/css/frontend.css?ver=4.6.11' type='text/css' media='all'/>
+<link rel='stylesheet' id='wpml-legacy-dropdown-0-css' href='https://researchcenter.paloaltonetworks.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-dropdown/style.css?ver=1' type='text/css' media='all'/>
+<link rel='stylesheet' id='wpml-legacy-horizontal-list-0-css' href='https://researchcenter.paloaltonetworks.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-list-horizontal/style.css?ver=1' type='text/css' media='all'/>
+<link rel='stylesheet' id='wpml-legacy-post-translations-0-css' href='https://researchcenter.paloaltonetworks.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-post-translations/style.css?ver=1' type='text/css' media='all'/>
+<link rel='stylesheet' id='wpml-menu-item-0-css' href='https://researchcenter.paloaltonetworks.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/menu-item/style.css?ver=1' type='text/css' media='all'/>
+<link rel='stylesheet' id='wpml-cms-nav-css-css' href='https://researchcenter.paloaltonetworks.com/wp-content/plugins/wpml-cms-nav/res/css/navigation.css?ver=1.4.19' type='text/css' media='all'/>
+<link rel='stylesheet' id='cms-navigation-style-base-css' href='https://researchcenter.paloaltonetworks.com/wp-content/plugins/wpml-cms-nav/res/css/cms-navigation-base.css?ver=1.4.19' type='text/css' media='screen'/>
+<link rel='stylesheet' id='cms-navigation-style-css' href='https://researchcenter.paloaltonetworks.com/wp-content/plugins/wpml-cms-nav/res/css/cms-navigation.css?ver=1.4.19' type='text/css' media='screen'/>
+<link rel='stylesheet' id='sage/css-css' href='https://researchcenter.paloaltonetworks.com/wp-content/themes/palo-alto/dist/styles/main-0743a0383c.css' type='text/css' media='all'/>
+<link rel='stylesheet' id='sharedaddy-css' href='https://researchcenter.paloaltonetworks.com/wp-content/plugins/jetpack/modules/sharedaddy/sharing.css?ver=4.1.1' type='text/css' media='all'/>
+<link rel='stylesheet' id='social-logos-css' href='https://researchcenter.paloaltonetworks.com/wp-content/plugins/jetpack/_inc/social-logos/social-logos.min.css?ver=1' type='text/css' media='all'/>
+<link rel='stylesheet' id='elegance-dev-css' href='https://researchcenter.paloaltonetworks.com/wp-content/themes/palo-alto/dist/styles/dev.css?ver=1.0.0' type='text/css' media='all'/>
+      <script>if(document.location.protocol!="https:"){document.location=document.URL.replace(/^http:/i,"https:");}</script>
+      <script type='text/javascript' src='https://researchcenter.paloaltonetworks.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://researchcenter.paloaltonetworks.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>//<![CDATA[
+var CrayonSyntaxSettings={"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/researchcenter.paloaltonetworks.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};var CrayonSyntaxStrings={"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+//]]></script>
+<script type='text/javascript' src='https://researchcenter.paloaltonetworks.com/wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js?ver=_2.7.2_beta'></script>
+<script type='text/javascript' src='https://researchcenter.paloaltonetworks.com/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-dropdown/script.js?ver=1'></script>
+<script type='text/javascript' src='https://researchcenter.paloaltonetworks.com/wp-content/plugins/google-analyticator/external-tracking.min.js?ver=6.4.9'></script>
+<link rel='https://api.w.org/' href='https://researchcenter.paloaltonetworks.com/wp-json/'/>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://researchcenter.paloaltonetworks.com/xmlrpc.php?rsd"/>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://researchcenter.paloaltonetworks.com/wp-includes/wlwmanifest.xml"/> 
+<meta name="generator" content="WordPress 4.6.11"/>
+<link rel='shortlink' href='https://researchcenter.paloaltonetworks.com/?p=15043'/>
+<link rel="alternate" type="application/json+oembed" href="https://researchcenter.paloaltonetworks.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fresearchcenter.paloaltonetworks.com%2F2016%2F06%2Funit42-prince-of-persia-game-over%2F"/>
+<link rel="alternate" type="text/xml+oembed" href="https://researchcenter.paloaltonetworks.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fresearchcenter.paloaltonetworks.com%2F2016%2F06%2Funit42-prince-of-persia-game-over%2F&#038;format=xml"/>
+<meta name="generator" content="WPML ver:3.6.3 stt:180,186,114,3,12,9,81,84,87,129,138,6,162;"/>
+<!-- Google Analytics Tracking by Google Analyticator 6.4.9: http://www.videousermanuals.com/google-analyticator/ -->
+<script type="text/javascript">var analyticsFileTypes=[''];var analyticsSnippet='enabled';var analyticsEventTracking='enabled';</script>
+<script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-494959-2']);_gaq.push(['_addDevId','i9k95']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
+  <!-- End WP HEAD -->
+
+  
+      <script type="text/javascript" src="https://www.paloaltonetworks.com/content/dam/ext-includes/dynamic-templates/crouton/head.js
+"></script>
+  </head>
+    <body data-rsssl=1 class="single single-post postid-15043 single-format-standard unit42-prince-of-persia-game-over">
+    <!--[if IE]>
+      <div class="alert alert-warning">
+        You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.      </div>
+    <![endif]-->
+    <!--- NEWMENU STARTS-->
+
+<script type="text/javascript">var userInfo={"userID":"anonymous"};var userHeaderModel={"id":"anonymous","displayName":"","subscribedToEventsAndWebinars":false,"subscribedToNewsAndProductUpdates":false,"subscribedToUnit42":false,"janrain":false,"partner":false,"sales":false,"isMKTGAdmin":false,"isSiteAdmin":false,"isJoinee":false,"ct":1526928668574}
+var webData={};</script>
+
+<!--[if lt IE 9]>
+    <script type="text/javascript" src="/etc/clientlibs/pan/js/html5-shiv-3.7.0.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="https://researchcenter.paloaltonetworks.com/clientlibs/common.min.md5-185606170484bd28eda6f4954f2f0dde.css" type="text/css">
+<script type="text/javascript" src="https://researchcenter.paloaltonetworks.com/clientlibs/common.min.md5-d393e0d54003a5c7d41eea5b1791ffc8.js"></script>
+<link rel="stylesheet" href="https://researchcenter.paloaltonetworks.com/clientlibs/pan-productpage.min.md5-4966aa2aa314076edb046078aee7f225.css" type="text/css">
+<!--[if !IE]> -->
+<!--script type="text/babel" src="https://researchcenter.paloaltonetworks.com/clientlibs/pan/js/react/crouton.md5-18709f9e2e5052927ddc366146040e69.js"></script-->
+<!-- <![endif]-->
+
+
+
+<style>.header.parbase .header-crouton .breadcrumbs{display:none}.pan-nav-search #coveosearch .pan-search-coveo-header .container .coveo-container{height:53px}</style>
+<div class="pan-theme-orange">
+<div class="productPage pan-nav-dark">
+
+
+
+
+<!-- Mobile Nav -->
+<section id="pan_mobile_nav" class="pan-mobile-nav hidden-md hidden-lg">
+  <header class="nav-header">
+    <div class="nav-header-top">
+      <div class="nav-user dropdown hidden"> <a id="nav_user_dropdown" class="nav-avatar" href="#" data-toggle="dropdown">
+        <div class="img" style="background-image:url(img/nav-avatar.jpg)"></div>
+        <div class="avatar-overlay"> <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve" fill="#fff">
+          <path d="M109.8,79.9c0.8-0.5,1.7-0.8,2.6-0.8h0.5c4,0,7.9-1.6,10.7-4.4c2.8-2.8,4.4-6.7,4.4-10.7c0-4-1.6-7.9-4.4-10.7 c-2.8-2.8-6.7-4.4-10.7-4.4H112c-0.9,0-1.8-0.3-2.6-0.8c-0.7-0.5-1.2-1.1-1.6-1.9c-0.1-0.2,0-0.5-0.1-0.7l-3.9,1.7h0l3.9-1.7 c-0.4-0.9-0.5-1.8-0.3-2.7c0.2-0.9,0.6-1.8,1.3-2.4l0.3-0.3c1.4-1.4,2.5-3.1,3.3-4.9c0.8-1.8,1.2-3.8,1.2-5.8c0-2-0.4-4-1.2-5.8 c-0.8-1.8-1.9-3.5-3.3-4.9l0,0c0,0,0,0,0,0s0,0,0,0l0,0c-1.4-1.4-3.1-2.5-4.9-3.3c-1.8-0.8-3.8-1.2-5.8-1.2c-2,0-4,0.4-5.8,1.2 c-1.8,0.8-3.5,1.9-4.9,3.3l0,0L87.2,19c-0.7,0.7-1.5,1.1-2.4,1.3c-0.9,0.2-1.9,0.1-2.7-0.3l-1.7,3.9l0,0l1.7-3.9l0,0 c-0.8-0.4-1.6-1-2.1-1.7c-0.5-0.8-0.8-1.7-0.8-2.6v-0.5c0-4-1.6-7.9-4.4-10.7C71.9,1.6,68,0,64,0s-7.9,1.6-10.7,4.4 c-2.8,2.8-4.4,6.7-4.4,10.7V16c0,0.9-0.3,1.8-0.8,2.6c-0.5,0.7-1.1,1.2-1.9,1.6c-0.2,0.1-0.5,0-0.7,0.1c-0.9,0.4-1.8,0.5-2.7,0.3 c-0.9-0.2-1.8-0.6-2.4-1.3l-0.3-0.3c-1.4-1.4-3.1-2.5-4.9-3.3c-1.8-0.8-3.8-1.2-5.8-1.2c-2,0-4,0.4-5.8,1.2 c-1.8,0.8-3.5,1.9-4.9,3.3l0,0c0,0,0,0,0,0s0,0,0,0l0,0c-1.4,1.4-2.5,3.1-3.3,4.9c-0.8,1.8-1.2,3.8-1.2,5.8c0,2,0.4,4,1.2,5.8 c0.8,1.8,1.9,3.5,3.3,4.9l0.3,0.3c0.7,0.7,1.1,1.5,1.3,2.4c0.2,0.9,0.1,1.9-0.3,2.7c0,0.1-0.1,0.2-0.1,0.2c-0.3,0.9-0.9,1.6-1.7,2.2 c-0.8,0.5-1.7,0.9-2.6,0.9h-0.4c-4,0-7.9,1.6-10.7,4.4C1.6,56.6,0,60.4,0,64.4c0,4,1.6,7.9,4.4,10.7c2.8,2.8,6.7,4.4,10.7,4.4H16 c0.9,0,1.8,0.3,2.6,0.8c0.8,0.5,1.4,1.2,1.7,2.1l2.6-1.1l-2.6,1.1l0,0c0.4,0.9,0.5,1.8,0.3,2.7c-0.2,0.9-0.6,1.8-1.3,2.4l-0.3,0.3 c-1.4,1.4-2.5,3.1-3.3,4.9c-0.8,1.8-1.2,3.8-1.2,5.8c0,2,0.4,4,1.2,5.8c0.8,1.8,1.9,3.5,3.3,4.9l0,0c0,0,0,0,0,0s0,0,0,0l0,0 c1.4,1.4,3.1,2.5,4.9,3.3c1.8,0.8,3.8,1.2,5.8,1.2c2,0,4-0.4,5.8-1.2c1.8-0.8,3.5-1.9,4.9-3.3l0.3-0.3c0.7-0.7,1.5-1.1,2.4-1.3 c0.9-0.2,1.9-0.1,2.7,0.3c0.1,0,0.2,0.1,0.2,0.1l1.5-4l0,0l-1.5,4c0.9,0.3,1.6,0.9,2.2,1.7c0.5,0.8,0.9,1.7,0.9,2.6v0.4 c0,4,1.6,7.9,4.4,10.7c2.8,2.8,6.7,4.4,10.7,4.4c4,0,7.9-1.6,10.7-4.4c2.8-2.8,4.4-6.7,4.4-10.7V112c0-0.9,0.3-1.8,0.8-2.6 c0.5-0.8,1.2-1.4,2.1-1.7l-0.4-1l0.4,1l0,0l-1.7-3.9l0,0l1.7,3.9c0.9-0.4,1.8-0.5,2.7-0.3s1.8,0.6,2.4,1.3l0.3,0.3 c1.4,1.4,3.1,2.5,4.9,3.3c1.8,0.8,3.8,1.2,5.8,1.2c2,0,4-0.4,5.8-1.2c1.8-0.8,3.5-1.9,4.9-3.3l0,0c0,0,0,0,0,0s0,0,0,0l0,0 c1.4-1.4,2.5-3.1,3.3-4.9c0.8-1.8,1.2-3.8,1.2-5.8c0-2-0.4-4-1.2-5.8c-0.8-1.8-1.9-3.5-3.3-4.9l0,0l-0.3-0.3 c-0.7-0.7-1.1-1.5-1.3-2.4s-0.1-1.9,0.3-2.7l-3.9-1.7l3.9,1.7C108.5,81.1,109.1,80.4,109.8,79.9z M100.3,78.6L100.3,78.6 C100.3,78.6,100.3,78.6,100.3,78.6C100.3,78.6,100.3,78.6,100.3,78.6L100.3,78.6c-1.1,2.4-1.4,5.1-0.9,7.7c0.5,2.6,1.7,5,3.6,6.9 l0,0l3-3l0,0l-3,3l0.3,0.3l3.4-3.4l-0.5,0.5l-2.9,2.9l0,0c0.6,0.6,1.1,1.3,1.4,2.1c0.3,0.8,0.5,1.7,0.5,2.5c0,0.9-0.2,1.7-0.5,2.5 s-0.8,1.5-1.4,2.1l0,0l2.8,2.8l0.2,0.2l-3-3c-0.6,0.6-1.3,1.1-2.1,1.4c-0.8,0.3-1.7,0.5-2.5,0.5s-1.7-0.2-2.5-0.5 c-0.8-0.3-1.5-0.8-2.1-1.4l-3,3l0.5-0.5l2.5-2.5l0,0l-0.3-0.3l0,0l-3,3l0,0l3-3c-1.9-1.8-4.3-3.1-6.9-3.6c-2.6-0.5-5.2-0.2-7.7,0.9 l0,0c0,0,0,0,0,0c0,0,0,0,0,0l0,0c-2.4,1-4.4,2.7-5.8,4.8c-1.4,2.2-2.2,4.7-2.2,7.2v0v0.9c0,1.7-0.7,3.4-1.9,4.7 c-1.2,1.2-2.9,1.9-4.7,1.9c-1.7,0-3.4-0.7-4.7-1.9c-1.2-1.2-1.9-2.9-1.9-4.7v-0.5c0,0,0-0.1,0-0.1c-0.1-2.7-0.9-5.2-2.5-7.4 c-1.5-2.1-3.6-3.7-6-4.6l0,0c0,0-0.1,0-0.1,0c0,0-0.1,0-0.1-0.1l0,0c-2.4-1-4.9-1.3-7.4-0.8c-2.6,0.5-5,1.7-6.9,3.6l0,0l3,3l0,0 l-3-3l-0.3,0.3l2.9,2.9l-0.1-0.1l-2.7-2.7l0,0c-0.6,0.6-1.3,1.1-2.1,1.4c-0.8,0.3-1.7,0.5-2.5,0.5c-0.9,0-1.7-0.2-2.5-0.5 c-0.8-0.3-1.5-0.8-2.1-1.4l0,0l-2.9,2.9l-0.1,0.1l3-3c-0.6-0.6-1.1-1.3-1.4-2.1c-0.3-0.8-0.5-1.7-0.5-2.5s0.2-1.7,0.5-2.5 c0.3-0.8,0.8-1.5,1.4-2.1l-3-3l0.3,0.3l2.7,2.7l0,0l0.3-0.3l0,0l-3-3l0,0l3,3c1.8-1.9,3.1-4.3,3.6-6.9c0.5-2.6,0.2-5.2-0.9-7.7l0,0 c0,0,0,0,0,0c0,0,0,0,0,0l0,0c-1-2.4-2.7-4.4-4.8-5.8c-2.2-1.4-4.7-2.2-7.3-2.2h0h-0.9c-1.7,0-3.4-0.7-4.7-1.9 c-1.2-1.2-1.9-2.9-1.9-4.7c0-1.7,0.7-3.4,1.9-4.7c1.2-1.2,2.9-1.9,4.7-1.9h0.5c0,0,0.1,0,0.1,0l-0.1-4.3v0l0.1,4.3 c2.7-0.1,5.2-0.9,7.4-2.5c2.1-1.5,3.7-3.6,4.6-6l0,0c0,0,0-0.1,0-0.1c0,0,0-0.1,0.1-0.1l0,0c1-2.4,1.3-4.9,0.8-7.4 c-0.5-2.6-1.7-5-3.6-6.9l0,0l-0.3-0.3l0,0c-0.6-0.6-1.1-1.3-1.4-2.1c-0.3-0.8-0.5-1.7-0.5-2.5c0-0.9,0.2-1.7,0.5-2.5 c0.3-0.8,0.8-1.5,1.4-2.1l0,0c0.6-0.6,1.3-1.1,2.1-1.4c0.8-0.3,1.7-0.5,2.5-0.5c0.9,0,1.7,0.2,2.5,0.5c0.8,0.3,1.5,0.8,2.1,1.4l0,0 l0.3,0.3h0l0,0c1.9,1.8,4.3,3.1,6.9,3.6c2.1,0.4,4.3,0.1,6.4-0.6h0c0.6,0,1.1-0.1,1.7-0.3l-1.7-3.9v0l1.7,3.9c2.4-1,4.4-2.7,5.8-4.9 c1.4-2.2,2.2-4.7,2.2-7.3v0v-0.9c0-1.7,0.7-3.4,1.9-4.7c1.2-1.2,2.9-1.9,4.7-1.9s3.4,0.7,4.7,1.9c1.2,1.2,1.9,2.9,1.9,4.7v0.5v0 c0,2.6,0.8,5.1,2.2,7.3c1.4,2.1,3.4,3.8,5.8,4.8l0,0c0,0,0,0,0,0c0,0,0,0,0,0l0,0c2.4,1.1,5.1,1.4,7.7,0.9c2.6-0.5,5-1.7,6.9-3.6 l0,0l0.3-0.3l-3.4-3.4l0.3,0.3l3,3l0,0c0.6-0.6,1.3-1.1,2.1-1.4c0.8-0.3,1.7-0.5,2.5-0.5c0.9,0,1.7,0.2,2.5,0.5 c0.8,0.3,1.5,0.8,2.1,1.4l0,0l2.9-2.9l0.1-0.1l-3,3c0.6,0.6,1.1,1.3,1.4,2.1c0.3,0.8,0.5,1.7,0.5,2.5c0,0.9-0.2,1.7-0.5,2.5 c-0.3,0.8-0.8,1.5-1.4,2.1l3,3l-0.3-0.3l-2.7-2.7l0,0l-0.3,0.3h0l0,0l3,3l0,0l-3-3c-1.8,1.9-3.1,4.3-3.6,6.9 c-0.4,2.1-0.1,4.3,0.6,6.4v0c0,0.6,0.1,1.1,0.3,1.7c1,2.4,2.7,4.4,4.9,5.8c2.2,1.4,4.7,2.2,7.2,2.2h0h0.9c1.7,0,3.4,0.7,4.7,1.9 c1.2,1.2,1.9,2.9,1.9,4.7s-0.7,3.4-1.9,4.7c-1.2,1.2-2.9,1.9-4.7,1.9h-0.5h0c-2.6,0-5.1,0.8-7.3,2.2C103,74.2,101.3,76.2,100.3,78.6 z M64,43.4c-11.4,0-20.6,9.2-20.6,20.6S52.6,84.6,64,84.6c11.4,0,20.6-9.2,20.6-20.6S75.4,43.4,64,43.4z M64,76c-6.6,0-12-5.4-12-12 c0-6.6,5.4-12,12-12c6.6,0,12,5.4,12,12C76,70.6,70.6,76,64,76z"/>
+          </svg> </div>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="nav_user_dropdown">
+          <!-- lang links dynamically generated -->
+        </ul>
+      </div>
+      <button class="btn btn-close-nav"> <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+      <path d="M71.5,64l54.9-54.9c2.1-2.1,2.1-5.5,0-7.5c-2.1-2.1-5.5-2.1-7.5,0L64,56.5L9.1,1.6C7-0.5,3.6-0.5,1.6,1.6s-2.1,5.5,0,7.5 L56.5,64L1.6,118.9c-2.1,2.1-2.1,5.5,0,7.5c1,1,2.4,1.6,3.8,1.6s2.7-0.5,3.8-1.6L64,71.5l54.9,54.9c1,1,2.4,1.6,3.8,1.6 c1.4,0,2.7-0.5,3.8-1.6c2.1-2.1,2.1-5.5,0-7.5L71.5,64z"/>
+      </svg> </button>
+    </div>
+    <div class="nav-breadcrumbs">
+      <button type="button" class="btn btn-link btn-back"> <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 13 10" style="enable-background:new 0 0 13 10;" xml:space="preserve">
+      <path d="M0.2,5.4l4.3,4.3c0.2,0.3,0.6,0.3,0.9,0c0.3-0.2,0.3-0.7,0-0.9L2.3,5.7h9.8c0.4,0,0.7-0.3,0.7-0.7s-0.3-0.7-0.7-0.7H2.3 l3.1-3.1c0.3-0.2,0.3-0.7,0-0.9C5.2,0,4.8,0,4.6,0.3L0.2,4.5C0.1,4.8,0.1,5.2,0.2,5.4z"/>
+      </svg> </button>
+      <ol class="breadcrumb">
+        <li class="active" data-path="/"> <a href="#">Home</a> </li>
+      </ol>
+    </div>
+  </header>
+  <div class="nav-inner">
+    <nav class="nav-main">
+      <div class="pan-spinner">
+        <div class="pan-loading-spinner"></div>
+        <div class="pan-spinner-bg"></div>
+      </div>
+      <ul class="list-unstyled nav-menu">
+        <!-- links dynamically generated -->
+      </ul>
+      <ul class="list-unstyled nav-menu inactive">
+        <!-- links dynamically generated -->
+      </ul>
+    </nav>
+  </div>
+  <div class="nav-bottom">
+    <div class="nav-actions">
+      <ul class="list-inline">
+        <!-- buttons dynamically generated -->
+      </ul>
+    </div>
+    <div class="pan-nav-lang dropup">
+      <button type="button" id="langDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> EN <svg width="9" height="6" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g id="Canvas" fill="none">
+        <g id="chevron-down">
+          <path id="Vector" d="M 0 0L 3.5 3.5L 7 0" transform="translate(1 1)" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+      </svg> </button>
+      <div class="dropdown-menu">
+        <div class="language-title-bar"> <span>Location</span>
+          <button> <svg width="12" height="12" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="Canvas" fill="none">
+            <g id="x">
+              <path id="Vector" d="M 10 0L 0 10" transform="translate(1 1)" stroke="#36424B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path id="Vector_2" d="M 0 0L 10 10" transform="translate(1 1)" stroke="#36424B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+          </g>
+          </svg> </button>
+        </div>
+        <ul class="language-list" aria-labelledby="langDropdown">
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Mobile Nav -->
+
+<!-- Main Nav Section -->
+<header class="nav-header container">
+  <section class="nav-logo-section"> <a href="/" class="nav-logo"> <svg width="110" height="59" viewBox="0 0 110 59" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M 0 21.5332L 7.87793 58.3L 110 36.7655L 102.122 0L 0 21.5332ZM 71.0195 38.5559L 71.5635 38.441L 71.0693 36.1326L 73.3994 38.0529L 73.9873 37.9303L 73.3193 34.8124L 72.7734 34.9273L 73.2666 37.2345C 73.0713 37.071 70.9395 35.3129 70.9395 35.3129L 70.3516 35.4367L 71.0195 38.5559ZM 77.248 37.2438L 74.7188 37.7762L 74.0508 34.6583L 76.5371 34.1361L 76.6436 34.6302L 74.7021 35.0388C 74.7227 35.1282 74.8477 35.7155 74.8652 35.8049L 76.748 35.409L 76.8535 35.9032L 74.9727 36.3002L 75.1592 37.1659L 77.1406 36.7484L 77.248 37.2438ZM 77.1816 34.5183L 78.3018 34.2821L 78.8623 36.9046L 79.4082 36.7897C 79.4082 36.7897 78.8701 34.2693 78.8467 34.1672L 79.9668 33.9323L 79.8604 33.4369L 77.0762 34.0229L 77.1816 34.5183ZM 82.5391 36.1302L 81.9766 36.2489L 80.2998 33.3442L 80.8896 33.2191L 82.1143 35.405L 82.3701 32.9075L 82.9688 32.7811L 84.248 34.9568L 84.4697 32.4671L 85.0381 32.347L 84.665 35.6833L 84.1084 35.8008C 84.1084 35.8008 82.9434 33.8051 82.8096 33.5728L 82.5391 36.1302ZM 86.8848 31.8791C 86.3525 31.9914 85.9629 32.234 85.7285 32.6056C 85.5039 32.9554 85.4346 33.4048 85.5352 33.8709C 85.6338 34.3369 85.8809 34.7212 86.2285 34.951C 86.5967 35.1924 87.0508 35.26 87.584 35.1477C 88.8389 34.8847 89.0947 33.9092 88.9336 33.1559C 88.7734 32.4013 88.1396 31.6148 86.8848 31.8791ZM 86.5527 34.5157C 86.3145 34.3561 86.1533 34.102 86.0791 33.7573L 86.2012 32.8737C 86.3604 32.6209 86.6338 32.4486 86.9902 32.3732C 87.7031 32.2251 88.2373 32.5686 88.3877 33.2708C 88.5381 33.9731 88.1895 34.5029 87.4775 34.6536C 87.123 34.7289 86.8037 34.6804 86.5527 34.5157ZM 90.1484 33.1932L 90.4199 34.4712L 89.876 34.5849L 89.209 31.4682L 91.0957 31.0711C 91.7305 30.9371 92.0547 31.3507 92.1396 31.744C 92.2139 32.0926 92.1094 32.3837 91.8691 32.5739C 92.0996 32.6173 92.2832 32.8178 92.3711 33.1485C 92.5098 33.6835 92.5537 33.8175 92.666 33.9056L 92.7607 33.9784L 92.1562 34.1048L 92.1367 34.0907C 92.0439 34.0154 92.0107 33.9031 91.9297 33.603L 91.9023 33.506C 91.7559 32.9672 91.5498 32.8969 91.2441 32.9621L 90.1484 33.1932ZM 91.0459 31.5984L 89.8594 31.8487L 90.041 32.6978L 91.2158 32.4514C 91.6357 32.3633 91.6406 32.0849 91.6084 31.9266C 91.5488 31.6508 91.3496 31.5346 91.0459 31.5984ZM 93.4014 33.8441L 93.9463 33.7305L 93.7305 32.718L 94.1182 32.1842L 95.6201 33.3781L 96.3633 33.221L 94.4521 31.731L 95.6445 30.1146L 94.8613 30.2793C 94.8613 30.2793 93.7168 31.8817 93.5889 32.0578L 93.2783 30.6125L 92.7344 30.7274L 93.4014 33.8441ZM 97.4111 31.5536C 97.1768 31.5638 96.4551 31.5932 96.3096 30.9063C 96.1797 30.3074 96.5771 29.8376 97.3418 29.6767C 98.1396 29.5094 98.6953 29.7712 98.8652 30.3955L 98.8848 30.453L 98.3428 30.5654L 98.3252 30.5219C 98.2441 30.31 98.0576 30.0419 97.3896 30.1836C 97.165 30.2308 96.9805 30.3406 96.8965 30.4747C 96.8408 30.5602 96.8242 30.6547 96.8477 30.7581C 96.8721 30.8731 96.9521 31.0237 97.3623 31.0097L 98.123 30.9816C 98.3613 30.9752 99.0859 30.9548 99.2266 31.6098C 99.2861 31.8894 99.25 32.1384 99.1152 32.3478C 98.877 32.7219 98.3896 32.8725 98.123 32.93C 97.7725 33.004 97.2764 33.0398 96.9082 32.7959C 96.6836 32.6478 96.5371 32.4154 96.4707 32.1065L 96.459 32.0528L 97.0029 31.9379L 97.0156 31.9915C 97.1406 32.5342 97.7178 32.4959 98.0508 32.4269C 98.3398 32.3656 98.5527 32.2482 98.6494 32.0937C 98.7041 32.0081 98.7227 31.9137 98.6992 31.8128C 98.6533 31.5945 98.4814 31.5127 98.1074 31.5255L 97.4111 31.5536ZM 42.126 27.8839C 41.4814 27.4562 40.5586 27.3081 39.5938 27.5111C 38.5547 27.7307 37.834 28.1648 37.3057 29.2016L 37.1816 28.6257C 36.8984 28.3831 36.5176 28.2657 36.1289 28.3474C 35.7383 28.4291 35.4473 28.6883 35.29 29.0279L 38.125 42.2607L 40.0566 41.8534L 38.9951 36.9096C 39.8779 37.608 40.7314 37.7102 41.752 37.4944C 42.7168 37.2901 43.4814 36.787 43.8945 36.1371C 44.6514 34.9523 44.4053 33.2541 44.0879 31.773C 43.7695 30.2919 43.3027 28.6615 42.126 27.8839ZM 40.8652 35.8513C 39.123 36.219 38.5332 34.7545 38.1611 33.0232C 37.792 31.2905 37.7344 29.7341 39.4766 29.3677C 41.2168 29 41.7842 30.4491 42.1562 32.1805C 42.5273 33.9118 42.6064 35.4848 40.8652 35.8513ZM 52.0117 34.2863L 52.2012 35.1711L 54.0928 34.7714L 52.6953 28.2495C 52.2217 26.0368 50.6523 25.1814 48.0234 25.7355C 46.4326 26.0713 45.5566 26.5974 44.8779 27.8665L 46.4043 28.8126C 46.7881 28.007 47.2432 27.6494 48.3047 27.426C 49.8008 27.1106 50.5332 27.5792 50.7969 28.8101L 50.9443 29.5034L 48.4111 30.0383C 46.2139 30.5018 45.3477 31.9101 45.6973 33.5457C 45.875 34.3731 46.3027 35.0664 46.9062 35.4826C 47.6191 35.9563 48.4746 36.0763 49.668 35.8261C 50.8623 35.5746 51.4629 35.1456 52.0117 34.2863ZM 48.9854 31.3443L 51.2383 30.8694L 51.4072 31.6584C 51.5537 32.3505 51.5215 32.8407 51.2998 33.1893C 50.8936 33.7971 50.3584 33.9707 49.6211 34.1265C 48.4102 34.3819 47.7529 33.9975 47.5625 33.1114C 47.374 32.2266 47.8486 31.5831 48.9854 31.3443ZM 58.6055 32.0698C 57.8281 32.2332 57.4824 31.9051 57.3213 31.1543L 54.9883 20.2671C 54.7002 20.0181 54.3096 19.8981 53.9131 19.9811C 53.5166 20.0653 53.2168 20.3296 53.0576 20.6744L 55.415 31.6778C 55.7246 33.1193 56.7861 34.2033 58.625 33.8165L 59.8164 33.5649L 59.458 31.8898L 58.6055 32.0698ZM 64.5098 32.6949C 65.8174 32.4191 66.6562 31.7194 67.1416 30.9342C 67.8447 29.78 67.8066 28.5006 67.4521 26.8471C 67.1016 25.2115 66.6123 24.028 65.4971 23.2581C 64.7324 22.7346 63.6787 22.4345 62.3721 22.7103C 61.0654 22.9848 60.2461 23.6807 59.7617 24.4672C 59.0596 25.6201 59.0957 26.8995 59.4473 28.5351C 59.8008 30.1898 60.291 31.3734 61.4072 32.1433C 62.1709 32.6655 63.2051 32.9694 64.5098 32.6949ZM 62.748 24.4604C 63.3145 24.3417 63.8477 24.4298 64.2861 24.7196C 65.001 25.1933 65.2949 26.1969 65.5215 27.2541C 65.749 28.3125 65.8906 29.3493 65.4326 30.0694C 65.1504 30.5099 64.7041 30.8253 64.1348 30.9453C 63.5684 31.0653 63.0488 30.953 62.6113 30.6644C 61.8984 30.1907 61.6025 29.1871 61.377 28.1299C 61.1504 27.0702 61.0068 26.0347 61.4668 25.3146C 61.748 24.8741 62.1807 24.5804 62.748 24.4604ZM 82.2314 27.0879C 81.4561 27.2513 81.1094 26.9232 80.9482 26.1724L 78.6143 15.2851C 78.3271 15.0361 77.9355 14.9161 77.5391 14.9991C 77.1426 15.0834 76.8428 15.3477 76.6836 15.6924L 79.041 26.6946C 79.3516 28.1374 80.4131 29.2214 82.251 28.8345L 83.4424 28.583L 83.084 26.9091L 82.2314 27.0879ZM 75.376 29.3596L 75.5635 30.2445L 77.457 29.8448L 76.0586 23.3229C 75.585 21.1102 74.0166 20.2535 71.3857 20.8089C 69.7969 21.1434 68.9189 21.6708 68.2432 22.9399L 69.7695 23.8847C 70.1514 23.0804 70.6084 22.7216 71.6689 22.4981C 73.1641 22.184 73.8984 22.6526 74.1621 23.8835L 74.3096 24.5768L 71.7734 25.1117C 69.5781 25.5752 68.7129 26.9835 69.0625 28.6191C 69.2402 29.4452 69.667 30.1398 70.2705 30.556C 70.9844 31.0297 71.8418 31.1497 73.0332 30.8982C 74.2266 30.6467 74.8262 30.2189 75.376 29.3596ZM 72.3506 26.4178L 74.6025 25.9428L 74.7725 26.7306C 74.9199 27.4239 74.8867 27.9129 74.6641 28.2627C 74.2598 28.8705 73.7246 29.0441 72.9863 29.1986C 71.7744 29.4553 71.1182 29.071 70.9277 28.1849C 70.7393 27.3 71.2148 26.6565 72.3506 26.4178ZM 87.0752 19.371L 86.7539 17.8707L 84.8994 18.2614L 84.2646 15.3056C 83.9775 15.058 83.5879 14.9392 83.1904 15.0222C 82.7939 15.1065 82.4941 15.3695 82.334 15.7142L 82.9688 18.6687L 81.8711 18.8998L 82.1924 20.4014L 83.291 20.169L 84.4395 25.5367C 84.7412 26.9411 85.8525 28.0749 87.6514 27.6957L 88.8066 27.4519L 88.4473 25.778L 87.6514 25.9452C 86.9336 26.0972 86.5029 25.7448 86.3506 25.0336L 85.2207 19.7617L 87.0752 19.371ZM 93.9795 26.4806C 95.2871 26.2048 96.127 25.5051 96.6104 24.7199C 97.3135 23.5657 97.2783 22.2863 96.9219 20.6328C 96.5732 18.996 96.0811 17.8124 94.9668 17.0438C 94.2012 16.5203 93.1484 16.2202 91.8408 16.4947C 90.5342 16.7705 89.7158 17.4664 89.2305 18.2529C 88.5293 19.4058 88.5654 20.6852 88.916 22.3208C 89.2725 23.9755 89.7627 25.1578 90.874 25.929C 91.6416 26.4512 92.6738 26.7551 93.9795 26.4806ZM 92.2168 18.2452C 92.7832 18.1252 93.3174 18.2145 93.7549 18.5043C 94.4697 18.978 94.7637 19.9816 94.9902 21.0388C 95.2168 22.0973 95.3604 23.134 94.9014 23.8542C 94.6201 24.2934 94.1719 24.61 93.6045 24.73C 93.0381 24.8501 92.5186 24.7377 92.0811 24.4479C 91.3682 23.9754 91.0713 22.9706 90.8447 21.9134C 90.6191 20.8549 90.4756 19.8195 90.9365 19.0993C 91.2168 18.6576 91.6494 18.3652 92.2168 18.2452ZM 100.85 30.9869C 100.337 31.0954 99.8301 30.7609 99.7188 30.24C 99.6064 29.7178 99.9316 29.2071 100.446 29.0998C 100.959 28.9913 101.465 29.3258 101.575 29.848C 101.688 30.369 101.363 30.8784 100.85 30.9869ZM 100.477 29.2382C 100.045 29.3301 99.7734 29.7655 99.8682 30.2085C 99.9648 30.6516 100.392 30.9401 100.822 30.8482C 101.252 30.7576 101.525 30.3222 101.43 29.8791C 101.336 29.4361 100.907 29.1475 100.477 29.2382ZM 100.983 30.512L 100.66 30.1392L 100.506 30.1711L 100.598 30.5937L 100.456 30.6231L 100.234 29.5889L 100.581 29.5161C 100.756 29.4791 100.93 29.5838 100.967 29.7574C 100.999 29.9093 100.928 30.023 100.811 30.0881L 101.148 30.4775L 100.983 30.512ZM 100.593 29.6463L 100.402 29.6858L 100.48 30.0485L 100.67 30.0089C 100.783 29.9846 100.845 29.8927 100.823 29.788C 100.802 29.6833 100.706 29.622 100.593 29.6463ZM 31.3799 33.9393C 30.9531 34.0466 30.6289 34.4845 30.6465 34.9301L 30.6885 35.9822C 30.7051 36.438 31.0771 36.7368 31.5186 36.6436C 31.665 36.613 31.7988 36.5415 31.916 36.4431L 32.7725 40.4357C 33.1123 42.0228 32.1045 43.5805 30.5234 43.9137L 17.9023 46.5758C 16.3203 46.9091 14.7627 45.8915 14.4229 44.3057L 11.7109 31.65C 11.3701 30.0655 12.3789 28.5066 13.959 28.1733L 26.582 25.5125C 28.1621 25.1792 29.7207 26.1955 30.0605 27.7801L 31.3799 33.9393ZM 16.0723 40.7228L 16.0293 39.6733C 16.0117 39.2149 15.6406 38.9174 15.1982 39.0106C 14.7568 39.1038 14.415 39.5507 14.4326 40.0104L 14.4746 41.0612C 14.4932 41.5195 14.8623 41.8145 15.3037 41.7225C 15.7451 41.6293 16.0869 41.1825 16.0723 40.7228ZM 18.8867 42.7778L 18.7441 39.1006C 18.7246 38.6409 18.3545 38.3447 17.9121 38.4379C 17.4717 38.5311 17.1289 38.978 17.1475 39.4364L 17.29 43.1149C 17.3105 43.5732 17.6797 43.8707 18.123 43.7775C 18.5625 43.6843 18.9053 43.2374 18.8867 42.7778ZM 21.666 43.8995L 21.3926 36.8503C 21.375 36.3919 21.0029 36.0957 20.5605 36.1889C 20.1211 36.2821 19.7773 36.7277 19.7949 37.1873L 20.0713 44.2353C 20.0889 44.6949 20.4609 44.9899 20.9043 44.8967C 21.3428 44.8047 21.6875 44.3579 21.666 43.8995ZM 24.3467 42.4231L 23.9746 32.9225C 23.959 32.4692 23.584 32.1717 23.1455 32.2636C 22.7041 32.3569 22.3613 32.805 22.3789 33.2596L 22.75 42.7602C 22.7686 43.2199 23.1406 43.5135 23.5801 43.4203C 24.0225 43.3284 24.3643 42.8828 24.3467 42.4231ZM 26.9277 38.4992L 26.6523 31.4512C 26.6357 30.9954 26.2637 30.6967 25.8223 30.7899C 25.3818 30.8818 25.0381 31.3312 25.0557 31.7883L 25.333 38.8363C 25.3516 39.2946 25.7217 39.5909 26.1631 39.4989C 26.6025 39.4057 26.9473 38.9588 26.9277 38.4992ZM 29.5771 36.25L 29.4346 32.5728C 29.417 32.1145 29.0439 31.8183 28.6045 31.9102C 28.1631 32.0034 27.8193 32.4516 27.8379 32.9099L 27.9805 36.5871C 27.998 37.0468 28.3701 37.3417 28.8135 37.2485C 29.252 37.1566 29.5967 36.7097 29.5771 36.25Z"/>
+    </svg> </a> </section>
+  <section class="nav-main">
+    <nav id="pan-nav" class="visible-lg visible-md">
+      <section class="nav-list"></section>
+      <section class="pan-nav-dropdown">
+        <div class="pan-nav-dropdown-bg"></div>
+      </section>
+    </nav>
+    <section class="nav-right">
+      <div class="nav-actions visible-lg visible-md">
+        <ul class="list-inline">
+          <!-- buttons dynamically generated -->
+        </ul>
+      </div>
+      <button class="nav-search-button">
+	  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+	  	  <path d="M12.5 6.25001C12.5 9.70179 9.70179 12.5 6.25001 12.5C2.79822 12.5 0 9.70179 0 6.25001C0 2.79822 2.79822 0 6.25001 0C9.70179 0 12.5 2.79822 12.5 6.25001Z" transform="translate(1 1)" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+		  <path d="M4.33334 4.33334L1.58946e-07 1.58946e-07" transform="translate(11.6665 11.6665)" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+	  </svg>
+	  </button>
+      <button type="button" class="hidden-lg hidden-md btn nav-open-sidemenu"> <span>MENU</span> <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="1" y1="-1" x2="19.3125" y2="-1" transform="translate(20.3125) rotate(180)" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <line x1="1" y1="-1" x2="19.3125" y2="-1" transform="translate(20.3125 6.5) rotate(180)" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <line x1="1" y1="-1" x2="19.3125" y2="-1" transform="translate(20.3125 13) rotate(180)" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg> </button>
+      <div class="nav-user dropdown hidden"> <a id="nav_user_dropdown" class="nav-avatar" href="#" data-toggle="dropdown">
+        <div class="img" style="background-image:url(img/nav-avatar.jpg)"></div>
+        <div class="avatar-overlay"> <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve" fill="#fff">
+          <path d="M109.8,79.9c0.8-0.5,1.7-0.8,2.6-0.8h0.5c4,0,7.9-1.6,10.7-4.4c2.8-2.8,4.4-6.7,4.4-10.7c0-4-1.6-7.9-4.4-10.7 c-2.8-2.8-6.7-4.4-10.7-4.4H112c-0.9,0-1.8-0.3-2.6-0.8c-0.7-0.5-1.2-1.1-1.6-1.9c-0.1-0.2,0-0.5-0.1-0.7l-3.9,1.7h0l3.9-1.7 c-0.4-0.9-0.5-1.8-0.3-2.7c0.2-0.9,0.6-1.8,1.3-2.4l0.3-0.3c1.4-1.4,2.5-3.1,3.3-4.9c0.8-1.8,1.2-3.8,1.2-5.8c0-2-0.4-4-1.2-5.8 c-0.8-1.8-1.9-3.5-3.3-4.9l0,0c0,0,0,0,0,0s0,0,0,0l0,0c-1.4-1.4-3.1-2.5-4.9-3.3c-1.8-0.8-3.8-1.2-5.8-1.2c-2,0-4,0.4-5.8,1.2 c-1.8,0.8-3.5,1.9-4.9,3.3l0,0L87.2,19c-0.7,0.7-1.5,1.1-2.4,1.3c-0.9,0.2-1.9,0.1-2.7-0.3l-1.7,3.9l0,0l1.7-3.9l0,0 c-0.8-0.4-1.6-1-2.1-1.7c-0.5-0.8-0.8-1.7-0.8-2.6v-0.5c0-4-1.6-7.9-4.4-10.7C71.9,1.6,68,0,64,0s-7.9,1.6-10.7,4.4 c-2.8,2.8-4.4,6.7-4.4,10.7V16c0,0.9-0.3,1.8-0.8,2.6c-0.5,0.7-1.1,1.2-1.9,1.6c-0.2,0.1-0.5,0-0.7,0.1c-0.9,0.4-1.8,0.5-2.7,0.3 c-0.9-0.2-1.8-0.6-2.4-1.3l-0.3-0.3c-1.4-1.4-3.1-2.5-4.9-3.3c-1.8-0.8-3.8-1.2-5.8-1.2c-2,0-4,0.4-5.8,1.2 c-1.8,0.8-3.5,1.9-4.9,3.3l0,0c0,0,0,0,0,0s0,0,0,0l0,0c-1.4,1.4-2.5,3.1-3.3,4.9c-0.8,1.8-1.2,3.8-1.2,5.8c0,2,0.4,4,1.2,5.8 c0.8,1.8,1.9,3.5,3.3,4.9l0.3,0.3c0.7,0.7,1.1,1.5,1.3,2.4c0.2,0.9,0.1,1.9-0.3,2.7c0,0.1-0.1,0.2-0.1,0.2c-0.3,0.9-0.9,1.6-1.7,2.2 c-0.8,0.5-1.7,0.9-2.6,0.9h-0.4c-4,0-7.9,1.6-10.7,4.4C1.6,56.6,0,60.4,0,64.4c0,4,1.6,7.9,4.4,10.7c2.8,2.8,6.7,4.4,10.7,4.4H16 c0.9,0,1.8,0.3,2.6,0.8c0.8,0.5,1.4,1.2,1.7,2.1l2.6-1.1l-2.6,1.1l0,0c0.4,0.9,0.5,1.8,0.3,2.7c-0.2,0.9-0.6,1.8-1.3,2.4l-0.3,0.3 c-1.4,1.4-2.5,3.1-3.3,4.9c-0.8,1.8-1.2,3.8-1.2,5.8c0,2,0.4,4,1.2,5.8c0.8,1.8,1.9,3.5,3.3,4.9l0,0c0,0,0,0,0,0s0,0,0,0l0,0 c1.4,1.4,3.1,2.5,4.9,3.3c1.8,0.8,3.8,1.2,5.8,1.2c2,0,4-0.4,5.8-1.2c1.8-0.8,3.5-1.9,4.9-3.3l0.3-0.3c0.7-0.7,1.5-1.1,2.4-1.3 c0.9-0.2,1.9-0.1,2.7,0.3c0.1,0,0.2,0.1,0.2,0.1l1.5-4l0,0l-1.5,4c0.9,0.3,1.6,0.9,2.2,1.7c0.5,0.8,0.9,1.7,0.9,2.6v0.4 c0,4,1.6,7.9,4.4,10.7c2.8,2.8,6.7,4.4,10.7,4.4c4,0,7.9-1.6,10.7-4.4c2.8-2.8,4.4-6.7,4.4-10.7V112c0-0.9,0.3-1.8,0.8-2.6 c0.5-0.8,1.2-1.4,2.1-1.7l-0.4-1l0.4,1l0,0l-1.7-3.9l0,0l1.7,3.9c0.9-0.4,1.8-0.5,2.7-0.3s1.8,0.6,2.4,1.3l0.3,0.3 c1.4,1.4,3.1,2.5,4.9,3.3c1.8,0.8,3.8,1.2,5.8,1.2c2,0,4-0.4,5.8-1.2c1.8-0.8,3.5-1.9,4.9-3.3l0,0c0,0,0,0,0,0s0,0,0,0l0,0 c1.4-1.4,2.5-3.1,3.3-4.9c0.8-1.8,1.2-3.8,1.2-5.8c0-2-0.4-4-1.2-5.8c-0.8-1.8-1.9-3.5-3.3-4.9l0,0l-0.3-0.3 c-0.7-0.7-1.1-1.5-1.3-2.4s-0.1-1.9,0.3-2.7l-3.9-1.7l3.9,1.7C108.5,81.1,109.1,80.4,109.8,79.9z M100.3,78.6L100.3,78.6 C100.3,78.6,100.3,78.6,100.3,78.6C100.3,78.6,100.3,78.6,100.3,78.6L100.3,78.6c-1.1,2.4-1.4,5.1-0.9,7.7c0.5,2.6,1.7,5,3.6,6.9 l0,0l3-3l0,0l-3,3l0.3,0.3l3.4-3.4l-0.5,0.5l-2.9,2.9l0,0c0.6,0.6,1.1,1.3,1.4,2.1c0.3,0.8,0.5,1.7,0.5,2.5c0,0.9-0.2,1.7-0.5,2.5 s-0.8,1.5-1.4,2.1l0,0l2.8,2.8l0.2,0.2l-3-3c-0.6,0.6-1.3,1.1-2.1,1.4c-0.8,0.3-1.7,0.5-2.5,0.5s-1.7-0.2-2.5-0.5 c-0.8-0.3-1.5-0.8-2.1-1.4l-3,3l0.5-0.5l2.5-2.5l0,0l-0.3-0.3l0,0l-3,3l0,0l3-3c-1.9-1.8-4.3-3.1-6.9-3.6c-2.6-0.5-5.2-0.2-7.7,0.9 l0,0c0,0,0,0,0,0c0,0,0,0,0,0l0,0c-2.4,1-4.4,2.7-5.8,4.8c-1.4,2.2-2.2,4.7-2.2,7.2v0v0.9c0,1.7-0.7,3.4-1.9,4.7 c-1.2,1.2-2.9,1.9-4.7,1.9c-1.7,0-3.4-0.7-4.7-1.9c-1.2-1.2-1.9-2.9-1.9-4.7v-0.5c0,0,0-0.1,0-0.1c-0.1-2.7-0.9-5.2-2.5-7.4 c-1.5-2.1-3.6-3.7-6-4.6l0,0c0,0-0.1,0-0.1,0c0,0-0.1,0-0.1-0.1l0,0c-2.4-1-4.9-1.3-7.4-0.8c-2.6,0.5-5,1.7-6.9,3.6l0,0l3,3l0,0 l-3-3l-0.3,0.3l2.9,2.9l-0.1-0.1l-2.7-2.7l0,0c-0.6,0.6-1.3,1.1-2.1,1.4c-0.8,0.3-1.7,0.5-2.5,0.5c-0.9,0-1.7-0.2-2.5-0.5 c-0.8-0.3-1.5-0.8-2.1-1.4l0,0l-2.9,2.9l-0.1,0.1l3-3c-0.6-0.6-1.1-1.3-1.4-2.1c-0.3-0.8-0.5-1.7-0.5-2.5s0.2-1.7,0.5-2.5 c0.3-0.8,0.8-1.5,1.4-2.1l-3-3l0.3,0.3l2.7,2.7l0,0l0.3-0.3l0,0l-3-3l0,0l3,3c1.8-1.9,3.1-4.3,3.6-6.9c0.5-2.6,0.2-5.2-0.9-7.7l0,0 c0,0,0,0,0,0c0,0,0,0,0,0l0,0c-1-2.4-2.7-4.4-4.8-5.8c-2.2-1.4-4.7-2.2-7.3-2.2h0h-0.9c-1.7,0-3.4-0.7-4.7-1.9 c-1.2-1.2-1.9-2.9-1.9-4.7c0-1.7,0.7-3.4,1.9-4.7c1.2-1.2,2.9-1.9,4.7-1.9h0.5c0,0,0.1,0,0.1,0l-0.1-4.3v0l0.1,4.3 c2.7-0.1,5.2-0.9,7.4-2.5c2.1-1.5,3.7-3.6,4.6-6l0,0c0,0,0-0.1,0-0.1c0,0,0-0.1,0.1-0.1l0,0c1-2.4,1.3-4.9,0.8-7.4 c-0.5-2.6-1.7-5-3.6-6.9l0,0l-0.3-0.3l0,0c-0.6-0.6-1.1-1.3-1.4-2.1c-0.3-0.8-0.5-1.7-0.5-2.5c0-0.9,0.2-1.7,0.5-2.5 c0.3-0.8,0.8-1.5,1.4-2.1l0,0c0.6-0.6,1.3-1.1,2.1-1.4c0.8-0.3,1.7-0.5,2.5-0.5c0.9,0,1.7,0.2,2.5,0.5c0.8,0.3,1.5,0.8,2.1,1.4l0,0 l0.3,0.3h0l0,0c1.9,1.8,4.3,3.1,6.9,3.6c2.1,0.4,4.3,0.1,6.4-0.6h0c0.6,0,1.1-0.1,1.7-0.3l-1.7-3.9v0l1.7,3.9c2.4-1,4.4-2.7,5.8-4.9 c1.4-2.2,2.2-4.7,2.2-7.3v0v-0.9c0-1.7,0.7-3.4,1.9-4.7c1.2-1.2,2.9-1.9,4.7-1.9s3.4,0.7,4.7,1.9c1.2,1.2,1.9,2.9,1.9,4.7v0.5v0 c0,2.6,0.8,5.1,2.2,7.3c1.4,2.1,3.4,3.8,5.8,4.8l0,0c0,0,0,0,0,0c0,0,0,0,0,0l0,0c2.4,1.1,5.1,1.4,7.7,0.9c2.6-0.5,5-1.7,6.9-3.6 l0,0l0.3-0.3l-3.4-3.4l0.3,0.3l3,3l0,0c0.6-0.6,1.3-1.1,2.1-1.4c0.8-0.3,1.7-0.5,2.5-0.5c0.9,0,1.7,0.2,2.5,0.5 c0.8,0.3,1.5,0.8,2.1,1.4l0,0l2.9-2.9l0.1-0.1l-3,3c0.6,0.6,1.1,1.3,1.4,2.1c0.3,0.8,0.5,1.7,0.5,2.5c0,0.9-0.2,1.7-0.5,2.5 c-0.3,0.8-0.8,1.5-1.4,2.1l3,3l-0.3-0.3l-2.7-2.7l0,0l-0.3,0.3h0l0,0l3,3l0,0l-3-3c-1.8,1.9-3.1,4.3-3.6,6.9 c-0.4,2.1-0.1,4.3,0.6,6.4v0c0,0.6,0.1,1.1,0.3,1.7c1,2.4,2.7,4.4,4.9,5.8c2.2,1.4,4.7,2.2,7.2,2.2h0h0.9c1.7,0,3.4,0.7,4.7,1.9 c1.2,1.2,1.9,2.9,1.9,4.7s-0.7,3.4-1.9,4.7c-1.2,1.2-2.9,1.9-4.7,1.9h-0.5h0c-2.6,0-5.1,0.8-7.3,2.2C103,74.2,101.3,76.2,100.3,78.6 z M64,43.4c-11.4,0-20.6,9.2-20.6,20.6S52.6,84.6,64,84.6c11.4,0,20.6-9.2,20.6-20.6S75.4,43.4,64,43.4z M64,76c-6.6,0-12-5.4-12-12 c0-6.6,5.4-12,12-12c6.6,0,12,5.4,12,12C76,70.6,70.6,76,64,76z"/>
+          </svg> </div>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="nav_user_dropdown">
+          <!-- dynamically generated dropdown -->
+        </ul>
+      </div>
+    </section>
+    <section class="nav-sub-header visible-lg visible-md">
+      <section class="nav-sub-main">
+        <div class="pan-nav-breadcrumb"> </div>
+        <div class="pan-nav-lang dropdown">
+          <button type="button" id="langDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> EN <svg width="9" height="6" viewBox="0 0 9 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="Canvas" fill="none">
+            <g id="chevron-down">
+              <path id="Vector" d="M 0 0L 3.5 3.5L 7 0" transform="translate(1 1)" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+          </g>
+          </svg> </button>
+          <div class="dropdown-menu">
+            <div class="language-title-bar"> <span>Location</span>
+              <button> <svg width="12" height="12" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="Canvas" fill="none">
+                <g id="x">
+                  <path id="Vector" d="M 10 0L 0 10" transform="translate(1 1)" stroke="#36424B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path id="Vector_2" d="M 0 0L 10 10" transform="translate(1 1)" stroke="#36424B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+              </g>
+              </svg> </button>
+            </div>
+            <ul class="language-list" aria-labelledby="langDropdown">
+            </ul>
+          </div>
+        </div>
+      </section>
+    </section>
+  </section>
+</header>
+<script type="text/javascript">var dataUrl='/newTopNav.json';window.isNavInitialized=false;function initPanNav(){$.get(dataUrl,function(data){var target=document.getElementById('pan-nav');var panNav=new PanNav(target,data,window.userHeaderModel);window.isNavInitialized=true;panNav.registerEvents();})}$(document).ready(function(){if(typeof isJanrainProfilePage=='undefined'){initPanNav();}$('.nav-search-button').on('click',function(){window.location.href="https://www.paloaltonetworks.com/search"})})</script>
+<!--- NEWMENU ENDS-->    <div class="wrap container" role="document">
+            <div id="breadcrumbs" class="main row"><span xmlns:v="http://rdf.data-vocabulary.org/#"><span typeof="v:Breadcrumb"><a href="https://researchcenter.paloaltonetworks.com/" rel="v:url" property="v:title">Blog Home</a> &gt; <span rel="v:child" typeof="v:Breadcrumb"><a href="https://researchcenter.paloaltonetworks.com/malware-2/" rel="v:url" property="v:title">Malware</a> &gt; <span class="breadcrumb_last">Prince of Persia – Game Over</span></span></span></span></div>            <div class="content row">
+        <main class="main">
+          <div class="single-wrapper">
+    <div class="post-main">
+          <article class="post-15043 post type-post status-publish format-standard hentry category-malware-2 category-threat-prevention-2 category-unit42 tag-c2 tag-infy">
+    <header>
+      <h1 class="entry-title">Prince of Persia – Game Over</h1>
+      <div class="container">
+  <div class="row">
+    <div class="author-column">
+            <script data-pagespeed-no-defer>//<![CDATA[
+(function(){for(var g="function"==typeof Object.defineProperties?Object.defineProperty:function(b,c,a){if(a.get||a.set)throw new TypeError("ES3 does not support getters and setters.");b!=Array.prototype&&b!=Object.prototype&&(b[c]=a.value)},h="undefined"!=typeof window&&window===this?this:"undefined"!=typeof global&&null!=global?global:this,k=["String","prototype","repeat"],l=0;l<k.length-1;l++){var m=k[l];m in h||(h[m]={});h=h[m]}var n=k[k.length-1],p=h[n],q=p?p:function(b){var c;if(null==this)throw new TypeError("The 'this' value for String.prototype.repeat must not be null or undefined");c=this+"";if(0>b||1342177279<b)throw new RangeError("Invalid count value");b|=0;for(var a="";b;)if(b&1&&(a+=c),b>>>=1)c+=c;return a};q!=p&&null!=q&&g(h,n,{configurable:!0,writable:!0,value:q});var t=this;function u(b,c){var a=b.split("."),d=t;a[0]in d||!d.execScript||d.execScript("var "+a[0]);for(var e;a.length&&(e=a.shift());)a.length||void 0===c?d[e]?d=d[e]:d=d[e]={}:d[e]=c};function v(b){var c=b.length;if(0<c){for(var a=Array(c),d=0;d<c;d++)a[d]=b[d];return a}return[]};function w(b){var c=window;if(c.addEventListener)c.addEventListener("load",b,!1);else if(c.attachEvent)c.attachEvent("onload",b);else{var a=c.onload;c.onload=function(){b.call(this);a&&a.call(this)}}};var x;function y(b,c,a,d,e){this.h=b;this.j=c;this.l=a;this.f=e;this.g={height:window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight,width:window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth};this.i=d;this.b={};this.a=[];this.c={}}function z(b,c){var a,d,e=c.getAttribute("data-pagespeed-url-hash");if(a=e&&!(e in b.c))if(0>=c.offsetWidth&&0>=c.offsetHeight)a=!1;else{d=c.getBoundingClientRect();var f=document.body;a=d.top+("pageYOffset"in window?window.pageYOffset:(document.documentElement||f.parentNode||f).scrollTop);d=d.left+("pageXOffset"in window?window.pageXOffset:(document.documentElement||f.parentNode||f).scrollLeft);f=a.toString()+","+d;b.b.hasOwnProperty(f)?a=!1:(b.b[f]=!0,a=a<=b.g.height&&d<=b.g.width)}a&&(b.a.push(e),b.c[e]=!0)}y.prototype.checkImageForCriticality=function(b){b.getBoundingClientRect&&z(this,b)};u("pagespeed.CriticalImages.checkImageForCriticality",function(b){x.checkImageForCriticality(b)});u("pagespeed.CriticalImages.checkCriticalImages",function(){A(x)});function A(b){b.b={};for(var c=["IMG","INPUT"],a=[],d=0;d<c.length;++d)a=a.concat(v(document.getElementsByTagName(c[d])));if(a.length&&a[0].getBoundingClientRect){for(d=0;c=a[d];++d)z(b,c);a="oh="+b.l;b.f&&(a+="&n="+b.f);if(c=!!b.a.length)for(a+="&ci="+encodeURIComponent(b.a[0]),d=1;d<b.a.length;++d){var e=","+encodeURIComponent(b.a[d]);131072>=a.length+e.length&&(a+=e)}b.i&&(e="&rd="+encodeURIComponent(JSON.stringify(B())),131072>=a.length+e.length&&(a+=e),c=!0);C=a;if(c){d=b.h;b=b.j;var f;if(window.XMLHttpRequest)f=new XMLHttpRequest;else if(window.ActiveXObject)try{f=new ActiveXObject("Msxml2.XMLHTTP")}catch(r){try{f=new ActiveXObject("Microsoft.XMLHTTP")}catch(D){}}f&&(f.open("POST",d+(-1==d.indexOf("?")?"?":"&")+"url="+encodeURIComponent(b)),f.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),f.send(a))}}}function B(){var b={},c;c=document.getElementsByTagName("IMG");if(!c.length)return{};var a=c[0];if(!("naturalWidth"in a&&"naturalHeight"in a))return{};for(var d=0;a=c[d];++d){var e=a.getAttribute("data-pagespeed-url-hash");e&&(!(e in b)&&0<a.width&&0<a.height&&0<a.naturalWidth&&0<a.naturalHeight||e in b&&a.width>=b[e].o&&a.height>=b[e].m)&&(b[e]={rw:a.width,rh:a.height,ow:a.naturalWidth,oh:a.naturalHeight})}return b}var C="";u("pagespeed.CriticalImages.getBeaconData",function(){return C});u("pagespeed.CriticalImages.Run",function(b,c,a,d,e,f){var r=new y(b,c,a,e,f);x=r;d&&w(function(){window.setTimeout(function(){A(r)},0)})});})();pagespeed.CriticalImages.Run('/mod_pagespeed_beacon','http://researchcenter.paloaltonetworks.com/2016/06/unit42-prince-of-persia-game-over/','2L-ZMDIrHf',true,false,'3Ehks9u3LTo');
+//]]></script><img src="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2017/05/unit42_400x400.jpg" width="110" height="110" alt="Tomer Bar" class="avatar avatar-110 wp-user-avatar wp-user-avatar-110 alignnone photo" data-pagespeed-url-hash="4078813486" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>          </div>
+    <div class="meta details">
+            <span class="byline author vcard">By <a href="https://researchcenter.paloaltonetworks.com/author/tomer-bar/" title="Posts by Tomer Bar" class="author url fn" rel="author">Tomer Bar</a>, <a href="https://researchcenter.paloaltonetworks.com/author/lior-efraim/" title="Posts by Lior Efraim" class="author url fn" rel="author">Lior Efraim</a> and <a href="https://researchcenter.paloaltonetworks.com/author/simon-conant/" title="Posts by Simon Conant" class="author url fn" rel="author">Simon Conant</a></span>
+            <br/>
+      <time class="updated" datetime="2016-06-28T22:00:38+00:00">June 28, 2016 at 3:00 PM</time>
+      <br>
+      <div class="categories"><span>Category:</span>&nbsp;<a href="https://researchcenter.paloaltonetworks.com/malware-2/" rel="category tag">Malware</a>, <a href="https://researchcenter.paloaltonetworks.com/threat-prevention-2/" rel="category tag">Threat Prevention</a>, <a href="https://researchcenter.paloaltonetworks.com/unit42/" rel="category tag">Unit 42</a></div>
+      <div class="categories">&nbsp;Tags: <a href="https://researchcenter.paloaltonetworks.com/tag/c2/" rel="tag">C2</a>, <a href="https://researchcenter.paloaltonetworks.com/tag/infy/" rel="tag">Infy</a></div>
+      <div class="social entry-summary clearfix">
+    <div class="stats">
+
+                <span class="icon-views"></span> 
+				
+				
+				4,747
+			        <!--
+        <span class="icon-likes"></span> <likes class="init" data-url="https://researchcenter.paloaltonetworks.com/2016/06/unit42-prince-of-persia-game-over/"></likes>
+        -->
+<span class='ldc-ul_cont' onclick="alter_ul_post_values(this,'15043','like')"><img src="https://researchcenter.paloaltonetworks.com/wp-content/plugins/like-dislike-counter-for-posts-pages-and-comments/images/up.png" data-pagespeed-url-hash="3673831031" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>(<span>0</span>)</span>
+    </div>
+<div class="networks">
+        <a href="https://twitter.com/home?status=https%3A%2F%2Fresearchcenter.paloaltonetworks.com%2F2016%2F06%2Funit42-prince-of-persia-game-over%2F+Prince+of+Persia+%E2%80%93+Game+Over" target="_blank">
+            <span class="icon-twitter2"></span>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fresearchcenter.paloaltonetworks.com%2F2016%2F06%2Funit42-prince-of-persia-game-over%2F" target="_blank">
+            <span class="icon-facebook"></span>
+        </a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fresearchcenter.paloaltonetworks.com%2F2016%2F06%2Funit42-prince-of-persia-game-over%2F&title=Prince+of+Persia+%E2%80%93+Game+Over&summary=&source=" target="_blank">
+            <span class="icon-linkedin"></span>
+        </a>
+
+        <a href="//www.reddit.com/submit" target="_blank" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false">
+            <span class="icon-reddit"></span>
+        </a>
+    </div>
+</div>
+
+    </div>
+  </div>
+</div>
+    </header>
+    <div class="entry-content">
+      <h3>Summary</h3>
+<p>Unit 42 published a <a href="https://researchcenter.paloaltonetworks.com/2016/05/prince-of-persia-infy-malware-active-in-decade-of-targeted-attacks/" target="_blank">blog</a> at the beginning of May titled &#8220;Prince of Persia,&#8221; in which we described the discovery of a decade-long campaign using a formerly unknown malware family, Infy, that targeted government and industry interests worldwide.</p>
+<p>Subsequent to the publishing of this article, through cooperation with the parties responsible for the C2 domains, Unit 42 researchers successfully gained control of multiple C2 domains. This disabled the attacker’s access to their victims in this campaign, provided further insight into the targets currently victimized in this operation, and enabled the notification of affected parties.<span id="more-15043"></span></p>
+<h3>Post Publication</h3>
+<p>In the week following the publication of the original blog, we observed no unusual changes to the C2 infrastructure. Existing domains did move to new IP addresses, as we had previously seen periodically. Some new install domains were added, adhering to naming conventions of current domains (see appendix for new IOCs).</p>
+<p>The attackers developed a new version (31), and we observed this deployed against a single Canadian target.</p>
+<p>The file descriptions remained essentially the same (“CLMediaLibrary Dynamic Link Library V3”). Most importantly, there was <strong>no change to the encoding key</strong> (now using offset 20, and offset 11 for second pass against URL encoding) that we had observed being used for the entire decade-long campaign, and documented in our previous blog. From this we conclude that the attackers were unaware of our initial report.</p>
+<h3>Sinkhole</h3>
+<p>Through cooperation with the parties responsible for the C2 domains, we took control of all but one of them, transferring the A records to a server we controlled. This prevented the attackers from being able to subsequently make any further changes to the domain configurations, issue commands to victims, or capture any further data for the majority of victims. An analysis of connections after transfer suggests that the attackers may have used a third-party service to try to understand why they had suddenly lost almost all of their traffic. Figure 1 shows that tool, a geographic representation of victim-C2 traffic, with all but one at that time now communicating with our sinkhole server.</p>
+<p><a href="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-1.png"><img class="aligncenter size-large wp-image-15046" src="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-1-500x275.png" alt="PoP - Game Over 1" width="500" height="275" srcset="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-1-500x275.png 500w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-1-230x127.png 230w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-1-768x423.png 768w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-1-510x281.png 510w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-1-73x40.png 73w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-1.png 975w" sizes="(max-width: 500px) 100vw, 500px" data-pagespeed-url-hash="4121558272" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></a></p>
+<p style="text-align: center;"><em>Figure 1 Graphical representation of victim traffic to C2</em></p>
+<p>We have since transferred sinkhole control to <a href="https://www.shadowserver.org/wiki/" target="_blank">Shadowserver</a>, whom we thank for subsequent victim notification &amp; remediation (<a href="https://www.shadowserver.org/wiki/pmwiki.php/Involve/GetReportsOnYourNetwork" target="_blank">https://www.shadowserver.org/wiki/pmwiki.php/Involve/GetReportsOnYourNetwork</a>).</p>
+<h3>Victims</h3>
+<p>We were able to analyze victim C2 traffic to understand who were victims of the Infy campaign. We identified 456 malware agents installed on 326 victim systems, in 35 countries. Figure 2 shows a geographical breakdown of victim locations. We noted in our original blog the large amount of targeting of Iranian citizens in this campaign, we observed almost one-third of all victims to be Iranian. Also of note was the low overall volume of victims, compared to, for example, crimeware campaigns.</p>
+<p><a href="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-2.png"><img class="aligncenter size-large wp-image-15049" src="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-2-500x259.png" alt="PoP - Game Over 2" width="500" height="259" srcset="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-2-500x259.png 500w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-2-230x119.png 230w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-2-768x398.png 768w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-2-510x264.png 510w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-2-77x40.png 77w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-2.png 975w" sizes="(max-width: 500px) 100vw, 500px" data-pagespeed-url-hash="2239544655" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></a></p>
+<p style="text-align: center;"><em>Figure 2 Geographic location of victims. Please note that New Zealand has been omitted from this map only because we observed no victim activity there.</em></p>
+<h3>Versions</h3>
+<p>In our original blog, we noted two distinct primary variants of the Infy malware. In addition to the original “Infy” variant, we also see the newer, more sophisticated, interactive, and fuller-featured “Infy M” variant deployed against apparently-higher-value targets. Overall, 93% of all victims were infected with Infy, and 60% with Infy “M” (Figure 3). Combined with the low total number of victims, this suggests a great deal of care given to each individual campaign target. The large number of victims with both variants may relate to their complimentary feature set, or represent an “upgrade” path on victims from the original variant infection, later adding the “M” variant as targets appeared more compelling to the attackers.</p>
+<p><a href="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-3.png"><img class="aligncenter size-large wp-image-15052" src="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-3-500x474.png" alt="PoP - Game Over 3" width="500" height="474" srcset="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-3-500x474.png 500w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-3-230x218.png 230w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-3-316x300.png 316w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-3-42x40.png 42w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-3.png 692w" sizes="(max-width: 500px) 100vw, 500px" data-pagespeed-url-hash="3469376067" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></a></p>
+<p style="text-align: center;"><em>Figure 3 Breakdown of Infy vs. Infy &#8220;M&#8221; infections</em></p>
+<p>For the Infy “M” variant, we note that the majority of targets are using the latest version (7.8), and that none are using the older 6.x versions at all (Figure 4). This suggests that these higher-value targets are paid much more attention, being kept up-to-date with the latest version.</p>
+<p>In contrast, for the more basic original Infy variant, we note a full spectrum of versions installed (Figure 5), with many victims on older versions – including the original, decade-old V1 &#8211; suggesting much less concern is paid to these individual targets (note that we did observe a small number of the older 6.x versions but these do not announce their version when connecting).</p>
+<p><a href="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-4.png"><img class="size-large wp-image-15055 aligncenter" src="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-4.png" alt="PoP - Game Over 4" width="450" height="392" srcset="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-4.png 450w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-4-230x200.png 230w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-4-344x300.png 344w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-4-46x40.png 46w" sizes="(max-width: 450px) 100vw, 450px" data-pagespeed-url-hash="310945395" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></a></p>
+<p style="text-align: center;"><em>Figure 4 Infy &#8220;M&#8221; Victim versions</em></p>
+<p><a href="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-5.png"><img class="size-large wp-image-15058 aligncenter" src="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-5.png" alt="PoP - Game Over 5" width="446" height="392" srcset="https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-5.png 446w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-5-230x202.png 230w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-5-341x300.png 341w, https://researchcenter.paloaltonetworks.com/wp-content/uploads/2016/06/PoP-Game-Over-5-46x40.png 46w" sizes="(max-width: 446px) 100vw, 446px" data-pagespeed-url-hash="605445316" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></a></p>
+<p style="text-align: center;"><em>Figure 5 Infy&#8221;Original&#8221; Victim versions</em></p>
+<h3>Game Over</h3>
+<p>Shortly after the takedown, as well as a new Infy version (31), we also observed the registration of multiple domains using a previously-seen pattern, against known campaign IP addresses. Almost every domain in the pattern-range box4035[.]net – box4090[.]net (138.201.0.134). These were not observed in any sample C2 lists however. Bestwebstat[.]com was sinkholed by another operator.</p>
+<p>Some victims infected with Infy versions 15-24 still used the C2 server us1s2[.]strangled[.]net, which remained in the hands of the attacker. In early June the attackers used this C2 to issue instructions to download new Infy “M” version 8.0 from us1s2[.]strangled[.]net/bdc.tmp. This was the first time we had observed an Infy variant being directly updated to Infy “M”. This used camouflage name “Macromedia v4”, changed from “v3” seen in Infy v31. They also removed the voice recording capability in this version.</p>
+<p>uvps1[.]cotbm[.]com was used for data exfiltration, previously at 138.201.47.150, after publishing of our original blog moving to 144.76.250.205. It was also hosting malware updates at /themes/u.php.</p>
+<p>They also added a curious C2 entry “hxxp://box” (note: defanged for publishing). It’s unclear how this should function; possibly a compromised victim intranet device, or the attackers have modified the HOSTS file on the victim computer.</p>
+<p>After the take-down, the attackers began to add server IP addresses as well as domain names to their malware C2 list. They also slightly modified their ZIP password from “Z8(2000_2001ul” to “Z8(2000_2001uIEr3”. Their new malware version added antivirus checks for Kaspersky Labs, Avast, and Trend Micro. The malware data capture now searches for file extensions:</p>
+<p style="text-align: left;"><em>.doc, .docx, .xls, .xlsx, .xlr, .pps, .ppt, .pptx, .mdb, .accdb, .db, .dbf, .sql, .jpg, .jpeg, .psd, .tif, .mp4, .3gp, .txt, .rtf, .odt, .htm, .html, .pdf, .wps, .contact, .csv, .nbu, .vcf, .pst, .zip, .rar, .7z, .zipx, .pgp, .tc, .vhd, .p12, .crt.pem,.key.pfx, .asc, .cer, .p7b, .sst, .doc, .docx, .xls, .xlsx, .xlr, .pps, .ppt, .pptx.</em></p>
+<p>and folder locations:</p>
+<p><em>:\$recycle.bin, :\documents and settings, :\msocache, :\program files, :\program files (x86), :\programdata, :\recovery, :\system volume information:\users, :\windows, :\boot, :\inetpub, :\i386.</em></p>
+<p>The malware continued to use the <strong>identical decryption key</strong> seen over the entire history of this campaign.</p>
+<p>Mid-June, through cooperation with the parties responsible for the C2 domains and law enforcement, we were able to get the remaining C2 domains null-routed and the directly-IP-addressed server disabled. This is the end of a decade-long campaign, though we naturally expect to see this actor back in some other guise before long.</p>
+<p>Thanks to the Malware research team &#8211; Yaron Samuel, Artiom Radune, Mashav Sapir, Netanel Rimer – for assistance in the takedown.</p>
+<h3>Appendix 1 – Exfiltration Algorithm</h3>
+<p>The malware uses a different algorithm than that used for encrypting the malware strings to encrypt the exfiltration data, including:</p>
+<ol>
+<li>Keylogger data + language.</li>
+<li>Malware logs &#8211; installation time, DLL path and name, log path, number of downloads, number of successful/failed connections.</li>
+<li>Information about the victim computer: Time zone, list of drives and types, running processes, disk info.</li>
+</ol>
+<p>First the malware adds 1 to all bytes, then an encryption key is initialized based on the victim computer name (the offset in the key is calculated by sum of the computer name letters %key length). Then the key is used to encrypt the data (see decrypt function). The encrypted data is then base64 encoded.</p>
+<p>Exfiltration data decryption python code:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b2299606f416314484517" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-mac print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+import os,sys
+import string
+import base64
+import fileinput
+FIRST_PHASE = "OQTJEqtsK0AUB9YXMwr8idozF7VWRPpnhNCHI6Dlkaubyxf5423jvcZ1LSGmge" 
+SECOND_PHASE = "PqOwI1eUrYtT2yR3p4E5o6WiQu7ASlDkFj8GhHaJ9sKdLfMgNzBx0ZcXvCmVnb"
+global FULL_KEY
+FULL_KEY= ""
+def sub_1_for_hex(str_input):
+    str_output = ""
+    for letter in str_input:
+        try:
+            str_output += chr(ord(letter)-1)
+        except:
+            print "sub_1_for_hex func problem"
+            continue
+    return str_output
+
+def sum_comp_name(comp_name):
+    sum = 0
+    for letter in comp_name:
+        sum+= ord(letter)
+    return sum
+    
+def init_key(comp):    
+    comp_name_sum = sum_comp_name(comp)
+    carry = divmod(comp_name_sum, 62)
+    index = carry[1] -1
+    end_key = FIRST_PHASE[:index]
+    key = FIRST_PHASE[index:]
+    key = key + end_key
+    key = key + key
+    return key
+
+def decrypt(num_list,offset):
+    global FULL_KEY
+    input = ""
+    for num_str in num_list:
+        try:
+            input += num_str.decode('hex')
+        except:
+            input += ')'    
+    result = ""
+    for i, c in enumerate(input):
+        i = i % 62 +1 
+        try:
+            index = FULL_KEY.index(c)-1
+        except ValueError:
+            result += c
+            continue
+        translated = SECOND_PHASE[(index - i +offset) % len(SECOND_PHASE)]
+        result += translated
+    return result  
+
+def found_infy_enc_data(line):    
+    found_infy_str = "show=\"---------- Administration Reporting Service "
+    found_infy_index = line.find(found_infy_str)
+    if not found_infy_index==-1:
+        return True,found_infy_index
+    else:
+        return False,found_infy_index
+ 
+def extract_comp_name(line):
+    comp = r"\xd\xa-----"
+    comp_index = line.find(comp)
+    comp_name = line[comp_index+len(comp):]
+    comp_name = comp_name[:comp_name.find("-----")]
+    print "(((=)))" + comp_name
+    return comp_name
+    
+def extract_enc_data(line):
+    header = r"\xd\xa_____"
+    start_index = line.find(header)+len(header)
+    line = line[start_index:]
+    endindex = line.index("_____\" value=")
+    line = line[:endindex]
+    return line
+
+def write_enc_infy_data_to_file(dec_line,comp_name,filename):                 
+    file1 = open(filename + "\\" + comp_name + ".txt",'ab')
+    file1.writelines(dec_line)
+    file1.close()
+
+def enc_wrapper(enc,comp_name):
+    global FULL_KEY
+    print FULL_KEY
+    FULL_KEY = init_key(comp_name)
+    
+    enc_final = ""
+    for letter in enc: 
+            if len(hex(ord(letter))[2:])==1:
+            enc_final += "0" + hex(ord(letter))[2:]  
+        elif len(hex(ord(letter))[2:])==2:
+            enc_final += hex(ord(letter))[2:]  
+        else:
+            print "not good hex length"
+            exit()
+            
+    enc = enc_final.upper() 
+   
+    enc = enc.replace("2E","21") 
+    enc = enc.replace("C5DC5A","") 
+    enc = enc.replace("D03D00","")
+    enc = enc.replace("0B0E","2121")  
+
+    enc = enc.replace("01","21") 
+     
+    enc_len = len(enc)
+
+    enc_rev = ""
+    num_list = []
+    enc_print =""
+    for i in range(0,enc_len/2):
+        enc_rev = enc[-2:]
+        if not enc_rev=="0B" and not enc_rev=="0E" and not enc_rev=="00" and not enc_rev=="D0":
+            enc_print +=enc_rev
+            num_list.append(enc_rev)
+        enc= enc[:-2]
+    
+    #the first part is always ok
+    dec_str = decrypt(num_list,0)
+    final = sub_1_for_hex(dec_str)
+    index = final.find("OK: Sent")
+    if index==-1:
+        print comp_name + " - did not found OK: Sent !!!!\n\n\n\n"
+        #exit()
+    decrypt_data = comp_name + " ++==++ " +  str(i) + ": " + final + "\n"
+    
+    final_start = final[0:500]
+    if final_start in UNIQUE_DATA:
+          print comp_name + " already have this data"
+          return
+    UNIQUE_DATA.append(final_start)
+    index = final.find("Installed Date:") 
+    
+    if index==-1:
+        for i in range(1,61):
+            dec_str = decrypt3(num_list,i)
+            final = sub_1_for_hex(dec_str)
+                 
+            ##print all 62 options
+            index2 = final.find("PROGRAM START:")
+            index3 = final.find("Installed Date:")
+            if not index2 ==-1 or not index3 ==-1:
+                decrypt_data += str(i) + ": " + final + "\n"
+    write_enc_infy_data_to_file(decrypt_data,comp_name,FILE_OUTPUT_NAME)
+
+def read_enc_data_files():
+
+    for root,dir,files in os.walk(PDML_PATH):
+        for file in files:
+            filename = root+ "\\" + file
+            if os.path.isfile(filename):
+                print filename
+                for line in fileinput.input([filename]):
+                    line = line.strip()
+                    is_found,found_infy_index= found_infy_enc_data(line)
+                    if not is_found:
+                        continue
+                    line = line[found_infy_index:]
+                    
+                    #get computer name (for use in init_key() later)
+                    comp_name = extract_comp_name(line)
+                    UNIQUE_COMP.append(comp_name)
+                    #get the infy encrypted data
+                    line = extract_enc_data(line)
+                    #base64 decode enc_data
+                    dec_line = line.decode('base64')
+                    #append enc_data to file
+                    write_enc_infy_data_to_file(dec_line,comp_name,FILE_ENC_OUTPUT_NAME)
+                    enc_wrapper(dec_line,comp_name)
+try:  
+    read_enc_data_files()
+except:
+    print "exception!!!!"</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b2299606f416314484517-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-2">2</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-4">4</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-6">6</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-8">8</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-10">10</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-12">12</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-14">14</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-16">16</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-18">18</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-20">20</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-22">22</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-23">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-24">24</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-25">25</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-26">26</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-27">27</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-28">28</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-29">29</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-30">30</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-31">31</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-32">32</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-33">33</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-34">34</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-35">35</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-36">36</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-37">37</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-38">38</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-39">39</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-40">40</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-41">41</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-42">42</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-43">43</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-44">44</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-45">45</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-46">46</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-47">47</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-48">48</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-49">49</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-50">50</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-51">51</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-52">52</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-53">53</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-54">54</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-55">55</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-56">56</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-57">57</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-58">58</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-59">59</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-60">60</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-61">61</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-62">62</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-63">63</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-64">64</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-65">65</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-66">66</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-67">67</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-68">68</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-69">69</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-70">70</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-71">71</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-72">72</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-73">73</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-74">74</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-75">75</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-76">76</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-77">77</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-78">78</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-79">79</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-80">80</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-81">81</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-82">82</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-83">83</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-84">84</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-85">85</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-86">86</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-87">87</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-88">88</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-89">89</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-90">90</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-91">91</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-92">92</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-93">93</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-94">94</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-95">95</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-96">96</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-97">97</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-98">98</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-99">99</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-100">100</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-101">101</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-102">102</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-103">103</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-104">104</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-105">105</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-106">106</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-107">107</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-108">108</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-109">109</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-110">110</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-111">111</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-112">112</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-113">113</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-114">114</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-115">115</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-116">116</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-117">117</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-118">118</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-119">119</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-120">120</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-121">121</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-122">122</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-123">123</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-124">124</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-125">125</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-126">126</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-127">127</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-128">128</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-129">129</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-130">130</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-131">131</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-132">132</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-133">133</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-134">134</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-135">135</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-136">136</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-137">137</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-138">138</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-139">139</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-140">140</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-141">141</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-142">142</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-143">143</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-144">144</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-145">145</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-146">146</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-147">147</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-148">148</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-149">149</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-150">150</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-151">151</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-152">152</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-153">153</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-154">154</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-155">155</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-156">156</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-157">157</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-158">158</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-159">159</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-160">160</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-161">161</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-162">162</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-163">163</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-164">164</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-165">165</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-166">166</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-167">167</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-168">168</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-169">169</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-170">170</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-171">171</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-172">172</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-173">173</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b2299606f416314484517-174">174</div><div class="crayon-num" data-line="crayon-5b2299606f416314484517-175">175</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b2299606f416314484517-1"><span class="crayon-e">import </span><span class="crayon-v">os</span><span class="crayon-sy">,</span><span class="crayon-e">sys</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-2"><span class="crayon-e">import </span><span class="crayon-t">string</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-3"><span class="crayon-e">import </span><span class="crayon-e">base64</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-4"><span class="crayon-e">import </span><span class="crayon-e">fileinput</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-5"><span class="crayon-v">FIRST_PHASE</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"OQTJEqtsK0AUB9YXMwr8idozF7VWRPpnhNCHI6Dlkaubyxf5423jvcZ1LSGmge"</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-6"><span class="crayon-v">SECOND_PHASE</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"PqOwI1eUrYtT2yR3p4E5o6WiQu7ASlDkFj8GhHaJ9sKdLfMgNzBx0ZcXvCmVnb"</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-7"><span class="crayon-m">global</span><span class="crayon-h"> </span><span class="crayon-e">FULL_KEY</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-8"><span class="crayon-v">FULL_KEY</span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">""</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-9"><span class="crayon-e">def </span><span class="crayon-e">sub_1_for_hex</span><span class="crayon-sy">(</span><span class="crayon-v">str_input</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">str_output</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">""</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-e">letter </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-v">str_input</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">try</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">str_output</span><span class="crayon-h"> </span><span class="crayon-o">+=</span><span class="crayon-h"> </span><span class="crayon-e">chr</span><span class="crayon-sy">(</span><span class="crayon-e">ord</span><span class="crayon-sy">(</span><span class="crayon-v">letter</span><span class="crayon-sy">)</span><span class="crayon-o">-</span><span class="crayon-cn">1</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">except</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-i">print</span><span class="crayon-h"> </span><span class="crayon-s">"sub_1_for_hex func problem"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">continue</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-17"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-e">str_output</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-18">&nbsp;</div><div class="crayon-line" id="crayon-5b2299606f416314484517-19"><span class="crayon-e">def </span><span class="crayon-e">sum_comp_name</span><span class="crayon-sy">(</span><span class="crayon-v">comp_name</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">sum</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-cn">0</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-21"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-e">letter </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-v">comp_name</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-22"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">sum</span><span class="crayon-o">+=</span><span class="crayon-h"> </span><span class="crayon-e">ord</span><span class="crayon-sy">(</span><span class="crayon-v">letter</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-23"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-e">sum</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-24"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-25"><span class="crayon-e">def </span><span class="crayon-e">init_key</span><span class="crayon-sy">(</span><span class="crayon-v">comp</span><span class="crayon-sy">)</span><span class="crayon-o">:</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-26"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">comp_name_sum</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">sum_comp_name</span><span class="crayon-sy">(</span><span class="crayon-v">comp</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-27"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">carry</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">divmod</span><span class="crayon-sy">(</span><span class="crayon-v">comp_name_sum</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-cn">62</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-28"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">index</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">carry</span><span class="crayon-sy">[</span><span class="crayon-cn">1</span><span class="crayon-sy">]</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-cn">1</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-29"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">end_key</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">FIRST_PHASE</span><span class="crayon-sy">[</span><span class="crayon-o">:</span><span class="crayon-v">index</span><span class="crayon-sy">]</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-30"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">key</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">FIRST_PHASE</span><span class="crayon-sy">[</span><span class="crayon-v">index</span><span class="crayon-o">:</span><span class="crayon-sy">]</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-31"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">key</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">key</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-e">end_key</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-32"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">key</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">key</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-e">key</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-33"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-e">key</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-34">&nbsp;</div><div class="crayon-line" id="crayon-5b2299606f416314484517-35"><span class="crayon-e">def </span><span class="crayon-e">decrypt</span><span class="crayon-sy">(</span><span class="crayon-v">num_list</span><span class="crayon-sy">,</span><span class="crayon-v">offset</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-36"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">global</span><span class="crayon-h"> </span><span class="crayon-e">FULL_KEY</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-37"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">input</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">""</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-38"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-e">num_str </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-v">num_list</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-39"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">try</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-40"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">input</span><span class="crayon-h"> </span><span class="crayon-o">+=</span><span class="crayon-h"> </span><span class="crayon-v">num_str</span><span class="crayon-sy">.</span><span class="crayon-e">decode</span><span class="crayon-sy">(</span><span class="crayon-s">'hex'</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-41"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">except</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-42"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">input</span><span class="crayon-h"> </span><span class="crayon-o">+=</span><span class="crayon-h"> </span><span class="crayon-s">')'</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-43"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">result</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">""</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-44"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-i">c</span><span class="crayon-h"> </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-e">enumerate</span><span class="crayon-sy">(</span><span class="crayon-v">input</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-45"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">i</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-h"> </span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-cn">62</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-cn">1</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-46"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">try</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-47"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">index</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">FULL_KEY</span><span class="crayon-sy">.</span><span class="crayon-e">index</span><span class="crayon-sy">(</span><span class="crayon-v">c</span><span class="crayon-sy">)</span><span class="crayon-o">-</span><span class="crayon-cn">1</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-48"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">except </span><span class="crayon-v">ValueError</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-49"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">result</span><span class="crayon-h"> </span><span class="crayon-o">+=</span><span class="crayon-h"> </span><span class="crayon-i">c</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-50"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">continue</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-51"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">translated</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">SECOND_PHASE</span><span class="crayon-sy">[</span><span class="crayon-sy">(</span><span class="crayon-v">index</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-v">offset</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-e">len</span><span class="crayon-sy">(</span><span class="crayon-v">SECOND_PHASE</span><span class="crayon-sy">)</span><span class="crayon-sy">]</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-52"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">result</span><span class="crayon-h"> </span><span class="crayon-o">+=</span><span class="crayon-h"> </span><span class="crayon-e">translated</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-53"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-e">result&nbsp;&nbsp;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-54">&nbsp;</div><div class="crayon-line" id="crayon-5b2299606f416314484517-55"><span class="crayon-e">def </span><span class="crayon-e">found_infy_enc_data</span><span class="crayon-sy">(</span><span class="crayon-v">line</span><span class="crayon-sy">)</span><span class="crayon-o">:</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-56"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">found_infy_str</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">"show=\"---------- Administration Reporting Service "</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-57"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">found_infy_index</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">line</span><span class="crayon-sy">.</span><span class="crayon-e">find</span><span class="crayon-sy">(</span><span class="crayon-v">found_infy_str</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-58"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-st">not</span><span class="crayon-h"> </span><span class="crayon-v">found_infy_index</span><span class="crayon-o">==</span><span class="crayon-o">-</span><span class="crayon-cn">1</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-59"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-t">True</span><span class="crayon-sy">,</span><span class="crayon-e">found_infy_index</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-60"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">else</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-61"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-t">False</span><span class="crayon-sy">,</span><span class="crayon-e">found_infy_index</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-62"><span class="crayon-e"> </span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-63"><span class="crayon-e">def </span><span class="crayon-e">extract_comp_name</span><span class="crayon-sy">(</span><span class="crayon-v">line</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-64"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">comp</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-i">r</span><span class="crayon-s">"\xd\xa-----"</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-65"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">comp_index</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">line</span><span class="crayon-sy">.</span><span class="crayon-e">find</span><span class="crayon-sy">(</span><span class="crayon-v">comp</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-66"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">comp_name</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">line</span><span class="crayon-sy">[</span><span class="crayon-v">comp_index</span><span class="crayon-o">+</span><span class="crayon-e">len</span><span class="crayon-sy">(</span><span class="crayon-v">comp</span><span class="crayon-sy">)</span><span class="crayon-o">:</span><span class="crayon-sy">]</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-67"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">comp_name</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">comp_name</span><span class="crayon-sy">[</span><span class="crayon-o">:</span><span class="crayon-v">comp_name</span><span class="crayon-sy">.</span><span class="crayon-e">find</span><span class="crayon-sy">(</span><span class="crayon-s">"-----"</span><span class="crayon-sy">)</span><span class="crayon-sy">]</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-68"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-i">print</span><span class="crayon-h"> </span><span class="crayon-s">"(((=)))"</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-e">comp_name</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-69"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-e">comp_name</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-70"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-71"><span class="crayon-e">def </span><span class="crayon-e">extract_enc_data</span><span class="crayon-sy">(</span><span class="crayon-v">line</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-72"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">header</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-i">r</span><span class="crayon-s">"\xd\xa_____"</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-73"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">start_index</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">line</span><span class="crayon-sy">.</span><span class="crayon-e">find</span><span class="crayon-sy">(</span><span class="crayon-v">header</span><span class="crayon-sy">)</span><span class="crayon-o">+</span><span class="crayon-e">len</span><span class="crayon-sy">(</span><span class="crayon-v">header</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-74"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">line</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">line</span><span class="crayon-sy">[</span><span class="crayon-v">start_index</span><span class="crayon-o">:</span><span class="crayon-sy">]</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-75"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">endindex</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">line</span><span class="crayon-sy">.</span><span class="crayon-e">index</span><span class="crayon-sy">(</span><span class="crayon-s">"_____\" value="</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-76"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">line</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">line</span><span class="crayon-sy">[</span><span class="crayon-o">:</span><span class="crayon-v">endindex</span><span class="crayon-sy">]</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-77"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-e">line</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-78">&nbsp;</div><div class="crayon-line" id="crayon-5b2299606f416314484517-79"><span class="crayon-e">def </span><span class="crayon-e">write_enc_infy_data_to_file</span><span class="crayon-sy">(</span><span class="crayon-v">dec_line</span><span class="crayon-sy">,</span><span class="crayon-v">comp_name</span><span class="crayon-sy">,</span><span class="crayon-v">filename</span><span class="crayon-sy">)</span><span class="crayon-o">:</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-80"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">file1</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">open</span><span class="crayon-sy">(</span><span class="crayon-v">filename</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-s">"\\"</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-v">comp_name</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-s">".txt"</span><span class="crayon-sy">,</span><span class="crayon-s">'ab'</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-81"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">file1</span><span class="crayon-sy">.</span><span class="crayon-e">writelines</span><span class="crayon-sy">(</span><span class="crayon-v">dec_line</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-82"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">file1</span><span class="crayon-sy">.</span><span class="crayon-e">close</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-83">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-84"><span class="crayon-e">def </span><span class="crayon-e">enc_wrapper</span><span class="crayon-sy">(</span><span class="crayon-v">enc</span><span class="crayon-sy">,</span><span class="crayon-v">comp_name</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-85"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">global</span><span class="crayon-h"> </span><span class="crayon-e">FULL_KEY</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-86"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">print </span><span class="crayon-e">FULL_KEY</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-87"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">FULL_KEY</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">init_key</span><span class="crayon-sy">(</span><span class="crayon-v">comp_name</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-88"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-89"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">enc_final</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">""</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-90"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-e">letter </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-v">enc</span><span class="crayon-o">:</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-91"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-e">len</span><span class="crayon-sy">(</span><span class="crayon-e">hex</span><span class="crayon-sy">(</span><span class="crayon-e">ord</span><span class="crayon-sy">(</span><span class="crayon-v">letter</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">[</span><span class="crayon-cn">2</span><span class="crayon-o">:</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-cn">1</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-92"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">enc_final</span><span class="crayon-h"> </span><span class="crayon-o">+=</span><span class="crayon-h"> </span><span class="crayon-s">"0"</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-e">hex</span><span class="crayon-sy">(</span><span class="crayon-e">ord</span><span class="crayon-sy">(</span><span class="crayon-v">letter</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">[</span><span class="crayon-cn">2</span><span class="crayon-o">:</span><span class="crayon-sy">]</span><span class="crayon-h">&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-93"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">elif </span><span class="crayon-e">len</span><span class="crayon-sy">(</span><span class="crayon-e">hex</span><span class="crayon-sy">(</span><span class="crayon-e">ord</span><span class="crayon-sy">(</span><span class="crayon-v">letter</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">[</span><span class="crayon-cn">2</span><span class="crayon-o">:</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-cn">2</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-94"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">enc_final</span><span class="crayon-h"> </span><span class="crayon-o">+=</span><span class="crayon-h"> </span><span class="crayon-e">hex</span><span class="crayon-sy">(</span><span class="crayon-e">ord</span><span class="crayon-sy">(</span><span class="crayon-v">letter</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">[</span><span class="crayon-cn">2</span><span class="crayon-o">:</span><span class="crayon-sy">]</span><span class="crayon-h">&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-95"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">else</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-96"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-i">print</span><span class="crayon-h"> </span><span class="crayon-s">"not good hex length"</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-97"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">exit</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-98"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-99"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">enc</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">enc_final</span><span class="crayon-sy">.</span><span class="crayon-e">upper</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-100"><span class="crayon-h">&nbsp;&nbsp; </span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-101"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">enc</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">enc</span><span class="crayon-sy">.</span><span class="crayon-e">replace</span><span class="crayon-sy">(</span><span class="crayon-s">"2E"</span><span class="crayon-sy">,</span><span class="crayon-s">"21"</span><span class="crayon-sy">)</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-102"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">enc</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">enc</span><span class="crayon-sy">.</span><span class="crayon-e">replace</span><span class="crayon-sy">(</span><span class="crayon-s">"C5DC5A"</span><span class="crayon-sy">,</span><span class="crayon-s">""</span><span class="crayon-sy">)</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-103"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">enc</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">enc</span><span class="crayon-sy">.</span><span class="crayon-e">replace</span><span class="crayon-sy">(</span><span class="crayon-s">"D03D00"</span><span class="crayon-sy">,</span><span class="crayon-s">""</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-104"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">enc</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">enc</span><span class="crayon-sy">.</span><span class="crayon-e">replace</span><span class="crayon-sy">(</span><span class="crayon-s">"0B0E"</span><span class="crayon-sy">,</span><span class="crayon-s">"2121"</span><span class="crayon-sy">)</span><span class="crayon-h">&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-105">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-106"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">enc</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">enc</span><span class="crayon-sy">.</span><span class="crayon-e">replace</span><span class="crayon-sy">(</span><span class="crayon-s">"01"</span><span class="crayon-sy">,</span><span class="crayon-s">"21"</span><span class="crayon-sy">)</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-107"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp; </span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-108"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">enc_len</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">len</span><span class="crayon-sy">(</span><span class="crayon-v">enc</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-109">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-110"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">enc_rev</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">""</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-111"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">num_list</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">]</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-112"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">enc_print</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-s">""</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-113"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-i">i</span><span class="crayon-h"> </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-e">range</span><span class="crayon-sy">(</span><span class="crayon-cn">0</span><span class="crayon-sy">,</span><span class="crayon-v">enc_len</span><span class="crayon-o">/</span><span class="crayon-cn">2</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-114"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">enc_rev</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">enc</span><span class="crayon-sy">[</span><span class="crayon-o">-</span><span class="crayon-cn">2</span><span class="crayon-o">:</span><span class="crayon-sy">]</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-115"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-st">not</span><span class="crayon-h"> </span><span class="crayon-v">enc_rev</span><span class="crayon-o">==</span><span class="crayon-s">"0B"</span><span class="crayon-h"> </span><span class="crayon-st">and</span><span class="crayon-h"> </span><span class="crayon-st">not</span><span class="crayon-h"> </span><span class="crayon-v">enc_rev</span><span class="crayon-o">==</span><span class="crayon-s">"0E"</span><span class="crayon-h"> </span><span class="crayon-st">and</span><span class="crayon-h"> </span><span class="crayon-st">not</span><span class="crayon-h"> </span><span class="crayon-v">enc_rev</span><span class="crayon-o">==</span><span class="crayon-s">"00"</span><span class="crayon-h"> </span><span class="crayon-st">and</span><span class="crayon-h"> </span><span class="crayon-st">not</span><span class="crayon-h"> </span><span class="crayon-v">enc_rev</span><span class="crayon-o">==</span><span class="crayon-s">"D0"</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-116"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">enc_print</span><span class="crayon-h"> </span><span class="crayon-o">+=</span><span class="crayon-e">enc_rev</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-117"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">num_list</span><span class="crayon-sy">.</span><span class="crayon-e">append</span><span class="crayon-sy">(</span><span class="crayon-v">enc_rev</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-118"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">enc</span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">enc</span><span class="crayon-sy">[</span><span class="crayon-o">:</span><span class="crayon-o">-</span><span class="crayon-cn">2</span><span class="crayon-sy">]</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-119"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-120"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-p">#the first part is always ok</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-121"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">dec_str</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">decrypt</span><span class="crayon-sy">(</span><span class="crayon-v">num_list</span><span class="crayon-sy">,</span><span class="crayon-cn">0</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-122"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">final</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">sub_1_for_hex</span><span class="crayon-sy">(</span><span class="crayon-v">dec_str</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-123"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">index</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-m">final</span><span class="crayon-sy">.</span><span class="crayon-e">find</span><span class="crayon-sy">(</span><span class="crayon-s">"OK: Sent"</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-124"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-v">index</span><span class="crayon-o">==</span><span class="crayon-o">-</span><span class="crayon-cn">1</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-125"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">print </span><span class="crayon-v">comp_name</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-s">" - did not found OK: Sent !!!!\n\n\n\n"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-126"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-p">#exit()</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-127"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">decrypt_data</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">comp_name</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-s">" ++==++ "</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e">str</span><span class="crayon-sy">(</span><span class="crayon-v">i</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-s">": "</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-m">final</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-s">"\n"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-128"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-129"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">final_start</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-m">final</span><span class="crayon-sy">[</span><span class="crayon-cn">0</span><span class="crayon-o">:</span><span class="crayon-cn">500</span><span class="crayon-sy">]</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-130"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-e">final_start </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-v">UNIQUE_DATA</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-131"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">print </span><span class="crayon-v">comp_name</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-s">" already have this data"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-132"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-133"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">UNIQUE_DATA</span><span class="crayon-sy">.</span><span class="crayon-e">append</span><span class="crayon-sy">(</span><span class="crayon-v">final_start</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-134"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">index</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-m">final</span><span class="crayon-sy">.</span><span class="crayon-e">find</span><span class="crayon-sy">(</span><span class="crayon-s">"Installed Date:"</span><span class="crayon-sy">)</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-135"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-136"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-v">index</span><span class="crayon-o">==</span><span class="crayon-o">-</span><span class="crayon-cn">1</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-137"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-i">i</span><span class="crayon-h"> </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-e">range</span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-sy">,</span><span class="crayon-cn">61</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-138"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">dec_str</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">decrypt3</span><span class="crayon-sy">(</span><span class="crayon-v">num_list</span><span class="crayon-sy">,</span><span class="crayon-v">i</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-139"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-m">final</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">sub_1_for_hex</span><span class="crayon-sy">(</span><span class="crayon-v">dec_str</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-140"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-141"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-p">##print all 62 options</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-142"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">index2</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-m">final</span><span class="crayon-sy">.</span><span class="crayon-e">find</span><span class="crayon-sy">(</span><span class="crayon-s">"PROGRAM START:"</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-143"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">index3</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-m">final</span><span class="crayon-sy">.</span><span class="crayon-e">find</span><span class="crayon-sy">(</span><span class="crayon-s">"Installed Date:"</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-144"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-st">not</span><span class="crayon-h"> </span><span class="crayon-v">index2</span><span class="crayon-h"> </span><span class="crayon-o">==</span><span class="crayon-o">-</span><span class="crayon-cn">1</span><span class="crayon-h"> </span><span class="crayon-st">or</span><span class="crayon-h"> </span><span class="crayon-st">not</span><span class="crayon-h"> </span><span class="crayon-v">index3</span><span class="crayon-h"> </span><span class="crayon-o">==</span><span class="crayon-o">-</span><span class="crayon-cn">1</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-145"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">decrypt_data</span><span class="crayon-h"> </span><span class="crayon-o">+=</span><span class="crayon-h"> </span><span class="crayon-e">str</span><span class="crayon-sy">(</span><span class="crayon-v">i</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-s">": "</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-m">final</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-s">"\n"</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-146"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">write_enc_infy_data_to_file</span><span class="crayon-sy">(</span><span class="crayon-v">decrypt_data</span><span class="crayon-sy">,</span><span class="crayon-v">comp_name</span><span class="crayon-sy">,</span><span class="crayon-v">FILE_OUTPUT_NAME</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-147">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-148"><span class="crayon-e">def </span><span class="crayon-e">read_enc_data_files</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-149">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-150"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-v">root</span><span class="crayon-sy">,</span><span class="crayon-v">dir</span><span class="crayon-sy">,</span><span class="crayon-e">files </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-v">os</span><span class="crayon-sy">.</span><span class="crayon-e">walk</span><span class="crayon-sy">(</span><span class="crayon-v">PDML_PATH</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-151"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-e">file </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-v">files</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-152"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">filename</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">root</span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-s">"\\"</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-e">file</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-153"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-v">os</span><span class="crayon-sy">.</span><span class="crayon-v">path</span><span class="crayon-sy">.</span><span class="crayon-e">isfile</span><span class="crayon-sy">(</span><span class="crayon-v">filename</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-154"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">print </span><span class="crayon-e">filename</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-155"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-e">line </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-v">fileinput</span><span class="crayon-sy">.</span><span class="crayon-e">input</span><span class="crayon-sy">(</span><span class="crayon-sy">[</span><span class="crayon-v">filename</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-156"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">line</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">line</span><span class="crayon-sy">.</span><span class="crayon-e">strip</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-157"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">is_found</span><span class="crayon-sy">,</span><span class="crayon-v">found_infy_index</span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">found_infy_enc_data</span><span class="crayon-sy">(</span><span class="crayon-v">line</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-158"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-st">not</span><span class="crayon-h"> </span><span class="crayon-v">is_found</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-159"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">continue</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-160"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">line</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">line</span><span class="crayon-sy">[</span><span class="crayon-v">found_infy_index</span><span class="crayon-o">:</span><span class="crayon-sy">]</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-161"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-162"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-p">#get computer name (for use in init_key() later)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-163"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">comp_name</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">extract_comp_name</span><span class="crayon-sy">(</span><span class="crayon-v">line</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-164"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">UNIQUE_COMP</span><span class="crayon-sy">.</span><span class="crayon-e">append</span><span class="crayon-sy">(</span><span class="crayon-v">comp_name</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-165"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-p">#get the infy encrypted data</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-166"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">line</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">extract_enc_data</span><span class="crayon-sy">(</span><span class="crayon-v">line</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-167"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-p">#base64 decode enc_data</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-168"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">dec_line</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">line</span><span class="crayon-sy">.</span><span class="crayon-e">decode</span><span class="crayon-sy">(</span><span class="crayon-s">'base64'</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-169"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-p">#append enc_data to file</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-170"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">write_enc_infy_data_to_file</span><span class="crayon-sy">(</span><span class="crayon-v">dec_line</span><span class="crayon-sy">,</span><span class="crayon-v">comp_name</span><span class="crayon-sy">,</span><span class="crayon-v">FILE_ENC_OUTPUT_NAME</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-171"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">enc_wrapper</span><span class="crayon-sy">(</span><span class="crayon-v">dec_line</span><span class="crayon-sy">,</span><span class="crayon-v">comp_name</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-172"><span class="crayon-st">try</span><span class="crayon-o">:</span><span class="crayon-h">&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-173"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">read_enc_data_files</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b2299606f416314484517-174"><span class="crayon-v">except</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-5b2299606f416314484517-175"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-i">print</span><span class="crayon-h"> </span><span class="crayon-s">"exception!!!!"</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0122 seconds] -->
+<p></p>
+<h3>Appendix 2 –IoCs</h3>
+<p>Infy version 31: f07e85143e057ee565c25db2a9f36491102d4e526ffb02c83e580712ec00eb27</p>
+<p>Infy “M” version 8.0: 583349B7A2385A1E8DE682A43351798CA113CBBB80686193ECF9A61E6942786A</p>
+<p>5.9.94.34<br/>
+138.201.0.134<br/>
+138.201.47.150<br/>
+144.76.250.205<br/>
+138.201.47.158<br/>
+138.201.47.153<br/>
+us1s2[.]strangled[.]net<br/>
+uvps1[.]cotbm[.]com<br/>
+gstat[.]strangled[.]net<br/>
+secup[.]soon[.]it<br/>
+p208[.]ige[.]es<br/>
+lu[.]ige[.]es<br/>
+updateserver1[.]com<br/>
+updateserver3[.]com<br/>
+updatebox4[.]com<br/>
+bestupdateserver[.]com<br/>
+bestupdateserver2[.]com<br/>
+bestbox3[.]com<br/>
+safehostline[.]com<br/>
+youripinfo[.]com<br/>
+bestupser[.]awardspace[.]info<br/>
+box4035[.]net<br/>
+box4036[.]net<br/>
+box4037[.]net<br/>
+box4038[.]net<br/>
+box4039[.]net<br/>
+box4040[.]net<br/>
+box4041[.]net<br/>
+box4042[.]net<br/>
+box4043[.]net<br/>
+box4044[.]net<br/>
+box4045[.]net<br/>
+box4046[.]net<br/>
+box4047[.]net<br/>
+box4048[.]net<br/>
+box4049[.]net<br/>
+box4050[.]net<br/>
+box4051[.]net<br/>
+box4052[.]net<br/>
+box4053[.]net<br/>
+box4054[.]net<br/>
+box4055[.]net<br/>
+box4056[.]net<br/>
+box4057[.]net<br/>
+box4058[.]net<br/>
+box4059[.]net<br/>
+box4060[.]net<br/>
+box4061[.]net<br/>
+box4062[.]net<br/>
+box4063[.]net<br/>
+box4064[.]net<br/>
+box4065[.]net<br/>
+box4066[.]net<br/>
+box4067[.]net<br/>
+box4068[.]net<br/>
+box4069[.]net<br/>
+box4070[.]net<br/>
+box4071[.]net<br/>
+box4072[.]net<br/>
+box4075[.]net<br/>
+box4078[.]net<br/>
+box4079[.]net<br/>
+box4080[.]net<br/>
+box4081[.]net<br/>
+box4082[.]net<br/>
+box4083[.]net<br/>
+box4084[.]net<br/>
+box4085[.]net<br/>
+box4086[.]net<br/>
+box4087[.]net<br/>
+box4088[.]net<br/>
+box4089[.]net<br/>
+box4090[.]net</p>
+    </div>
+    <footer>
+          </footer>
+    
+
+<section id="comments" class="comments">
+  
+    				<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Got something to say? <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2016/06/unit42-prince-of-persia-game-over/#respond" style="display:none;">Cancel reply</a></small></h3>				<form action="https://researchcenter.paloaltonetworks.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+					<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="6" aria-required="true" placeholder="Leave a comment..." required></textarea></p><input name="wpml_language_code" type="hidden" value="en"/><p style="clear: both;" class="subscribe-to-comments">
+			<input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;"/>
+			<label for="subscribe">Notify me of followup comments via e-mail</label>
+			</p><p class="comment-form-author"><input id="author" name="author" type="text" placeholder="Name (required)" value="" size="30" aria-required='true' required /></p>
+<p class="comment-form-email"><input id="email" name="email" type="text" placeholder="Email (required)" value="" size="30" aria-required='true' required /></p>
+<p class="comment-form-url"><input id="url" name="url" type="text" placeholder="Website" value="" size="30"/></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Submit"/> <input type='hidden' name='comment_post_ID' value='15043' id='comment_post_ID'/>
+<input type='hidden' name='comment_parent' id='comment_parent' value='0'/>
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="36a9adc1ac"/></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="221"/></p>				</form>
+					</div><!-- #respond -->
+		</section>
+  </article>
+    </div>
+    <!--sidebar starts-->
+<div class="edition-sidebar">
+    <div id="subscribelet">
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+<form id="blog-subscribe-form" method="post" name="Unit42_Subscribe" action="https://start.paloaltonetworks.com/index.php/leadCapture/save2">
+    <h3>Get updates: Unit 42</h3>
+    <p>Sign up to receive the latest news, cyber threat intelligence and research from Unit42</p>
+    <input type="hidden" value="subscribe-unit42" name="FormName">
+    <input id="field14" type="hidden" name="Qualifying_Campaign__c" value="70170000000lBnb">    
+    <input type="hidden" value="1086" name="formid">
+    <input type="hidden" value="531-OCS-018" name="munchkinId">
+    <input type="hidden" value="2141" name="lpId">
+     <input type="hidden" value="1086" name="formVid">
+    <input type="hidden" name="mktoOptInUnit42" value="true">
+    <input name="Email" type="text" placeholder="Business Email">
+
+    <p class="sbs-terms">By submitting this form, you agree to our <a href="https://www.paloaltonetworks.com/legal-notices/terms-of-use" target="_blank">Terms of Use</a> and acknowledge our <a href="https://www.paloaltonetworks.com/legal-notices/privacy" target="_blank">Privacy Statement</a>.</p>
+
+    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
+    <div class="g-recaptcha" data-callback="captchaComplete" data-sitekey="6Lc5EhgTAAAAAJa-DzE7EeWABasWg4LKv-R3ao6o"></div>
+    <button class="button" type="submit" value="Submit">SUBMIT</button>
+    <br>
+
+ </form>
+
+<script type="text/javascript">var captchaComplete=function(){$("form[name='Unit42_Subscribe'] button[type='submit']").prop('disabled',false);}
+$(document).ready(function(){getSerializedTracking("Unit42_Subscribe");$("form[name='Unit42_Subscribe'] button[type='submit']").prop('disabled',true);$('#blog-subscribe-form').submit(function(e){e.preventDefault();var form=$(this);$.ajax({type:'POST',url:form.attr('action'),data:form.serialize(),success:function(msg){$('#blog-subscribe-form input, #blog-subscribe-form button').remove();$('#blog-subscribe-form p').html('You have been successfully subscribed.');}});});});</script>
+    </div>
+<!--
+    <div id="trending">
+        <h3>TRENDING ARTICLES</h3>
+            </div>-->
+    <div id="ad">
+        <div class="mboxDefault">
+        </div>
+        <script type="text/javascript">mboxCreate('researchCenter_adSpot');</script>
+    </div>
+</div>
+</div>
+        </main><!-- /.main -->
+              </div><!-- /.content -->
+    </div><!-- /.wrap -->
+    <section class="pan-mega-footer">
+	<div class="container">
+		<div class="row pan-mega-footer-links">
+			<div class="col-xs-12 col-sm-4 col-md-3">
+				<div class="baseComponent parbase footerTitle1 title">
+
+
+
+	
+		
+
+
+		
+		
+		
+
+	<h3>Company</h3>
+
+	
+
+
+</div>
+<div class="footerList1 baseComponent parbase list">
+
+
+
+	
+		
+		
+		
+		
+
+    <ul class=" list-unstyled ">
+        
+        	
+            
+				
+					
+
+
+
+	
+		
+		
+		
+		
+<li><a href="https://www.paloaltonetworks.com/company" class="" footer-track="true" nav-track-breadcrumb="footer:company:company">Company</a></li>
+	
+
+
+
+				
+			
+        
+        	
+            
+				
+					<li><a href="http://jobs.jobvite.com/paloaltonetworks/" class="" footer-track="true" nav-track-breadcrumb="footer:company:careers">Careers</a></li>
+				
+			
+        
+        	
+            
+				
+					
+
+
+
+	
+		
+		
+		
+		
+<li><a href="https://www.paloaltonetworks.com/sitemap" class="" footer-track="true" nav-track-breadcrumb="footer:company:sitemap">Sitemap</a></li>
+	
+
+
+
+				
+			
+        
+        	
+            
+				
+					
+
+
+
+	
+		
+		
+		
+		
+<li><a href="https://www.paloaltonetworks.com/security-disclosure" class="" footer-track="true" nav-track-breadcrumb="footer:company:report a vunerability">Report a Vunerability</a></li>
+	
+
+
+
+				
+			
+        
+    </ul>
+
+	
+
+
+</div>
+</div>
+			<div class="col-xs-12 col-sm-4 col-md-3">
+				<div class="baseComponent parbase footerTitle2 title">
+
+
+
+	
+		
+
+
+		
+		
+		
+
+	<h3>Legal Notices</h3>
+
+	
+
+
+</div>
+<div class="footerList2 baseComponent parbase list">
+
+
+
+	
+		
+		
+		
+		
+
+    <ul class=" list-unstyled ">
+        
+        	
+            
+				
+					
+
+
+
+	
+		
+		
+		
+		
+<li><a href="https://www.paloaltonetworks.com/legal-notices/privacy" class="" footer-track="true" nav-track-breadcrumb="footer:legal notices:privacy">Privacy</a></li>
+	
+
+
+
+				
+			
+        
+        	
+            
+				
+					
+
+
+
+	
+		
+		
+		
+		
+<li><a href="https://www.paloaltonetworks.com/legal-notices/terms-of-use" class="" footer-track="true" nav-track-breadcrumb="footer:legal notices:terms of use">Terms of Use</a></li>
+	
+
+
+
+				
+			
+        
+        	
+            
+				
+					
+
+
+
+	
+		
+		
+		
+		
+<li><a href="https://www.paloaltonetworks.com/legal-notices" class="" footer-track="true" nav-track-breadcrumb="footer:legal notices:documents">Documents</a></li>
+	
+
+
+
+				
+			
+        
+        	
+            
+				
+					
+
+
+
+	
+		
+		
+		
+		
+<li><a href="https://www.paloaltonetworks.com/legal-notices/gdpr" class="" footer-track="true" nav-track-breadcrumb="footer:legal notices:gdpr readiness">GDPR Readiness</a></li>
+	
+
+
+
+				
+			
+        
+    </ul>
+
+	
+
+
+</div>
+</div>
+			<div class="col-xs-12 col-sm-4 col-md-3">
+				<div class="baseComponent parbase footerTitle3 title">
+
+
+
+	
+		
+
+
+		
+		
+		
+
+	<h3>Account</h3>
+
+	
+
+
+</div>
+<div class="footerList3 baseComponent parbase list">
+
+
+
+	
+		
+		
+		
+		
+
+    <ul class=" list-unstyled ">
+        
+        	
+            
+				
+					
+
+
+
+	
+		
+		
+		
+		
+<li><a href="https://www.paloaltonetworks.com/company/subscriptions" class="" footer-track="true" nav-track-breadcrumb="footer:account:manage a subscription">Manage a Subscription</a></li>
+	
+
+
+
+				
+			
+        
+    </ul>
+
+	
+
+
+</div>
+</div>
+			<div class="col-xs-12 col-sm-12 col-md-3">
+				<ul class="list-inline">
+					<li><a href="https://www.facebook.com/PaloAltoNetworks/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+					<li><a href="https://www.linkedin.com/company/palo-alto-networks" target="_blank"><i class="fa fa-linkedin-square"></i></a></li>
+					<li><a href="https://twitter.com/PaloAltoNtwks" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">(function($){var footerLinks=document.querySelectorAll('.pan-mega-footer li > a');console.log('footerlinks: ',footerLinks);var linksArr=Array.prototype.slice.call(footerLinks);linksArr.forEach(function(link){var linkSection=$(link).closest('.col-xs-12').find('h3').text()
+if(linkSection){var linkPrefix='footer:'+linkSection+':'
+var linkText=$(link).text()
+var linkTrackVal=(linkPrefix+linkText).toLowerCase()
+$(link).attr('footer-track',true)
+$(link).attr('nav-track-breadcrumb',linkTrackVal)}});})(jQuery);</script>
+
+</section>
+<footer class="pan-footer">
+	<div class="container">
+		<span><p>© 2018 Palo Alto Networks, Inc. All rights reserved.<br>
+
+</p>
+
+</span>
+	</div>
+<script type="text/javascript" src="https://www.paloaltonetworks.com/content/dam/pan/en_US/includes/attribution.js"></script>
+</footer>
+    <script type="text/javascript">var isProcessing=false;function alter_ul_post_values(obj,post_id,ul_type){if(isProcessing)return;isProcessing=true;jQuery(obj).find("span").html("..");jQuery.ajax({type:"POST",url:"https://researchcenter.paloaltonetworks.com/wp-content/plugins/like-dislike-counter-for-posts-pages-and-comments/ajax_counter.php",data:"post_id="+post_id+"&up_type="+ul_type,success:function(msg){jQuery(obj).find("span").html(msg);isProcessing=false;}});}</script>
+          <script>if(document.location.protocol!="https:"){document.location=document.URL.replace(/^http:/i,"https:");}</script>
+      <script type='text/javascript' src='https://researchcenter.paloaltonetworks.com/wp-content/plugins/akismet/_inc/form.js?ver=3.1.11'></script>
+<script type='text/javascript' src='https://researchcenter.paloaltonetworks.com/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+<script type='text/javascript'>//<![CDATA[
+var _wpcf7={"loaderUrl":"https:\/\/researchcenter.paloaltonetworks.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","recaptchaEmpty":"Please verify that you are not a robot.","sending":"Sending ..."};
+//]]></script>
+<script type='text/javascript' src='https://researchcenter.paloaltonetworks.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.4.2'></script>
+<script type='text/javascript' src='https://researchcenter.paloaltonetworks.com/wp-content/themes/palo-alto/dist/scripts/main-c5af426da2.js'></script>
+<script type='text/javascript' src='https://researchcenter.paloaltonetworks.com/wp-content/themes/palo-alto/dist/scripts/pan-main-website-3f726d50b0.js'></script>
+<script type='text/javascript' src='https://researchcenter.paloaltonetworks.com/wp-includes/js/wp-embed.min.js?ver=4.6.11'></script>
+<script type='text/javascript'>//<![CDATA[
+var icl_vars={"current_language":"en","icl_home":"https:\/\/researchcenter.paloaltonetworks.com","ajax_url":"https:\/\/researchcenter.paloaltonetworks.com\/wp-admin\/admin-ajax.php","url_type":"3"};
+//]]></script>
+<script type='text/javascript' src='https://researchcenter.paloaltonetworks.com/wp-content/plugins/sitepress-multilingual-cms/res/js/sitepress.js?ver=4.6.11'></script>
+<!-- Adobe Page Bottom -->
+<script type="text/javascript">_satellite.pageBottom();</script>  </body>
+</html>

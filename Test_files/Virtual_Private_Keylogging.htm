@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en-US" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:addthis="https://www.addthis.com/help/api-spec"  class="ie ie6 lte9 lte8 lte7 lte6 no-js"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en-US" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:addthis="https://www.addthis.com/help/api-spec"  class="ie ie7 lte9 lte8 lte7 no-js"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en-US" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:addthis="https://www.addthis.com/help/api-spec"  class="ie ie8 lte9 lte8 no-js"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en-US" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:addthis="https://www.addthis.com/help/api-spec"  class="ie ie9 lte9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en-US" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:addthis="https://www.addthis.com/help/api-spec"  class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Private Keylogging: Cisco Web VPNs Leveraged for Access and Persistence | Volexity</title>
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="cleartype" content="on">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.volexity.com/wp-content/themes/volexity/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="https://www.volexity.com/wp-content/themes/volexity/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://www.volexity.com/wp-content/themes/volexity/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://www.volexity.com/wp-content/themes/volexity/favicon.ico">
+    <link rel="manifest" href="https://www.volexity.com/wp-content/themes/volexity/manifest.json">
+    <meta name="theme-color" content="#12BEF0">
+
+          <meta property="og:image" content="https://www.volexity.com/wp-content/uploads/2018/01/Volexity-Logo-Full-Stacked_1000px.jpg" />
+    
+	<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='main-style-css'  href='https://www.volexity.com/wp-content/themes/volexity/dist/styles/styles.min.css?ver=4.9.6' type='text/css' media='screen, print' />
+<link rel='stylesheet' id='addthis_all_pages-css'  href='https://www.volexity.com/wp-content/plugins/addthis/frontend/build/addthis_wordpress_public.min.css?ver=4.9.6' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.volexity.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://www.volexity.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://www.volexity.com/wp-json/' />
+<link rel='prev' title='APT Group Wekby Leveraging Adobe Flash Exploit (CVE-2015-5119)' href='https://www.volexity.com/blog/2015/07/08/158-2/' />
+<link rel='next' title='PowerDuke: Widespread Post-Election Spear Phishing Campaigns Targeting Think Tanks and NGOs' href='https://www.volexity.com/blog/2016/11/09/powerduke-post-election-spear-phishing-campaigns-targeting-think-tanks-and-ngos/' />
+<link rel="canonical" href="https://www.volexity.com/blog/2015/10/07/virtual-private-keylogging-cisco-web-vpns-leveraged-for-access-and-persistence/" />
+<link rel='shortlink' href='https://www.volexity.com/?p=357' />
+<link rel="alternate" type="application/json+oembed" href="https://www.volexity.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.volexity.com%2Fblog%2F2015%2F10%2F07%2Fvirtual-private-keylogging-cisco-web-vpns-leveraged-for-access-and-persistence%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.volexity.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.volexity.com%2Fblog%2F2015%2F10%2F07%2Fvirtual-private-keylogging-cisco-web-vpns-leveraged-for-access-and-persistence%2F&#038;format=xml" />
+<meta name="description" content="In the world of information security, there is never a dull moment. Part of the fun of working in this space is that you always get to see attackers do..."/>
+<script data-cfasync="false" type="text/javascript">if (window.addthis_product === undefined) { window.addthis_product = "wpp"; } if (window.wp_product_version === undefined) { window.wp_product_version = "wpp-6.1.2"; } if (window.wp_blog_version === undefined) { window.wp_blog_version = "4.9.6"; } if (window.addthis_share === undefined) { window.addthis_share = {"url_transforms":{"shorten":{"twitter":"bitly"}},"shorteners":{"bitly":{}}}; } if (window.addthis_config === undefined) { window.addthis_config = {"data_track_clickback":true,"ignore_server_config":true,"ui_atversion":300}; } if (window.addthis_layers === undefined) { window.addthis_layers = {}; } if (window.addthis_layers_tools === undefined) { window.addthis_layers_tools = []; } else {  } if (window.addthis_plugin_info === undefined) { window.addthis_plugin_info = {"info_status":"enabled","cms_name":"WordPress","plugin_name":"Share Buttons by AddThis","plugin_version":"6.1.2","plugin_mode":"WordPress","anonymous_profile_id":"wp-6f62c2295ee7506afeb13e470a5b845a","page_info":{"template":"posts","post_type":""},"sharing_enabled_on_post_via_metabox":false}; } 
+                    (function() {
+                      var first_load_interval_id = setInterval(function () {
+                        if (typeof window.addthis !== 'undefined') {
+                          window.clearInterval(first_load_interval_id);
+                          if (typeof window.addthis_layers !== 'undefined' && Object.getOwnPropertyNames(window.addthis_layers).length > 0) {
+                            window.addthis.layers(window.addthis_layers);
+                          }
+                          if (Array.isArray(window.addthis_layers_tools)) {
+                            for (i = 0; i < window.addthis_layers_tools.length; i++) {
+                              window.addthis.layers(window.addthis_layers_tools[i]);
+                            }
+                          }
+                        }
+                     },1000)
+                    }());
+                </script> <script data-cfasync="false" type="text/javascript"src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=wp-6f62c2295ee7506afeb13e470a5b845a" async="async"></script>		<style type="text/css" id="wp-custom-css">
+			/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/		</style>
+	
+	<!--[if lte IE 9 ]>
+		<script src="https://www.volexity.com/wp-content/themes/volexity/scripts/vendor/selectivizr.js"></script>
+		<script src="https://www.volexity.com/wp-content/themes/volexity/scripts/vendor/respond.js"></script>
+		<script src="https://www.volexity.com/wp-content/themes/volexity/scripts/vendor/mediamatch.js"></script>
+	<![endif]-->
+</head>
+<body class="post-template-default single single-post postid-357 single-format-standard chrome osx">
+	<header class="header">
+    <div class="header-top-container">
+        <div class="container">
+            <ul id="menu-sub-left" class="header-sub-left"><li id="menu-item-63" class="icon-triangle menu-item menu-item-type-post_type menu-item-object-page menu-item-63"><a href="https://www.volexity.com/company/contact/">Request a Demo</a></li>
+</ul>            <ul id="menu-sub-right" class="header-sub-right"><li id="menu-item-64" class="icon-warning menu-item menu-item-type-post_type menu-item-object-page menu-item-64"><a href="https://www.volexity.com/company/contact/">Breach Assistance</a></li>
+</ul>        </div>
+    </div>
+	<div class="header-container">
+        <div class="container">
+            <a class="header-logo" href="https://www.volexity.com"><img src="https://www.volexity.com/wp-content/themes/volexity/dist/images/logo.png" alt="Volexity"></a>
+            <div class="header-menu">
+                <ul id="menu-main-navigation" class="header-menu-list"><li id="menu-item-376" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-376"><a href="https://www.volexity.com/products-overview/">Products</a>
+<ul class="sub-menu">
+	<li id="menu-item-48" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48"><a href="https://www.volexity.com/products-overview/">Products Overview</a></li>
+	<li id="menu-item-50" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50"><a href="https://www.volexity.com/products-overview/volcano/">Volcano</a></li>
+	<li id="menu-item-49" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49"><a href="https://www.volexity.com/products-overview/surge/">Surge</a></li>
+</ul>
+</li>
+<li id="menu-item-377" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-377"><a href="https://www.volexity.com/services-overview/">Services</a>
+<ul class="sub-menu">
+	<li id="menu-item-55" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-55"><a href="https://www.volexity.com/services-overview/">Services Overview</a></li>
+	<li id="menu-item-52" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52"><a href="https://www.volexity.com/services-overview/incident-response/">Incident Response</a></li>
+	<li id="menu-item-53" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-53"><a href="https://www.volexity.com/services-overview/network-security-monitoring/">Network Security Monitoring</a></li>
+	<li id="menu-item-54" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-54"><a href="https://www.volexity.com/services-overview/proactive-threat-assessments/">Proactive Threat Assessments</a></li>
+	<li id="menu-item-56" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-56"><a href="https://www.volexity.com/services-overview/threat-intelligence/">Threat Intelligence</a></li>
+</ul>
+</li>
+<li id="menu-item-385" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-385"><a href="https://www.volexity.com/company/about/">Company</a>
+<ul class="sub-menu">
+	<li id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41"><a href="https://www.volexity.com/company/about/">About</a></li>
+	<li id="menu-item-43" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43"><a href="https://www.volexity.com/company/news-press/">News &#038; Press</a></li>
+	<li id="menu-item-42" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42"><a href="https://www.volexity.com/company/careers/">Careers</a></li>
+</ul>
+</li>
+<li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45"><a href="https://www.volexity.com/company/contact/">Contact</a></li>
+<li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-39"><a href="https://www.volexity.com/blog/">Blog</a></li>
+</ul>            </div>
+            <div class="mobile-menu--holder">
+                <div class="mobile-menu"></div>
+            </div>
+        </div>
+	</div>
+</header>
+<div class="int-header s5">
+    <div class="container">
+        <section class="int-header-hold col-sm-12">
+            blog        </section>
+    </div>
+</div>
+	<main class="main">
+		<div class="container">
+	<section class="row int">
+		<article class="col-sm-8">
+			<div class="post-content composition">
+				<h2 class="post-title">Virtual Private Keylogging: Cisco Web VPNs Leveraged for Access and Persistence</h2>
+				<p class="post-date">October 7, 2015</p>
+									<p class="post-byline">by Volexity</p>
+					
+				<div class="post-single-social">
+		      <a class="post-single-social-share" data-share-channel="facebook" data-title="Virtual Private Keylogging: Cisco Web VPNs Leveraged for Access and Persistence" data-description="In the world of information security, there is never a dull moment. Part of the fun of working in this space is that you always get to see attackers do something new or put a new spin on something old. Last month at the CERT-EU Conference in Brussels, Belgium, Volexity gave a presentation on a recent evolution in how attackers are maintaining persistence within victim networks. The method, which involves modifying the login pages to Cisco Clientless SSL VPNs (Web VPN), is both novel and surprisingly obvious at the same time. Attackers have been able to successfully implant JavaScript code on the login pages that enables them to surreptitiously steal employee credentials as they login to access internal corporate resources. Whether you are proactively monitoring your network or reactively undergoing an incident response, one of the last places you might examine for backdoors are your firewalls and VPN gateway appliances. [&hellip;]" data-url="https://www.volexity.com/blog/2015/10/07/virtual-private-keylogging-cisco-web-vpns-leveraged-for-access-and-persistence/" data-image="" data-caption="Volexity"><i class="icon icon-facebook-share"></i><span class="sr-only">Facebook</span></a>
+		      <a class="post-single-social-share" data-share-channel="twitter" data-text="Virtual+Private+Keylogging%3A+Cisco+Web+VPNs+Leveraged+for+Access+and+Persistence" data-url="https://www.volexity.com/blog/2015/10/07/virtual-private-keylogging-cisco-web-vpns-leveraged-for-access-and-persistence/" data-hashtags="volexity" data-via="Volexity"><i class="icon icon-twitter-share"></i><span class="sr-only">Twitter</span></a>
+		      <a class="post-single-social-share" data-share-channel="email" data-post-id="357"><i class="icon icon-mail-share"></i><span class="sr-only">Email</span></a>
+			  </div>
+				<div class="at-above-post addthis_tool" data-url="https://www.volexity.com/blog/2015/10/07/virtual-private-keylogging-cisco-web-vpns-leveraged-for-access-and-persistence/"></div><p>In the world of information security, there is never a dull moment. Part of the fun of working in this space is that you always get to see attackers do something new or put a new spin on something old. Last month at the CERT-EU Conference in Brussels, Belgium, Volexity gave a presentation on a recent evolution in how attackers are maintaining persistence within victim networks. The method, which involves modifying the login pages to Cisco Clientless SSL VPNs (Web VPN), is both novel and surprisingly obvious at the same time. Attackers have been able to successfully implant JavaScript code on the login pages that enables them to surreptitiously steal employee credentials as they login to access internal corporate resources.</p>
+<p>Whether you are proactively monitoring your network or reactively undergoing an incident response, one of the last places you might examine for backdoors are your firewalls and VPN gateway appliances. As the industry is learning, firewalls, network devices, and anything else an attacker might be able to gain access to should be scrutinized just as much as any workstation or server within an organization. Having your own devices turned against you can make for a bad week. This represents yet another way attackers are taking credential theft and network persistence to the next level.</p>
+<h2><strong>Cisco Clientless SSL VPN (Web VPN)<br />
+</strong></h2>
+<p>The Cisco Clientless SSL VPN (Web VPN) is a web-based portal that can be enabled on an organization&#8217;s Cisco Adaptive Security Appliance (ASA) devices. The Cisco Web VPN does not require a thick client and is accessed entirely through a web browser by end users. Once a user is authenticated to the Web VPN, based on the permissions the user has, they may be able to access internal web resources, browse internal file shares, and launch plug-ins that allow them to telnet, ssh, or VNC to internal resources. The average user would interface with their organization&#8217;s Cisco Web VPN via a screen similar to the one show in Figure 1 below.</p>
+<figure id="attachment_193" style="width: 499px" class="wp-caption aligncenter"><a href="http://www.volexity.com/blog/wp-content/uploads/2015/10/cisco-basic-login1.png"><img class="wp-image-193" src="http://www.volexity.com/blog/wp-content/uploads/2015/10/cisco-basic-login1.png" alt="cisco-basic-login" width="499" height="372" /></a><figcaption class="wp-caption-text">Figure 1. Cisco Clientless SSL VPN Login Page</figcaption></figure>
+<p>This is certainly not a resource to which you want an attacker to gain access. Unfortunately, Volexity has found that several organizations are silently being victimized through this very login page. This begs the question: <em>How are the attackers managing to pull this off?</em> It turns out it&#8217;s possible through a couple different methods. The first method involves an exploit and the second requires good old fashion administrative access.</p>
+<h3>CVE-2014-3393: Security Appliance Turned Security Risk</h3>
+<p>Volexity has been able to track its earliest known abuse of Cisco Web VPN login pages back to November 2014. It appears to have started with <a href="https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-3393">CVE-2014-3393</a>, a vulnerability in, you guessed it, the Cisco Clientless SSL VPN portal. This issue was initially reported by Alec Stuart-Muirk and was covered by Cisco Advisory ID: <a href="http://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20141008-asa">cisco-sa-20141008-asa</a> on October 8, 2014. Cisco also released a <a href="http://blogs.cisco.com/security/cisco-psirt-notice-about-public-exploitation-of-the-cisco-asa-clientless-ssl-vpn-portal-customization-integrity-vulnerability">notice about public exploitation of the vulnerability</a> on February, 18, 2015. An excerpt from the original advisory describing the vulnerability is shown below.</p>
+<blockquote><p>A vulnerability in the Clientless SSL VPN portal customization framework <span style="text-decoration: underline; color: #0000ff;"><strong>could</strong></span> allow an unauthenticated, remote attacker to modify the content of the Clientless SSL VPN portal, which could lead to several attacks including the stealing of credentials, cross-site scripting (XSS), and other types of web attacks on the client using the affected system.</p>
+<p>The vulnerability is due to a improper implementation of authentication checks in the Clientless SSL VPN portal customization framework. An attacker <span style="text-decoration: underline; color: #0000ff;"><strong>could</strong></span> exploit this vulnerability by modifying some of the customization objects in the RAMFS cache file system. An exploit could allow the attacker to bypass Clientless SSL VPN authentication and modify the portal content.</p></blockquote>
+<figure id="attachment_186" style="width: 425px" class="wp-caption aligncenter"><a href="http://www.volexity.com/blog/wp-content/uploads/2015/10/lizard-laugh1.jpg"><img class="wp-image-186 size-full" src="http://www.volexity.com/blog/wp-content/uploads/2015/10/lizard-laugh1.jpg" alt="lizard-laugh" width="425" height="281" /></a><figcaption class="wp-caption-text">Figure 2. The lizard that could</figcaption></figure>
+<p>Later in the same month at Ruxcon 2014, Stuart-Murik further detailed the Cisco Clientless SSL VPN vulnerability in a presentation titled &#8220;<a href="https://ruxcon.org.au/assets/2014/slides/Breaking%20Bricks%20Ruxcon%202014.pdf">Breaking Bricks and Plumbing Pipes: Cisco ASA a Super Mario Adventure</a>&#8220;. Coinciding with his presentation, a <a href="https://github.com/alec-stuart/BreakingBricks/blob/master/ciscoASA-CED-exploit.rb">Metasploit module</a> was released that could be leveraged to exploit vulnerable servers.</p>
+<h3>Exploitation in the Wild</h3>
+<p>While Cisco provided updated software to address the vulnerability, attackers were already off to the races. Vulnerable organizations that were slow to update may have received an unwelcome addition to the source of their <strong>logon.html</strong> file. Figure 3 below shows malicious JavaScript, as seen from the source of an impacted organizations Cisco Web VPN login page.</p>
+<figure id="attachment_198" style="width: 1898px" class="wp-caption aligncenter"><a href="http://www.volexity.com/blog/wp-content/uploads/2015/10/cisco-initial-script.png"><img class="wp-image-198" src="http://www.volexity.com/blog/wp-content/uploads/2015/10/cisco-initial-script.png" alt="cisco-initial-script" width="1898" height="257" /></a><figcaption class="wp-caption-text">Figure 3. Malicious JavaScript on Cisco Web VPN</figcaption></figure>
+<p>While not visible due to URL obfuscation, the file <strong>1.js</strong> was hosted on the compromised website of a legitimate NGO. This website also leveraged a valid SSL certificate, which kept all communications encrypted. The file 1.js was a variant of an online script called &#8220;xss.js&#8221; that was designed to steal form data. Victim organizations effectively had their Cisco Web VPN devices turned into credential collectors for the attackers. This particular round of attacks appears to have compromised several organizations around the globe. Volexity observed this campaign successfully compromising the following verticals:</p>
+<ul>
+<li>Medical</li>
+<li>Think Tank / NGO</li>
+<li>University and Academic Institutions</li>
+<li>Multi-national Electronics / Manufacturing</li>
+</ul>
+<p>Volexity also observed a number of other compromises that appear to have occurred later on. In another case, the attackers compromised a different legitimate NGO to host their malicious JavaScript. In that case, Volexity was not able to obtain a copy of the code as it had been taken down already. The table below contains additional details on exploit URLs that Volexity observed being used in the wild to exploit the organization&#8217;s Cisco Web VPNs.</p>
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="xl64" width="350" height="15"><strong>URL</strong></td>
+<td class="xl64" width="475"><strong>Notes</strong></td>
+</tr>
+<tr>
+<td class="xl65" height="30">https://103.42.181.84/2/css.js</td>
+<td class="xl66" width="454">This IP no longer appears to host a malicious JavaScript file. The domain <strong><span class="font5">cscoelab.com</span></strong><span class="font0"> previously resolved to the IP address 103.42.181.84. Note: cscoelab.com currently resolves to 43.251.116.175.<br />
+</span></td>
+</tr>
+<tr>
+<td class="xl65" height="30">http://webxss.cn/mu5AOh?1440094244</td>
+<td class="xl66" width="454">webxss.cn has been down in every instance Volexity tried to connect to it. It appears the website likely allowed users to upload and host their own JavaScript. The epoch timestamp appending to the end of URI may indicate the URL was created on August 20, 2015.</td>
+</tr>
+</tbody>
+</table>
+<h3>Administratively Compromised</h3>
+<p>In several other cases involving breaches to the Cisco Web VPN, it is unclear if an exploit was leveraged or if the attackers actually already had sufficient credentials to directly modify the login page through administrative access. Volexity has worked on several past intrusions where attackers have thoroughly breached an organization and have been able to gain access to security devices, networking equipment, and other critical information technology resources. Attackers are typically able to gain &#8220;legitimate&#8221; access throughout a victim organization&#8217;s environment by installing keyloggers, dumping credentials from systems, exfiltrating documents (spreadsheets) that contain password lists, and identifying passwords that are commonly reused by administrators. Once armed with these credentials, an attacker with access to a victim&#8217;s network can typically perform the same functions as any administrator or highly-privileged individual within the company.</p>
+<p>Volexity knows it is 100% possible and surmises it may be likely in some cases that the attackers leveraged credentialed administrative access to a Cisco ASA appliance in order to modify the login page. This can be done via the Cisco Adaptive Security Device Manager (ASDM), a Java administrative interface for Cisco firewalls that can be accessed via a web browser. Access to the devices ASDM should be restricted through access control lists (ACLs) as tightly as possible. At minimum, this is not an interface that should be open to the Internet. Attackers that are able to access this interface by having access to a victim&#8217;s environment or due to an ACL misconfiguration can easily modify code that is loaded via the Cisco Web VPN login page.</p>
+<p>Organizations can also examine the settings for the Clientless SSL VPN from within the ASDM to verify that nothing is out of the ordinary. In order verify the Web VPN settings, you must first be logged into the ASDM. Then you can navigate to the following: Remote Access VPN -&gt; Clientless SSL VPN Access -&gt; Portal -&gt; Customization. Once at this screen, you can load the various components of the Portal Page. Below is an example of the default view of the Title Panel settings for the Logon Page. This is the most commonly modified area of the Web VPN that&#8217;s been observed by Volexity thus far.</p>
+<figure id="attachment_216" style="width: 650px" class="wp-caption aligncenter"><a href="http://www.volexity.com/blog/wp-content/uploads/2015/10/ASDM-Title-Default.png"><img class="wp-image-216" src="http://www.volexity.com/blog/wp-content/uploads/2015/10/ASDM-Title-Default.png" alt="ASDM-Title-Default" width="650" height="465" /></a><figcaption class="wp-caption-text">Figure 4. Cisco Web VPN Customization</figcaption></figure>
+<p>All an attacker has to do to modify this page to display malicious code is to add JavaScript/HTML anywhere in the text field. It is also possible for an attacker to upload their own JavaScript file to the Cisco Web VPN.</p>
+<h2>Japanese Government and High-Tech Industries Targeted</h2>
+<p>One of the most targeted series of attacks that Volexity has observed leveraging these techniques has been against the Japanese Government and High-Tech industries. In these attacks, multiple Japanese organizations were compromised and had their Cisco Web VPN portals modified to load additional JavaScript code. The URL format of the JavaScript code, that was inserted into the source look familiar to some blog readers.</p>
+<figure id="attachment_192" style="width: 892px" class="wp-caption aligncenter"><a href="http://www.volexity.com/blog/wp-content/uploads/2015/10/cisco-scanbox-js.png"><img class="wp-image-192" src="http://www.volexity.com/blog/wp-content/uploads/2015/10/cisco-scanbox-js.png" alt="cisco-scanbox-js" width="892" height="176" /></a><figcaption class="wp-caption-text">Figure 5. Scanbox on Cisco Web VPN</figcaption></figure>
+<p>The JavaScript in these attacks links back to a JavaScript profiling and exploitation framework called <strong>Scanbox</strong>. The framework has been observed in use primary by Chinese APT groups since at least June 2014. Scanbox is often used to gather information about users visiting a compromised site. In particular, by gathering information about a user&#8217;s browser and software installed on the system, the framework can be leveraged to launch attacks against interesting targets and specific vulnerable software. One of Scanbox&#8217;s additional features, capturing keystrokes and cookie data, comes in handy when an employee is attempting to access their Web VPN. The images below are taken from other Scanbox components loaded via <strong>accounts.nttdocomo.mailsecure.cc </strong>later in the redirection chain.</p>
+<figure id="attachment_208" style="width: 374px" class="wp-caption aligncenter"><a href="http://www.volexity.com/blog/wp-content/uploads/2015/10/scanbox-keylog.png"><img class="wp-image-208" src="http://www.volexity.com/blog/wp-content/uploads/2015/10/scanbox-keylog.png" alt="scanbox-keylog" width="374" height="387" /></a><figcaption class="wp-caption-text">Figure 6. Scanbox Keylogger</figcaption></figure>
+<p>&nbsp;</p>
+<figure id="attachment_209" style="width: 485px" class="wp-caption aligncenter"><a href="http://www.volexity.com/blog/wp-content/uploads/2015/10/scanbox-cisco-g.png"><img class="wp-image-209" src="http://www.volexity.com/blog/wp-content/uploads/2015/10/scanbox-cisco-g.png" alt="scanbox-cisco-g" width="485" height="159" /></a><figcaption class="wp-caption-text">Figure 7. Keylog and Cookie Reporting URL</figcaption></figure>
+<p>&nbsp;</p>
+<p>The code shown in Figures 6 and 7 are just a small excerpt of the Scanbox keylogger plugin. Other functions that facilitate building the URI associated with captured keystrokes are not shown. The Scanbox code on the Japanese Government and High-Tech Cisco Web VPNs were being used to record data on users accessing the services. This allowed the attackers to steal credentials in real-time and maintain persistent access to the networks of the victim organizations. Volexity worked with JP-CERT in June of this year to share relevant information on this threat.</p>
+<h3>Additional Hostnames and Domains</h3>
+<p>Digging into the attacker controlled domain <strong>mailsecure.cc</strong> turns up a few more interesting hosts.</p>
+<blockquote><p>account.mhi.co.jp.mailsecure.cc<br />
+booking.elinn-kyoto.com.mailsecure.cc<br />
+www.jimin.jp.mailsecure.cc</p></blockquote>
+<p>Following the theme of accounts.nttdocomo.mailsecure.cc are hostnames of other popular Japanese companies and websites. Volexity did not observe this round of attacks associated with any of the organizations from the subdomain. It appears the attackers are using the names of legitimate Japanese companies and websites in an effort to make the traffic blend in with legitimate traffic. Digging into the e-mail address on the WHOIS registration for mailsecure.cc, <span style="color: #0000ff;"><strong>westlife678s@hotmail.com</strong></span>, leads to several other domains owned by the attackers.</p>
+<table>
+<tbody>
+<tr>
+<td><strong>Domain<br />
+</strong></td>
+<td><strong>Creation Date<br />
+</strong></td>
+<td><strong>Expiration Date<br />
+</strong></td>
+<td><strong>E-mail</strong></td>
+</tr>
+<tr>
+<td>googlecontent.cc</td>
+<td>2015-04-21</td>
+<td>2016-04-21</td>
+<td><a href="mailto:westlife678s@hotmail.com">westlife678s@hotmail.com</a></td>
+</tr>
+<tr>
+<td>googleupmail.com</td>
+<td>2014-07-31</td>
+<td>2015-07-31</td>
+<td><a href="mailto:westlife678s@hotmail.com">westlife678s@hotmail.com</a></td>
+</tr>
+<tr>
+<td>googleusercontent.cc</td>
+<td>2014-12-16</td>
+<td>2015-12-16</td>
+<td><a href="mailto:westlife678s@hotmail.com">westlife678s@hotmail.com</a></td>
+</tr>
+<tr>
+<td>govmailserver.com</td>
+<td>2014-11-26</td>
+<td>2015-11-26</td>
+<td><a href="mailto:westlife678s@hotmail.com">westlife678s@hotmail.com</a></td>
+</tr>
+<tr>
+<td>mailsecure.cc</td>
+<td>2015-01-19</td>
+<td>2016-01-19</td>
+<td><a href="mailto:westlife678s@hotmail.com">westlife678s@hotmail.com</a></td>
+</tr>
+<tr>
+<td>novartis-it.com</td>
+<td>2014-12-16</td>
+<td>2015-12-16</td>
+<td><a href="mailto:westlife678s@hotmail.com">westlife678s@hotmail.com</a></td>
+</tr>
+<tr>
+<td>symantecse.com</td>
+<td>2014-12-11</td>
+<td>2015-12-11</td>
+<td><a href="mailto:westlife678s@hotmail.com">westlife678s@hotmail.com</a></td>
+</tr>
+</tbody>
+</table>
+<p>Further research into these domains also yields interesting subdomains. A few of the themes appear to look similar to valid Google hosts and others, once again, have a Japanese oriented theme to them.</p>
+<blockquote><p>account.googlecontent.cc<br />
+accounts.googlecontent.cc<br />
+bak.googleupmail.com<br />
+docomo.symantecse.com<br />
+image.googleusercontent.cc<br />
+ja.googleupmail.com<br />
+japanese.symantecse.com<br />
+jp.googleupmail.com<br />
+jp.govmailserver.com<br />
+jpa.googleupmail.com<br />
+lh4.googleusercontent.cc<br />
+mail.googlecontent.cc<br />
+secure.symantecse.com<br />
+security.symantecse.com<br />
+serves.googlecontent.cc<br />
+service.googlecontent.cc<br />
+service.googleupmail.com<br />
+webmail.nira.or.jp.symantecse.com<br />
+www.googleupmail.com<br />
+www.govmailserver.com</p></blockquote>
+<p>Interestingly, Novartis AG filed a complaint about the domain novartis-it.com with the World Intellectual Property Organization (WIPO). In a <a href="http://www.wipo.int/amc/en/domains/decisions/word/2015/d2015-1250.doc">decision</a> made on September 7, 2015, it was determined the domain should be transferred to Novartis. As a result, this domain may not be under attacker control for much longer.</p>
+<h3>The Malware Connection: PlugX</h3>
+<p>Until recently, Volexity did not have the above threat activity tied to specific malware or another known threat group. Several of the above hostnames were leveraging the IP address <strong>255.255.0.0</strong> when parked or not in use. Volexity tracks a threat group that also uses this IP when inactive, but this was not enough to definitively link the two. However, on July 31 and August 18 of this year, multiple hostnames from the aforementioned list and hostnames tied to PlugX malware overlapped on the IP addresses <strong>108.61.222.27</strong> and <strong>104.207.142.124. </strong>The following hostnames, not previously confirmed as connected to the list above, were now on overlapping infrastructure:</p>
+<blockquote><p>beservices.googlemanage.com<br />
+googleze.googlemanage.com<br />
+help.googlemanage.com<br />
+help.operaa.net<br />
+helpze.operaa.net<br />
+microsoft.operaa.net<br />
+microsofthy.operaa.net<br />
+microsoftno.operaa.net<br />
+microsoftoldcl.operaa.net<br />
+microsoftze.operaa.net<br />
+renkneu.operaa.net<br />
+services.googlemanage.com<br />
+services.operaa.net<br />
+siling.operaa.net<br />
+zeservices.googlemanage.com</p></blockquote>
+<p>In particular, a public report (<a href="https://www.circl.lu/pub/tr-24/">TR-24</a>) from the Computer Incident Response Center Luxembourg (CIRCL) describes a PlugX variant that communicates with <strong>microsoft.operaa.net</strong> and <strong>microsoftno.operaa.net</strong>. Also, previous but now defunct hostnames associated with this threat actor shows an affinity for Novartis. The following hostnames can be found online and in passive DNS:</p>
+<blockquote><p>alconnet.eu.novartis.googlemanage.com<br />
+phusau-l00310.eu.novartis.operaa.net</p></blockquote>
+<p>The list below contains active non-parking IP resolutions and ASN information for this groups various hostnames:</p>
+<table>
+<tbody>
+<tr>
+<td></td>
+<td><strong>IP Address</strong></td>
+<td><strong>ASN Information</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>103.243.25.72</td>
+<td>133731 | 103.243.24.0/22 | TOINTER-AS | CN | &#8211; | Shanghai Fanyun software Co.LTD</td>
+</tr>
+<tr>
+<td></td>
+<td>104.207.142.124</td>
+<td>20473 | 104.207.136.0/21 | AS-CHOOPA | US | vultr.com | Vultr Holdings LLC</td>
+</tr>
+<tr>
+<td></td>
+<td>157.7.221.152</td>
+<td>7506 | 157.7.128.0/17 | INTERQ | JP | gmo.jp | GMO Internet Inc.</td>
+</tr>
+</tbody>
+</table>
+<h2>Two-Factor Authentication (2FA)</h2>
+<p>An obvious question and concern is whether or not two-factor authentication (2FA) mitigates the risks in the above scenarios. The short answer is <span style="text-decoration: underline;"><strong>no</strong></span>. Volexity always recommends that organizations of all sizes implement 2FA for all remote network access. This can go a long way to preventing a stolen username and password from giving an attacker keys to the kingdom. However, in this particular scenario, if an attacker is able to load malicious JavaScript through the Cisco Web VPN portal, it would be trivial for them to modify the code to do one of two things:</p>
+<ol>
+<li><strong>Session Cookie Theft</strong>: The malicious code could be modified to specifically steal session cookies after a user has established an authenticated session. In Volexity&#8217;s testing, it was possible to have two simultaneous Cisco Web VPN sessions using the same session cookies. This means an attacker could leverage the same session as an active legitimate user without either of them being disconnected.</li>
+<li><strong>Token Theft and Reuse</strong>: Assuming a user&#8217;s 2FA leverages a numeric token (or similar), an attacker could potentially hijack the user&#8217;s initial authentication attempt and quickly reuse that token to access the victim infrastructure. This would prevent the user from initially logging into their own infrastructure. However, the attacker could then set a cookie to prevent subsequent authentication attempts from being hijacked. Preventing the user from ever authenticating would raise many flags, whereas only interfering with a single login attempt is less likely to result in discovery.</li>
+</ol>
+<p>Leveraging 2FA on VPNs is a must for organizations. However, it should not be seen as bullet proof. Users are still susceptible to being phished or otherwise having their authentication attempts hijacked. The attackers are fairly ingenious and will likely find a way to gain access, if they are motivated enough.</p>
+<h2>Conclusion</h2>
+<p>Attackers are continuing to find new ways to use and abuse systems for long term persistent access to networks and systems of interest. This problem is not remotely unique to Cisco Web VPNs. Any other VPN, web server, or appliance that an attacker can gain administrative access to or otherwise customize/modify will potentially present similar risks. As recently made apparent through public disclosures of various backdooring methods, such as <a href="https://www.fireeye.com/blog/threat-research/2015/09/synful_knock_-_acis.html">SYNful Knock</a>, no device within a network is off-limits to motivated attackers. When proactively hunting for threat activity on your network and, in particular, when conducting an incident response to an active intrusion, be sure to leave no stone left unturned.</p>
+<!-- AddThis Advanced Settings above via filter on the_content --><!-- AddThis Advanced Settings below via filter on the_content --><!-- AddThis Advanced Settings generic via filter on the_content --><!-- AddThis Share Buttons above via filter on the_content --><!-- AddThis Share Buttons below via filter on the_content --><div class="at-below-post addthis_tool" data-url="https://www.volexity.com/blog/2015/10/07/virtual-private-keylogging-cisco-web-vpns-leveraged-for-access-and-persistence/"></div><!-- AddThis Share Buttons generic via filter on the_content -->				<div class="post-tags">
+					<a href="https://www.volexity.com/blog/tag/apt/">APT</a>, <a href="https://www.volexity.com/blog/tag/china/">China</a>, <a href="https://www.volexity.com/blog/tag/cisco/">Cisco</a>, <a href="https://www.volexity.com/blog/tag/exploits/">exploits</a>, <a href="https://www.volexity.com/blog/tag/japan/">Japan</a>, <a href="https://www.volexity.com/blog/tag/scanbox/">Scanbox</a>, <a href="https://www.volexity.com/blog/tag/vpn/">VPN</a>				</div>
+			</div>
+
+		</article>
+
+		<aside class="sidebar col-sm-4">
+	<ul class="widgets">
+		<li class="widget widget_search"><div class="widget-content"><form role="search" method="get" class="search-form" action="https://www.volexity.com/">
+    <label>
+        <span class="screen-reader-text">Search for:</span>
+        <input type="search" class="search-field"
+               placeholder="SEARCH"
+               value="" name="s"
+               title="Search for:" />
+    </label>
+    <input type="submit" class="search-submit"
+           value="Search" />
+</form></div></li>		<li class="widget widget_recent_entries"><div class="widget-content">		<h4 class="widget-title">Recent Posts</h4>		<ul>
+											<li>
+					<a href="https://www.volexity.com/blog/2018/06/12/surge-collect-provides-reliable-memory-acquisition-across-windows-linux-and-macos/">Surge Collect Provides Reliable Memory Acquisition Across Windows, Linux, and macOS</a>
+									</li>
+											<li>
+					<a href="https://www.volexity.com/blog/2018/06/07/patchwork-apt-group-targets-us-think-tanks/">Patchwork APT Group Targets US Think Tanks</a>
+									</li>
+											<li>
+					<a href="https://www.volexity.com/blog/2018/04/16/drupalgeddon-2-profiting-from-mass-exploitation/">Drupalgeddon 2: Profiting from Mass Exploitation</a>
+									</li>
+											<li>
+					<a href="https://www.volexity.com/blog/2017/11/06/oceanlotus-blossoms-mass-digital-surveillance-and-exploitation-of-asean-nations-the-media-human-rights-and-civil-society/">OceanLotus Blossoms: Mass Digital Surveillance and Attacks Targeting ASEAN, Asian Nations, the Media, Human Rights Groups, and Civil Society</a>
+									</li>
+											<li>
+					<a href="https://www.volexity.com/blog/2017/07/24/real-news-fake-flash-mac-os-x-users-targeted/">Real News, Fake Flash: Mac OS X Users Targeted</a>
+									</li>
+					</ul>
+		</div></li><li class="widget widget_archive"><div class="widget-content"><h4 class="widget-title">Archives</h4>		<ul>
+			<li><a href='https://www.volexity.com/blog/2018/06/'>June 2018</a></li>
+	<li><a href='https://www.volexity.com/blog/2018/04/'>April 2018</a></li>
+	<li><a href='https://www.volexity.com/blog/2017/11/'>November 2017</a></li>
+	<li><a href='https://www.volexity.com/blog/2017/07/'>July 2017</a></li>
+	<li><a href='https://www.volexity.com/blog/2017/03/'>March 2017</a></li>
+	<li><a href='https://www.volexity.com/blog/2016/11/'>November 2016</a></li>
+	<li><a href='https://www.volexity.com/blog/2015/10/'>October 2015</a></li>
+	<li><a href='https://www.volexity.com/blog/2015/07/'>July 2015</a></li>
+	<li><a href='https://www.volexity.com/blog/2015/06/'>June 2015</a></li>
+	<li><a href='https://www.volexity.com/blog/2015/04/'>April 2015</a></li>
+	<li><a href='https://www.volexity.com/blog/2014/10/'>October 2014</a></li>
+	<li><a href='https://www.volexity.com/blog/2014/09/'>September 2014</a></li>
+		</ul>
+		</div></li><li class="widget widget_categorizedtagcloudwidget"><div class="widget-content"><h4 class="widget-title">Tags</h4>
+    <div id="categorized-tag-cloud"><span id="categorized-tag-cloud-el-1"><a href="https://www.volexity.com/blog/tag/exploits/" class="tag-cloud-link tag-link-33 tag-link-position-1" style="font-size: 19.285714285714pt;" aria-label="exploits (8 items)">exploits</a></span> <span id="categorized-tag-cloud-el-2"><a href="https://www.volexity.com/blog/tag/dukes/" class="tag-cloud-link tag-link-43 tag-link-position-2" style="font-size: 10pt;" aria-label="Dukes (1 item)">Dukes</a></span> <span id="categorized-tag-cloud-el-3"><a href="https://www.volexity.com/blog/tag/vpn/" class="tag-cloud-link tag-link-24 tag-link-position-3" style="font-size: 10pt;" aria-label="VPN (1 item)">VPN</a></span> <span id="categorized-tag-cloud-el-4"><a href="https://www.volexity.com/blog/tag/hong-kong/" class="tag-cloud-link tag-link-37 tag-link-position-4" style="font-size: 10pt;" aria-label="Hong Kong (1 item)">Hong Kong</a></span> <span id="categorized-tag-cloud-el-5"><a href="https://www.volexity.com/blog/tag/china/" class="tag-cloud-link tag-link-42 tag-link-position-5" style="font-size: 12.571428571429pt;" aria-label="China (2 items)">China</a></span> <span id="categorized-tag-cloud-el-6"><a href="https://www.volexity.com/blog/tag/gh0st/" class="tag-cloud-link tag-link-32 tag-link-position-6" style="font-size: 10pt;" aria-label="Gh0st (1 item)">Gh0st</a></span> <span id="categorized-tag-cloud-el-7"><a href="https://www.volexity.com/blog/tag/vulnerabilities/" class="tag-cloud-link tag-link-34 tag-link-position-7" style="font-size: 14.285714285714pt;" aria-label="vulnerabilities (3 items)">vulnerabilities</a></span> <span id="categorized-tag-cloud-el-8"><a href="https://www.volexity.com/blog/tag/java/" class="tag-cloud-link tag-link-39 tag-link-position-8" style="font-size: 10pt;" aria-label="java (1 item)">java</a></span> <span id="categorized-tag-cloud-el-9"><a href="https://www.volexity.com/blog/tag/adobe-flash/" class="tag-cloud-link tag-link-41 tag-link-position-9" style="font-size: 10pt;" aria-label="Adobe Flash (1 item)">Adobe Flash</a></span> <span id="categorized-tag-cloud-el-10"><a href="https://www.volexity.com/blog/tag/apt/" class="tag-cloud-link tag-link-35 tag-link-position-10" style="font-size: 20pt;" aria-label="APT (9 items)">APT</a></span> <span id="categorized-tag-cloud-el-11"><a href="https://www.volexity.com/blog/tag/drupal/" class="tag-cloud-link tag-link-40 tag-link-position-11" style="font-size: 12.571428571429pt;" aria-label="Drupal (2 items)">Drupal</a></span> <span id="categorized-tag-cloud-el-12"><a href="https://www.volexity.com/blog/tag/elections/" class="tag-cloud-link tag-link-44 tag-link-position-12" style="font-size: 10pt;" aria-label="elections (1 item)">elections</a></span> <span id="categorized-tag-cloud-el-13"><a href="https://www.volexity.com/blog/tag/digital-surveillance/" class="tag-cloud-link tag-link-36 tag-link-position-13" style="font-size: 10pt;" aria-label="digital surveillance (1 item)">digital surveillance</a></span> <span id="categorized-tag-cloud-el-14"><a href="https://www.volexity.com/blog/tag/afghanistan/" class="tag-cloud-link tag-link-19 tag-link-position-14" style="font-size: 10pt;" aria-label="Afghanistan (1 item)">Afghanistan</a></span> <span id="categorized-tag-cloud-el-15"><a href="https://www.volexity.com/blog/tag/scanning/" class="tag-cloud-link tag-link-31 tag-link-position-15" style="font-size: 15.714285714286pt;" aria-label="Scanning (4 items)">Scanning</a></span> <span id="categorized-tag-cloud-el-16"><a href="https://www.volexity.com/blog/tag/japan/" class="tag-cloud-link tag-link-38 tag-link-position-16" style="font-size: 12.571428571429pt;" aria-label="Japan (2 items)">Japan</a></span> <span id="categorized-tag-cloud-el-17"><a href="https://www.volexity.com/blog/tag/scanbox/" class="tag-cloud-link tag-link-23 tag-link-position-17" style="font-size: 10pt;" aria-label="Scanbox (1 item)">Scanbox</a></span> <span id="categorized-tag-cloud-el-18"><a href="https://www.volexity.com/blog/tag/cisco/" class="tag-cloud-link tag-link-22 tag-link-position-18" style="font-size: 10pt;" aria-label="Cisco (1 item)">Cisco</a></span> <span id="categorized-tag-cloud-el-19"><a href="https://www.volexity.com/blog/tag/osx/" class="tag-cloud-link tag-link-49 tag-link-position-19" style="font-size: 10pt;" aria-label="osx (1 item)">osx</a></span> <span id="categorized-tag-cloud-el-20"><a href="https://www.volexity.com/blog/tag/spear-phishing/" class="tag-cloud-link tag-link-45 tag-link-position-20" style="font-size: 10pt;" aria-label="spear phishing (1 item)">spear phishing</a></span> </div>
+  	<style>
+  	
+  		#categorized-tag-cloud a, #categorized-tag-cloud a:visited { text-decoration:none; }
+      #categorized-tag-cloud a:hover { text-decoration:none; color:#3b97d3; }
+    		#categorized-tag-cloud-el-1 a, #categorized-tag-cloud-el-1 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-2 a, #categorized-tag-cloud-el-2 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-3 a, #categorized-tag-cloud-el-3 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-4 a, #categorized-tag-cloud-el-4 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-5 a, #categorized-tag-cloud-el-5 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-6 a, #categorized-tag-cloud-el-6 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-7 a, #categorized-tag-cloud-el-7 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-8 a, #categorized-tag-cloud-el-8 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-9 a, #categorized-tag-cloud-el-9 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-10 a, #categorized-tag-cloud-el-10 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-11 a, #categorized-tag-cloud-el-11 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-12 a, #categorized-tag-cloud-el-12 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-13 a, #categorized-tag-cloud-el-13 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-14 a, #categorized-tag-cloud-el-14 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-15 a, #categorized-tag-cloud-el-15 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-16 a, #categorized-tag-cloud-el-16 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-17 a, #categorized-tag-cloud-el-17 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-18 a, #categorized-tag-cloud-el-18 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-19 a, #categorized-tag-cloud-el-19 a:visited { color:#555555; }
+    		#categorized-tag-cloud-el-20 a, #categorized-tag-cloud-el-20 a:visited { color:#555555; }
+  	</style></div></li>	</ul>
+</aside>	</section>
+</div>	</main>
+
+	<footer class="footer">
+	<div class="footer-container container">
+
+		<ul id="menu-footer-menu" class="footer-menu-list"><li id="menu-item-57" class="nav-header menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-57"><a href="#">About</a>
+<ul class="sub-menu">
+	<li id="menu-item-59" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59"><a href="https://www.volexity.com/company/about/">About Us</a></li>
+	<li id="menu-item-58" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-58"><a href="https://www.volexity.com/blog/">Blog</a></li>
+	<li id="menu-item-395" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-395"><a href="https://www.volexity.com/privacy-policy/">Privacy Policy</a></li>
+</ul>
+</li>
+<li id="menu-item-60" class="nav-header menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-60"><a href="#">Solutions</a>
+<ul class="sub-menu">
+	<li id="menu-item-400" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-400"><a href="https://www.volexity.com/company/contact/">Request A Demo</a></li>
+	<li id="menu-item-61" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-61"><a href="https://www.volexity.com/products-overview/">Products</a></li>
+	<li id="menu-item-669" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-669"><a href="https://www.volexity.com/services-overview/">Services</a></li>
+</ul>
+</li>
+</ul>
+        <div class="footer-address">
+            <p class="footer-header">Contact</p>
+            <ul>
+                <li class="footer-address--address icon-location">11654 Plaza America Dr #774<br />Reston, VA 20190-4700</li>
+                <li class="footer-address--phone icon-phone">1-888-825-1975</li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <p class="footer-header">Connect</p>
+            <ul>
+                <li class="footer-social-holder"><a href="/blog/feed/" class="icon-rss-line footer-social--link"></a></li>
+                <li class="footer-social-holder"><a href="https://www.linkedin.com/company/volexity" target="_blank" class="icon-linkedin-line footer-social--link"></a></li>
+                <li class="footer-social-holder"><a href="https://twitter.com/volexity" target="_blank" class="icon-twitter-line footer-social--link"></a></li>
+                <li class="footer-social-holder"><a href="https://www.facebook.com/volexity" target="_blank" class="icon-facebook-line footer-social--link"></a></li>
+            </ul>
+        </div>
+	</div>
+    <address class="footer-copyright">&copy; 2018 Volexity. All Rights Reserved.</address>
+    <div id="back-to-top" class="icon-slide-left"></div>
+	<script type='text/javascript'>
+/* <![CDATA[ */
+var urls = {"base":"https:\/\/www.volexity.com","theme":"https:\/\/www.volexity.com\/wp-content\/themes\/volexity","ajax":"https:\/\/www.volexity.com\/wp-admin\/admin-ajax.php"};
+var info = [];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.volexity.com/wp-content/themes/volexity/dist/scripts/scripts.min.js?ver=4.9.6'></script>
+<script type='text/javascript' src='https://www.volexity.com/wp-includes/js/comment-reply.min.js?ver=4.9.6'></script>
+<script type='text/javascript' src='https://www.volexity.com/wp-includes/js/wp-embed.min.js?ver=4.9.6'></script>
+</footer></body>
+</html>

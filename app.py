@@ -38,24 +38,31 @@ def report():
             report.save(fullpath)
             filename = report.filename
             report = fullpath
-        plotdata,text = babelfish.plot_report(report,threshold,coefset)
         
-        # Error exception handling
-        #if(plotdata == False): 
+        plotdata,text = babelfish.plot_report(report,threshold,coefset)
 
-        tag_results = babelfish.tag_report(text,filename, 0.5, 0, coefset, 'json')
-        tagged_report = tag_results[0]['text']
-        chart_labels = []
-        chart_values = []
-        total_size = 100
-        for key in tag_results.keys():
-            chart_labels.append(tag_results[key]['detected'])
-            chart_values.append(str(float(tag_results[key]['confidence'])*100))
-            total_size = total_size - float(tag_results[key]['confidence'])*100
-        chart_labels.append("Undefined")
-        chart_values.append(total_size)
-        attack = tag_results[0]['detected']
-        return render_template('report.html', chart_values=chart_values, report=Markup(str(tagged_report)), chart_labels=chart_labels,plotdata=plotdata, filename=filename)
+        tag_results = []
+        try:
+            tag_results = babelfish.tag_report(text,filename, 0.5, 0, coefset, 'json')
+        except:
+            print "Failed to parse file."
+        if(len(tag_results) > 0):        
+            tagged_report = tag_results[0]['text']
+            chart_labels = []
+            chart_values = []
+            total_size = 100
+            for key in tag_results.keys():
+                chart_labels.append(tag_results[key]['detected'])
+                chart_values.append(str(float(tag_results[key]['confidence'])*100))
+                #total_size = total_size - float(tag_results[key]['confidence'])*100
+            #chart_labels.append("Undefined")
+            #chart_values.append(total_size)
+            attack = tag_results[0]['detected']
 
+        if(len(tag_results) > 0):
+            return render_template('report.html', chart_values=chart_values, report=Markup(str(tagged_report)), chart_labels=chart_labels,plotdata=plotdata, filename=filename)
+        else:
+            message = "There does not seem to be enough confidence to determine a valid threat given the threshold used."
+            return render_template('report.html', report=Markup(message), plotdata=plotdata, filename=filename)
 if __name__ == '__main__':
     app.run(host="0.0.0.0",port=8080)
