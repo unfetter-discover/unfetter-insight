@@ -43,27 +43,7 @@ TEST_FILES = [
 ]
 
 VERIFY_RESULTS = [
-    ("Test_files/sample.txt", "Bypass User Account Control"),
-    ("Test_files/Virtual_Private_Keylogging.htm", "Input Capture"),
-    ("Test_files/Microsoft_Security_Intelligence_Report.pdf", "Input Capture"),
-    ("Test_files/Sowbug_Cyber_espionage.htm", "Input Capture"),
-    ("Test_files/rpt_APT37.pdf", "Drive-by Compromise"),
-    ("Test_files/The_Shadowserver_Foundation.htm", "Drive-by Compromise"),
-    ("Test_files/Targeted_attacks_SouthAsia.pdf", "Drive-by Compromise"),
-    ("Test_files/Elderwood_project.htm", "Drive-by Compromise"),
-    ("Test_files/How_User_Account_Control_works.htm", "Bypass User Account Control"),
-    ("Test_files/blackenergy_whitepaper.pdf", "Bypass User Account Control"),
-    ("Test_files/csmanual38.pdf", "Bypass User Account Control"),
-    ("Test_files/Public-key_cryptography.htm", "Private Keys"),
-    ("Test_files/Prince_of_Persia.htm", "Private Keys"),
-    ("Test_files/Cyber_Security_Services_FireEye.htm", "Two-factor Authentication Interception"),
-    ("Test_files/JPCERT_CCBlog.htm", "Two-factor Authentication Interception"),
-    ("Test_files/Password_cracking.htm", "Brute Force"),
-    ("Test_files/APT3_Adversary_Emulation_Plan.pdf", "Brute Force"),
-    ("Test_files/Advanced_Persistent_Threat_Activity.htm", "Brute Force"),
-    ("Test_files/Command-line_interface.htm", "Command-Line Interface"),
-    ("Test_files/mandiant-apt1-report.pdf", "Command-Line Interface"),
-    ("Test_files/tacticstechniquesandprocedures.pdf", "Command-Line Interface")
+    ("Test_files/sample.txt", "Bypass User Account Control")
 ]
 
 """
