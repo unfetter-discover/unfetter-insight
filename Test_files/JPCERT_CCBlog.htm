@@ -1,0 +1,1052 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  
+  
+  
+
+  <link rel="stylesheet" href="https://blog.jpcert.or.jp/styles.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="https://static.lekumo.jp/.shared-tpjbiz/themes/common/print.css" type="text/css" media="print" />
+    <link rel="openid2.local_id" href="http://jpcert.lekumo.biz/" />
+  <link rel="openid2.provider" href="http://bb.lekumo.jp/t/app/openid" />
+  
+    <link rel="alternate" type="application/atom+xml" title="Posts on 'JPCERT/CC Blog' (Atom)" href="https://blog.jpcert.or.jp/atom.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Posts on 'JPCERT/CC Blog' (RSS 1.0)" href="https://blog.jpcert.or.jp/index.rdf" />
+  <link rel="alternate" type="application/rss+xml" title="Posts on 'JPCERT/CC Blog' (RSS 2.0)" href="https://blog.jpcert.or.jp/rss.xml" />
+  
+
+
+  <title>JPCERT/CC Blog: Windows Commands Abused by Attackers</title>
+  <link rel="canonical" href="https://blog.jpcert.or.jp/2016/01/windows-commands-abused-by-attackers.html" />
+  <link rel="start" href="https://blog.jpcert.or.jp/" title="Home" />
+  <link rel="prev" href="https://blog.jpcert.or.jp/2015/12/malware-analysis-training-course-at-security-camp-japan-2015.html?no_prefetch=1" title="Malware Analysis Training Course at Security Camp Japan 2015" />
+  <link rel="next" href="https://blog.jpcert.or.jp/2016/02/banking-trojan--27d6.html?no_prefetch=1" title="Banking Trojan “Citadel” Returns" />
+  <link rel="alternate" media="handheld" href="https://blog.jpcert.or.jp/.m/2016/01/windows-commands-abused-by-attackers.html" />
+  
+  
+    <meta property="og:title" content="Windows Commands Abused by Attackers" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Hello again, this is Shusei Tomonaga from the Analysis Center. In Windows OS, various commands (hereafter “Windows commands”) are installed by default. However, what is actually used by general users is just a small part of it. On the other..." />
+  <meta property="og:url" content="https://blog.jpcert.or.jp/2016/01/windows-commands-abused-by-attackers.html" />
+    <meta property="og:image" content="http://jpcert.lekumo.biz/photos/uncategorized/2016/01/21/figure1.png" />
+  
+
+
+  <meta property="og:site_name" content="JPCERT/CC Blog" />
+
+</head>
+
+<body class="layout-two-column-right">
+	
+	<div id="container">
+		<div id="container-inner" class="pkg">
+			
+			<!-- banner -->
+<div id="banner">
+  <div id="banner-inner" class="pkg">
+    
+    <h1 id="banner-header"><a href="https://blog.jpcert.or.jp/" accesskey="1">JPCERT/CC Blog</a></h1>
+    <h2 id="banner-description"></h2>
+  </div>
+</div>
+
+			<div id="pagebody">
+				<div id="pagebody-inner" class="pkg">
+					<div id="alpha">
+						<div id="alpha-inner" class="pkg">
+							<!-- content nav -->
+<p class="content-nav">
+  <a href="https://blog.jpcert.or.jp/2015/12/malware-analysis-training-course-at-security-camp-japan-2015.html">&laquo; Malware Analysis Training Course at Security Camp Japan 2015</a> |
+  <a href="https://blog.jpcert.or.jp/">Main</a>
+  | <a href="https://blog.jpcert.or.jp/2016/02/banking-trojan--27d6.html">Banking Trojan “Citadel” Returns &raquo;</a>
+</p>
+
+<!-- entry -->
+  <h2 class="date-header">Jan 26, 2016</h2>
+
+
+<div class="entry" id="entry-56580811">
+      <h3 class="entry-header">Windows Commands Abused by Attackers</h3>
+  
+  <div class="entry-content">
+    <div class="entry-body">
+      <p>Hello again, this is Shusei Tomonaga from the Analysis Center.</p>
+<p>In Windows OS, various commands (hereafter “Windows commands”) are installed by default. However, what is actually used by general users is just a small part of it. On the other hand, JPCERT/CC has observed that attackers intruding into a network also use Windows commands in order to collect information and/or to spread malware infection within the network. What is worth noting here is the gap between those Window commands used by general users and by attackers. If there is a huge difference, it would be possible to detect or limit the attackers’ behaviour by monitoring/controlling the Windows command execution.</p>
+<p>This entry will demonstrate how to mitigate the attack impact by revealing Windows commands that attackers use on the intruded Windows OS, and by restricting the execution of those commands that are unnecessary for general users.</p>
+<p>Malware for remote control (Remote Access Tool/Trojan – RAT) has a function to execute shell commands from a remote environment. With this, attackers can execute Windows commands from a remote environment.</p>
+<p>Attackers who successfully installed such malware in a network will attempt to take control of the system within the network in the following sequence in order to collect confidential information, etc.</p>
+<ol>
+<li>Initial investigation: Collect information of the infected machine</li>
+<li>Reconnaissance: Look for information saved in the machine and remote machines within the network</li>
+<li>Spread of infection: Infect the machine with other malware or try to access other machines</li>
+</ol>
+<p>Windows commands are used in all of the phases above. Respective Windows commands used in each phase are introduced here below.</p>
+<h4><b>Initial Investigation</b></h4>
+<p>Table 1 lists the commands that are often used by attackers in an attempt to collect information of the infected machine. “Times executed” is derived from the sum of Windows commands used by 3 different attack groups in their respective C&amp;C servers (Please refer to Appendix A, B and C for details).</p>
+<table><caption>Table 1: Initial Investigation (Top 10 commands)</caption>
+<thead>
+<tr><th>Ranking</th><th>Command</th><th>Times executed</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>tasklist</td>
+<td>155</td>
+</tr>
+<tr>
+<td>2</td>
+<td>ver</td>
+<td>95</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ipconfig</td>
+<td>76</td>
+</tr>
+<tr>
+<td>4</td>
+<td>systeminfo</td>
+<td>40</td>
+</tr>
+<tr>
+<td>5</td>
+<td>net time</td>
+<td>31</td>
+</tr>
+<tr>
+<td>6</td>
+<td>netstat</td>
+<td>27</td>
+</tr>
+<tr>
+<td>7</td>
+<td>whoami</td>
+<td>22</td>
+</tr>
+<tr>
+<td>8</td>
+<td>net start</td>
+<td>16</td>
+</tr>
+<tr>
+<td>9</td>
+<td>qprocess</td>
+<td>15</td>
+</tr>
+<tr>
+<td>10</td>
+<td>query</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<p>Attackers use commands such as “tasklist”, “ver”, “ipconfig” and “systeminfo”, etc., and collect information of the network, process and OS in order to investigate what kind of machine they succeeded in infecting. This is presumably how they make sure that the machine is not a sandbox for malware analysis purposes and so on.</p>
+<h4><b>Reconnaissance</b></h4>
+<p>Commands shown in Table 2 are often used to search for confidential information and remote machines within the network.</p>
+<table><caption>Table 2: Reconnaissance (Top 10 commands)</caption>
+<thead>
+<tr><th>Ranking</th><th>Command</th><th>Times executed</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>dir</td>
+<td>976</td>
+</tr>
+<tr>
+<td>2</td>
+<td>net view</td>
+<td>236</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ping</td>
+<td>200</td>
+</tr>
+<tr>
+<td>4</td>
+<td>net use</td>
+<td>194</td>
+</tr>
+<tr>
+<td>5</td>
+<td>type</td>
+<td>120</td>
+</tr>
+<tr>
+<td>6</td>
+<td>net user</td>
+<td>95</td>
+</tr>
+<tr>
+<td>7</td>
+<td>net localgroup</td>
+<td>39</td>
+</tr>
+<tr>
+<td>8</td>
+<td>net group</td>
+<td>20</td>
+</tr>
+<tr>
+<td>9</td>
+<td>net config</td>
+<td>16</td>
+</tr>
+<tr>
+<td>10</td>
+<td>net share</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+<p>Attackers use “dir” and “type” to search for files. Sometimes they collect a list of all the document files in the infected machine by setting appropriate options and arguments for “dir” command.</p>
+<p>For searching networks, “net” is used. In particular, the following commands are often seen:</p>
+<ul>
+<li>net view: Obtain a list of connectable domain resources</li>
+<li>net user: Manage local/domain accounts</li>
+<li>net localgroup: Obtain a list of users belonging to local groups</li>
+<li>net group: Obtain a list of users belonging to certain domain groups</li>
+<li>net use: Access to resources</li>
+</ul>
+<p>Furthermore, the following commands may be used in an environment where Active Directory is used (Please refer to Table 5 in Appendix A). These commands are installed in Windows Server and do not originally exist in client OS such as Windows 7 and 8.1 – but attackers download and install these commands from outside and execute them.</p>
+<ul>
+<li>dsquery: Search for accounts in Active Directory</li>
+<li>csvde: Obtain account information in Active Directory</li>
+</ul>
+<h4><b>Spread of Infection</b></h4>
+<p>To intrude remote machines and spread malware infection within the network, the following commands are often executed:</p>
+<table><caption>Table 3: Spread of Infection</caption>
+<thead>
+<tr><th>Ranking</th><th>Command</th><th>Times executed</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>at</td>
+<td>103</td>
+</tr>
+<tr>
+<td>2</td>
+<td>reg</td>
+<td>31</td>
+</tr>
+<tr>
+<td>3</td>
+<td>wmic</td>
+<td>24</td>
+</tr>
+<tr>
+<td>4</td>
+<td>wusa</td>
+<td>7</td>
+</tr>
+<tr>
+<td>5</td>
+<td>netsh advfirewall</td>
+<td>4</td>
+</tr>
+<tr>
+<td>6</td>
+<td>sc</td>
+<td>4</td>
+</tr>
+<tr>
+<td>7</td>
+<td>rundll32</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: center;"><span style="font-size: small;">*”wmic” is also used for reconnaissance.</span></p>
+<p>“at” and “wmic” are often used to execute malware on remote machines.</p>
+<p>With “at” command, attackers can execute commands on remote machines, by registering tasks to execute files against connectable machines as follows.</p>
+<pre><code>at \\[remote host name or IP address] 12:00 cmd /c "C:\windows\temp\mal.exe"<br /></code></pre>
+<p>Also, by setting the following options and arguments with “wmic” command, attackers can execute commands on remote machines.</p>
+<pre><code>wmic /node:[IP address] /user:”[user name]” /password:”[password]” process call create “cmd /c c:\Windows\System32\net.exe user”<br /></code></pre>
+<h4><b>Restricting Execution of Unnecessary Windows Commands</b></h4>
+<p>It is fair to say that these Windows commands used by attackers include those that are unused by general users, if carefully selected. With AppLocker and software restriction policy, which restrict such commands from being executed, it would be possible to limit the attackers’ behaviour. For example, if you wish to restrict “net” commands, you can set rules as in Figure 1. (For details of AppLocker configuration, please see Microsoft’s Website [1]).</p>
+<table class="img_table"><caption>Figure 1: AppLocker Rules</caption>
+<tbody>
+<tr>
+<td><a href="http://jpcert.lekumo.biz/.shared/image.html?/photos/uncategorized/2016/01/21/figure1.png" onclick="window.open( this.href, '_blank', 'width=670,height=273,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0' ); return false"><img class="asset  asset-image at-xid-photo-51858883" style="width: 500px; display: block;" alt="Figure1" title="Figure1" src="https://blog.jpcert.or.jp/images/2016/01/21/figure1.png" /></a></td>
+</tr>
+</tbody>
+</table>
+<p>Also, by enabling AppLocker, events where selected Windows commands were executed or attempted but denied will be recorded in the event logs, which can be utilized for investigation on Windows commands that attackers executed after infecting the machine with malware.</p>
+<table class="img_table"><caption>Figure 2: Logs of the Processes Restricted by AppLocker</caption>
+<tbody>
+<tr>
+<td><a href="http://jpcert.lekumo.biz/.shared/image.html?/photos/uncategorized/2016/01/21/figure2.png" onclick="window.open( this.href, '_blank', 'width=699,height=504,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0' ); return false"><img class="asset  asset-image at-xid-photo-51858891" style="width: 500px; display: block;" alt="Figure2" title="Figure2" src="https://blog.jpcert.or.jp/images/2016/01/21/figure2.png" /></a></td>
+</tr>
+</tbody>
+</table>
+<p>AppLocker can also just monitor Windows commands [2]. With this, AppLocker cannot prevent unintended Windows commands from being executed, but the execution history will be recorded in the event log. If the users themselves use Windows commands that may be used for attacks, it is a good idea to set AppLocker just for monitoring purpose. (Windows command execution can also be monitored by activating “Audit Process Creation” in the local security policy.)</p>
+<h4><b>Conclusion</b></h4>
+<p>In targeted attacks, attackers not only use functions implemented in the malware, but also often use Windows commands to pursue their purposes. If such activities can be hindered, spread of incidents can be prevented in a fairly early stage. However, it may be difficult to limit the usage of Windows commands right away – so our recommendation is to start by collecting logs of executed processes by using AppLocker, etc.</p>
+<p>Thank you for reading and best wishes for the New Year!</p>
+<p>- Shusei Tomonaga</p>
+<hr />
+<h5>Reference:</h5>
+<blockquote>
+<p>[1] Microsoft - Windows AppLocker<br /> <a href="https://technet.microsoft.com/en-us/library/dd759117.aspx">https://technet.microsoft.com/en-us/library/dd759117.aspx</a><span style="text-decoration: underline;"></span></p>
+<p><span style="text-decoration: underline;"></span>[2] Microsoft – Using Auditing to Track Which Applications Are Used</p>
+<p><a href="https://technet.microsoft.com/en-us/library/dd723693%28v=ws.10%29.aspx">https://technet.microsoft.com/en-us/library/dd723693%28v=ws.10%29.aspx</a></p>
+</blockquote>
+<h5>Appendix A: List of Executed Commands by respective Attack Groups (Attack Group A)</h5>
+<table><caption>Table 4: Initial Investigation (Attack Group A)</caption>
+<thead>
+<tr><th>Ranking</th><th>Command</th><th>Times executed</th><th>Option</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>tasklist</td>
+<td>119</td>
+<td>/s /v</td>
+</tr>
+<tr>
+<td>2</td>
+<td>ver</td>
+<td>92</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>ipconfig</td>
+<td>58</td>
+<td>/all</td>
+</tr>
+<tr>
+<td>4</td>
+<td>net time</td>
+<td>30</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>systeminfo</td>
+<td>24</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>netstat</td>
+<td>22</td>
+<td>-ano</td>
+</tr>
+<tr>
+<td>7</td>
+<td>qprocess</td>
+<td>15</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>query</td>
+<td>14</td>
+<td>user</td>
+</tr>
+<tr>
+<td>9</td>
+<td>whoami</td>
+<td>14</td>
+<td>/all</td>
+</tr>
+<tr>
+<td>10</td>
+<td>net start</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>nslookup</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>fsutil</td>
+<td>3</td>
+<td>fsinfo drives</td>
+</tr>
+<tr>
+<td>13</td>
+<td>time</td>
+<td>2</td>
+<td>/t</td>
+</tr>
+<tr>
+<td>14</td>
+<td>set</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<table><caption>Table 5: Reconnaissance (Attack Group A)</caption>
+<thead>
+<tr><th>Ranking</th><th>Command</th><th>Times executed</th><th>Option</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>dir</td>
+<td>903</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>net view</td>
+<td>226</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>ping</td>
+<td>196</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>net use</td>
+<td>193</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>type</td>
+<td>118</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>net user</td>
+<td>74</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>net localgroup</td>
+<td>35</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>net group</td>
+<td>19</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>net config</td>
+<td>16</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>net share</td>
+<td>11</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>dsquery</td>
+<td>6</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>csvde</td>
+<td>5</td>
+<td>/f /q</td>
+</tr>
+<tr>
+<td>13</td>
+<td>nbtstat</td>
+<td>5</td>
+<td>-a</td>
+</tr>
+<tr>
+<td>14</td>
+<td>net session</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>nltest</td>
+<td>3</td>
+<td>/dclist</td>
+</tr>
+<tr>
+<td>16</td>
+<td>wevtutil</td>
+<td>2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<table><caption>Table 6: Spread of Infection (Attack Group A)</caption>
+<thead>
+<tr><th>Ranking</th><th>Command</th><th>Times executed</th><th>Option</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>at</td>
+<td>98</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>reg</td>
+<td>29</td>
+<td>add export query</td>
+</tr>
+<tr>
+<td>3</td>
+<td>wmic</td>
+<td>24</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>netsh advfirewall</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>sc</td>
+<td>4</td>
+<td>qc query</td>
+</tr>
+<tr>
+<td>6</td>
+<td>wusa</td>
+<td>2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5>Appendix B: List of Executed Commands by respective Attack Groups (Attack Group B)</h5>
+<table><caption>Table 7: Initial Investigation (Attack Group B)</caption>
+<thead>
+<tr><th>Ranking</th><th>Command</th><th>Times executed</th><th>Option</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>tasklist</td>
+<td>29</td>
+<td>/m /svc</td>
+</tr>
+<tr>
+<td>2</td>
+<td>whoami</td>
+<td>6</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>ipconfig</td>
+<td>5</td>
+<td>/all</td>
+</tr>
+<tr>
+<td>4</td>
+<td>net start</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>netstat</td>
+<td>3</td>
+<td>-ano</td>
+</tr>
+<tr>
+<td>6</td>
+<td>nslookup</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>ver</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>time</td>
+<td>1</td>
+<td>/t</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<table><caption>Table 8: Reconnaissance (Attack Group B)</caption>
+<thead>
+<tr><th>Ranking</th><th>Command</th><th>Times executed</th><th>Option</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>dir</td>
+<td>62</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>net user</td>
+<td>21</td>
+<td>/domain /add</td>
+</tr>
+<tr>
+<td>3</td>
+<td>net view</td>
+<td>9</td>
+<td>/domain</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ping</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>net localgroup</td>
+<td>4</td>
+<td>/add</td>
+</tr>
+<tr>
+<td>6</td>
+<td>tree</td>
+<td>3</td>
+<td>/F</td>
+</tr>
+<tr>
+<td>7</td>
+<td>type</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>net group</td>
+<td>1</td>
+<td>/domain</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<table><caption>Table 9: Spread of Infection (Attack Group B)</caption>
+<thead>
+<tr><th>Ranking</th><th>Command</th><th>Times executed</th><th>Option</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>at</td>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>wusa</td>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>reg</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>rundll32</td>
+<td>2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5>Appendix C: List of Executed Commands by respective Attack Groups (Attack Group C)</h5>
+<table><caption>Table 10: Initial Investigation (Attack Group C)</caption>
+<thead>
+<tr><th>Ranking</th><th>Command</th><th>Times executed</th><th>Option</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>systeminfo</td>
+<td>16</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>ipconfig</td>
+<td>13</td>
+<td>/all /?</td>
+</tr>
+<tr>
+<td>3</td>
+<td>tasklist</td>
+<td>7</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>netstat</td>
+<td>5</td>
+<td>-ano</td>
+</tr>
+<tr>
+<td>5</td>
+<td>whoami</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>net start</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>arp</td>
+<td>1</td>
+<td>-a</td>
+</tr>
+<tr>
+<td>8</td>
+<td>chcp</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>net time</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>ver</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<table><caption>Table 11: Reconnaissance (Attack Group C)</caption>
+<thead>
+<tr><th>Ranking</th><th>Command</th><th>Times executed</th><th>Option</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>dir</td>
+<td>11</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>net user</td>
+<td>1</td>
+<td>/all /?</td>
+</tr>
+<tr>
+<td>3</td>
+<td>net view</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>qwinsta</td>
+<td>1</td>
+<td>-ano</td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-size: small;">*Commands for “Spread of Infection” by Attack Group C are omitted since they did not spread the infection.</span></p>
+    </div>
+    
+    
+  </div>
+  <div class="entry-footer">
+          <p class="entry-footer-info">
+        <span class="post-footers">Posted on Jan 26, 2016 in <a href="https://blog.jpcert.or.jp/incident_management/">#Incident management</a>, <a href="https://blog.jpcert.or.jp/threats/">#Threats</a> </span> <span class="separator">|</span> <a class="permalink" href="https://blog.jpcert.or.jp/2016/01/windows-commands-abused-by-attackers.html">Permalink</a>
+      </p>
+    
+    <!-- post footer links -->
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+						</div>
+					</div>
+					<div id="beta">
+						<div id="beta-inner" class="pkg">
+							<!-- sidebar -->
+
+
+  <div class="module-archives module">
+    <h2 class="module-header">Recent Posts</h2>
+    <div class="module-content">
+      <ul class="module-list">
+                            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2018/06/plead-downloader-used-by-blacktech.html">PLEAD Downloader Used by BlackTech</a></li>
+          
+                            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2018/06/how-to-describe-vulnerability-information.html">How to Describe Vulnerability Information?</a></li>
+          
+                            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2018/04/jpcertcc-publishes-vulnerability-coordination-and-disclosure-policy.html">JPCERT/CC Publishes "Vulnerability Coordination and Disclosure Policy"</a></li>
+          
+                            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2018/03/malware-tscooki-7aa0.html">Malware “TSCookie”</a></li>
+          
+                            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2018/02/identify-mirai-variant-infected-devices-from-ssdp-response.html">Identify Mirai Variant Infected Devices from SSDP Response</a></li>
+          
+                            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2018/01/investigate-unauthorised-logon-attempts-using-logontracer.html">Investigate Unauthorised Logon Attempts using LogonTracer</a></li>
+          
+                            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2017/12/research-report-released-detecting-lateral-movement-through-tracking-event-logs-version-2.html">Research Report Released: Detecting Lateral Movement through Tracking Event Logs (Version 2)</a></li>
+          
+                            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2017/11/visualise-event-logs-to-identify-compromised-accounts---logontracer-.html">Visualise Event Logs to Identify Compromised Accounts - LogonTracer - </a></li>
+          
+                            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2017/09/chase-up-datper-bba7.html">Chase up Datper’s Communication Logs with Splunk/Elastic Stack</a></li>
+          
+                            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2017/08/detecting-datper-malware-from-proxy-logs.html">Detecting Datper Malware from Proxy Logs</a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+
+<div class="module-category-cloud module">
+  <h2 class="module-header">Categories</h2>
+  <div class="module-content">
+    <ul class="module-list">
+                        <li class="module-list-item cloud-weight-2"><a href="https://blog.jpcert.or.jp/apcert/">#APCERT</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-1"><a href="https://blog.jpcert.or.jp/first/">#FIRST</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-4"><a href="https://blog.jpcert.or.jp/incident_management/">#Incident management</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-10"><a href="https://blog.jpcert.or.jp/jpcert_news/">#JPCERT news</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-8"><a href="https://blog.jpcert.or.jp/threats/">#Threats</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-6"><a href="https://blog.jpcert.or.jp/trends/">#Trends in Japan</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-2"><a href="https://blog.jpcert.or.jp/tsubame/">#Tsubame</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-3"><a href="https://blog.jpcert.or.jp/vulnerabilities/">#Vulnerabilities</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-2"><a href="https://blog.jpcert.or.jp/africa/">Africa</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-1"><a href="https://blog.jpcert.or.jp/india/">India</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-1"><a href="https://blog.jpcert.or.jp/indonesia/">Indonesia</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-1"><a href="https://blog.jpcert.or.jp/laos/">Laos</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-1"><a href="https://blog.jpcert.or.jp/mongolia/">Mongolia</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-1"><a href="https://blog.jpcert.or.jp/myanmar/">Myanmar</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-1"><a href="https://blog.jpcert.or.jp/pac/">Pacific Islands</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-1"><a href="https://blog.jpcert.or.jp/srilanka/">Sri Lanka</a></li>
+        
+        
+                        <li class="module-list-item cloud-weight-1"><a href="https://blog.jpcert.or.jp/thai/">Thailand</a></li>
+        
+        
+      
+    </ul>
+  </div>
+</div>
+<div class="module-access-ranking module-archives moduel-archives module">
+  <h2 class="module-header">Access Ranking</h2>
+  <div class="module-content">
+    <div id="access-ranking-container">
+  <script type="text/javascript" src="/.shared/js/dolphin/ranking.v2.js"></script>
+  <script type="text/javascript" src="https://blog.jpcert.or.jp/ranking-30day.json?callback=Dolphin.renderAccessRankings"></script>
+</div>
+
+  </div>
+</div>
+<!-- include:http://jpcert.lekumo.biz/lists/logo_html/module.inc --><div class="module-typelist module">
+    <h2 class="module-header">Links</h2>
+    <div class="typelist-plain module-content">
+        <ul class="module-list">
+                    <li class="module-list-item"><div class="typelist-note"><p>
+<a href="https://www.jpcert.or.jp/english/"><img src="https://pbs.twimg.com/profile_images/837211186361860096/6hAEsxul_400x400.jpg" width=22 height=22 title="JPCERT/CC homepage" alt="JPCERT/CC homepage (English)" border=0 class="icon" /></a> <a href="https://www.jpcert.or.jp/english/">JPCERT/CC homepage</a>
+</p>
+<p><a href="http://twitter.com/jpcert_en"><img src="https://jpcert.lekumo.biz/photos/template/t_smalla1-thumb.png" border=0 class="icon" /></a> <a href="http://twitter.com/jpcert_en">Follow us @jpcert_en</a></p>
+<p><a href="index.rdf"><img src="https://jpcert.lekumo.biz/photos/template/rssicon221-thumb.png" border=0  class="icon" /></a> <a href="/jpcert_blog/index.rdf">RSS feed</a></p>
+<p><a href="contributor-profiles.html"><img src="https://jpcert.lekumo.biz/photos/template/user1-thumb.png" width=22 height=22 border=0  class="icon" /></a> <a href="http://blog.jpcert.or.jp/authours.html">Contributor info</a></p></div></li>
+        
+        </ul>
+    </div>
+</div>
+<!-- /include:http://jpcert.lekumo.biz/lists/logo_html/module.inc -->
+  <div class="module-archives module">
+    <h2 class="module-header"><a href="https://blog.jpcert.or.jp/archives.html">Archives</a></h2>
+    <div class="module-content">
+                                        <ul class="module-list">
+                
+                <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2018/06/">June 2018</a></li>
+                
+                            
+                <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2018/04/">April 2018</a></li>
+                
+                            
+                <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2018/03/">March 2018</a></li>
+                
+                            
+                <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2018/02/">February 2018</a></li>
+                
+                            
+                <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2018/01/">January 2018</a></li>
+                
+                            
+                <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2017/12/">December 2017</a></li>
+                
+                            
+                <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2017/11/">November 2017</a></li>
+                
+                            
+                <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2017/09/">September 2017</a></li>
+                
+                            
+                <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2017/08/">August 2017</a></li>
+                
+                            
+                <li class="module-list-item"><a href="https://blog.jpcert.or.jp/2017/07/">July 2017</a></li>
+                            </ul>
+                                  <p class="module-more"><a href="https://blog.jpcert.or.jp/archives.html">More...</a></p>
+                
+                
+            
+    </div>
+  </div>
+
+<div class="module-categories module">
+  <h2 class="module-header"><a href="https://blog.jpcert.or.jp/archives.html">Categories</a></h2>
+  <div class="module-content">
+    <ul class="module-list">
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/apcert/">#APCERT</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/first/">#FIRST</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/incident_management/">#Incident management</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/jpcert_news/">#JPCERT news</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/threats/">#Threats</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/trends/">#Trends in Japan</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/tsubame/">#Tsubame</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/vulnerabilities/">#Vulnerabilities</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/africa/">Africa</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/india/">India</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/indonesia/">Indonesia</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/laos/">Laos</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/mongolia/">Mongolia</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/myanmar/">Myanmar</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/pac/">Pacific Islands</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/srilanka/">Sri Lanka</a></li>
+            <li class="module-list-item"><a href="https://blog.jpcert.or.jp/thai/">Thailand</a></li>
+      
+    </ul>
+  </div>
+</div>
+<!-- include:http://jpcert.lekumo.biz/lists/privacy_policy/module.inc --><div class="module-typelist module">
+    <h2 class="module-header">Privacy Policy</h2>
+    <div class="module-content">
+        <ul class="module-list">
+                    <li class="module-list-item"><a title="" href="http://blog.jpcert.or.jp/privacy-policy.html">Privacy Policy for JPCERT/CC Blog</a></li>
+        
+        </ul>
+    </div>
+</div>
+<!-- /include:http://jpcert.lekumo.biz/lists/privacy_policy/module.inc -->
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+<script type="text/javascript">
+  var done_stats_script = done_stats_script || 0;
+  (function() {
+    if (done_stats_script) return;
+    var extra_happy = Math.floor(1000000000 * Math.random());
+    document.write('<img src="https://bb.lekumo.jp/t/stats?blog_id=303193&amp;entry_id=56580811&amp;user_id=497559&amp;page=' + escape(location.href) + '&amp;referrer=' + escape(document.referrer) + '&amp;i=' + extra_happy + '" width="1" height="1" alt="" style="position: absolute; top: 0; left: 0;" />');
+  })();
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-99305042-1', 'auto');
+  ga('send', 'pageview');
+
+  var _lara_site_id = 4570;
+  (function() {
+    if (done_stats_script) return;
+    var ra = document.createElement('script'); ra.type = 'text/javascript'; ra.async = true;
+    ra.src = 'https://analytics.lekumo.jp/ranking.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ra, s);
+  })();
+
+  done_stats_script++;
+</script>
+
+
+
+
+
+<script>
+  var _lbbSwitchViewInfo = {
+    baseURL: 'https://blog.jpcert.or.jp/',
+    title: 'Switch to Smartphone View'
+  };
+</script>
+<script type="text/javascript" src="/.shared/themes/common/switch-view.js"></script>
+
+</body>
+</html>

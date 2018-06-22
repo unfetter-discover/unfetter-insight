@@ -5,6 +5,6 @@ RUN apt-get install -y swig
 RUN apt-get install -y libpulse-dev
 COPY . /app
 WORKDIR /app
-RUN pip install -r requirements.txt
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
 ENTRYPOINT ["python"]
 CMD ["app.py"]

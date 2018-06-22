@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="application/rss+xml" href="/ncas/tips.xml" rel="alternate" title="Tips" />
+<link rel="shortcut icon" href="https://www.us-cert.gov/sites/default/files/images/favicon.ico" type="image/vnd.microsoft.icon" />
+<link type="application/rss+xml" href="/ncas/all.xml" rel="alternate" title="All" />
+<link type="application/rss+xml" href="/ncas/alerts.xml" rel="alternate" title="Alerts" />
+<link type="application/rss+xml" href="/ncas/current-activity.xml" rel="alternate" title="Current Activity" />
+<link type="application/rss+xml" href="/ncas/bulletins.xml" rel="alternate" title="Bulletins" />
+<meta name="description" content="Since at least May 2017, threat actors have targeted government entities and the energy, water, aviation, nuclear, and critical manufacturing sectors, and, in some cases, have leveraged their capabilities to compromise victims’ networks. Historically, cyber threat actors have targeted the energy sector with various results, ranging from cyber espionage to the ability to" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="https://www.us-cert.gov/ncas/alerts/TA17-293A" />
+<link rel="shortlink" href="https://www.us-cert.gov/node/10082" />
+  <title>Advanced Persistent Threat Activity Targeting Energy and Other Critical Infrastructure Sectors</title>  
+  <link type="text/css" rel="stylesheet" href="https://www.us-cert.gov/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.us-cert.gov/sites/default/files/css/css_Q7R7Blo9EYqLDI5rIlO_T3uTFBjIXjLpcqMHjTvVdmg.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.us-cert.gov/sites/default/files/css/css_QT-iHCN_OvMfcvyWv3zcdASNIcVEspchrW8xhfhypgw.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.us-cert.gov/sites/default/files/css/css_NZP06HtVM2PXIECz-fccV3VQt7Di3WIPCjOZ-rsJpUE.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.us-cert.gov/sites/default/files/css/css_ndiJyNVThMvm4NLJ_NDezI8mnh-XZLdkCGXSSLbI4og.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.us-cert.gov/sites/default/files/css/css_KCNZ7YudgplVMn0e5YXrEptF8K7nkEFZt5Yrs5EjYM0.css" media="all" />
+  <script type="text/javascript" src="https://www.us-cert.gov/sites/default/files/js/js_bVChtePCOyl3loSELo0XgyJewBzmFDgJo0rXLU03Lfk.js"></script>
+<script type="text/javascript" src="https://www.us-cert.gov/sites/default/files/js/js_DzD04PZATtGOFjfR8HJgfcaO3-pPZpWFXEvuMvQz2gA.js"></script>
+<script type="text/javascript" src="https://www.us-cert.gov/sites/default/files/js/js_gm7DA5zprCKmQyDUm-jh4KpDsIbdqakoY8UdVczaDJg.js"></script>
+<script type="text/javascript" src="https://www.us-cert.gov/sites/default/files/js/js_ICJwHQ-Ii3ytM7OUWytURigrWPHfQ-pBZ7kl0A1UmUI.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.us-cert.gov/sites/default/files/googleanalytics/analytics.js?paapgm","ga");ga("create", "UA-34879253-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"uscert_gov_theme","theme_token":"iFpUD1YHUWpwRHMzH7tmVCxXefGjUyJIVsf8o2WAG-E","js":{"0":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.10\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"profiles\/uscert_gov\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.datepicker.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.accordion.min.js":1,"profiles\/uscert_gov\/modules\/contrib\/jquery_ui_filter\/jquery_ui_filter.js":1,"profiles\/uscert_gov\/modules\/custom\/uscert_webforms\/js\/uscert_webforms.js":1,"profiles\/uscert_gov\/modules\/contrib\/extlink\/extlink.js":1,"profiles\/uscert_gov\/themes\/uscert_gov_theme\/js\/global.js":1,"profiles\/uscert_gov\/modules\/contrib\/jquery_ui_filter\/accordion\/jquery_ui_filter_accordion.js":1,"profiles\/dhs_wcm\/modules\/contrib\/google_analytics\/googleanalytics.js":1,"1":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.accordion.css":1,"modules\/aggregator\/aggregator.css":1,"profiles\/uscert_gov\/modules\/contrib\/calendar\/css\/calendar_multiday.css":1,"modules\/comment\/comment.css":1,"profiles\/dhs_wcm\/modules\/contrib\/date\/date_api\/date.css":1,"profiles\/dhs_wcm\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"profiles\/dhs_wcm\/modules\/contrib\/date\/date_repeat_field\/date_repeat_field.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"profiles\/uscert_gov\/modules\/custom\/uscert_webforms\/css\/uscert_webforms.css":1,"modules\/user\/user.css":1,"profiles\/uscert_gov\/modules\/contrib\/extlink\/extlink.css":1,"profiles\/dhs_wcm\/modules\/contrib\/views\/css\/views.css":1,"profiles\/dhs_wcm\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/default\/files\/css\/follow.css":1,"profiles\/dhs_wcm\/themes\/omega\/alpha\/css\/alpha-reset.css":1,"profiles\/uscert_gov\/themes\/uscert_gov_theme\/css\/font-awesome.min.css":1,"profiles\/uscert_gov\/themes\/uscert_gov_theme\/css\/global.css":1,"profiles\/dhs_wcm\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1}},"jQueryUiFilter":{"disabled":0,"accordionHeaderTag":"h3","accordionOptions":{"active":"false","animated":"slide","autoHeight":"false","clearStyle":"false","collapsible":"true","event":"click","scrollTo":0,"history":"false"}},"wcmTools":{"techinicalDifficulties":"The site \u003Cem class=\u0022placeholder\u0022\u003EUS-CERT\u003C\/em\u003E is having technical difficulties and some features may not work properly.","messageContainerID":"main-content","messageType":"error"},"extlink":{"extTarget":0,"extClass":"ext","extLabel":"(link is external)","extImgClass":0,"extIconPlacement":"append","extSubdomains":1,"extExclude":"(\\.gov|\\.mil|\\.org.*|twitter\\.com\\\/share\\?url\\=.*|www\\.facebook\\.com\\\/sharer\\.php\\?u\\=.*|www\\.addthis\\.com\\\/bookmark\\.php\\?url\\=.*|javascript\\:window\\.print\\(\\)\\;)","extInclude":"","extCssExclude":"","extCssExplicit":"","extAlert":"_blank","extAlertText":"You are now leaving an official website of the United State Government (USG), the Department of Homeland Security (DHS) and the United States Computer Emergency Readiness Team (US-CERT). Links to non-USG, non-DHS and non-US-CERT sites are provided for the visitor\u0027s convenience and do not represent an endorsement by USG, DHS or US-CERT of any commercial or private issues, products or services. Note that the privacy policy of the linked site may differ from that of USG, DHS and US-CERT.","mailtoClass":"mailto","mailtoLabel":"(link sends e-mail)"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip","trackCrossDomains":["us-cert.gov"]},"password":{"strengthTitle":"Password compliance:"},"type":"setting"});
+//--><!]]>
+</script>
+<!-- We participate in the US government's analytics program. See the data at analytics.usa.gov. --><script src="/profiles/dhs_wcm/modules/contrib/usfedgov_google_analytics/js/Universal-Federated-Analytics-Min.js?agency=DHS&subagency=US-CERT" type="text/javascript" id="_fed_an_ua_tag"></script>  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="html not-front not-logged-in page-node page-node- page-node-10082 node-type-alert i18n-en context-ncas">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div class="page clearfix" id="page">
+      <header id="section-header" class="section section-header">
+  <div id="zone-global-header-wrapper" class="zone-wrapper zone-global-header-wrapper clearfix">  
+  <div id="zone-global-header" class="zone zone-global-header clearfix container-12">
+    <div class="block block-block block-22 block-block-22 odd block-without-title" id="block-block-22">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div id="super-header"><img alt="U.S. Flag" src="/sites/default/files/icn-us-flag-21px.png" /> Official website of the Department of Homeland Security</div>    </div>
+  </div>
+</div>  </div>
+</div><div id="zone-branding-wrapper" class="zone-wrapper zone-branding-wrapper clearfix">  
+  <div id="zone-branding" class="zone zone-branding clearfix container-12">
+    <div class="grid-8 region region-branding" id="region-branding">
+  <div class="region-inner region-branding-inner">
+        <div class="block block-block block-23 block-block-23 odd block-without-title" id="block-block-23">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="logo-img"><a href="/"><img alt="U.S. Department of Homeland Security Seal. United States Computer Emergency Readiness Team US-CERT" id="logo" src="/sites/default/files/images/logo.png" /></a></div>    </div>
+  </div>
+</div>  </div>
+</div><div class="grid-4 region region-search" id="region-search">
+  <div class="region-inner region-search-inner">
+    <div class="block block-block block-3 block-block-3 odd block-without-title" id="block-block-3">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div id="search-container"><form accept-charset="UTF-8" action="https://search.us-cert.gov/search" id="search_form" method="get"><input name="utf8" type="hidden" value="✓" /><input id="affiliate" name="affiliate" type="hidden" value="us-cert" /><label for="query">Search query</label><input autocomplete="off" class="usagov-search-autocomplete" id="query" name="query" type="text" /><input id="search-submit" name="commit" type="submit" value="Search" /> </form></div>
+<style type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+.view-id-current_job_openings .views-table thead th {
+color: white;
+}
+
+/*--><!]]>*/
+</style><style type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+.general-table {
+        margin-bottom: 2px;
+        margin-top: 2px;
+}
+
+.general-table th {
+        border: 1px solid #2b5580;
+        background-color: #4078b1;
+        background-image: -webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0.15, rgb(41,90,139)),
+                color-stop(0.85, rgb(64,120,177))
+        );
+        background-image: -moz-linear-gradient(
+                center bottom,
+                rgb(41,90,139) 15%,
+                rgb(64,120,177) 85%
+        );
+        color: #FFFFFF;
+        text-align: center;
+}
+
+.general-table td, .general-table th {
+        border: 1px solid #2b5580;
+        line-height: 1.2em;
+	padding: 10px;
+}
+
+.general-table caption {
+	padding: 14px;
+	
+}
+
+.general-table caption strong {
+        line-height: 1.2em;
+	padding: 10px;
+	font-size: 14px;
+}
+
+}
+
+/*--><!]]>*/
+</style><style type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+.table-in-accordion {
+        margin-bottom: 2px;
+        margin-top: 2px;
+}
+
+.table-in-accordion th {
+        border: 1px solid #2b5580;
+        background-color: #4078b1;
+        background-image: -webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0.15, rgb(41,90,139)),
+                color-stop(0.85, rgb(64,120,177))
+        );
+        background-image: -moz-linear-gradient(
+                center bottom,
+                rgb(41,90,139) 15%,
+                rgb(64,120,177) 85%
+        );
+        color: #FFFFFF;
+        text-align: center;
+}
+
+.table-in-accordion td, .table-in-accordion th {
+        border: 1px solid #2b5580;
+        line-height: 1.2em;
+	padding: 6px;
+}
+
+.table-in-accordion caption {
+	padding: 14px;
+	
+}
+
+.table-in-accordion caption strong {
+        line-height: 1.2em;
+	padding: 10px;
+	font-size: 14px;
+}
+ol {
+margin: 5px 0 5px 35px !important;
+}
+
+/*--><!]]>*/
+</style><style type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+.node-bulletin #snya_v td {
+        line-height: 1.2em !important;
+}
+
+.node-bulletin #snya_v {
+        margin-bottom: 25px;
+}
+
+.node-bulletin #snya_v tfoot {
+        background-color: #F5F5F5;
+}
+
+.node-bulletin #snya_v td, .node-bulletin #snya_v th {
+        border: 1px solid #666666;
+        padding: 10px 5px !important;
+}
+
+.node-bulletin #snya_v_title {
+        background-color: #999999;
+        color: #FFFFFF;
+        text-align: center;
+        font-weight: bold;
+}
+
+.node-bulletin h2#snya_v_title
+{
+        padding: 10px 0;
+        border: 1px solid #666666;
+        border-bottom: none;
+}
+
+/*--><!]]>*/
+</style><style type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+body.node-type-current-activity div.content div.content a{
+    color: #005EBD;
+    text-decoration: underline;
+}
+.view-id-current_job_openings td.active {
+    background-color: inherit;
+}
+img.usajobs-img {
+    width: 85%;
+}
+/* akamai block */
+#block-akamai-akamai h2 {
+        display: none;
+}
+
+#block-akamai-akamai div, 
+#block-akamai-akamai input, 
+#block-akamai-akamai ul, 
+#block-akamai-akamai li, 
+#block-akamai-akamai form,  
+#block-akamai-akamai label {
+        display: inline;
+}
+
+#block-akamai-akamai div#edit-message {
+    display: none;
+}
+
+#block-akamai-akamai input#edit-submit {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #00578D;
+}
+
+#block-akamai-akamai input#edit-submit:hover {
+    text-decoration: underline;
+}
+
+#block-akamai-akamai input#edit-submit {
+    color: #FFF;
+    font-size: 95%;
+}
+
+#block-akamai-akamai {
+    display: inline;
+    position: relative;
+    float: right;
+    padding-right: 10px;
+    z-index: 10;
+}
+#table_severity_not_yet_assigned { table-layout:fixed; width: 100%}
+
+/*--><!]]>*/
+</style><script type="text/javascript">
+<!--//--><![CDATA[// ><!--
+
+jQuery(document).ready(function(){
+    var widths=["24%","44%","10%","8%","14%"];
+    var i=0;
+    jQuery('#table_severity_not_yet_assigned').find('th').each(function(){ var th=jQuery(this); th.css('width', widths[i]); i++});
+
+//for one us-cert-event event/dhs-national-cybersecurity-summit
+     var event_datetime = jQuery('.node-type-us-cert-events').find('.date-display-single');
+     if(event_datetime.text() == 'Tuesday, July 31, 2018 - 00:00')
+     {
+        event_datetime.text('Tuesday, July 31, 2018');
+        var title = jQuery('h1#page-title');
+        var img = jQuery('img#dhs-summit-img');
+        if(img.length > 0)
+        {
+            title.remove();
+            jQuery('img#dhs-summit-img').after(title);
+            jQuery('img#dhs-summit-img').css('margin-bottom','20px');
+        }
+     }
+    });
+
+//--><!]]>
+</script>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div><div id="zone-menu-wrapper" class="zone-wrapper zone-menu-wrapper clearfix">  
+  <div id="zone-menu" class="zone zone-menu clearfix container-12">
+    <div class="grid-12 region region-menu" id="region-menu">
+  <div class="region-inner region-menu-inner">
+        <nav class="navigation">
+      <span class="element-invisible">Main menu</span><ul id="main-menu" class="links inline clearfix main-menu"><li class="menu-577 first"><a href="/" title="">Home</a></li><li class="menu-581"><a href="/about-us">About Us</a></li><li class="menu-1903"><a href="/current-job-openings" title="">Careers</a></li><li class="menu-709"><a href="/security-publications">Publications</a></li><li class="menu-579"><a href="/ncas">Alerts and Tips</a></li><li class="menu-580"><a href="/related-resources">Related Resources</a></li><li class="menu-982 last"><a href="/ccubedvp">C³ VP</a></li></ul>          </nav>
+          </div>
+</div>
+
+  </div>
+</div></header>    
+      <section id="section-content" class="section section-content">
+  <div id="zone-preface-wrapper" class="zone-wrapper zone-preface-wrapper clearfix">  
+  <div id="zone-preface" class="zone zone-preface clearfix container-12">
+    <div class="grid-4 region region-preface-first" id="region-preface-first">
+  <div class="region-inner region-preface-first-inner">
+    <div class="block block-block block-64 block-block-64 odd block-without-title" id="block-block-64">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div id="print-logo"><img alt="U.S. Department of Homeland Security Seal. United States Computer Emergency Readiness Team US-CERT" height="217px" src="/sites/default/files/images/NCCIC_logo.jpg" width="481px" /></div><div id="tlp-header"><svg height="30" width="120"><rect fill="black" height="30" width="120" x="0" y="0"></rect><text fill="#ffffff" font-size="18px" x="10" y="20">TLP:WHITE</text></svg></div><div id="tlp-footer"><svg height="30" width="120"><rect fill="black" height="30" width="120" x="0" y="0"></rect><text fill="#ffffff" font-size="18px" x="10" y="20">TLP:WHITE</text></svg></div>
+<style type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+#tlp-header,
+#tlp-footer {
+	width: 120px;
+	height: 30px;
+}
+#print-logo {
+    width: 481px;
+    height: 220px;
+}
+
+@media print {
+    @page :first {
+        #print-logo {
+            display: block;
+		    position: fixed;
+		    left: 0;
+		    top: 0;
+        }
+    }
+	#tlp-header {
+		position: fixed;
+		right: 0;
+		top: 0;
+	}
+	#tlp-footer {
+		position: fixed;
+		right: 0;
+		bottom: 0;
+	}
+	#ncas-content {
+		width: 85% !important;
+	}
+.general-table {
+word-break: break-all;
+}
+	body {
+		font-size: 120%;
+	}
+}
+@media screen {
+    #print-logo,
+	#tlp-header {
+		display: none;
+	}
+	#tlp-footer {
+		display: none;
+	}
+}
+
+/*--><!]]>*/
+</style>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div><div id="zone-content-wrapper" class="zone-wrapper zone-content-wrapper clearfix">  
+  <div id="zone-content" class="zone zone-content clearfix container-12">    
+        
+        <div class="grid-12 region region-content" id="region-content">
+  <div class="region-inner region-content-inner">
+    <a id="main-content"></a>
+                        <div class="block block-system block-main block-system-main odd block-without-title" id="block-system-main">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <article class="node node-alert node-published node-not-promoted node-not-sticky author-amccarty odd clearfix" id="node-alert-10082">
+	
+	
+		
+	
+	<div id="ncas-header">
+		<div id="alerts-archive">
+			<a title="View Archives" href="/ncas/alerts/">More Alerts</a>
+		</div>
+		<h1 id="page-title">Alert (TA17-293A)</h1>
+		<h2 id="page-sub-title">Advanced Persistent Threat Activity Targeting Energy and Other Critical Infrastructure Sectors</h2>
+		<footer class="submitted meta-text">Original release date: October 20, 2017 | Last <a href="#revisions">revised</a>: March 15, 2018</footer>
+
+		
+    	<div id="social-options">
+		<!-- START PRINT BUTTON -->
+			<div id="print-button">
+				<span id="custom-print-button">
+					<a rel="nofollow" href="javascript:window.print();">Print Document</a>
+				</span>
+			</div>        <!-- END PRINT BUTTON -->
+
+		<!-- START TWEET BUTTON -->
+			<div id="tweet-button">
+				<span id="custom-tweet-button">
+					<a rel="nofollow" target="_blank" href="https://twitter.com/share?url=https%3A%2F%2Fwww.us-cert.gov%2Fncas%2Falerts%2FTA17-293A" class="popup-twitter">Tweet</a>
+				</span>
+			</div>		<script type="text/javascript"> 
+			jQuery('.popup-twitter').popupWindow({ 
+				height:400, 
+				width:575, 
+				top:50, 
+				left:50 
+			}); 
+		</script>
+		<!-- END TWEET BUTTON -->
+
+		<!-- START FACEBOOK BUTTON -->
+			<div id="facebook-button">
+				<span id="custom-facebook-button">
+				<a rel="nofollow" target="_blank" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.us-cert.gov%2Fncas%2Falerts%2FTA17-293A" class="popup-facebook">Like Me</a>
+				</span>
+			</div>
+            <script type="text/javascript"> 
+			jQuery('.popup-facebook').popupWindow({ 
+				height:500, 
+				width:900, 
+				top:50, 
+				left:50 
+			}); 
+		</script>
+		<!-- END FACEBOOK BUTTON -->
+		
+		<!-- START SHARE BUTTON -->
+			<div id="share-button">
+				<span id="custom-share-button">
+					<a rel="nofollow" target="_blank" href="http://www.addthis.com/bookmark.php?url=https%3A%2F%2Fwww.us-cert.gov%2Fncas%2Falerts%2FTA17-293A" class="popup-share">Share</a>
+				</span>
+			</div>                <script type="text/javascript"> 
+			jQuery('.popup-share').popupWindow({ 
+				height:500, 
+				width:900, 
+				top:50, 
+				left:50 
+			}); 
+		</script>
+		<!-- END SHARE BUTTON -->
+			
+	</div>
+	</div>
+
+	<div class="content clearfix">
+		<div id="ncas-content">
+		<a id="affected"></a>
+		<h3>Systems Affected</h3>
+		<div class="field field-name-field-alert-systems-affected field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><ul><li>Domain Controllers</li><li>File Servers</li><li>Email Servers</li></ul></div></div></div>		
+		<a id="overview"></a>
+		<h3>Overview</h3>
+		<div class="field field-name-field-alert-overview field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p style="color: red;"><strong>This alert has been superseded by newer information. The old alert is provided below for historical reference only. For the newest version, please see <a href="https://us-cert.gov/ncas/alerts/TA18-074A">TA18-074A</a>.</strong></p><p> </p><p>This joint Technical Alert (TA) is the result of analytic efforts between the Department of Homeland Security (DHS) and the Federal Bureau of Investigation (FBI). This alert provides information on advanced persistent threat (APT) actions targeting government entities and organizations in the energy, nuclear, water, aviation, and critical manufacturing sectors. Working with U.S. and international partners, DHS and FBI identified victims in these sectors. This report contains indicators of compromise (IOCs) and technical details on the tactics, techniques, and procedures (TTPs) used by APT actors on compromised victims’ networks.</p><p> </p><p>DHS assesses this activity as a multi-stage intrusion campaign by threat actors targeting low security and small networks to gain access and move laterally to networks of major, high value asset owners within the energy sector. Based on malware analysis and observed IOCs, DHS has confidence that this campaign is still ongoing, and threat actors are actively pursuing their ultimate objectives over a long-term campaign. The intent of this product is to educate network defenders and enable them to identify and reduce exposure to malicious activity.</p><p>For a downloadable copy of IOC packages and associated files, see:</p><ul><li><a href="/sites/default/files/publications/TA17-293A_TLP_WHITE_CSV.csv">TA17-293A_TLP_WHITE.csv</a></li><li><a href="/sites/default/files/publications/TA17-293A%20_TLP_%20WHITE.xml">TA17-293A_TLP_WHITE_stix.xml</a></li><li><a href="/sites/default/files/publications/MIFR-10127623_TLP_WHITE.pdf">MIFR-10127623_TLP_WHITE.pdf</a></li><li><a href="/sites/default/files/publications/MIFR-10127623_TLP_WHITE_stix.xml">MIFR-10127623_TLP_WHITE_stix.xml</a></li><li><a href="/sites/default/files/publications/MIFR-10128327_TLP_WHITE.pdf">MIFR-10128327_TLP_WHITE.pdf</a></li><li><a href="/sites/default/files/publications/MIFR-10128327_TLP_WHITE_stix.xml">MIFR-10128327_TLP_WHITE_stix.xml</a></li><li><a href="/sites/default/files/publications/MIFR-10128336_TLP_WHITE.pdf">MIFR-10128336_TLP_WHITE.pdf</a></li><li><a href="/sites/default/files/publications/MIFR-10128336_TLP_WHITE_stix.xml">MIFR-10128336_TLP_WHITE_stix.xml</a></li><li><a href="/sites/default/files/publications/MIFR-10128830_TLP_WHITE.pdf">MIFR-10128830­_TLP_WHITE.pdf</a></li><li><a href="/sites/default/files/publications/MIFR-10128830_TLP_WHITE_stix.xml">MIFR-10128830­_TLP_WHITE_stix.xml</a></li><li><a href="/sites/default/files/publications/MIFR-10128883_TLP_WHITE.pdf">MIFR-10128883_TLP_WHITE.pdf</a></li><li><a href="/sites/default/files/publications/MIFR-10128883_TLP_WHITE_stix.xml">MIFR-10128883_TLP_WHITE_stix.xml</a></li><li><a href="/sites/default/files/publications/MIFR-10135300_TLP_WHITE.pdf">MIFR-10135300_TLP_WHITE.pdf</a></li><li><a href="/sites/default/files/publications/MIFR-10135300_TLP_WHITE_stix.xml">MIFR-10135300_TLP_WHITE_stix.xml</a></li></ul><p>Contact DHS or law enforcement immediately to report an intrusion and to request incident response resources or technical assistance.</p></div></div></div>		
+		<a id="description"></a>
+		<h3>Description</h3>
+		<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><p>Since at least May 2017, threat actors have targeted government entities and the energy, water, aviation, nuclear, and critical manufacturing sectors, and, in some cases, have leveraged their capabilities to compromise victims’ networks. Historically, cyber threat actors have targeted the energy sector with various results, ranging from cyber espionage to the ability to disrupt energy systems in the event of a hostile conflict. [1] Historically, threat actors have also targeted other critical infrastructure sectors with similar campaigns.</p><p>Analysis by DHS, FBI, and trusted partners has identified distinct indicators and behaviors related to this activity. Of specific note, the report Dragonfly: Western energy sector targeted by sophisticated attack group, released by Symantec on September 6, 2017, provides additional information about this ongoing campaign. <a href="https://www.symantec.com/connect/blogs/dragonfly-western-energy-sector-targeted-sophisticated-attack-group">[2]</a></p><p>This campaign comprises two distinct categories of victims: staging and intended targets. The initial victims are peripheral organizations such as trusted third party suppliers with less secure networks. The initial victims are referred to as “staging targets” throughout this alert. The threat actor uses the staging targets’ networks as pivot points and malware repositories when targeting their final intended victims. The ultimate objective of the cyber threat actors is to compromise organizational networks, which are referred throughout this alert as “intended target.”</p><h4>Technical Details</h4><p>The threat actors in this campaign employed a variety of TTPs, including:</p><ul><li>open-source reconnaissance,</li><li>spear-phishing emails (from compromised legitimate accounts),</li><li>watering-hole domains,</li><li>host-based exploitation,</li><li>industrial control system (ICS) infrastructure targeting, and</li><li>ongoing credential gathering.</li></ul><h4>Using Cyber Kill Chain for Analysis</h4><p>DHS leveraged the Cyber Kill Chain model to analyze, discuss, and dissect malicious cyber activity. Phases of the model include reconnaissance, weaponization, delivery, exploitation, installation, command and control, and actions on the objective. This section will provide a high-level overview of activity within this framework.</p><p><strong>Stage 1: Reconnaissance</strong></p><p>The threat actors appear to have deliberately chosen the organizations they targeted, rather than pursuing them as targets of opportunity. Staging targets held preexisting relationships with many of the intended targets. It is known that threat actors are actively accessing publicly available information hosted by organization-monitored networks. DHS further assesses that threat actors are seeking to identify information pertaining to network and organizational design, as well as control system capabilities, within organizations.</p><p>Forensic analysis identified that threat actors are conducting open-source reconnaissance of their targets, gathering information posted on company-controlled websites. This is a common tactic for collecting the information needed for targeted spear-phishing attempts. In some cases, information posted to company websites, especially information that may appear to be innocuous, may contain operationally sensitive information. As an example, the threat actors downloaded a small photo from a publically accessible human resources page. The image, when expanded, was a high-resolution photo that displayed control systems equipment models and status information in the background.</p><p>Analysis also revealed that the threat actors used compromised staging target networks to conduct open-source reconnaissance to identify potential targets of interest and intended targets. “Targets of interest” refers to organizations that DHS observed the threat actors showing an active interest in, but where no compromise was reported. Specifically, the threat actors accessed publically web-based remote access infrastructure such as websites, remote email access portals, and virtual private network (VPN) connections.</p><p><strong>Stage 2: Weaponization</strong></p><h5>Spear-Phishing Email TTPs</h5><p>Throughout the spear-phishing campaign, threat actors used email attachments to leverage legitimate Microsoft Office functions to retrieve a document from a remote server using the Server Message Block (SMB) protocol. (An example of this request is: file[:]//&lt;remote IP address&gt;/Normal.dotm). As a part of the standard processes executed by Microsoft Word, this request authenticates the client with the server, sending the user’s credential hash to the remote server prior to retrieving the requested file. (Note: It is not necessary for the file to be retrieved for the transfer of credentials to occur.) The threat actors then likely used password-cracking techniques to obtain the plaintext password. Once actors obtain valid credentials, they are able to masquerade as authorized users.</p><p><strong>Stage 3: Delivery</strong></p><p>When seeking to compromise the target network, threat actors used a spear-phishing email campaign that differed from previously reported TTPs. The spear-phishing email used a generic contract agreement theme, with the subject line “AGREEMENT &amp; Confidential”, and which contained a generic PDF document, titled “’’document.pdf”. (Note the inclusion of two single apostrophes at the beginning of the attachment name.) The PDF itself was not malicious and did not contain any active code. The document prompted the user to click on a link should a download not automatically begin. (Note: No code within the PDF initiated a download.) The link directs users to a website via a shortened URL, which may prompt them to retrieve a malicious file.</p><p>In previous reporting, DHS and FBI identified the common themes used in these spear-phishing emails, all emails referred to control systems or process control systems. The threat actors continue to use these themes, specifically against intended target organizations. Email messages include references to common industrial control equipment and protocols. The emails leveraged malicious Microsoft Word attachments that appear to be legitimate résumés or curricula vitae (CVs) for industrial control systems personnel, as well as invitations and policy documents that entice the user to open the attachment. The list of file names has been published in the IOC.</p><p><strong>Stage 4: Exploitation</strong></p><p>Threat actors used distinct and unusual TTPs (i.e., successive redirects) in the phishing campaign directed at staging targets. Emails contained a stacked URL-shortening link that directed the user to http://bit[.]ly/2m0x8IH link, which redirected the user to http://tinyurl[.]com/h3sdqck link, which redirected the user to the ultimate destination of http://imageliners[.]com/nitel. The imageliner[.]com website contained an email address and password input fields mimicking a login page for a website.</p><p>When exploiting the intended targets, threat actors used malicious .docx files to capture user credentials, however, DHS did not observe the actors establishing persistence on the user’s system. The documents attempt to retrieve a file through a “file:\\” connection over SMB using Transmission Control Protocol (TCP) ports 445 or 139 and User Datagram Protocol (UDP) ports 137 or 138. This connection is made to a command and control (C2) server — either a server owned by the threat actors or that of a compromised system owned by a staging location victim. When a user is authenticated as a domain user, this will provide the C2 server with the hash of the victim. Local users will receive a graphical user interface (GUI) prompt to enter a username and password. This information will be provided to the C2 over TCP ports 445 or 139 and UDP ports 137 or 138. (Note: A file transfer is not necessary for a loss of credential information.) Symantec’s report associates this behavior to the Dragonfly threat actors in this campaign. <a href="https://www.symantec.com/connect/blogs/dragonfly-western-energy-sector-targeted-sophisticated-attack-group">[3]</a></p><h5><strong>Use of Watering Hole Domains</strong></h5><p>One of the threat actors’ primary uses for staging targets is to develop watering holes. The threat actors compromise the infrastructure of trusted organizations to reach intended targets. [4] Although these watering holes may host legitimate content by reputable organizations, the threat actors have altered them to contain and reference malicious content. Approximately half of the known watering holes are trade publications and informational websites related to process control, ICS, or critical infrastructure.</p><p>Using a similar SMB collection technique, the actors manipulated these websites by altering JavaScript and PHP files that redirect to an IP address on port 445 for credential harvesting. The compromised sites include both custom developed web applications and template-based frameworks. The threat actors injected a line of code into header.php, a legitimate PHP file that carried out the redirected traffic.</p><p>There is no indication that threat actors used zero-day exploits to manipulate the sites; the threat actors more likely used legitimate credentials to access the website content directly.</p><p><strong>Stage 5: Installation</strong></p><p>The threat actors leveraged compromised credentials to access victims’ networks where multi-factor authentication is not used. <a href="/sites/default/files/publications/MIFR-10127623_TLP_WHITE.pdf">[5]</a> Once inside of an intended target’s network, the threat actors downloaded tools from a remote server. The initial versions of the file names contained .txt extensions and were renamed to the appropriate extension, typically .exe or .zip.</p><p>In one example, after gaining remote access to the network of an intended victim, the threat actor carried out the following actions:</p><ul><li>The threat actor connected to 91.183.104[.]150 and downloaded multiple files, specifically the file INST.txt.</li><li>The files were renamed to new extensions, with INST.txt being renamed INST.exe.</li><li>The files were executed on the host and then immediately deleted.</li><li>The execution of INST.exe triggered a download of ntdll.exe, and shortly after, ntdll.exe appeared in the running process list of a compromised system of an intended target.</li></ul><p>In their report on Dragonfly, Symantec associated the MD5 hash of INST.exe to Backdoor.Goodor. The MD5 hashes for the previously mentioned files can be found in the IOC list above.</p><p>Several of these files were scripts that were used for creating the initial account leveraged by the threat actors. The initial script symantec_help.jsp contained a one-line reference to a malicious script. It was located at C:\Program Files (x86)\Symantec\Symantec Endpoint Protection Manager\tomcat\webapps\ROOT\.</p><p><strong>Contents of symantec_help.jsp</strong></p><p>____________________________________________________________________________________________________________________</p><table border="1" cellpadding="0" cellspacing="0" style="width: 100%;"><tbody><tr><td><p>&lt;% Runtime.getRuntime().exec("cmd /C \"" + System.getProperty("user.dir") + "\\..\\webapps\\ROOT\\&lt;REDACTED SCRIPT NAME&gt;\""); %&gt;</p></td></tr></tbody></table><p>____________________________________________________________________________________________________________________</p><p>The malicious script created a user account, disabled the host-based firewall, and globally opened port 3389 for Remote Desktop Protocol (RDP) access. The script then attempted to add the newly created account to the administrators group for elevated privileges. This script contained hard-coded values for the group name “administrator” in Spanish, Italian, German, French, and English.</p><p>In addition, the threat actors also created a scheduled task “reset”, which was designed to automatically log out of their newly created account every eight hours.</p><p><strong>Contents of Scheduled Task</strong></p><p><strong>____________________________________________________________________________________________________________________</strong></p><table border="1" cellpadding="0" cellspacing="0" style="width: 100%;"><tbody><tr><td><p>&lt;?xml version="1.0" encoding="UTF-16"?&gt;</p><p>&lt;Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task"&gt;</p><p> &lt;RegistrationInfo&gt;</p><p>  &lt;Date&gt;2017-06-25T11:51:17.4848488&lt;/Date&gt;</p><p>  &lt;Author&gt;&lt;REDACTED&gt;&lt;/Author&gt;</p><p> &lt;/RegistrationInfo&gt;</p><p> &lt;Triggers&gt;</p><p>  &lt;TimeTrigger&gt;</p><p>   &lt;StartBoundary&gt;2017-06-25T12:30:29&lt;/StartBoundary&gt;</p><p>   &lt;Enabled&gt;true&lt;/Enabled&gt;</p><p>  &lt;/TimeTrigger&gt;</p><p> &lt;/Triggers&gt;</p><p> &lt;Principals&gt;</p><p>  &lt;Principal id="Author"&gt;</p><p>   &lt;RunLevel&gt;LeastPrivilege&lt;/RunLevel&gt;</p><p>   &lt;UserId&gt;&lt;REDACTED USERNAME&gt;&lt;/UserId&gt;</p><p>   &lt;LogonType&gt;InteractiveToken&lt;/LogonType&gt;</p><p>  &lt;/Principal&gt;</p><p> &lt;/Principals&gt;</p><p> &lt;Settings&gt;</p><p>  &lt;MultipleInstancesPolicy&gt;IgnoreNew&lt;/MultipleInstancesPolicy&gt;</p><p>  &lt;DisallowStartIfOnBatteries&gt;true&lt;/DisallowStartIfOnBatteries&gt;</p><p>  &lt;StopIfGoingOnBatteries&gt;true&lt;/StopIfGoingOnBatteries&gt;</p><p>  &lt;AllowHardTerminate&gt;true&lt;/AllowHardTerminate&gt;</p><p>  &lt;StartWhenAvailable&gt;false&lt;/StartWhenAvailable&gt;</p><p>  &lt;RunOnlyIfNetworkAvailable&gt;false&lt;/RunOnlyIfNetworkAvailable&gt;</p><p>  &lt;IdleSettings&gt;</p><p>   &lt;StopOnIdleEnd&gt;true&lt;/StopOnIdleEnd&gt;</p><p>   &lt;RestartOnIdle&gt;false&lt;/RestartOnIdle&gt;</p><p>  &lt;/IdleSettings&gt;</p><p>  &lt;AllowStartOnDemand&gt;true&lt;/AllowStartOnDemand&gt;</p><p>  &lt;Enabled&gt;true&lt;/Enabled&gt;</p><p>  &lt;Hidden&gt;false&lt;/Hidden&gt;</p><p>  &lt;RunOnlyIfIdle&gt;false&lt;/RunOnlyIfIdle&gt;</p><p>  &lt;WakeToRun&gt;false&lt;/WakeToRun&gt;</p><p>  &lt;ExecutionTimeLimit&gt;P3D&lt;/ExecutionTimeLimit&gt;</p><p>  &lt;Priority&gt;7&lt;/Priority&gt;</p><p> &lt;/Settings&gt;</p><p> &lt;Actions Context="Author"&gt;</p><p>  &lt;Exec&gt;</p><p>   &lt;Command&gt;logoff&lt;/Command&gt;</p><p>  &lt;/Exec&gt;</p><p> &lt;/Actions&gt;</p><p>&lt;/Task&gt;</p></td></tr></tbody></table><p>____________________________________________________________________________________________________________________</p><p>After achieving access to staging targets, the threat actors installed tools to carry out their mission. On one occasion, threat actors installed the free version of Forticlient, which was presumably used as a VPN client for intended targets.</p><p>Consistent with the perceived goal of credential harvesting, the threat actor was observed dropping and executing open source and free tools such as Hydra, SecretsDump, and CrackMapExec. The naming convention and download locations suggest that these files were downloaded directly from publically available locations such as GitHub. Forensic analysis indicates that many of these tools were executed during the timeframe in which the threat actor was accessing the system. Of note, the threat actor installed Python 2.7 on a compromised host of one staging victim, and a Python script was seen at C:\Users\&lt;Redacted Username&gt;\Desktop\OWAExchange\. In the previous folder structure, a subfolder named “out” held multiple text files.</p><h5>Persistence Through .LNK File Manipulation</h5><p>The threat actors manipulated .lnk files to repeatedly gather user credentials. Default Windows functionality enables icons to be loaded from a local Windows repository. The threat actors exploited this built-in Windows functionality by setting the icon path to their remote controlled server. When the user browses to the directory, Windows attempts to load the icon and initiate an SMB authentication session. During this process, the active user’s credentials are passed through the attempted SMB connection. The threat actors used this tactic in both Virtual Desktop Infrastructure (VDI) and traditional environments.</p><p><img alt="Parsed output for file: SETROUTE.lnk" src="/sites/default/files/publications/TA17-293A%20Image1.png" style="width: 543px; height: 502px; float: left;" /></p><p> </p><p> </p><p> </p><p> </p><p> </p><p> </p><p> </p><p> </p><p> </p><p> </p><p> </p><p> </p><p> </p><p> </p><p> </p><p> </p><p>Three of the observed .lnk files were SETROUTE.lnk, notepad.exe.lnk, and Document.lnk. These names appear to be contextual, and threat actors may use a variety of other file names within this tactic. Two of the remote servers observed in these .lnk files were 62.8.193[.]206 and 5.153.58[.]45.</p><h5>Establishing Local Accounts</h5><p>The threat actors created accounts on the staging target for ongoing operations. These accounts, masquerading as legitimate service accounts, appeared to be tailored to each individual staging target. Each account created by the threat actors served a specific purpose in their operation. DHS and FBI identified the creation of four local accounts on a compromised server. The server operated as both a domain controller and an email server for a staging target.</p><p><strong>Account 1:</strong> The threat actors created a local account, which was named to mimic backup services of the staging target. This account was created by the aforementioned malicious script. The threat actors used this account to conduct open-source reconnaissance and remotely access intended targets. This account was also used to remove the Forticlient software.</p><p><strong>Account 2:</strong> Account 1 was used to create Account 2 to impersonate an email administration account. The only observed action was to create Account 3.</p><p><strong>Account 3:</strong> The threat actors created Account 3 in the staging victim’s Microsoft Exchange Server. A PowerShell script created this account during an RDP session while the threat actor was authenticated as Account 2. The naming conventions of the created Microsoft Exchange account followed that of the staging target (e.g., first initial concatenated with the last name).</p><p><strong>Account 4:</strong> In the latter stage of the compromise, the threat actor used Account 1 to create Account 4, a local administrator account. Account 4 was then used to delete the following logs: system, security, terminal services, remote services, and audit. Registry analysis indicated that this activity was likely scripted.</p><p><strong>Stage 6: Command and Control</strong></p><p>The threat actors commonly use web shells to compromise publically available servers to gain a foothold into internal networks. This activity has been observed on both web and email servers. The threat actors then establish an encrypted connection over port 443 to the web shell. Once connected, the threat actors download additional malicious files from the threat actors’ servers to the publically available server. Two of the web shells (AutoDiscover.aspx and global.aspx) used by the actors are detailed in the accompanying IOC list. Despite having different file names, the MD5 hashes of the two web shells indicated that the two files were the same file. These web shells have been associated with the ciklon_z webshell.</p><p>DHS and FBI identified the threat actors leveraging remote access services and infrastructure, such as VPN, RDP, and Outlook Web Access (OWA). The threat actors used staging targets to connect to several intended targets, effectively turning the staging targets into command and control points. To date, it is presumed that the threat actors have targeted services that use single-factor authentication. DHS believes that the threat actors employ this methodology to avoid detection and attribution.</p><h5>Targeting of ICS and SCADA Infrastructure</h5><p>Upon gaining access to intended victims, the threat actors conducted reconnaissance operations within the network. Specifically, the threat actors focused on identifying and browsing file servers within the intended victim’s network. The threat actors viewed files pertaining to ICS or Supervisory Control and Data Acquisition (SCADA) systems. Based on DHS analysis of existing compromises, these files were originally named containing ICS vendor names and ICS reference documents pertaining to the organization (e.g., “SCADA WIRING DIAGRAM.pdf” or “SCADA PANEL LAYOUTS.xlsx”).</p><p>In one instance, the threat actors accessed workstations and servers on a corporate network that contained data output from control systems within energy generation facilities. In this same incident, the threat actors created a malicious scheduled task that invoked “scr.exe” with the arguments “scr.jpg”. The MD5 hash of scr.exe matched the MD5 of ScreenUtil, a tool used by the threat actor, as reported in the Symantec Dragonfly 2.0 report.</p><h4>Detection and Response</h4><p>IOCs related to this campaign are provided within the accompanying .csv and .stix files of this alert. DHS and FBI recommend that network administrators review the IP addresses, domain names, file hashes, network signatures, and YARA rules provided and add the IPs to their watchlist to determine whether malicious activity has been observed within their organization. System owners are also advised to run the YARA tool on any system suspected to have been targeted by these APT actors.</p><h5>Network Signatures and Host-Based Rules</h5><p>This section contains network signatures and host-based rules that can be used to detect malicious activity associated with threat actors TTPs. Although these network signatures and host-based rules were created using a comprehensive vetting process, the possibility of false positives always remains.</p><h5>Network Signatures</h5><p><code>alert tcp $HOME_NET any -&gt; $EXTERNAL_NET $HTTP_PORTS (msg:"HTTP URI contains '/aspnet_client/system_web/4_0_30319/update/' (Beacon)"; sid:42000000; rev:1; flow:established,to_server; content:"/aspnet_client/system_web/4_0_30319/update/"; http_uri; fast_pattern:only; classtype:bad-unknown; metadata:service http;)</code></p><p><code>___________________________________</code></p><p><code>alert tcp $HOME_NET any -&gt; $EXTERNAL_NET $HTTP_PORTS (msg:"HTTP URI contains '/img/bson021.dat'"; sid:42000001; rev:1; flow:established,to_server; content:"/img/bson021.dat"; http_uri; fast_pattern:only; classtype:bad-unknown; metadata:service http;)</code></p><p><code>________________________________________</code></p><p><code>alert tcp $HOME_NET any -&gt; $EXTERNAL_NET $HTTP_PORTS (msg:"HTTP URI contains '/A56WY' (Callback)"; sid:42000002; rev:1; flow:established,to_server; content:"/A56WY"; http_uri; fast_pattern; classtype:bad-unknown; metadata:service http;)</code></p><p><code>_________________________________________</code></p><p><code>alert tcp any any -&gt; any 445 (msg:"SMB Client Request contains 'AME_ICON.PNG' (SMB credential harvesting)"; sid:42000003; rev:1; flow:established,to_server; content:"|FF|SMB|75 00 00 00 00|"; offset:4; depth:9; content:"|08 00 01 00|"; distance:3; content:"|00 5c 5c|"; distance:2; within:3; content:"|5c|AME_ICON.PNG"; distance:7; fast_pattern; classtype:bad-unknown; metadata:service netbios-ssn;)</code></p><p>________________________________________</p><p><code>alert tcp $HOME_NET any -&gt; $EXTERNAL_NET $HTTP_PORTS (msg:"HTTP URI OPTIONS contains '/ame_icon.png' (SMB credential harvesting)"; sid:42000004; rev:1; flow:established,to_server; content:"/ame_icon.png"; http_uri; fast_pattern:only; content:"OPTIONS"; nocase; http_method; classtype:bad-unknown; metadata:service http;)</code></p><p><code>_________________________________________</code></p><p><code>alert tcp $HOME_NET any -&gt; $EXTERNAL_NET $HTTP_PORTS (msg:"HTTP Client Header contains 'User-Agent|3a 20|Go-http-client/1.1'"; sid:42000005; rev:1; flow:established,to_server; content:"User-Agent|3a 20|Go-http-client/1.1|0d 0a|Accept-Encoding|3a 20|gzip"; http_header; fast_pattern:only; pcre:"/\.(?:aspx|txt)\?[a-z0-9]{3}=[a-z0-9]{32}&amp;/U"; classtype:bad-unknown; metadata:service http;)</code></p><p><code>__________________________________________</code></p><p><code>alert tcp $EXTERNAL_NET [139,445] -&gt; $HOME_NET any (msg:"SMB Server Traffic contains NTLM-Authenticated SMBv1 Session"; sid:42000006; rev:1; flow:established,to_client; content:"|ff 53 4d 42 72 00 00 00 00 80|"; fast_pattern:only; content:"|05 00|"; distance:23; classtype:bad-unknown; metadata:service netbios-ssn;)</code><br /> </p><h5>YARA Rules</h5><p>This is a consolidated rule set for malware associated with, consisting of rules written by US-CERT, as well as contributions by trusted partners.</p><p><code>*/</code></p><p> </p><p><code>rule APT_malware_1</code></p><p><code>{</code></p><p><code>meta:</code></p><p><code>      description = "inveigh pen testing tools &amp; related artifacts"</code></p><p><code>      author = "US-CERT Code Analysis Team"    </code></p><p><code>      date = "2017/07/17"</code></p><p><code>      hash0 = "61C909D2F625223DB2FB858BBDF42A76"</code></p><p><code>      hash1 = "A07AA521E7CAFB360294E56969EDA5D6"</code></p><p><code>      hash2 = "BA756DD64C1147515BA2298B6A760260"</code></p><p><code>      hash3 = "8943E71A8C73B5E343AA9D2E19002373"</code></p><p><code>      hash4 = "04738CA02F59A5CD394998A99FCD9613"</code></p><p><code>      hash5 = "038A97B4E2F37F34B255F0643E49FC9D"</code></p><p><code>      hash6 = "65A1A73253F04354886F375B59550B46"</code></p><p><code>      hash7 = "AA905A3508D9309A93AD5C0EC26EBC9B"</code></p><p><code>      hash8 = "5DBEF7BDDAF50624E840CCBCE2816594"</code></p><p><code>      hash9 = "722154A36F32BA10E98020A8AD758A7A"</code></p><p><code>      hash10 = "4595DBE00A538DF127E0079294C87DA0"</code></p><p><code>strings:</code></p><p><code>      $s0 = "file://"</code></p><p><code>      $s1 = "/ame_icon.png"</code></p><p><code>      $s2 = "184.154.150.66"</code></p><p><code>      $s3 = { 87D081F60C67F5086A003315D49A4000F7D6E8EB12000081F7F01BDD21F7DE }</code></p><p><code>      $s4 = { 33C42BCB333DC0AD400043C1C61A33C3F7DE33F042C705B5AC400026AF2102 }</code></p><p><code>      $s5 = "(g.charCodeAt(c)^l[(l[b]+l[e])%256])"</code></p><p><code>      $s6 = "for(b=0;256&gt;b;b++)k[b]=b;for(b=0;256&gt;b;b++)"</code></p><p><code>      $s7 = "VXNESWJfSjY3grKEkEkRuZeSvkE="</code></p><p><code>      $s8 = "NlZzSZk="</code></p><p><code>      $s9 = "WlJTb1q5kaxqZaRnser3sw=="</code></p><p><code>      $s10 = "for(b=0;256&gt;b;b++)k[b]=b;for(b=0;256&gt;b;b++)"</code></p><p><code>      $s11 = "fromCharCode(d.charCodeAt(e)^k[(k[b]+k[h])%256])"</code></p><p><code>      $s12 = "ps.exe -accepteula \\%ws% -u %user% -p %pass% -s cmd /c netstat"</code></p><p><code>      $s13 = { 22546F6B656E733D312064656C696D733D5C5C222025254920494E20286C6973742E74787429 }</code></p><p><code>      $s14 = { 68656C6C2E657865202D6E6F65786974202D657865637574696F6E706F6C69637920627970617373202D636F6D6D616E6420222E202E5C496E76656967682E70 }</code></p><p><code>      $s15 = { 476F206275696C642049443A202266626433373937623163313465306531 }</code></p><p> </p><p> </p><p><code>//inveigh pentesting tools</code></p><p> </p><p><code>      $s16 = { 24696E76656967682E7374617475735F71756575652E4164642822507265737320616E79206B657920746F2073746F70207265616C2074696D65 }</code></p><p> </p><p><code>//specific malicious word document PK archive</code></p><p> </p><p><code>      $s17 = { 2F73657474696E67732E786D6CB456616FDB3613FEFE02EF7F10F4798E64C54D06A14ED125F19A225E87C9FD0194485B }</code></p><p><code>      $s18 = { 6C732F73657474696E67732E786D6C2E72656C7355540500010076A41275780B0001040000000004000000008D90B94E03311086EBF014D6F4D87B48214471D2 }</code></p><p><code>      $s19 = { 8D90B94E03311086EBF014D6F4D87B48214471D210A41450A0E50146EBD943F8923D41C9DBE3A54A240ACA394A240ACA39 }</code></p><p><code>      $s20 = { 8C90CD4EEB301085D7BD4F61CDFEDA092150A1BADD005217B040E10146F124B1F09FEC01B56F8FC3AA9558B0B4 }</code></p><p><code>      $s21 = { 8C90CD4EEB301085D7BD4F61CDFEDA092150A1BADD005217B040E10146F124B1F09FEC01B56F8FC3AA9558B0B4 }</code></p><p><code>      $s22 = "5.153.58.45"</code></p><p><code>      $s23 = "62.8.193.206"</code></p><p><code>      $s24 = "/1/ree_stat/p"</code></p><p><code>      $s25 = "/icon.png"</code></p><p><code>      $s26 = "/pshare1/icon"</code></p><p><code>      $s27 = "/notepad.png"</code></p><p><code>      $s28 = "/pic.png"</code></p><p><code>      $s29 = "http://bit.ly/2m0x8IH"</code></p><p><code>     </code></p><p><code>condition:</code></p><p><code>      ($s0 and $s1 or $s2) or ($s3 or $s4) or ($s5 and $s6 or $s7 and $s8 and $s9) or ($s10 and $s11) or ($s12 and $s13) or ($s14) or ($s15) or ($s16) or ($s17) or ($s18) or ($s19) or ($s20) or ($s21) or ($s0 and $s22 or $s24) or ($s0 and $s22 or $s25) or ($s0 and $s23 or $s26) or ($s0 and $s22 or $s27) or ($s0 and $s23 or $s28) or ($s29)</code></p><p><code>}</code></p><p> </p><p><code>rule APT_malware_2</code></p><p><code>{</code></p><p><code>meta:</code></p><p><code>      description = "rule detects malware"</code></p><p><code>      author = "other"</code></p><p><code>strings:</code></p><p><code>      $api_hash = { 8A 08 84 C9 74 0D 80 C9 60 01 CB C1 E3 01 03 45 10 EB ED }</code></p><p><code>      $http_push = "X-mode: push" nocase</code></p><p><code>      $http_pop = "X-mode: pop" nocase</code></p><p><code>condition:</code></p><p><code>      any of them</code></p><p><code>}</code></p><p> </p><p><code>rule Query_XML_Code_MAL_DOC_PT_2</code></p><p><code>{</code></p><p><code>      meta:</code></p><p><code>            name= "Query_XML_Code_MAL_DOC_PT_2"</code></p><p><code>            author = "other"</code></p><p><code>      strings:</code></p><p><code>            $zip_magic = { 50 4b 03 04 }</code></p><p><code>            $dir1 = "word/_rels/settings.xml.rels"</code></p><p><code>            $bytes = {8c 90 cd 4e eb 30 10 85 d7}</code></p><p><code>      condition:</code></p><p><code>            $zip_magic at 0 and $dir1 and $bytes</code></p><p><code>}</code></p><p> </p><p><code>rule Query_Javascript_Decode_Function</code></p><p><code>{</code></p><p><code>meta:</code></p><p><code>      name= "Query_Javascript_Decode_Function"</code></p><p><code>      author = "other"</code></p><p><code>strings:</code></p><p><code>      $decode1 = {72 65 70 6C 61 63 65 28 2F 5B 5E 41 2D 5A 61 2D 7A 30 2D 39 5C 2B 5C 2F 5C 3D 5D 2F 67 2C 22 22 29 3B}</code></p><p><code>      $decode2 = {22 41 42 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F 50 51 52 53 54 55 56 57 58 59 5A 61 62 63 64 65 66 67 68 69 6A 6B 6C 6D 6E 6F 70 71 72 73 74 75 76 77 78 79 7A 30 31 32 33 34 35 36 37 38 39 2B 2F 3D 22 2E 69 6E 64 65 78 4F 66 28 ?? 2E 63 68 61 72 41 74 28 ?? 2B 2B 29 29}</code></p><p><code>      $decode3 = {3D ?? 3C 3C 32 7C ?? 3E 3E 34 2C ?? 3D 28 ?? 26 31 35 29 3C 3C 34 7C ?? 3E 3E 32 2C ?? 3D 28 ?? 26 33 29 3C 3C 36 7C ?? 2C ?? 2B 3D [1-2] 53 74 72 69 6E 67 2E 66 72 6F 6D 43 68 61 72 43 6F 64 65 28 ?? 29 2C 36 34 21 3D ?? 26 26 28 ?? 2B 3D 53 74 72 69 6E 67 2E 66 72 6F 6D 43 68 61 72 43 6F 64 65 28 ?? 29}</code></p><p><code>      $decode4 = {73 75 62 73 74 72 69 6E 67 28 34 2C ?? 2E 6C 65 6E 67 74 68 29}</code></p><p><code>      $func_call="a(\""</code></p><p><code>condition:</code></p><p><code>      filesize &lt; 20KB and #func_call &gt; 20 and all of ($decode*)</code></p><p><code>}</code></p><p> </p><p><code>rule Query_XML_Code_MAL_DOC</code></p><p><code>{</code></p><p><code>meta:</code></p><p><code>      name= "Query_XML_Code_MAL_DOC"</code></p><p><code>      author = "other"</code></p><p><code>strings:</code></p><p><code>      $zip_magic = { 50 4b 03 04 }</code></p><p><code>      $dir = "word/_rels/" ascii</code></p><p><code>      $dir2 = "word/theme/theme1.xml" ascii</code></p><p><code>      $style = "word/styles.xml" ascii</code></p><p><code>condition:</code></p><p><code>      $zip_magic at 0 and $dir at 0x0145 and $dir2 at 0x02b7 and $style at 0x08fd</code></p><p><code>}</code></p></div></div></div>		
+		<a id="impact"></a>
+		<h3>Impact</h3>
+		<div class="field field-name-field-alert-impact field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>This APT actor’s campaign has affected multiple organizations in the energy, nuclear, water, aviation, construction, and critical manufacturing sectors.</p></div></div></div>		
+		<a id="solution"></a>
+		<h3>Solution</h3>
+		<div class="field field-name-field-alert-solution field-type-text-long field-label-hidden"><div class="field-items"><div class="field-item even"><p>DHS and FBI encourage network users and administrators to use the following detection and prevention guidelines to help defend against this activity.</p><h4>Network and Host-based Signatures</h4><p>DHS and FBI recommend that network administrators review the IP addresses, domain names, file hashes, and YARA and Snort signatures provided and add the IPs to their watch list to determine whether malicious activity is occurring within their organization. Reviewing network perimeter netflow will help determine whether a network has experienced suspicious activity. Network defenders and malware analysts should use the YARA and Snort signatures provided in the associated YARA and .txt file to identify malicious activity.</p><h4>Detections and Prevention Measures</h4><ul><li>Users and administrators can detect spear phishing, watering hole, web shell, and remote access activity by comparing all IP addresses and domain names listed in the IOC packages to the following locations:<ul><li>network intrusion detection system/network intrusion protection system  logs,</li><li>web content logs,</li><li>proxy server logs,</li><li>domain name server resolution logs,</li><li>packet capture (PCAP) repositories,</li><li>firewall logs,</li><li>workstation Internet browsing history logs,</li><li>host-based intrusion detection system /host-based intrusion prevention system (HIPS) logs,</li><li>data loss prevention logs,</li><li>exchange server logs,</li><li>user mailboxes,</li><li>mail filter logs,</li><li>mail content logs,</li><li>AV mail logs,</li><li>OWA logs,</li><li>Blackberry Enterprise Server logs, and</li><li>Mobile Device Management logs.</li></ul></li><li>To detect the presence of web shells on external-facing servers, compare IP addresses, filenames, and file hashes listed in the IOC packages with the following locations:<ul><li>application logs,</li><li>IIS/Apache logs,</li><li>file system,</li><li>intrusion detection system/ intrusion prevention system logs,</li><li>PCAP repositories,</li><li>firewall logs, and</li><li>reverse proxy.</li></ul></li><li>Detect spear-phishing by searching workstation file systems, as well as network-based user directories, for attachment filenames and hashes found in the IOC packages.</li><li>Detect persistence in VDI environments by searching file shares containing user profiles for all .lnk files.</li><li>Detect evasion techniques by the threat actors by identifying deleted logs. This can be done by reviewing last-seen entries and by searching for event 104 on Windows system logs.</li><li>Detect persistence by reviewing all administrator accounts on systems to identify unauthorized accounts, especially those created recently.</li><li>Detect the malicious use of legitimate credentials by reviewing the access times of remotely accessible systems for all users. Any unusual login times should be reviewed by the account owners.</li><li>Detect the malicious use of legitimate credentials by validating all remote desktop and VPN sessions of any user’s credentials suspected to be compromised.</li><li>Detect spear-phishing by searching OWA logs for all IP addresses listed in the IOC packages.</li><li>Detect spear-phishing through a network by validating all new email accounts created on mail servers, especially those with external user access.</li><li>Detect persistence on servers by searching system logs for all filenames listed in the IOC packages.</li><li>Detect lateral movement and privilege escalation by searching PowerShell logs for all filenames ending in “.ps1” contained in the IOC packages. (Note: requires PowerShell version 5, and PowerShell logging must be enabled prior to the activity.)</li><li>Detect persistence by reviewing all installed applications on critical systems for unauthorized applications, specifically note FortiClient VPN and Python 2.7.</li><li>Detect persistence by searching for the value of “REG_DWORD 100” at registry location “HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal”. Services\MaxInstanceCount” and the value of “REG_DWORD 1” at location “HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\dontdisplaylastusername”.</li><li>Detect installation by searching all proxy logs for downloads from URIs without domain names.</li></ul><h4>General Best Practices Applicable to this Campaign:</h4><ul><li>Prevent external communication of all versions of SMB and related protocols at the network boundary by blocking TCP ports 139 and 445 with related UDP port 137. See the NCCIC/US-CERT publication on <a href="https://www.us-cert.gov/ncas/current-activity/2017/01/16/SMB-Security-Best-Practices">SMB Security Best Practices </a>for more information.</li><li>Block the Web-based Distributed Authoring and Versioning (WebDAV) protocol on border gateway devices on the network.</li><li>Monitor VPN logs for abnormal activity (e.g., off-hour logins, unauthorized IP address logins, and multiple concurrent logins).</li><li>Deploy web and email filters on the network. Configure these devices to scan for known bad domain names, sources, and addresses; block these before receiving and downloading messages. This action will help to reduce the attack surface at the network’s first level of defense. Scan all emails, attachments, and downloads (both on the host and at the mail gateway) with a reputable anti-virus solution that includes cloud reputation services.</li><li>Segment any critical networks or control systems from business systems and networks according to industry best practices.</li><li>Ensure adequate logging and visibility on ingress and egress points.</li><li>Ensure the use of PowerShell version 5, with enhanced logging enabled. Older versions of PowerShell do not provide adequate logging of the PowerShell commands an attacker may have executed. Enable PowerShell module logging, script block logging, and transcription. Send the associated logs to a centralized log repository for monitoring and analysis. See the FireEye blog post <a href="http://Greater Visibility through PowerShell Logging">Greater Visibility through PowerShell Logging </a>for more information.</li><li>Implement the prevention, detection, and mitigation strategies outlined in the NCCIC/US-CERT Alert TA15-314A – <a href="https://www.us-cert.gov/ncas/alerts/TA15-314A">Compromised Web Servers and Web Shells – Threat Awareness and Guidance</a>.</li><li>Establish a training mechanism to inform end users on proper email and web usage, highlighting current information and analysis, and including common indicators of phishing. End users should have clear instructions on how to report unusual or suspicious emails.</li><li>Implement application directory whitelisting. System administrators may implement application or application directory whitelisting through Microsoft Software Restriction Policy, AppLocker, or similar software. Safe defaults allow applications to run from PROGRAMFILES, PROGRAMFILES(X86), SYSTEM32, and any ICS software folders. All other locations should be disallowed unless an exception is granted.</li><li>Block RDP connections originating from untrusted external addresses unless an exception exists; routinely review exceptions on a regular basis for validity.</li><li>Store system logs of mission critical systems for at least one year within a security information event management tool.</li><li>Ensure applications are configured to log the proper level of detail for an incident response investigation.</li><li>Consider implementing HIPS or other controls to prevent unauthorized code execution.</li><li>Establish least-privilege controls.</li><li>Reduce the number of Active Directory domain and enterprise administrator accounts.</li><li>Based on the suspected level of compromise, reset all user, administrator, and service account credentials across all local and domain systems.</li><li>Establish a password policy to require complex passwords for all users.</li><li>Ensure that accounts for network administration do not have external connectivity.</li><li>Ensure that network administrators use non-privileged accounts for email and Internet access.</li><li>Use two-factor authentication for all authentication, with special emphasis on any external-facing interfaces and high-risk environments (e.g., remote access, privileged access, and access to sensitive data).</li><li>Implement a process for logging and auditing activities conducted by privileged accounts.</li><li>Enable logging and alerting on privilege escalations and role changes.</li><li>Periodically conduct searches of publically available information to ensure no sensitive information has been disclosed. Review photographs and documents for sensitive data that may have inadvertently been included.</li><li>Assign sufficient personnel to review logs, including records of alerts.</li><li>Complete independent security (as opposed to compliance) risk review.</li><li>Create and participate in information sharing programs.</li><li>Create and maintain network and system documentation to aid in timely incident response. Documentation should include network diagrams, asset owners, type of asset, and an incident response plan.</li></ul><p><strong>Report Notice</strong></p><p>DHS encourages recipients who identify the use of tools or techniques discussed in this document to report information to DHS or law enforcement immediately. To request incident response resources or technical assistance, contact NCCIC at <a href="mailto:NCCICcustomerservice@hq.dhs.gov">NCCICcustomerservice@hq.dhs.gov </a>or 888-282-0870.</p></div></div></div>		
+		<a id="references"></a>
+		<h3>References</h3>
+		<div class="field field-name-field-alert-references field-type-link-field field-label-hidden clearfix">
+    <ul class="field-items">
+          <li class="field-item even">[1] FireEye. Factors Motivating Cyber Espionage Against the Energy Sector. September 3, 2015 09:21:00AM, 15-00008886, Version: 2</li>
+          <li class="field-item odd"><a href="https://www.symantec.com/connect/blogs/dragonfly-western-energy-sector-targeted-sophisticated-attack-group" target="_blank">[2] Symantec. Dragonfly: Western energy sector targeted by sophisticated attack group. September 6, 2017. </a></li>
+          <li class="field-item even"><a href="https://www.symantec.com/connect/blogs/dragonfly-western-energy-sector-targeted-sophisticated-attack-group" target="_blank">[2] Symantec. Dragonfly: Western energy sector targeted by sophisticated attack group. September 6, 2017.</a></li>
+          <li class="field-item odd">[4] CCIRC CF17-010 UPDATE</li>
+          <li class="field-item even"><a href="https://www.us-cert.gov/sites/default/files/publications/MIFR-10127623_TLP_WHITE.pdf" target="_blank">[5] MIFR-10127623</a></li>
+      </ul>
+</div>		
+		
+		<a id="revisions"></a>
+		<h3>Revisions</h3>
+		<div class="field field-name-field-alert-revision-history field-type-text field-label-hidden clearfix">
+    <ul class="field-items">
+          <li class="field-item even">October 20, 2017: Initial version</li>
+          <li class="field-item odd">March 15, 2018: Updated to provide guidance that this alert has been superseded by newer information.</li>
+      </ul>
+</div>		
+		<p class="privacy-and-terms">This product is provided subject to this <a href="/privacy/notification">Notification</a> and this <a href="/privacy/">Privacy &amp; Use</a> policy.</p>		
+	</div>
+	
+		
+	
+	<div id="document-feedback">	<div class="inner-document-feedback">		<p>Was this document helpful?&nbsp;&nbsp;<a href="/forms/feedback?helpful=yes&amp;document=TA17-293A: Advanced Persistent Threat Activity Targeting Energy and Other Critical Infrastructure Sectors&amp;trackingNumber=&amp;url=https://www.us-cert.gov/ncas/alerts/TA17-293A&amp;site_name=US-CERT">Yes</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/forms/feedback?helpful=somewhat&amp;document=TA17-293A: Advanced Persistent Threat Activity Targeting Energy and Other Critical Infrastructure Sectors&amp;trackingNumber=&amp;url=https://www.us-cert.gov/ncas/alerts/TA17-293A&amp;site_name=US-CERT">Somewhat</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/forms/feedback?helpful=no&amp;document=TA17-293A: Advanced Persistent Threat Activity Targeting Energy and Other Critical Infrastructure Sectors&amp;trackingNumber=&amp;url=https://www.us-cert.gov/ncas/alerts/TA17-293A&amp;site_name=US-CERT">No</a></p>	</div></div>	
+	
+	<div class="clearfix">
+					<nav class="links node-links clearfix"></nav>
+			</div>
+	</div>
+</article>
+    </div>
+  </div>
+</div>      </div>
+</div>  </div>
+</div></section>    
+  
+      <footer id="section-footer" class="section section-footer">
+  <div id="zone-footer-wrapper" class="zone-wrapper zone-footer-wrapper clearfix">  
+  <div id="zone-footer" class="zone zone-footer clearfix container-12">
+    <div class="grid-12 region region-footer-first" id="region-footer-first">
+  <div class="region-inner region-footer-first-inner">
+    <div class="block block-block block-1 block-block-1 odd block-without-title" id="block-block-1">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div id="i-want-to"><h3>I Want To</h3><ul><li><a href="/forms/report">Report incidents</a></li><li><a href="/forms/share-indicators">Share indicators</a></li><li><a href="/report-phishing/">Report phishing</a></li><li><a href="https://malware.us-cert.gov/">Report malware</a></li><li><a href="https://www.kb.cert.org/vuls/html/report-a-vulnerability/">Report software vulnerabilities</a></li></ul></div><!-- end of i-want-to --><div id="subscribe-to-alerts"><h3>Subscribe to Alerts</h3><p>Receive security alerts, tips, and other updates.</p><form action="https://public.govdelivery.com/accounts/USDHSUSCERT/subscribers/qualify"><label for="email-address-field">Enter email address</label> <input class="email-address-field long" id="email-address-field" name="email" title="Enter your email address" type="text" value="Enter your email address" /><input class="button blue-button" name="submit" title="Sign up for alerts" type="submit" value="Sign Up" /> </form><div id="stay-connected"><!-- end of mail-list-and-feeds --><ul><li class="feeds"><a href="/mailing-lists-and-feeds">Mailing Lists and Feeds</a></li><!--<li class="facebook"><a href="www.us-cert.gov">Facebook</a></li>--><li class="twitter"><a href="https://twitter.com/uscert_gov"><span>Twitter</span></a></li></ul></div><!-- end of stay-connected --></div><!-- end of subscribe-to-alerts --><div id="contact-us"><h3>Contact Us</h3><ul><li class="phone">(888) 282-0870</li><li class="email"><a href="mailto:info@us-cert.gov" title="General questions or suggestions">Send us email</a></li><li class="keys"><a href="/contact-us/">Download PGP/GPG keys</a></li></ul></div><!-- end of contact-us --><p> </p>    </div>
+  </div>
+</div>  </div>
+</div><div class="grid-12 region region-footer-second" id="region-footer-second">
+  <div class="region-inner region-footer-second-inner">
+    <div class="block block-block block-2 block-block-2 odd block-without-title" id="block-block-2">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <ul><li><a href="/">Home</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/contact-us/">Contact Us</a></li><li><a href="/tlp/">Traffic Light Protocol</a></li><li><a href="/pcii">PCII</a></li><li><a href="/privacy/">DHS Privacy Policy</a></li><li><a href="/disclaimer">Disclaimer</a></li><li><a href="/accessibility/">Accessibility</a></li><li class="last"><a href="/pdf/">Get a PDF Reader</a></li></ul><p>US-CERT is part of the <a href="https://www.dhs.gov">Department of Homeland Security</a>.</p><script type="text/javascript">
+<!--//--><![CDATA[// ><!--
+
+		jQuery('#email-address-field').resetField();
+	
+//--><!]]>
+</script>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div></footer>  </div>  <div class="region region-page-bottom" id="region-page-bottom">
+  <div class="region-inner region-page-bottom-inner">
+    <a href="#skip-link" class="element-invisible element-focusable">Back to Top</a>  </div>
+</div><script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var usasearch_config = { siteHandle:'us-cert_i14y' };
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = 'https://search.us-cert.gov/javascripts/remote.loader.js';
+document.getElementsByTagName('head')[0].appendChild(script);
+
+//--><!]]>
+</script>
+</body>
+</html>

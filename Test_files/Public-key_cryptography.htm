@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Public-key cryptography - Wikipedia</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Public-key_cryptography","wgTitle":"Public-key cryptography","wgCurRevisionId":843074271,"wgRevisionId":843074271,"wgArticleId":24222,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CS1 maint: Uses authors parameter","Use dmy dates from July 2012","Wikipedia introduction cleanup from December 2015","All pages needing cleanup","Articles covered by WikiProject Wikify from December 2015","All articles covered by WikiProject Wikify","All articles with unsourced statements","Articles with unsourced statements from August 2012","Articles with unsourced statements from November 2017","Wikipedia articles with GND identifiers","Public-key cryptography","Banking technology","Public key infrastructure"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Public-key_cryptography","wgRelevantArticleId":24222,"wgRequestId":"WyE9SgpAICEAAAtNFaEAAAAA","wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgWikiEditorEnabledModules":[],"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsShouldSendModuleToUser":true,"wgPopupsConflictsWithNavPopupGadget":false,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en","usePageImages":true,"usePageDescriptions":true},"wgPreferredVariant":"en","wgMFExpandAllSectionsUserOption":true,"wgMFEnableFontChanger":true,"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgRelatedArticles":null,"wgRelatedArticlesUseCirrusSearch":true,"wgRelatedArticlesOnlyUseCirrusSearch":false,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgCentralNoticeCookiesToDelete":[],"wgCentralNoticeCategoriesUsingLegacy":["Fundraising","fundraising"],"wgWikibaseItemId":"Q201339","wgScoreNoteLanguages":{"arabic":"العربية","catalan":"català","deutsch":"Deutsch","english":"English","espanol":"español","italiano":"italiano","nederlands":"Nederlands","norsk":"norsk","portugues":"português","suomi":"suomi","svenska":"svenska","vlaams":"West-Vlams"},"wgScoreDefaultNoteLanguage":"nederlands","wgCentralAuthMobileDomain":false,"wgCodeMirrorEnabled":false,"wgVisualEditorToolbarScrollOffset":0,"wgVisualEditorUnsupportedEditParams":["undo","undoafter","veswitched"],"wgEditSubmitButtonLabelPublish":true});mw.loader.state({"ext.gadget.charinsert-styles":"ready","ext.globalCssJs.user.styles":"ready","ext.globalCssJs.site.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","ext.globalCssJs.site":"ready","user":"ready","user.options":"ready","user.tokens":"loading","ext.cite.styles":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready"});mw.loader.implement("user.tokens@1dqfd7l",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});mw.loader.load(["ext.cite.a11y","site","mediawiki.page.startup","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.toc","mediawiki.searchSuggest","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.watchlist-notice","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging.subscriber","ext.wikimediaEvents","ext.navigationTiming","ext.uls.eventlogger","ext.uls.init","ext.uls.compactlinks","ext.uls.interface","ext.3d","ext.centralNotice.geoIP","ext.centralNotice.startUp","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.cite.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.gadget.charinsert-styles&amp;only=styles&amp;skin=vector"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.32.0-wmf.7"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Public-key-crypto-1.svg/1200px-Public-key-crypto-1.svg.png"/>
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/Public-key_cryptography"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Public-key_cryptography&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Public-key_cryptography&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Public-key_cryptography"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/load.php?debug=false&amp;lang=en&amp;modules=html5shiv&amp;only=scripts&amp;skin=vector&amp;sync=1"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Public-key_cryptography rootpage-Public-key_cryptography skin-vector action-view">		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div><div class="mw-indicators mw-body-content">
+</div>
+<h1 id="firstHeading" class="firstHeading" lang="en">Public-key cryptography</h1>			<div id="bodyContent" class="mw-body-content">
+				<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>				<div id="contentSub"></div>
+				<div id="jump-to-nav"></div>				<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+				<a class="mw-jump-link" href="#p-search">Jump to search</a>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table class="plainlinks metadata ambox ambox-style" role="presentation">
+<tr>
+<td class="mbox-image">
+<div style="width:52px"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/f/f2/Edit-clear.svg/40px-Edit-clear.svg.png" width="40" height="40" srcset="//upload.wikimedia.org/wikipedia/en/thumb/f/f2/Edit-clear.svg/60px-Edit-clear.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f2/Edit-clear.svg/80px-Edit-clear.svg.png 2x" data-file-width="48" data-file-height="48" /></div>
+</td>
+<td class="mbox-text">
+<div class="mbox-text-span">This article's <b><a href="/wiki/Wikipedia:Manual_of_Style/Lead_section" title="Wikipedia:Manual of Style/Lead section">lead section</a> may not adequately <a href="/wiki/Wikipedia:Summary_style" title="Wikipedia:Summary style">summarize</a> its contents</b>. <span class="hide-when-compact">To comply with Wikipedia's <a href="/wiki/Wikipedia:Manual_of_Style/Lead_section#Introductory_text" title="Wikipedia:Manual of Style/Lead section">lead section guidelines</a>, please consider modifying the lead to <a href="/wiki/Wikipedia:Manual_of_Style/Lead_section#Provide_an_accessible_overview" title="Wikipedia:Manual of Style/Lead section">provide an accessible overview</a> of the article's key points in such a way that it can stand on its own as a concise version of the article. <small>(<a href="/wiki/Talk:Public-key_cryptography" title="Talk:Public-key cryptography">discuss</a>)</small>.</span> <small><i>(December 2015)</i></small></div>
+</td>
+</tr>
+</table>
+<div class="thumb tright">
+<div class="thumbinner" style="width:252px;"><a href="/wiki/File:Public-key-crypto-1.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/32/Public-key-crypto-1.svg/250px-Public-key-crypto-1.svg.png" width="250" height="250" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/32/Public-key-crypto-1.svg/375px-Public-key-crypto-1.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/32/Public-key-crypto-1.svg/500px-Public-key-crypto-1.svg.png 2x" data-file-width="288" data-file-height="288" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="/wiki/File:Public-key-crypto-1.svg" class="internal" title="Enlarge"></a></div>
+An unpredictable (typically large and <a href="/wiki/Random" class="mw-redirect" title="Random">random</a>) number is used to begin generation of an acceptable pair of <a href="/wiki/Cryptographic_key" class="mw-redirect" title="Cryptographic key">keys</a> suitable for use by an asymmetric key algorithm.</div>
+</div>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:252px;"><a href="/wiki/File:Public_key_encryption.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Public_key_encryption.svg/250px-Public_key_encryption.svg.png" width="250" height="244" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Public_key_encryption.svg/375px-Public_key_encryption.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Public_key_encryption.svg/500px-Public_key_encryption.svg.png 2x" data-file-width="525" data-file-height="513" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="/wiki/File:Public_key_encryption.svg" class="internal" title="Enlarge"></a></div>
+In an asymmetric key encryption scheme, anyone can encrypt messages using the public key, but only the holder of the paired private key can decrypt. Security depends on the secrecy of the private key.</div>
+</div>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:252px;"><a href="/wiki/File:Public_key_shared_secret.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Public_key_shared_secret.svg/250px-Public_key_shared_secret.svg.png" width="250" height="280" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Public_key_shared_secret.svg/375px-Public_key_shared_secret.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Public_key_shared_secret.svg/500px-Public_key_shared_secret.svg.png 2x" data-file-width="581" data-file-height="650" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="/wiki/File:Public_key_shared_secret.svg" class="internal" title="Enlarge"></a></div>
+In the <a href="/wiki/Diffie%E2%80%93Hellman_key_exchange" title="Diffie–Hellman key exchange">Diffie–Hellman key exchange</a> scheme, each party generates a public/private key pair and distributes the public key. After obtaining an authentic copy of each other's public keys, <a href="/wiki/Alice_and_Bob" title="Alice and Bob">Alice and Bob</a> can compute a shared secret offline. The shared secret can be used, for instance, as the key for a <a href="/wiki/Symmetric-key_algorithm" title="Symmetric-key algorithm">symmetric cipher</a>.</div>
+</div>
+</div>
+<p><b>Public-key cryptography</b>, or <b>asymmetric cryptography</b>, is any cryptographic system that uses pairs of <a href="/wiki/Cryptographic_key" class="mw-redirect" title="Cryptographic key">keys</a>: <i>public keys</i> which may be disseminated widely, and <i>private keys</i> which are known only to the owner. This accomplishes two functions: <a href="/wiki/Authentication_protocol" title="Authentication protocol">authentication</a>, where the public key verifies that a holder of the paired private key sent the message, and <a href="/wiki/Encryption" title="Encryption">encryption</a>, where only the paired private key holder can decrypt the message encrypted with the public key.</p>
+<p>In a public key encryption system, any person can encrypt a message using the receiver's public key. That encrypted message can only be decrypted with the receiver's private key. To be practical, the generation of a public and private key -pair must be computationally economical. The strength of a public key cryptography system relies on the computational effort (<i>work factor</i> in cryptography) required to find the private key from its paired public key. Effective security only requires keeping the private key private; the public key can be openly distributed without compromising security.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></p>
+<p>Public key cryptography systems often rely on <a href="/wiki/Cryptographic" class="mw-redirect" title="Cryptographic">cryptographic</a> <a href="/wiki/Algorithms" class="mw-redirect" title="Algorithms">algorithms</a> based on <a href="/wiki/Mathematical" class="mw-redirect" title="Mathematical">mathematical</a> problems that currently admit no efficient solution, particularly those inherent in certain <a href="/wiki/Integer_factorization" title="Integer factorization">integer factorization</a>, <a href="/wiki/Discrete_logarithm" title="Discrete logarithm">discrete logarithm</a>, and <a href="/wiki/Elliptic_curve_cryptography" class="mw-redirect" title="Elliptic curve cryptography">elliptic curve</a> relationships. Public key algorithms, unlike <a href="/wiki/Symmetric_key_algorithms" class="mw-redirect" title="Symmetric key algorithms">symmetric key algorithms</a>, do <i>not</i> require a <a href="/wiki/Secure_channel" title="Secure channel">secure channel</a> for the initial <a href="/wiki/Key_exchange" title="Key exchange">exchange</a> of one or more <a href="/wiki/Secret_key" class="mw-redirect" title="Secret key">secret keys</a> between the parties.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup></p>
+<p>Because of the computational complexity of asymmetric encryption, it is usually used only for small blocks of data, typically the transfer of a symmetric encryption key (e.g. a <a href="/wiki/Session_key" title="Session key">session key</a>). This symmetric key is then used to encrypt the rest of the potentially long message sequence. The symmetric encryption/decryption is based on simpler algorithms and is much faster.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup></p>
+<p>In a public key signature system, a person can combine a message with a private key to create a short <i>digital signature</i> on the message. Anyone with the corresponding public key can combine a message, a putative digital signature on it, and the known public key to verify whether the signature was valid, i.e. made by the owner of the corresponding private key. Changing the message, even replacing a single letter, will cause verification to fail. In a secure signature system, it is computationally infeasible for anyone who does not know the private key to deduce it from the public key or any number of signatures, or to find a valid signature on any message for which a signature has not hitherto been seen. Thus the authenticity of a message can be demonstrated by the signature, provided the owner of the private key keeps the private key secret.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup><sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5]</a></sup></p>
+<p>Public key algorithms are fundamental security ingredients in <a href="/wiki/Cryptosystem" title="Cryptosystem">cryptosystems</a>, applications and protocols. They underpin various Internet standards, such as <a href="/wiki/Transport_Layer_Security" title="Transport Layer Security">Transport Layer Security (TLS)</a>, <a href="/wiki/S/MIME" title="S/MIME">S/MIME</a>, <a href="/wiki/Pretty_Good_Privacy" title="Pretty Good Privacy">PGP</a>, and <a href="/wiki/GNU_Privacy_Guard" title="GNU Privacy Guard">GPG</a>. Some public key algorithms provide <a href="/wiki/Key_distribution" title="Key distribution">key distribution</a> and secrecy (e.g., <a href="/wiki/Diffie%E2%80%93Hellman_key_exchange" title="Diffie–Hellman key exchange">Diffie–Hellman key exchange</a>), some provide <a href="/wiki/Digital_signature" title="Digital signature">digital signatures</a> (e.g., <a href="/wiki/Digital_Signature_Algorithm" title="Digital Signature Algorithm">Digital Signature Algorithm</a>), and some provide both (e.g., <a href="/wiki/RSA_(algorithm)" class="mw-redirect" title="RSA (algorithm)">RSA</a>).</p>
+<p>Public key cryptography finds application in, among others, the <a href="/wiki/Information_technology" title="Information technology">information technology</a> security discipline, <a href="/wiki/Information_security" title="Information security">information security</a>. Information security (IS) is concerned with all aspects of protecting electronic information assets against security threats.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup> Public key cryptography is used as a method of assuring the confidentiality, authenticity and <a href="/wiki/Non-repudiation" title="Non-repudiation">non-repudiability</a> of electronic communications and data storage.</p>
+<p></p>
+<div id="toc" class="toc">
+<div class="toctitle" lang="en" dir="ltr">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#History"><span class="tocnumber">2</span> <span class="toctext">History</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Classified_discovery"><span class="tocnumber">2.1</span> <span class="toctext">Classified discovery</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Public_discovery"><span class="tocnumber">2.2</span> <span class="toctext">Public discovery</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Typical_use"><span class="tocnumber">3</span> <span class="toctext">Typical use</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Security"><span class="tocnumber">4</span> <span class="toctext">Security</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Practical_considerations"><span class="tocnumber">5</span> <span class="toctext">Practical considerations</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Enveloped_Public_Key_Encryption"><span class="tocnumber">5.1</span> <span class="toctext">Enveloped Public Key Encryption</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Public_Key_Encryption"><span class="tocnumber">5.1.1</span> <span class="toctext">Public Key Encryption</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Digital_signatures"><span class="tocnumber">5.1.2</span> <span class="toctext">Digital signatures</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-11"><a href="#Certification_authority"><span class="tocnumber">5.2</span> <span class="toctext">Certification authority</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Postal_analogies"><span class="tocnumber">5.3</span> <span class="toctext">Postal analogies</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Actual_algorithms:_two_linked_keys"><span class="tocnumber">5.4</span> <span class="toctext">Actual algorithms: two linked keys</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Weaknesses"><span class="tocnumber">5.5</span> <span class="toctext">Weaknesses</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Computational_cost"><span class="tocnumber">5.6</span> <span class="toctext">Computational cost</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Associating_public_keys_with_identities"><span class="tocnumber">5.7</span> <span class="toctext">Associating public keys with identities</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Relation_to_real_world_events"><span class="tocnumber">5.8</span> <span class="toctext">Relation to real world events</span></a>
+<ul>
+<li class="toclevel-3 tocsection-18"><a href="#Privilege_of_key_revocation"><span class="tocnumber">5.8.1</span> <span class="toctext">Privilege of key revocation</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="#Distribution_of_a_new_key"><span class="tocnumber">5.8.2</span> <span class="toctext">Distribution of a new key</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="#Spreading_the_revocation"><span class="tocnumber">5.8.3</span> <span class="toctext">Spreading the revocation</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="#Recovery_from_a_leaked_key"><span class="tocnumber">5.8.4</span> <span class="toctext">Recovery from a leaked key</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="#Examples"><span class="tocnumber">6</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1 tocsection-23"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-24"><a href="#Notes"><span class="tocnumber">8</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-25"><a href="#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-26"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+<p></p>
+<h2><span class="mw-headline" id="Description">Description</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=1" title="Edit section: Description">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Two of the best-known uses of public key cryptography are:</p>
+<ul>
+<li><i>Public key encryption</i>, in which a message is encrypted with a recipient's public key. The message cannot be decrypted by anyone who does not possess the matching private key, who is thus presumed to be the owner of that key and the person associated with the public key. This is used in an attempt to ensure <a href="/wiki/Confidentiality" title="Confidentiality">confidentiality</a>.</li>
+<li><i><a href="/wiki/Digital_signature" title="Digital signature">Digital signatures</a></i>, in which a message is signed with the sender's private key and can be verified by anyone who has access to the sender's public key. This verification proves that the sender had access to the private key, and therefore is likely to be the person associated with the public key. This also ensures that the message has not been tampered with, as a signature is mathematically bound to the message it originally was made with, and verification will fail for practically any other message, no matter how similar to the original message.</li>
+</ul>
+<p>An analogy to public key encryption is that of a locked <a href="/wiki/Letter_box" title="Letter box">mail box</a> with a mail slot. The mail slot is exposed and accessible to the public – its location (the street address) is, in essence, the public key. Anyone knowing the street address can go to the door and drop a written message through the slot. However, only the person who possesses the key can open the mailbox and read the message.</p>
+<p>An analogy for digital signatures is the sealing of an envelope with a personal <a href="/wiki/Seal_(device)" class="mw-redirect" title="Seal (device)">wax seal</a>. The message can be opened by anyone, but the presence of the unique seal authenticates the sender.</p>
+<p>A central problem with the use of public key cryptography is confidence/proof that a particular public key is authentic, in that it is correct and belongs to the person or entity claimed, and has not been tampered with or replaced by a malicious third party. The usual approach to this problem is to use a <a href="/wiki/Public_key_infrastructure" title="Public key infrastructure">public key infrastructure</a> (PKI), in which one or more third parties – known as <a href="/wiki/Certificate_authority" title="Certificate authority">certificate authorities</a> – certify ownership of key pairs. <a href="/wiki/Pretty_Good_Privacy" title="Pretty Good Privacy">PGP</a>, in addition to being a certificate authority structure, has used a scheme generally called the "<a href="/wiki/Web_of_trust" title="Web of trust">web of trust</a>", which decentralizes such authentication of public keys by a central mechanism, and substitutes individual endorsements of the link between user and public key. To date, no fully satisfactory solution to the "public key authentication problem" has been found.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">[<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (August 2012)">citation needed</span></a></i>]</sup></p>
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=2" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>During the early <a href="/wiki/History_of_cryptography" title="History of cryptography">history of cryptography</a>, two parties would rely upon a key that they would exchange by means of a secure, but non-cryptographic, method such as a face-to-face meeting or a trusted courier. This key, which both parties kept absolutely secret, could then be used to exchange encrypted messages. A number of significant practical difficulties arise with this approach to <a href="/wiki/Key_distribution" title="Key distribution">distributing keys</a>.</p>
+<p>In his 1874 book <i>The Principles of Science</i>, <a href="/wiki/William_Stanley_Jevons" title="William Stanley Jevons">William Stanley Jevons</a><sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup> wrote:</p>
+<blockquote>
+<p>Can the reader say what two numbers multiplied together will produce the number 8616460799?<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[8]</a></sup> I think it unlikely that anyone but myself will ever know.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup></p>
+</blockquote>
+<p>Here he described the relationship of <a href="/wiki/One-way_function" title="One-way function">one-way functions</a> to cryptography, and went on to discuss specifically the <a href="/wiki/Factorization" title="Factorization">factorization</a> problem used to create a <a href="/wiki/Trapdoor_function" title="Trapdoor function">trapdoor function</a>. In July 1996, mathematician <a href="/wiki/Solomon_W._Golomb" title="Solomon W. Golomb">Solomon W. Golomb</a> said: "Jevons anticipated a key feature of the RSA Algorithm for public key cryptography, although he certainly did not invent the concept of public key cryptography."<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">[10]</a></sup></p>
+<h3><span class="mw-headline" id="Classified_discovery">Classified discovery</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=3" title="Edit section: Classified discovery">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In 1970, <a href="/wiki/James_H._Ellis" title="James H. Ellis">James H. Ellis</a>, a British cryptographer at the UK <a href="/wiki/Government_Communications_Headquarters" title="Government Communications Headquarters">Government Communications Headquarters</a> (GCHQ), conceived of the possibility of "non-secret encryption", (now called public key cryptography), but could see no way to implement it.<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">[11]</a></sup> In 1973, his colleague <a href="/wiki/Clifford_Cocks" title="Clifford Cocks">Clifford Cocks</a> implemented what has become known as the <a href="/wiki/RSA_(cryptosystem)" title="RSA (cryptosystem)">RSA encryption algorithm</a>, giving a practical method of "non-secret encryption", and in 1974, another GCHQ mathematician and cryptographer, <a href="/wiki/Malcolm_J._Williamson" title="Malcolm J. Williamson">Malcolm J. Williamson</a>, developed what is now known as Diffie–Hellman key exchange. The scheme was also passed to the USA's <a href="/wiki/National_Security_Agency" title="National Security Agency">National Security Agency</a>.<sup id="cite_ref-zdnet_12-0" class="reference"><a href="#cite_note-zdnet-12">[12]</a></sup> With a military focus, and low computing power, the power of public key cryptography was unrealised in both organisations:</p>
+<blockquote>
+<p>I judged it most important for military use ... if you can share your key rapidly and electronically, you have a major advantage over your opponent. Only at the end of the evolution from <a href="/wiki/Tim_Berners-Lee" title="Tim Berners-Lee">Berners-Lee</a> designing an open internet architecture for <a href="/wiki/CERN" title="CERN">CERN</a>, its adaptation and adoption for the <a href="/wiki/Arpanet" class="mw-redirect" title="Arpanet">Arpanet</a> ... did public key cryptography realise its full potential.</p>
+<p>—<a href="/wiki/Ralph_Benjamin" title="Ralph Benjamin">Ralph Benjamin</a><sup id="cite_ref-zdnet_12-1" class="reference"><a href="#cite_note-zdnet-12">[12]</a></sup></p>
+</blockquote>
+<p>Their discovery was not publicly acknowledged for 27 years, until the research was declassified by the British government in 1997.<sup id="cite_ref-singh_13-0" class="reference"><a href="#cite_note-singh-13">[13]</a></sup></p>
+<h3><span class="mw-headline" id="Public_discovery">Public discovery</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=4" title="Edit section: Public discovery">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In 1976, an asymmetric key cryptosystem was published by <a href="/wiki/Whitfield_Diffie" title="Whitfield Diffie">Whitfield Diffie</a> and <a href="/wiki/Martin_Hellman" title="Martin Hellman">Martin Hellman</a> who, influenced by <a href="/wiki/Ralph_Merkle" title="Ralph Merkle">Ralph Merkle</a>'s work on public key distribution, disclosed a method of public key agreement. This method of key exchange, which uses <a href="/wiki/Finite_field#Applications" title="Finite field">exponentiation in a finite field</a>, came to be known as <a href="/wiki/Diffie%E2%80%93Hellman_key_exchange" title="Diffie–Hellman key exchange">Diffie–Hellman key exchange</a>. This was the first published practical method for establishing a shared secret-key over an authenticated (but not confidential) communications channel without using a prior shared secret. Merkle's "public key-agreement technique" became known as <a href="/wiki/Ralph_Merkle_puzzle_cryptographic_system" class="mw-redirect" title="Ralph Merkle puzzle cryptographic system">Merkle's Puzzles</a>, and was invented in 1974 and published in 1978.</p>
+<p>In 1977, a generalization of Cocks' scheme was independently invented by <a href="/wiki/Ron_Rivest" title="Ron Rivest">Ron Rivest</a>, <a href="/wiki/Adi_Shamir" title="Adi Shamir">Adi Shamir</a> and <a href="/wiki/Leonard_Adleman" title="Leonard Adleman">Leonard Adleman</a>, all then at <a href="/wiki/Massachusetts_Institute_of_Technology" title="Massachusetts Institute of Technology">MIT</a>. The latter authors published their work in 1978, and the algorithm came to be known as <a href="/wiki/RSA_(cryptosystem)" title="RSA (cryptosystem)">RSA</a>, from their initials. RSA uses <a href="/wiki/Modular_exponentiation" title="Modular exponentiation">exponentiation modulo</a> a product of two very large <a href="/wiki/Prime_number" title="Prime number">primes</a>, to encrypt and decrypt, performing both public key encryption and public key digital signature. Its security is connected to the extreme difficulty of <a href="/wiki/Integer_factorization" title="Integer factorization">factoring large integers</a>, a problem for which there is no known efficient general technique. In 1979, <a href="/wiki/Michael_O._Rabin" title="Michael O. Rabin">Michael O. Rabin</a> published a related <a href="/wiki/Rabin_cryptosystem" title="Rabin cryptosystem">cryptosystem</a> that is probably secure as long as the factorization of the public key remains difficult – it remains <a href="/wiki/RSA_(algorithm)#Integer_factorization_and_RSA_problem" class="mw-redirect" title="RSA (algorithm)">an assumption</a> that RSA also enjoys this security.</p>
+<p>Since the 1970s, a large number and variety of encryption, digital signature, key agreement, and other techniques have been developed in the field of public key cryptography. The <a href="/wiki/ElGamal_encryption" title="ElGamal encryption">ElGamal cryptosystem</a>, invented by <a href="/wiki/Taher_ElGamal" class="mw-redirect" title="Taher ElGamal">Taher ElGamal</a> relies on the similar and related high level of difficulty of the <a href="/wiki/Discrete_logarithm_problem" class="mw-redirect" title="Discrete logarithm problem">discrete logarithm problem</a>, as does the closely related <a href="/wiki/Digital_Signature_Algorithm" title="Digital Signature Algorithm">DSA</a>, which was developed at the US <a href="/wiki/National_Security_Agency" title="National Security Agency">National Security Agency</a> (NSA) and published by <a href="/wiki/NIST" class="mw-redirect" title="NIST">NIST</a> as a proposed standard.</p>
+<p>The introduction of <a href="/wiki/Elliptic_curve_cryptography" class="mw-redirect" title="Elliptic curve cryptography">elliptic curve cryptography</a> by <a href="/wiki/Neal_Koblitz" title="Neal Koblitz">Neal Koblitz</a> and <a href="/wiki/Victor_S._Miller" title="Victor S. Miller">Victor Miller</a>, independently and simultaneously in the mid-1980s, has yielded new public key algorithms based on the <a href="/wiki/Discrete_logarithm" title="Discrete logarithm">discrete logarithm</a> problem. Although mathematically more complex, elliptic curves provide smaller <a href="/wiki/Key_size" title="Key size">key sizes</a> and faster operations for approximately equivalent estimated security.</p>
+<h2><span class="mw-headline" id="Typical_use">Typical use</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=5" title="Edit section: Typical use">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Public key cryptography is often used to secure electronic communication over an open networked environment such as the Internet, without relying on a hidden or covert channel, even for key exchange. Open networked environments are susceptible to a variety of communication security problems, such as <a href="/wiki/Man-in-the-middle_attack" title="Man-in-the-middle attack">man-in-the-middle attacks</a> and spoofs. Communication security typically includes requirements that the communication must not be readable during transit (preserving confidentiality), the communication must not be modified during transit (preserving the integrity of the communication), the communication must originate from an identified party (sender authenticity), and the recipient must not be able to <a href="/wiki/Non-repudiation" title="Non-repudiation">repudiate</a> or deny receiving the communication. Combining public key cryptography with an Enveloped Public Key Encryption (EPKE)<sup id="cite_ref-14" class="reference"><a href="#cite_note-14">[14]</a></sup> method, allows for the secure sending of a communication over an open networked environment. In other words, even if an adversary listens to an entire conversation including the key exchange, the adversary would not be able to interpret the conversation.</p>
+<p>The distinguishing technique used in public key cryptography is the use of asymmetric key algorithms, where a <a href="/wiki/Key_(cryptography)" title="Key (cryptography)">key</a> used by one party to perform encryption is not the same as the key used by another in decryption. Each user has a pair of <a href="/wiki/Cryptographic_key" class="mw-redirect" title="Cryptographic key">cryptographic keys</a> – a public encryption key and a private decryption key. For example, a key pair used for <a href="/wiki/Digital_signature" title="Digital signature">digital signatures</a> consists of a private signing key and a public verification key. The public key may be widely distributed, while the private key is known only to its proprietor. The keys are related mathematically, but the parameters are chosen so that calculating the private key from the public key is unfeasible.</p>
+<p>In contrast, <a href="/wiki/Symmetric-key_algorithm" title="Symmetric-key algorithm">symmetric key algorithms</a> use a <i>single</i> secret key, which must be shared and kept private by both the sender (for encryption) and the receiver (for decryption). To use a symmetric encryption scheme, the sender and receiver must securely share a key in advance.</p>
+<p>Because symmetric key algorithms are nearly always much less computationally intensive than asymmetric ones, it is common to exchange a key using a <a href="/wiki/Key-exchange_algorithm" class="mw-redirect" title="Key-exchange algorithm">key-exchange algorithm</a>, then transmit data using that key and a symmetric key algorithm. <a href="/wiki/Pretty_Good_Privacy" title="Pretty Good Privacy">PGP</a> and the <a href="/wiki/Transport_Layer_Security" title="Transport Layer Security">SSL</a>/TLS family of schemes use this procedure, and are thus called <i><a href="/wiki/Hybrid_cryptosystem" title="Hybrid cryptosystem">hybrid cryptosystems</a></i>.</p>
+<h2><span class="mw-headline" id="Security">Security</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=6" title="Edit section: Security">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Some encryption schemes can be proven secure on the basis of the presumed difficulty of a mathematical problem, such as <a href="/wiki/Integer_factorization" title="Integer factorization">factoring</a> the product of two large primes or computing <a href="/wiki/Discrete_logarithm" title="Discrete logarithm">discrete logarithms</a>. Note that "secure" here has a precise mathematical meaning, and there are multiple different (meaningful) definitions of what it means for an encryption scheme to be "secure". The "right" definition depends on the context in which the scheme will be deployed.</p>
+<p>The most obvious application of a public key encryption system is <a href="/wiki/Confidentiality" title="Confidentiality">confidentiality</a> – a message that a sender encrypts using the recipient's public key can be decrypted only by the recipient's paired private key. This assumes, of course, that no flaw is discovered in the basic algorithm used.</p>
+<p>Another application in public key cryptography is the <a href="/wiki/Digital_signature" title="Digital signature">digital signature</a>. Digital signature schemes can be used for sender <a href="/wiki/Authentication" title="Authentication">authentication</a> and <a href="/wiki/Non-repudiation" title="Non-repudiation">non-repudiation</a>. The sender computes a digital signature for the message to be sent, then sends the signature (together with the message) to the intended receiver. Digital signature schemes have the property that signatures can be computed only with the knowledge of the correct private key. To verify that a message has been signed by a user and has not been modified, the receiver needs to know only the corresponding public key. In some cases (e.g., <a href="/wiki/RSA_(algorithm)" class="mw-redirect" title="RSA (algorithm)">RSA</a>), a single algorithm can be used to both encrypt and create digital signatures. In other cases (e.g., <a href="/wiki/Digital_Signature_Algorithm" title="Digital Signature Algorithm">DSA</a>), each algorithm can only be used for one specific purpose.</p>
+<p>To achieve both authentication and confidentiality, the sender should include the recipient's name in the message, sign it using his private key, and then encrypt both the message and the signature using the recipient's public key.</p>
+<p>These characteristics can be used to construct many other (sometimes surprising) cryptographic protocols and applications, such as <a href="/wiki/Electronic_money" class="mw-redirect" title="Electronic money">digital cash</a>, <a href="/wiki/Password-authenticated_key_agreement" title="Password-authenticated key agreement">password-authenticated key agreement</a>, multi-party key agreement, <a href="/wiki/Trusted_timestamping" title="Trusted timestamping">time-stamping services</a>, non-repudiation protocols, etc.</p>
+<h2><span class="mw-headline" id="Practical_considerations">Practical considerations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=7" title="Edit section: Practical considerations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Enveloped_Public_Key_Encryption">Enveloped Public Key Encryption</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=8" title="Edit section: Enveloped Public Key Encryption">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Enveloped Public Key Encryption (EPKE) is the method of applying public key cryptography and ensuring that an electronic communication is transmitted confidentially, has the contents of the communication protected against being modified (communication integrity) and cannot be denied from having been sent (<a href="/wiki/Non-repudiation" title="Non-repudiation">non-repudiation</a>). This is often the method used when securing communication on an open networked environment such by making use of the <a href="/wiki/Transport_Layer_Security" title="Transport Layer Security">Transport Layer Security</a> (TLS) or Secure Sockets Layer (SSL) protocols.</p>
+<p>EPKE consists of a two-stage process that includes both Public Key Encryption (PKE) and a digital signature. Both Public Key Encryption and digital signatures make up the foundation of Enveloped Public Key Encryption (these two processes are described in full in their own sections).</p>
+<p>For EPKE to work effectively, it is required that:</p>
+<ul>
+<li>Every participant in the communication has their own unique pair of keys. The first key that is required is a public key and the second key that is required is a private key.</li>
+<li>Each person's own private and public keys must be mathematically related where the private key is used to decrypt a communication sent using a public key and vice versa. Some well-known asymmetric encryption algorithms are based on the <a href="/wiki/RSA_(cryptosystem)" title="RSA (cryptosystem)">RSA</a> cryptosystem.</li>
+<li>The private key must be kept absolutely private by the owner, though the public key can be published in a public directory such as with a <a href="/wiki/Certificate_authority" title="Certificate authority">certification authority</a>.</li>
+</ul>
+<p>To send a message using EPKE, the sender of the message first signs the message using their own private key, this ensures non-repudiation of the message. The sender then encrypts their digitally signed message using the receiver's public key thus applying a digital envelope to the message. This step ensures confidentiality during the transmission of the message. The receiver of the message then uses their private key to decrypt the message thus removing the digital envelope and then uses the sender's public key to decrypt the sender's digital signature. At this point, if the message has been unaltered during transmission, the message will be clear to the receiver.</p>
+<p>Due to the computationally complex nature of <a href="/wiki/RSA_(cryptosystem)" title="RSA (cryptosystem)">RSA</a>-based asymmetric encryption algorithms, the time taken to encrypt large documents or files to be transmitted can be relatively long. To speed up the process of transmission, instead of applying the sender's digital signature to the large documents or files, the sender can rather <a href="/wiki/Hash_function" title="Hash function">hash</a> the documents or files using a <a href="/wiki/Cryptographic_hash_function" title="Cryptographic hash function">cryptographic hash function</a> and then digitally sign the generated hash value, therefore enforcing non-repudiation. Hashing is a much faster computation to complete as opposed to using an RSA-based digital signature algorithm alone. The sender would then sign the newly generated hash value and encrypt the original documents or files with the receiver's public key. The transmission would then take place securely and with confidentiality and non-repudiation still intact. The receiver would then verify the signature and decrypt the encrypted documents or files with their private key.</p>
+<p>Note: The sender and receiver do not usually carry out the process mentioned above manually though, but rather rely on sophisticated software to automatically complete the EPKE process.</p>
+<h4><span class="mw-headline" id="Public_Key_Encryption">Public Key Encryption</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=9" title="Edit section: Public Key Encryption">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>The goal of Public Key Encryption (PKE) is to ensure that the communication being sent is kept confidential during transit.</p>
+<p>To send a message using PKE, the sender of the message uses the public key of the receiver to encrypt the contents of the message. The encrypted message is then transmitted electronically to the receiver and the receiver can then use their own matching private key to decrypt the message.</p>
+<p>The encryption process of using the receiver's public key is useful for preserving the confidentiality of the message as only the receiver has the matching private key to decrypt the message. Therefore, the sender of the message cannot decrypt the message once it has been encrypted using the receiver's public key. However, PKE does not address the problem of non-repudiation, as the message could have been sent by anyone that has access to the receiver's public key.</p>
+<h4><span class="mw-headline" id="Digital_signatures">Digital signatures</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=10" title="Edit section: Digital signatures">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div role="note" class="hatnote navigation-not-searchable">Main article: <a href="/wiki/Digital_signature" title="Digital signature">Digital signature</a></div>
+<p>A digital signature is meant to prove a message came from a particular sender; neither can anyone impersonate the sender nor can the sender deny having sent the message. This is useful for example when making an electronic purchase of shares, allowing the receiver to prove who requested the purchase. Digital signatures do not provide confidentiality for the message being sent.</p>
+<p>The message is signed using the sender's private signing key by encrypting the message with the private key. The digitally signed message is then sent to the receiver, who can then use the sender's public key to verify the signature by decrypting the message with the sender's public key.</p>
+<h3><span class="mw-headline" id="Certification_authority">Certification authority</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=11" title="Edit section: Certification authority">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In order for Enveloped Public Key Encryption to be as secure as possible, there needs to be a "gatekeeper" of public and private keys, or else anyone could create key pairs and masquerade as the intended sender of a communication, proposing them as the keys of the intended sender. This digital key "gatekeeper" is known as a <a href="/wiki/Certificate_authority" title="Certificate authority">certification authority</a>. A certification authority is a trusted third party that can issue public and private keys, thus certifying public keys. It also works as a depository to store key chain and enforce the trust factor.</p>
+<h3><span class="mw-headline" id="Postal_analogies">Postal analogies</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=12" title="Edit section: Postal analogies">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>An analogy that can be used to understand the advantages of an asymmetric system is to imagine two people, <a href="/wiki/Alice_and_Bob" title="Alice and Bob">Alice and Bob</a>, who are sending a secret message through the public mail. In this example, Alice wants to send a secret message to Bob, and expects a secret reply from Bob.</p>
+<p>With a <a href="/wiki/Symmetric_key_algorithm" class="mw-redirect" title="Symmetric key algorithm">symmetric key</a> system, Alice first puts the secret message in a box, and locks the box using a <a href="/wiki/Padlock" title="Padlock">padlock</a> to which she has a key. She then sends the box to Bob through regular mail. When Bob receives the box, he uses an identical copy of Alice's key (which he has somehow obtained previously, maybe by a face-to-face meeting) to open the box, and reads the message. Bob can then use the same padlock to send his secret reply.</p>
+<p>In an asymmetric key system, Bob and Alice have separate padlocks. First, Alice asks Bob to send his open padlock to her through regular mail, keeping his key to himself. When Alice receives it, she uses it to lock a box containing her message, and sends the locked box to Bob. Bob can then unlock the box with his key and read the message from Alice. To reply, Bob must similarly get Alice's open padlock to lock the box before sending it back to her.</p>
+<p>The critical advantage in an asymmetric key system is that Bob and Alice never need to send a copy of their keys to each other. This prevents a third party – perhaps, in this example, a corrupt postal worker who opens unlocked boxes – from copying a key while it is in transit, allowing the third party to spy on all future messages sent between Alice and Bob. So, in the public key scenario, Alice and Bob need not trust the postal service as much. In addition, if Bob were careless and allowed someone else to copy <i>his</i> key, Alice's messages to <i>Bob</i> would be compromised, but Alice's messages to <i>other people</i> would remain secret, since the other people would be providing different padlocks for Alice to use.</p>
+<p>Another kind of asymmetric key system, called a <a href="/wiki/Three-pass_protocol" title="Three-pass protocol">three-pass protocol</a>, requires neither party to even touch the other party's padlock (or key to get access); Bob and Alice have separate padlocks. First, Alice puts the secret message in a box, and locks the box using a padlock to which only she has a key. She then sends the box to Bob through regular mail. When Bob receives the box, he adds his own padlock to the box, and sends it back to Alice. When Alice receives the box with the two padlocks, she removes her padlock and sends it back to Bob. When Bob receives the box with only his padlock on it, Bob can then unlock the box with his key and read the message from Alice. Note that, in this scheme, the order of decryption is NOT the same as the order of encryption – this is only possible if <a href="/w/index.php?title=Commutative_cipher&amp;action=edit&amp;redlink=1" class="new" title="Commutative cipher (page does not exist)">commutative ciphers</a> are used. A commutative cipher is one in which the order of encryption and decryption is interchangeable, just as the order of multiplication is interchangeable (i.e., <code>A*B*C = A*C*B = C*B*A</code>). This method is secure for certain choices of commutative ciphers, but insecure for others (e.g., a simple <code><a href="/wiki/XOR" class="mw-redirect" title="XOR">XOR</a></code>). For example, let <code>E<sub>1</sub>()</code> and <code>E<sub>2</sub>()</code> be two encryption functions, and let "<code>M</code>" be the message so that if Alice encrypts it using <code>E<sub>1</sub>()</code> and sends <code>E<sub>1</sub>(M)</code> to Bob. Bob then again encrypts the message as <code>E<sub>2</sub>(E<sub>1</sub>(M))</code> and sends it to Alice. Now, Alice decrypts <code>E<sub>2</sub>(E<sub>1</sub>(M))</code> using <code>E<sub>1</sub>()</code>. Alice will now get <code>E<sub>2</sub>(M)</code>, meaning when she sends this again to Bob, he will be able to decrypt the message using <code>E<sub>2</sub>()</code> and get "<code>M</code>". Although none of the keys were ever exchanged, the message "<code>M</code>" may well be a key (e.g., Alice's Public key). This <a href="/wiki/Three-pass_protocol" title="Three-pass protocol">three-pass protocol</a> is typically used during <a href="/wiki/Key_exchange" title="Key exchange">key exchange</a>.</p>
+<h3><span class="mw-headline" id="Actual_algorithms:_two_linked_keys">Actual algorithms: two linked keys</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=13" title="Edit section: Actual algorithms: two linked keys">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Not all asymmetric key algorithms operate in this way. In the most common, Alice and Bob each own <i>two</i> keys, one for encryption and one for decryption. In a secure asymmetric key encryption scheme, the private key should not be deducible from the public key. This makes possible public key encryption, since an encryption key can be published without compromising the security of messages encrypted with that key.</p>
+<p>In other schemes, either key can be used to encrypt the message. When Bob encrypts a message with his private key, only his public key will successfully decrypt it, authenticating Bob's authorship of the message. In the alternative, when a message is encrypted with the public key, only the private key can decrypt it. In this arrangement, Alice and Bob can exchange secret messages with no prior secret agreement, each using the other's public key to encrypt, and each using his own private key to decrypt.</p>
+<h3><span class="mw-headline" id="Weaknesses">Weaknesses</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=14" title="Edit section: Weaknesses">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Among symmetric key encryption algorithms, only the <a href="/wiki/One-time_pad" title="One-time pad">one-time pad</a> can be proven to be secure against any adversary – no matter how much computing power is available. However, there is no public key scheme with this property, since all public key schemes are susceptible to a "<a href="/wiki/Brute-force_attack" title="Brute-force attack">brute-force key search attack</a>". Such attacks are impractical if the amount of computation needed to succeed – termed the "work factor" by <a href="/wiki/Claude_Shannon" title="Claude Shannon">Claude Shannon</a> – is out of reach of all potential attackers. In many cases, the work factor can be increased by simply choosing a longer key. But other algorithms may have much lower work factors, making resistance to a brute-force attack irrelevant. Some special and specific algorithms have been developed to aid in attacking some public key encryption algorithms – both <a href="/wiki/RSA_(algorithm)" class="mw-redirect" title="RSA (algorithm)">RSA</a> and <a href="/wiki/ElGamal_encryption" title="ElGamal encryption">ElGamal encryption</a> have known attacks that are much faster than the brute-force approach. These factors have changed dramatically in recent decades, both with the decreasing cost of computing power and with new mathematical discoveries.</p>
+<p>Aside from the resistance to attack of a particular key pair, the security of the certification <a href="/wiki/Hierarchy" title="Hierarchy">hierarchy</a> must be considered when deploying public key systems. Some certificate authority – usually a purpose-built program running on a server computer – vouches for the identities assigned to specific private keys by producing a digital certificate. <a href="/wiki/Digital_certificate" class="mw-redirect" title="Digital certificate">Public key digital certificates</a> are typically valid for several years at a time, so the associated private keys must be held securely over that time. When a private key used for certificate creation higher in the PKI server hierarchy is compromised, or accidentally disclosed, then a "<a href="/wiki/Man-in-the-middle_attack" title="Man-in-the-middle attack">man-in-the-middle attack</a>" is possible, making any subordinate certificate wholly insecure.</p>
+<p>Major weaknesses have been found for several formerly promising asymmetric key algorithms. The <a href="/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem" title="Merkle–Hellman knapsack cryptosystem">'knapsack packing' algorithm</a> was found to be insecure after the development of a new attack. Recently, some attacks based on careful measurements of the exact amount of time it takes known hardware to encrypt plain text have been used to simplify the search for likely decryption keys (see "<a href="/wiki/Side_channel_attack" class="mw-redirect" title="Side channel attack">side channel attack</a>"). Thus, mere use of asymmetric key algorithms does not ensure security. A great deal of active research is currently underway to both discover, and to protect against, new attack algorithms.</p>
+<p>Another potential security vulnerability in using asymmetric keys is the possibility of a "man-in-the-middle" attack, in which the communication of public keys is intercepted by a third party (the "man in the middle") and then modified to provide different public keys instead. Encrypted messages and responses must also be intercepted, decrypted, and re-encrypted by the attacker using the correct public keys for different communication segments, in all instances, so as to avoid suspicion. This attack may seem to be difficult to implement in practice, but it is not impossible when using insecure media (e.g., public networks, such as the <a href="/wiki/Internet" title="Internet">Internet</a> or wireless forms of communications) – for example, a malicious staff member at Alice or Bob's Internet Service Provider (ISP) might find it quite easy to carry out. In the earlier postal analogy, Alice would have to have a way to make sure that the lock on the returned packet really belongs to Bob before she removes her lock and sends the packet back. Otherwise, the lock could have been put on the packet by a corrupt postal worker pretending to be Bob, so as to fool Alice.</p>
+<p>One approach to prevent such attacks involves the use of a <a href="/wiki/Certificate_authority" title="Certificate authority">certificate authority</a>, a <a href="/wiki/Trusted_third_party" title="Trusted third party">trusted third party</a> responsible for verifying the identity of a user of the system. This authority issues a tamper-resistant, non-spoofable <a href="/wiki/Digital_certificate" class="mw-redirect" title="Digital certificate">digital certificate</a> for the participants. Such certificates are <a href="/wiki/Digital_signature" title="Digital signature">signed</a> data blocks stating that this public key belongs to that person, company, or other entity. This approach also has its weaknesses – for example, the certificate authority issuing the certificate must be trusted to have properly checked the identity of the key-holder, must ensure the correctness of the public key when it issues a certificate, must be secure from computer piracy, and must have made arrangements with all participants to check all their certificates before protected communications can begin. <a href="/wiki/Web_browser" title="Web browser">Web browsers</a>, for instance, are supplied with a long list of "self-signed identity certificates" from PKI providers – these are used to check the <i>bona fides</i> of the certificate authority and then, in a second step, the certificates of potential communicators. An attacker who could subvert any single one of those certificate authorities into issuing a certificate for a bogus public key could then mount a "man-in-the-middle" attack as easily as if the certificate scheme were not used at all. In an alternate scenario rarely discussed, an attacker who penetrated an authority's servers and obtained its store of certificates and keys (public and private) would be able to spoof, masquerade, decrypt, and forge transactions without limit.</p>
+<p>Despite its theoretical and potential problems, this approach is widely used. Examples include <a href="/wiki/Secure_Sockets_Layer" class="mw-redirect" title="Secure Sockets Layer">SSL</a> and its successor, <a href="/wiki/Transport_Layer_Security" title="Transport Layer Security">TLS</a>, which are commonly used to provide security for web browser transactions (for example, to securely send credit card details to an online store).</p>
+<h3><span class="mw-headline" id="Computational_cost">Computational cost</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=15" title="Edit section: Computational cost">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The public key algorithms known thus far are relatively <a href="/wiki/Algorithmic_efficiency" title="Algorithmic efficiency">computationally costly</a> compared with most symmetric key algorithms of apparently equivalent security. The difference factor is the use of typically quite large keys. This has important implications for their practical use. Most are used in <a href="/wiki/Hybrid_cryptosystem" title="Hybrid cryptosystem">hybrid cryptosystems</a> for reasons of efficiency – in such a cryptosystem, a shared secret key ("<a href="/wiki/Session_key" title="Session key">session key</a>") is generated by one party, and this much briefer session key is then encrypted by each recipient's public key. Each recipient then uses his own private key to decrypt the session key. Once all parties have obtained the session key, they can use a much faster symmetric algorithm to encrypt and decrypt messages. In many of these schemes, the session key is unique to each message exchange, being pseudo-randomly chosen for each message.</p>
+<h3><span class="mw-headline" id="Associating_public_keys_with_identities">Associating public keys with identities</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=16" title="Edit section: Associating public keys with identities">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The binding between a public key and its "owner" must be correct, or else the algorithm may function perfectly and yet be entirely insecure in practice. As with most cryptography applications, the <a href="/wiki/Protocol_(cryptography)" class="mw-redirect" title="Protocol (cryptography)">protocols</a> used to establish and verify this binding are critically important. Associating a public key with its owner is typically done by protocols implementing a <a href="/wiki/Public_key_infrastructure" title="Public key infrastructure">public key infrastructure</a> – these allow the validity of the association to be formally verified by reference to a <a href="/wiki/Trusted_third_party" title="Trusted third party">trusted third party</a> in the form of either a hierarchical <a href="/wiki/Certificate_authority" title="Certificate authority">certificate authority</a> (e.g., <a href="/wiki/X.509" title="X.509">X.509</a>), a local trust model (e.g., <a href="/wiki/Simple_public_key_infrastructure" class="mw-redirect" title="Simple public key infrastructure">SPKI</a>), or a <a href="/wiki/Web_of_trust" title="Web of trust">web of trust</a> scheme, like that originally built into <a href="/wiki/Pretty_Good_Privacy" title="Pretty Good Privacy">PGP</a> and <a href="/wiki/GNU_Privacy_Guard" title="GNU Privacy Guard">GPG</a>, and still to some extent usable with them. Whatever the cryptographic assurance of the protocols themselves, the association between a public key and its owner is ultimately a matter of subjective judgment on the part of the trusted third party, since the key is a mathematical entity, while the owner – and the connection between owner and key – are not. For this reason, the formalism of a public key infrastructure must provide for explicit statements of the <a href="/wiki/Policy" title="Policy">policy</a> followed when making this judgment. For example, the complex and never fully implemented X.509 standard allows a certificate authority to identify its policy by means of an <a href="/wiki/Object_identifier" title="Object identifier">object identifier</a>, which functions as an index into a catalog of registered policies. Policies may exist for many different purposes, ranging from anonymity to military classifications.</p>
+<h3><span class="mw-headline" id="Relation_to_real_world_events">Relation to real world events</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=17" title="Edit section: Relation to real world events">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>A public key will be known to a large and, in practice, unknown set of users. All events requiring revocation or replacement of a public key can take a long time to take full effect with all who must be informed (i.e., all those users who possess that key). For this reason, systems that must react to events in real time (e.g., safety-critical systems or national security systems) should not use public key encryption without taking great care. There are four issues of interest:</p>
+<h4><span class="mw-headline" id="Privilege_of_key_revocation">Privilege of key revocation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=18" title="Edit section: Privilege of key revocation">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>A malicious (or erroneous) revocation of some (or all) of the keys in the system is likely, or in the second case, certain, to cause a complete failure of the system. If public keys can be revoked individually, this is a possibility. However, there are design approaches that can reduce the practical chance of this occurring. For example, by means of certificates, we can create what is called a "compound principal" – one such principal could be "Alice and Bob have Revoke Authority". Now, only Alice and Bob (in concert) can revoke a key, and neither Alice nor Bob can revoke keys alone. However, revoking a key now requires both Alice <i>and</i> Bob to be available, and this creates a problem of reliability. In concrete terms, from a security point of view, there is now a "single point of failure" in the public key revocation system. A successful <a href="/wiki/Denial_of_Service" class="mw-redirect" title="Denial of Service">Denial of Service</a> attack against either Alice or Bob (or both) will block a required revocation. In fact, any partition of authority between Alice and Bob will have this effect, regardless of how it comes about.</p>
+<p>Because the principle allowing revocation authority for keys is very powerful, the mechanisms used to control it should involve <b>both</b> as many participants as possible (to guard against malicious attacks of this type), while at the same time as few as possible (to ensure that a key can be revoked without dangerous delay). Public key certificates that include an expiration date are unsatisfactory in that the expiration date may not correspond with a real-world revocation but at least such certificates need not all be tracked down system-wide, nor must all users be in constant contact with the system at all times.</p>
+<h4><span class="mw-headline" id="Distribution_of_a_new_key">Distribution of a new key</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=19" title="Edit section: Distribution of a new key">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>After a key has been revoked or when a new user is added to a system, a new key must be distributed in some predetermined manner. Assume that Carol's key has been revoked. Until a new key has been distributed, no one will be able to send her messages and messages from her cannot be signed without violating system protocols (i.e., without a valid public key, no one can encrypt messages to her).</p>
+<p>One could leave the power to create, certify, and revoke keys in the hands of each user, as the original PGP design did, but this raises problems of user understanding and operation. For security reasons, this approach has considerable difficulties – if nothing else, some users could be forgetful, inattentive, or confused. On one hand, a message revoking a public key certificate should be spread as fast as possible, while on the other hand, parts of the system might be rendered inoperable before a new key can be installed. The time window can be reduced to zero by always issuing the new key together with the certificate that revokes the old one, but this requires co-location of authority to both revoke keys and generate new keys.</p>
+<p>It is most likely a system-wide failure if the (possibly combined) principal that issues new keys fails by issuing keys improperly. This is an instance of a "common mutual exclusion" – a design can make the reliability of a system high, but only at the cost of system availability (and <i>vice versa</i>).<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">[<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (November 2017)">citation needed</span></a></i>]</sup></p>
+<h4><span class="mw-headline" id="Spreading_the_revocation">Spreading the revocation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=20" title="Edit section: Spreading the revocation">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Notification of a key certificate revocation must be spread to all those who might potentially hold it, and as rapidly as possible.</p>
+<p>There are but two means of spreading information (i.e., a key revocation) in a distributed system: either the information is "pushed" to users from a central point (or points), or else it is "pulled" from a central point(or points) by the end users.</p>
+<p>Pushing the information is the simplest solution, in that a message is sent to all participants. However, there is no way of knowing whether all participants will actually <i>receive</i> the message. If the number of participants is large, and some of their physical or network distances are great, then the probability of complete success (which is, in ideal circumstances, required for system security) will be rather low. In a partly updated state, the system is particularly vulnerable to "denial of service" attacks as security has been breached, and a vulnerability window will continue to exist as long as some users have not "gotten the word". Put another way, pushing certificate revocation messages is neither easy to secure, nor very reliable.</p>
+<p>The alternative to pushing is pulling. In the extreme, all certificates contain all the keys needed to verify that the public key of interest (i.e., the one belonging to the user to whom one wishes to send a message, or whose signature is to be checked) is still valid. In this case, at least some use of the system will be blocked if a user cannot reach the verification service (i.e., one of the systems that can establish the current validity of another user's key). Again, such a system design can be made as reliable as one wishes, at the cost of lowering security – the more servers to check for the possibility of a key revocation, the longer the window of vulnerability.</p>
+<p>Another trade-off is to use a somewhat less reliable, but more secure, verification service, but to include an expiration date for each of the verification sources. How long this "timeout" should be is a decision that requires a trade-off between availability and security that will have to be decided in advance, at the time of system design.</p>
+<h4><span class="mw-headline" id="Recovery_from_a_leaked_key">Recovery from a leaked key</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=21" title="Edit section: Recovery from a leaked key">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Assume that the principal authorized to revoke a key has decided that a certain key must be revoked. In most cases, this happens after the fact – for instance, it becomes known that at some time in the past an event occurred that endangered a private key. Let us denote the time at which it is decided that the compromise occurred as <i>T</i>.</p>
+<p>Such a compromise has two implications. First, messages encrypted with the matching public key (now or in the past) can no longer be assumed to be secret. One solution to avoid this problem is to use a protocol that has <a href="/wiki/Perfect_forward_secrecy" class="mw-redirect" title="Perfect forward secrecy">perfect forward secrecy</a>. Second, signatures made with the <i>no-longer-trusted-to-be-actually-private key</i> after time <i>T</i> can no longer be assumed to be authentic without additional information (i.e., who, where, when, etc.) about the events leading up to the digital signature. These will not always be available, and so all such digital signatures will be less than credible. A solution to reduce the impact of leaking a private key of a signature scheme is to use <a href="/wiki/Trusted_timestamping" title="Trusted timestamping">timestamps</a>.</p>
+<p>Loss of secrecy and/or authenticity, even for a single user, has system-wide security implications, and a strategy for recovery must thus be established. Such a strategy will determine who has authority to, and under what conditions one must, revoke a public key certificate. One must also decide how to spread the revocation, and ideally, how to deal with all messages signed with the key since time <i>T</i> (which will rarely be known precisely). Messages sent to that user (which require the proper – now compromised – private key to decrypt) must be considered compromised as well, no matter when they were sent.</p>
+<h2><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=22" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><b>Examples of well-regarded asymmetric key techniques for varied purposes include:</b></p>
+<ul>
+<li><a href="/wiki/Diffie%E2%80%93Hellman_key_exchange" title="Diffie–Hellman key exchange">Diffie–Hellman key exchange</a> protocol</li>
+<li>DSS (Digital Signature Standard), which incorporates the <a href="/wiki/Digital_Signature_Algorithm" title="Digital Signature Algorithm">Digital Signature Algorithm</a></li>
+<li><a href="/wiki/ElGamal_encryption" title="ElGamal encryption">ElGamal</a></li>
+<li>Various <a href="/wiki/Elliptic_curve_cryptography" class="mw-redirect" title="Elliptic curve cryptography">elliptic curve</a> techniques</li>
+<li>Various <a href="/wiki/Password-authenticated_key_agreement" title="Password-authenticated key agreement">password-authenticated key agreement</a> techniques</li>
+<li><a href="/wiki/Paillier_cryptosystem" title="Paillier cryptosystem">Paillier cryptosystem</a></li>
+<li><a href="/wiki/RSA_(cryptosystem)" title="RSA (cryptosystem)">RSA</a> encryption algorithm (<a href="/wiki/PKCS1" class="mw-redirect" title="PKCS1">PKCS#1</a>)</li>
+<li><a href="/wiki/Cramer%E2%80%93Shoup_cryptosystem" title="Cramer–Shoup cryptosystem">Cramer–Shoup cryptosystem</a></li>
+<li><a href="/wiki/YAK_(cryptography)" title="YAK (cryptography)">YAK</a> authenticated key agreement protocol</li>
+</ul>
+<p><b>Examples of asymmetric key algorithms not widely adopted include:</b></p>
+<ul>
+<li><a href="/wiki/NTRUEncrypt" title="NTRUEncrypt">NTRUEncrypt</a> cryptosystem</li>
+<li><a href="/wiki/McEliece_cryptosystem" title="McEliece cryptosystem">McEliece cryptosystem</a></li>
+</ul>
+<p><b>Examples of notable – yet insecure – asymmetric key algorithms include:</b></p>
+<ul>
+<li><a href="/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem" title="Merkle–Hellman knapsack cryptosystem">Merkle–Hellman knapsack cryptosystem</a></li>
+</ul>
+<p><b>Examples of protocols using asymmetric key algorithms include:</b></p>
+<ul>
+<li><a href="/wiki/S/MIME" title="S/MIME">S/MIME</a></li>
+<li><a href="/wiki/GNU_Privacy_Guard" title="GNU Privacy Guard">GPG</a>, an implementation of <a href="/wiki/OpenPGP" class="mw-redirect" title="OpenPGP">OpenPGP</a></li>
+<li><a href="/wiki/Internet_Key_Exchange" title="Internet Key Exchange">Internet Key Exchange</a></li>
+<li><a href="/wiki/Pretty_Good_Privacy" title="Pretty Good Privacy">PGP</a></li>
+<li><a href="/wiki/ZRTP" title="ZRTP">ZRTP</a>, a secure <a href="/wiki/VoIP" class="mw-redirect" title="VoIP">VoIP</a> protocol</li>
+<li><a href="/wiki/Secure_Socket_Layer" class="mw-redirect" title="Secure Socket Layer">Secure Socket Layer</a>, now codified as the <a href="/wiki/IETF" class="mw-redirect" title="IETF">IETF</a> standard <a href="/wiki/Transport_Layer_Security" title="Transport Layer Security">Transport Layer Security</a> (TLS)</li>
+<li><a href="/wiki/SILC_(protocol)" title="SILC (protocol)">SILC</a></li>
+<li><a href="/wiki/Secure_Shell" title="Secure Shell">SSH</a></li>
+<li><a href="/wiki/Bitcoin" title="Bitcoin">Bitcoin</a></li>
+<li><a href="/wiki/Off-the-Record_Messaging" title="Off-the-Record Messaging">Off-the-Record Messaging</a></li>
+</ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=23" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div role="navigation" aria-label="Portals" class="noprint portal plainlist tright" style="margin:0.5em 0 0.5em 1em;border:solid #aaa 1px">
+<ul style="display:table;box-sizing:border-box;padding:0.1em;max-width:175px;background:#f9f9f9;font-size:85%;line-height:110%;font-style:italic;font-weight:bold">
+<li style="display:table-row"><span style="display:table-cell;padding:0.2em;vertical-align:middle;text-align:center"><a href="/wiki/File:Crypto_key.svg" class="image"><img alt="icon" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Crypto_key.svg/32px-Crypto_key.svg.png" width="32" height="13" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Crypto_key.svg/48px-Crypto_key.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/65/Crypto_key.svg/64px-Crypto_key.svg.png 2x" data-file-width="651" data-file-height="271" /></a></span><span style="display:table-cell;padding:0.2em 0.2em 0.2em 0.3em;vertical-align:middle"><a href="/wiki/Portal:Cryptography" title="Portal:Cryptography">Cryptography portal</a></span></li>
+</ul>
+</div>
+<div class="div-col columns column-width" style="-moz-column-width: 18em; -webkit-column-width: 18em; column-width: 18em;">
+<ul>
+<li><a href="/wiki/Books_on_cryptography" title="Books on cryptography">Books on cryptography</a></li>
+<li><a href="/wiki/GNU_Privacy_Guard" title="GNU Privacy Guard">GNU Privacy Guard</a></li>
+<li><a href="/wiki/ID-based_encryption" title="ID-based encryption">ID-based encryption</a> (IBE)</li>
+<li><a href="/wiki/Key_escrow" title="Key escrow">Key escrow</a></li>
+<li><a href="/wiki/Key-agreement_protocol" title="Key-agreement protocol">Key-agreement protocol</a></li>
+<li><a href="/wiki/PGP_word_list" title="PGP word list">PGP word list</a></li>
+<li><a href="/wiki/Pretty_Good_Privacy" title="Pretty Good Privacy">Pretty Good Privacy</a></li>
+<li><a href="/wiki/Pseudonymity" title="Pseudonymity">Pseudonymity</a></li>
+<li><a href="/wiki/Public_key_fingerprint" title="Public key fingerprint">Public key fingerprint</a></li>
+<li><a href="/wiki/Public_key_infrastructure" title="Public key infrastructure">Public key infrastructure</a> (PKI)</li>
+<li><a href="/wiki/Quantum_computing" title="Quantum computing">Quantum computing</a></li>
+<li><a href="/wiki/Quantum_cryptography" title="Quantum cryptography">Quantum cryptography</a></li>
+<li><a href="/wiki/Secure_Shell" title="Secure Shell">Secure Shell</a> (SSH)</li>
+<li><a href="/wiki/Transport_Layer_Security" title="Transport Layer Security">Secure Sockets Layer</a> (SSL)</li>
+<li><a href="/wiki/Symmetric-key_algorithm" title="Symmetric-key algorithm">Symmetric-key algorithm</a></li>
+<li><a href="/wiki/Threshold_cryptosystem" title="Threshold cryptosystem">Threshold cryptosystem</a></li>
+</ul>
+</div>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=24" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="list-style-type: decimal;">
+<div class="mw-references-wrap mw-references-columns">
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><cite class="citation book">Stallings, William (1990-05-03). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=Dam9zrViJjEC"><i>Cryptography and Network Security: Principles and Practice</i></a>. Prentice Hall. p.&#160;165. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/9780138690175" title="Special:BookSources/9780138690175">9780138690175</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Cryptography+and+Network+Security%3A+Principles+and+Practice&amp;rft.pages=165&amp;rft.pub=Prentice+Hall&amp;rft.date=1990-05-03&amp;rft.isbn=9780138690175&amp;rft.aulast=Stallings&amp;rft.aufirst=William&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DDam9zrViJjEC&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APublic-key+cryptography" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text">See <a href="/wiki/OTAR" class="mw-redirect" title="OTAR">OTAR</a> to contrast.</span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><cite class="citation book">Stallings, William (1999-01-01). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=Dam9zrViJjEC"><i>Cryptography and Network Security: Principles and Practice</i></a>. Prentice Hall. p.&#160;164. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/9780138690175" title="Special:BookSources/9780138690175">9780138690175</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Cryptography+and+Network+Security%3A+Principles+and+Practice&amp;rft.pages=164&amp;rft.pub=Prentice+Hall&amp;rft.date=1999-01-01&amp;rft.isbn=9780138690175&amp;rft.aulast=Stallings&amp;rft.aufirst=William&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DDam9zrViJjEC&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APublic-key+cryptography" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><cite class="citation book">Alfred J. Menezes, Paul C. van Oorschot, and Scott A. Vanstone (October 1996). <a rel="nofollow" class="external text" href="http://cacr.uwaterloo.ca/hac/about/chap11.pdf">"11: Digital Signatures"</a> <span style="font-size:85%;">(PDF)</span>. <a rel="nofollow" class="external text" href="http://cacr.uwaterloo.ca/hac/"><i>Handbook of Applied Cryptography</i></a>. CRC Press. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/0-8493-8523-7" title="Special:BookSources/0-8493-8523-7">0-8493-8523-7</a><span class="reference-accessdate">. Retrieved <span class="nowrap">2016-11-14</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=11%3A+Digital+Signatures&amp;rft.btitle=Handbook+of+Applied+Cryptography&amp;rft.pub=CRC+Press&amp;rft.date=1996-10&amp;rft.isbn=0-8493-8523-7&amp;rft_id=http%3A%2F%2Fcacr.uwaterloo.ca%2Fhac%2Fabout%2Fchap11.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APublic-key+cryptography" class="Z3988"><span style="display:none;">&#160;</span></span><span class="citation-comment" style="display:none; color:#33aa33; margin-left:0.3em">CS1 maint: Uses authors parameter (<a href="/wiki/Category:CS1_maint:_Uses_authors_parameter" title="Category:CS1 maint: Uses authors parameter">link</a>)</span></span></li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><cite class="citation journal">Daniel J. Bernstein (2008-05-01). <a rel="nofollow" class="external text" href="https://cr.yp.to/antiforgery/forgery-20080501.pdf">"Protecting communications against forgery"</a> <span style="font-size:85%;">(PDF)</span>. <i>Algorithmic Number Theory</i>. MSRI Publications. <b>44</b>. §5: Public-key signatures, pp. 543–545<span class="reference-accessdate">. Retrieved <span class="nowrap">2016-11-14</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Algorithmic+Number+Theory&amp;rft.atitle=Protecting+communications+against+forgery&amp;rft.volume=44&amp;rft.pages=%C2%A75%3A+Public-key+signatures%2C+pp.+543-545&amp;rft.date=2008-05-01&amp;rft.au=Daniel+J.+Bernstein&amp;rft_id=https%3A%2F%2Fcr.yp.to%2Fantiforgery%2Fforgery-20080501.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APublic-key+cryptography" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="http://www.sans.org/information-security">"Information Security Resources"</a>. SANS Institute<span class="reference-accessdate">. Retrieved <span class="nowrap">25 May</span> 2014</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Information+Security+Resources&amp;rft.pub=SANS+Institute&amp;rft_id=http%3A%2F%2Fwww.sans.org%2Finformation-security&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APublic-key+cryptography" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text">Jevons, William Stanley, <a rel="nofollow" class="external text" href="https://archive.org/stream/principlesofscie00jevorich#page/n166/mode/1up"><i>The Principles of Science: A Treatise on Logic and Scientific Method</i></a> p. 141, Macmillan &amp; Co., London, 1874, 2nd ed. 1877, 3rd ed. 1879. Reprinted with a foreword by <a href="/wiki/Ernst_Nagel" class="mw-redirect" title="Ernst Nagel">Ernst Nagel</a>, Dover Publications, New York, NY, 1958.</span></li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text">This came to be known as "Jevons's number". The only nontrivial factor pair is 89681 × 96079.</span></li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="https://archive.org/stream/principlesofscie00jevorich#page/n165/mode/2up"><i>Principles of Science</i></a>, Macmillan &amp; Co., 1874, p. 141.</span></li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text"><cite class="citation journal">Golob, Solomon W. (1996). "ON FACTORING JEVONS' NUMBER". <i>Cryptologia</i>. <b>20</b> (3): 243. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="//doi.org/10.1080%2F0161-119691884933">10.1080/0161-119691884933</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Cryptologia&amp;rft.atitle=ON+FACTORING+JEVONS%27+NUMBER&amp;rft.volume=20&amp;rft.issue=3&amp;rft.pages=243&amp;rft.date=1996&amp;rft_id=info%3Adoi%2F10.1080%2F0161-119691884933&amp;rft.aulast=Golob&amp;rft.aufirst=Solomon+W.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APublic-key+cryptography" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text"><cite class="citation news">Sawer, Patrick (11 Mar 2016). <a rel="nofollow" class="external text" href="https://www.telegraph.co.uk/history/12191473/The-unsung-genius-who-secured-Britains-computer-defences-and-paved-the-way-for-safe-online-shopping.html">"The unsung genius who secured Britain's computer defences and paved the way for safe online shopping"</a>. <i>The Telegraph</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=The+Telegraph&amp;rft.atitle=The+unsung+genius+who+secured+Britain%27s+computer+defences+and+paved+the+way+for+safe+online+shopping&amp;rft.date=2016-03-11&amp;rft.aulast=Sawer&amp;rft.aufirst=Patrick&amp;rft_id=https%3A%2F%2Fwww.telegraph.co.uk%2Fhistory%2F12191473%2FThe-unsung-genius-who-secured-Britains-computer-defences-and-paved-the-way-for-safe-online-shopping.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APublic-key+cryptography" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-zdnet-12"><span class="mw-cite-backlink">^ <a href="#cite_ref-zdnet_12-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-zdnet_12-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation web">Tom Espiner (October 26, 2010). <a rel="nofollow" class="external text" href="http://www.zdnet.com/article/gchq-pioneers-on-birth-of-public-key-crypto/">"GCHQ pioneers on birth of public key crypto"</a>. <i>www.zdnet.com</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=www.zdnet.com&amp;rft.atitle=GCHQ+pioneers+on+birth+of+public+key+crypto&amp;rft.date=2010-10-26&amp;rft.au=Tom+Espiner&amp;rft_id=http%3A%2F%2Fwww.zdnet.com%2Farticle%2Fgchq-pioneers-on-birth-of-public-key-crypto%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APublic-key+cryptography" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-singh-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-singh_13-0">^</a></b></span> <span class="reference-text"><cite class="citation book"><a href="/wiki/Simon_Singh" title="Simon Singh">Singh, Simon</a> (1999). <i><a href="/wiki/The_Code_Book" title="The Code Book">The Code Book</a></i>. Doubleday. pp.&#160;279–292.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Code+Book&amp;rft.pages=279-292&amp;rft.pub=Doubleday&amp;rft.date=1999&amp;rft.aulast=Singh&amp;rft.aufirst=Simon&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APublic-key+cryptography" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-14">^</a></b></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="http://www.emc.com/emc-plus/rsa-labs/standards-initiatives/what-is-a-digital-envelope.htm">"What is a digital envelope?"</a>. <i>RSA Laboratories</i><span class="reference-accessdate">. Retrieved <span class="nowrap">25 May</span> 2014</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=RSA+Laboratories&amp;rft.atitle=What+is+a+digital+envelope%3F&amp;rft_id=http%3A%2F%2Fwww.emc.com%2Femc-plus%2Frsa-labs%2Fstandards-initiatives%2Fwhat-is-a-digital-envelope.htm&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APublic-key+cryptography" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+</ol>
+</div>
+</div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=25" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="refbegin" style="">
+<ul>
+<li><cite class="citation web">Hirsch, Frederick J. <a rel="nofollow" class="external text" href="http://httpd.apache.org/docs/2.2/ssl/ssl_intro.html#cryptographictech">"SSL/TLS Strong Encryption: An Introduction"</a>. <i>Apache HTTP Server</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2013-04-17</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Apache+HTTP+Server&amp;rft.atitle=SSL%2FTLS+Strong+Encryption%3A+An+Introduction&amp;rft.aulast=Hirsch&amp;rft.aufirst=Frederick+J.&amp;rft_id=http%3A%2F%2Fhttpd.apache.org%2Fdocs%2F2.2%2Fssl%2Fssl_intro.html%23cryptographictech&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APublic-key+cryptography" class="Z3988"><span style="display:none;">&#160;</span></span>. The first two sections contain a very good introduction to public-key cryptography.</li>
+<li><cite class="citation book"><a href="/wiki/Niels_Ferguson" title="Niels Ferguson">Ferguson, Niels</a>; <a href="/wiki/Bruce_Schneier" title="Bruce Schneier">Schneier, Bruce</a> (2003). <i>Practical Cryptography</i>. <a href="/wiki/John_Wiley_%26_Sons" title="John Wiley &amp; Sons">Wiley</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/0-471-22357-3" title="Special:BookSources/0-471-22357-3">0-471-22357-3</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Practical+Cryptography&amp;rft.pub=Wiley&amp;rft.date=2003&amp;rft.isbn=0-471-22357-3&amp;rft.aulast=Ferguson&amp;rft.aufirst=Niels&amp;rft.au=Schneier%2C+Bruce&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APublic-key+cryptography" class="Z3988"><span style="display:none;">&#160;</span></span></li>
+<li><cite class="citation book"><a href="/wiki/Jon_Katz" title="Jon Katz">Katz, Jon</a>; Lindell, Y. (2007). <i>Introduction to Modern Cryptography</i>. <a href="/wiki/CRC_Press" title="CRC Press">CRC Press</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/1-58488-551-3" title="Special:BookSources/1-58488-551-3">1-58488-551-3</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+to+Modern+Cryptography&amp;rft.pub=CRC+Press&amp;rft.date=2007&amp;rft.isbn=1-58488-551-3&amp;rft.aulast=Katz&amp;rft.aufirst=Jon&amp;rft.au=Lindell%2C+Y.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APublic-key+cryptography" class="Z3988"><span style="display:none;">&#160;</span></span></li>
+<li><cite class="citation book"><a href="/wiki/Alfred_Menezes" title="Alfred Menezes">Menezes, A. J.</a>; van Oorschot, P. C.; <a href="/wiki/Scott_Vanstone" title="Scott Vanstone">Vanstone, Scott A.</a> (1997). <a rel="nofollow" class="external text" href="http://www.cacr.math.uwaterloo.ca/hac/"><i>Handbook of Applied Cryptography</i></a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/0-8493-8523-7" title="Special:BookSources/0-8493-8523-7">0-8493-8523-7</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Handbook+of+Applied+Cryptography&amp;rft.date=1997&amp;rft.isbn=0-8493-8523-7&amp;rft.aulast=Menezes&amp;rft.aufirst=A.+J.&amp;rft.au=van+Oorschot%2C+P.+C.&amp;rft.au=Vanstone%2C+Scott+A.&amp;rft_id=http%3A%2F%2Fwww.cacr.math.uwaterloo.ca%2Fhac%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APublic-key+cryptography" class="Z3988"><span style="display:none;">&#160;</span></span></li>
+<li><a rel="nofollow" class="external text" href="http://grouper.ieee.org/groups/1363">IEEE 1363: Standard Specifications for Public-Key Cryptography</a></li>
+<li>Christof Paar, Jan Pelzl, <a rel="nofollow" class="external text" href="https://archive.is/20121208212741/http://wiki.crypto.rub.de/Buch/movies.php">"Introduction to Public-Key Cryptography"</a>, Chapter 6 of "Understanding Cryptography, A Textbook for Students and Practitioners". (companion web site contains online cryptography course that covers public-key cryptography), Springer, 2009.</li>
+</ul>
+</div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit&amp;section=26" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://conservancy.umn.edu/handle/11299/107353">Oral history interview with Martin Hellman</a>, <a href="/wiki/Charles_Babbage_Institute" title="Charles Babbage Institute">Charles Babbage Institute</a>, University of Minnesota. Leading cryptography scholar <a href="/wiki/Martin_Hellman" title="Martin Hellman">Martin Hellman</a> discusses the circumstances and fundamental insights of his invention of public key cryptography with collaborators <a href="/wiki/Whitfield_Diffie" title="Whitfield Diffie">Whitfield Diffie</a> and <a href="/wiki/Ralph_Merkle" title="Ralph Merkle">Ralph Merkle</a> at Stanford University in the mid-1970s.</li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20080625052129/http://www.ladlass.com/intel/archives/010256.html">An account of how GCHQ kept their invention of PKE secret until 1997</a></li>
+</ul>
+<div role="navigation" class="navbox" aria-label="Navbox" style="padding:3px">
+<table class="nowraplinks hlist navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Cryptography_public-key" title="Template:Cryptography public-key"><abbr title="View this template" style=";;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;">v</abbr></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Cryptography_public-key" title="Template talk:Cryptography public-key"><abbr title="Discuss this template" style=";;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;">t</abbr></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Cryptography_public-key&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;">e</abbr></a></li>
+</ul>
+</div>
+<div id="Public-key_cryptography" style="font-size:114%;margin:0 4em"><a class="mw-selflink selflink">Public-key cryptography</a></div>
+</th>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Algorithms</th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group" style="width:1%"><a href="/wiki/Integer_factorization" title="Integer factorization">Integer factorization</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Benaloh_cryptosystem" title="Benaloh cryptosystem">Benaloh</a></li>
+<li><a href="/wiki/Blum%E2%80%93Goldwasser_cryptosystem" title="Blum–Goldwasser cryptosystem">Blum–Goldwasser</a></li>
+<li><a href="/wiki/Cayley%E2%80%93Purser_algorithm" title="Cayley–Purser algorithm">Cayley–Purser</a></li>
+<li><a href="/wiki/Damg%C3%A5rd%E2%80%93Jurik_cryptosystem" title="Damgård–Jurik cryptosystem">Damgård–Jurik</a></li>
+<li><a href="/wiki/GMR_(cryptography)" title="GMR (cryptography)">GMR</a></li>
+<li><a href="/wiki/Goldwasser%E2%80%93Micali_cryptosystem" title="Goldwasser–Micali cryptosystem">Goldwasser–Micali</a></li>
+<li><a href="/wiki/Naccache%E2%80%93Stern_cryptosystem" title="Naccache–Stern cryptosystem">Naccache–Stern</a></li>
+<li><a href="/wiki/Paillier_cryptosystem" title="Paillier cryptosystem">Paillier</a></li>
+<li><a href="/wiki/Rabin_cryptosystem" title="Rabin cryptosystem">Rabin</a></li>
+<li><a href="/wiki/RSA_(cryptosystem)" title="RSA (cryptosystem)">RSA</a></li>
+<li><a href="/wiki/Okamoto%E2%80%93Uchiyama_cryptosystem" title="Okamoto–Uchiyama cryptosystem">Okamoto–Uchiyama</a></li>
+<li><a href="/wiki/Schmidt-Samoa_cryptosystem" title="Schmidt-Samoa cryptosystem">Schmidt–Samoa</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%"><a href="/wiki/Discrete_logarithm" title="Discrete logarithm">Discrete logarithm</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Cramer%E2%80%93Shoup_cryptosystem" title="Cramer–Shoup cryptosystem">Cramer–Shoup</a></li>
+<li><a href="/wiki/Diffie%E2%80%93Hellman_key_exchange" title="Diffie–Hellman key exchange">DH</a></li>
+<li><a href="/wiki/Digital_Signature_Algorithm" title="Digital Signature Algorithm">DSA</a></li>
+<li><a href="/wiki/Elliptic-curve_Diffie%E2%80%93Hellman" title="Elliptic-curve Diffie–Hellman">ECDH</a></li>
+<li><a href="/wiki/Elliptic_Curve_Digital_Signature_Algorithm" title="Elliptic Curve Digital Signature Algorithm">ECDSA</a></li>
+<li><a href="/wiki/EdDSA" title="EdDSA">EdDSA</a></li>
+<li><a href="/wiki/Encrypted_key_exchange" title="Encrypted key exchange">EKE</a></li>
+<li><a href="/wiki/ElGamal_encryption" title="ElGamal encryption">ElGamal</a>
+<ul>
+<li><a href="/wiki/ElGamal_signature_scheme" title="ElGamal signature scheme">signature scheme</a></li>
+</ul>
+</li>
+<li><a href="/wiki/MQV" title="MQV">MQV</a></li>
+<li><a href="/wiki/Schnorr_signature" title="Schnorr signature">Schnorr</a></li>
+<li><a href="/wiki/SPEKE" title="SPEKE">SPEKE</a></li>
+<li><a href="/wiki/Secure_Remote_Password_protocol" title="Secure Remote Password protocol">SRP</a></li>
+<li><a href="/wiki/Station-to-Station_protocol" title="Station-to-Station protocol">STS</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Others</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Algebraic_Eraser" title="Algebraic Eraser">AE</a></li>
+<li><a href="/wiki/CEILIDH" title="CEILIDH">CEILIDH</a></li>
+<li><a href="/wiki/Efficient_Probabilistic_Public-Key_Encryption_Scheme" title="Efficient Probabilistic Public-Key Encryption Scheme">EPOC</a></li>
+<li><a href="/wiki/Hidden_Field_Equations" title="Hidden Field Equations">HFE</a></li>
+<li><a href="/wiki/Integrated_Encryption_Scheme" title="Integrated Encryption Scheme">IES</a></li>
+<li><a href="/wiki/Lamport_signature" title="Lamport signature">Lamport</a></li>
+<li><a href="/wiki/McEliece_cryptosystem" title="McEliece cryptosystem">McEliece</a></li>
+<li><a href="/wiki/Merkle%E2%80%93Hellman_knapsack_cryptosystem" title="Merkle–Hellman knapsack cryptosystem">Merkle–Hellman</a></li>
+<li><a href="/wiki/Naccache%E2%80%93Stern_knapsack_cryptosystem" title="Naccache–Stern knapsack cryptosystem">Naccache–Stern knapsack cryptosystem</a></li>
+<li><a href="/wiki/NTRUEncrypt" title="NTRUEncrypt">NTRUEncrypt</a></li>
+<li><a href="/wiki/NTRUSign" title="NTRUSign">NTRUSign</a></li>
+<li><a href="/wiki/Three-pass_protocol" title="Three-pass protocol">Three-pass protocol</a></li>
+<li><a href="/wiki/XTR" title="XTR">XTR</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Theory</th>
+<td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Discrete_logarithm" title="Discrete logarithm">Discrete logarithm</a></li>
+<li><a href="/wiki/Elliptic-curve_cryptography" title="Elliptic-curve cryptography">Elliptic-curve cryptography</a></li>
+<li><a href="/wiki/Non-commutative_cryptography" title="Non-commutative cryptography">Non-commutative cryptography</a></li>
+<li><a href="/wiki/RSA_problem" title="RSA problem">RSA problem</a></li>
+<li><a href="/wiki/Trapdoor_function" title="Trapdoor function">Trapdoor function</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Standardization</th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/CRYPTREC" title="CRYPTREC">CRYPTREC</a></li>
+<li><a href="/wiki/IEEE_P1363" title="IEEE P1363">IEEE P1363</a></li>
+<li><a href="/wiki/NESSIE" title="NESSIE">NESSIE</a></li>
+<li><a href="/wiki/NSA_Suite_B_Cryptography" title="NSA Suite B Cryptography">NSA Suite B</a></li>
+<li><a href="/wiki/Post-Quantum_Cryptography_Standardization" title="Post-Quantum Cryptography Standardization">Post-Quantum Cryptography Standardization</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Topics</th>
+<td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Digital_signature" title="Digital signature">Digital signature</a></li>
+<li><a href="/wiki/Optimal_asymmetric_encryption_padding" title="Optimal asymmetric encryption padding">OAEP</a></li>
+<li><a href="/wiki/Public_key_fingerprint" title="Public key fingerprint">Fingerprint</a></li>
+<li><a href="/wiki/Public_key_infrastructure" title="Public key infrastructure">PKI</a></li>
+<li><a href="/wiki/Web_of_trust" title="Web of trust">Web of trust</a></li>
+<li><a href="/wiki/Key_size" title="Key size">Key size</a></li>
+<li><a href="/wiki/Post-quantum_cryptography" title="Post-quantum cryptography">Post-quantum cryptography</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks collapsible collapsed navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Cryptography_navbox" title="Template:Cryptography navbox"><abbr title="View this template" style=";;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;">v</abbr></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Cryptography_navbox" title="Template talk:Cryptography navbox"><abbr title="Discuss this template" style=";;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;">t</abbr></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Cryptography_navbox&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;">e</abbr></a></li>
+</ul>
+</div>
+<div id="Cryptography" style="font-size:114%;margin:0 4em"><a href="/wiki/Cryptography" title="Cryptography">Cryptography</a></div>
+</th>
+</tr>
+<tr>
+<td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/History_of_cryptography" title="History of cryptography">History of cryptography</a></li>
+<li><a href="/wiki/Cryptanalysis" title="Cryptanalysis">Cryptanalysis</a></li>
+<li><a href="/wiki/Outline_of_cryptography" title="Outline of cryptography">Outline of cryptography</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td colspan="2" class="navbox-list navbox-even" style="width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Symmetric-key_algorithm" title="Symmetric-key algorithm">Symmetric-key algorithm</a></li>
+<li><a href="/wiki/Block_cipher" title="Block cipher">Block cipher</a></li>
+<li><a href="/wiki/Stream_cipher" title="Stream cipher">Stream cipher</a></li>
+<li><a class="mw-selflink selflink">Public-key cryptography</a></li>
+<li><a href="/wiki/Cryptographic_hash_function" title="Cryptographic hash function">Cryptographic hash function</a></li>
+<li><a href="/wiki/Message_authentication_code" title="Message authentication code">Message authentication code</a></li>
+<li><a href="/wiki/Cryptographically_secure_pseudorandom_number_generator" title="Cryptographically secure pseudorandom number generator">Random numbers</a></li>
+<li><a href="/wiki/Steganography" title="Steganography">Steganography</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div>
+<ul>
+<li><img alt="Category" src="//upload.wikimedia.org/wikipedia/en/thumb/4/48/Folder_Hexagonal_Icon.svg/16px-Folder_Hexagonal_Icon.svg.png" title="Category" width="16" height="14" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/48/Folder_Hexagonal_Icon.svg/24px-Folder_Hexagonal_Icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/48/Folder_Hexagonal_Icon.svg/32px-Folder_Hexagonal_Icon.svg.png 2x" data-file-width="36" data-file-height="31" /> <a href="/wiki/Category:Cryptography" title="Category:Cryptography">Category</a></li>
+<li><img alt="Portal" src="//upload.wikimedia.org/wikipedia/en/thumb/f/fd/Portal-puzzle.svg/16px-Portal-puzzle.svg.png" title="Portal" width="16" height="14" srcset="//upload.wikimedia.org/wikipedia/en/thumb/f/fd/Portal-puzzle.svg/24px-Portal-puzzle.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/fd/Portal-puzzle.svg/32px-Portal-puzzle.svg.png 2x" data-file-width="32" data-file-height="28" /> <a href="/wiki/Portal:Cryptography" title="Portal:Cryptography">Portal</a></li>
+<li><img alt="WikiProject" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/37/People_icon.svg/16px-People_icon.svg.png" title="WikiProject" width="16" height="16" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/37/People_icon.svg/24px-People_icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/37/People_icon.svg/32px-People_icon.svg.png 2x" data-file-width="100" data-file-height="100" /> <a href="/wiki/Wikipedia:WikiProject_Cryptography" title="Wikipedia:WikiProject Cryptography">WikiProject</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div role="navigation" class="navbox" aria-labelledby="TLS_and_SSL" style="padding:3px">
+<table class="nowraplinks collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:TLS/SSL" title="Template:TLS/SSL"><abbr title="View this template" style=";;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;">v</abbr></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:TLS/SSL" title="Template talk:TLS/SSL"><abbr title="Discuss this template" style=";;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;">t</abbr></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:TLS/SSL&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;">e</abbr></a></li>
+</ul>
+</div>
+<div id="TLS_and_SSL" style="font-size:114%;margin:0 4em"><a href="/wiki/Transport_Layer_Security" title="Transport Layer Security">TLS and SSL</a></div>
+</th>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Protocols and technologies</th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Transport_Layer_Security" title="Transport Layer Security">Transport Layer Security / Secure Sockets Layer</a> (TLS/SSL)</li>
+<li><a href="/wiki/Datagram_Transport_Layer_Security" title="Datagram Transport Layer Security">Datagram Transport Layer Security</a> (DTLS)</li>
+<li><a href="/wiki/Server_Name_Indication" title="Server Name Indication">Server Name Indication</a> (SNI)</li>
+<li><a href="/wiki/Application-Layer_Protocol_Negotiation" title="Application-Layer Protocol Negotiation">Application-Layer Protocol Negotiation</a> (ALPN)</li>
+<li><a href="/wiki/DNS-based_Authentication_of_Named_Entities" title="DNS-based Authentication of Named Entities">DNS-based Authentication of Named Entities</a> (DANE)</li>
+<li><a href="/wiki/DNS_Certification_Authority_Authorization" title="DNS Certification Authority Authorization">DNS Certification Authority Authorization</a> (CAA)</li>
+<li><a href="/wiki/HTTPS" title="HTTPS">HTTPS</a></li>
+<li><a href="/wiki/HTTP_Strict_Transport_Security" title="HTTP Strict Transport Security">HTTP Strict Transport Security</a> (HSTS)</li>
+<li><a href="/wiki/HTTP_Public_Key_Pinning" title="HTTP Public Key Pinning">HTTP Public Key Pinning</a> (HPKP)</li>
+<li><a href="/wiki/OCSP_stapling" title="OCSP stapling">OCSP stapling</a></li>
+<li><a href="/wiki/Forward_secrecy" title="Forward secrecy">Perfect forward secrecy</a></li>
+<li><a href="/wiki/STARTTLS" class="mw-redirect" title="STARTTLS">STARTTLS</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Public-key infrastructure</th>
+<td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Automated_Certificate_Management_Environment" title="Automated Certificate Management Environment">Automated Certificate Management Environment</a> (ACME)</li>
+<li><a href="/wiki/Certificate_authority" title="Certificate authority">Certificate authority</a> (CA)</li>
+<li><a href="/wiki/CA/Browser_Forum" title="CA/Browser Forum">CA/Browser Forum</a></li>
+<li><a href="/wiki/Certificate_policy" title="Certificate policy">Certificate policy</a></li>
+<li><a href="/wiki/Certificate_revocation_list" title="Certificate revocation list">Certificate revocation list</a> (CRL)</li>
+<li><a href="/wiki/Domain-validated_certificate" title="Domain-validated certificate">Domain-validated certificate</a> (DV)</li>
+<li><a href="/wiki/Extended_Validation_Certificate" title="Extended Validation Certificate">Extended Validation Certificate</a> (EV)</li>
+<li><a href="/wiki/Online_Certificate_Status_Protocol" title="Online Certificate Status Protocol">Online Certificate Status Protocol</a> (OCSP)</li>
+<li><a href="/wiki/Public_key_certificate" title="Public key certificate">Public key certificate</a></li>
+<li><a class="mw-selflink selflink">Public-key cryptography</a></li>
+<li><a href="/wiki/Public_key_infrastructure" title="Public key infrastructure">Public key infrastructure</a> (PKI)</li>
+<li><a href="/wiki/Root_certificate" title="Root certificate">Root certificate</a></li>
+<li><a href="/wiki/Self-signed_certificate" title="Self-signed certificate">Self-signed certificate</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">See also</th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Domain_Name_System_Security_Extensions" title="Domain Name System Security Extensions">Domain Name System Security Extensions</a> (DNSSEC)</li>
+<li><a href="/wiki/Internet_Protocol_Security" class="mw-redirect" title="Internet Protocol Security">Internet Protocol Security</a> (IPsec)</li>
+<li><a href="/wiki/Secure_Shell" title="Secure Shell">Secure Shell</a> (SSH)</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">History</th>
+<td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Export_of_cryptography_from_the_United_States" title="Export of cryptography from the United States">Export of cryptography from the United States</a></li>
+<li><a href="/wiki/Server-Gated_Cryptography" title="Server-Gated Cryptography">Server-Gated Cryptography</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%"><a href="/wiki/Comparison_of_TLS_implementations" title="Comparison of TLS implementations">Implementations</a></th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Bouncy_Castle_(cryptography)" title="Bouncy Castle (cryptography)">Bouncy Castle</a></li>
+<li><a href="/wiki/BoringSSL" class="mw-redirect" title="BoringSSL">BoringSSL</a></li>
+<li><a href="/wiki/Botan_(programming_library)" title="Botan (programming library)">Botan</a></li>
+<li><a href="/wiki/Cryptlib" title="Cryptlib">cryptlib</a></li>
+<li><a href="/wiki/GnuTLS" title="GnuTLS">GnuTLS</a></li>
+<li><a href="/wiki/Java_Secure_Socket_Extension" title="Java Secure Socket Extension">JSSE</a></li>
+<li><a href="/wiki/LibreSSL" title="LibreSSL">LibreSSL</a></li>
+<li><a href="/wiki/MatrixSSL" title="MatrixSSL">MatrixSSL</a></li>
+<li><a href="/wiki/Mbed_TLS" title="Mbed TLS">mbed TLS</a></li>
+<li><a href="/wiki/Network_Security_Services" title="Network Security Services">NSS</a></li>
+<li><a href="/wiki/OpenSSL" title="OpenSSL">OpenSSL</a></li>
+<li><a href="/wiki/RSA_BSAFE" title="RSA BSAFE">RSA BSAFE</a></li>
+<li><a href="/wiki/S2n" title="S2n">S2n</a></li>
+<li><a href="/wiki/Security_Support_Provider_Interface" title="Security Support Provider Interface">SChannel</a></li>
+<li><a href="/wiki/SSLeay" title="SSLeay">SSLeay</a></li>
+<li><a href="/wiki/Stunnel" title="Stunnel">stunnel</a></li>
+<li><a href="/wiki/WolfSSL" title="WolfSSL">wolfSSL</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Notaries</th>
+<td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Certificate_Transparency" title="Certificate Transparency">Certificate Transparency</a></li>
+<li><a href="/wiki/Convergence_(SSL)" title="Convergence (SSL)">Convergence</a></li>
+<li><a href="/wiki/HTTPS_Everywhere" title="HTTPS Everywhere">HTTPS Everywhere</a></li>
+<li><a href="/wiki/Perspectives_Project" class="mw-redirect" title="Perspectives Project">Perspectives Project</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Vulnerabilities</th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Theory</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Man-in-the-middle_attack" title="Man-in-the-middle attack">Man-in-the-middle attack</a></li>
+<li><a href="/wiki/Padding_oracle_attack" title="Padding oracle attack">Padding oracle attack</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Cipher</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Bar_mitzvah_attack" title="Bar mitzvah attack">Bar mitzvah attack</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Protocol</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/BEAST_(security_exploit)" class="mw-redirect" title="BEAST (security exploit)">BEAST</a></li>
+<li><a href="/wiki/BREACH" title="BREACH">BREACH</a></li>
+<li><a href="/wiki/CRIME" title="CRIME">CRIME</a></li>
+<li><a href="/wiki/DROWN_attack" title="DROWN attack">DROWN</a></li>
+<li><a href="/wiki/Logjam_(computer_security)" title="Logjam (computer security)">Logjam</a></li>
+<li><a href="/wiki/POODLE" title="POODLE">POODLE</a> (in regards to SSL 3.0)</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Implementation</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Certificate_authority#CA_compromise" title="Certificate authority">Certificate authority compromise</a></li>
+<li><a href="/wiki/Random_number_generator_attack" title="Random number generator attack">Random number generator attacks</a></li>
+<li><a href="/wiki/FREAK" title="FREAK">FREAK</a></li>
+<li><a href="/wiki/Goto_fail" class="mw-redirect" title="Goto fail">goto fail</a></li>
+<li><a href="/wiki/Heartbleed" title="Heartbleed">Heartbleed</a></li>
+<li><a href="/wiki/Lucky_Thirteen_attack" title="Lucky Thirteen attack">Lucky Thirteen attack</a></li>
+<li><a href="/wiki/POODLE" title="POODLE">POODLE</a> (in regards to TLS 1.0)</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div role="navigation" class="navbox" aria-label="Navbox" style="padding:3px">
+<table class="nowraplinks hlist navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="row" class="navbox-group" style="width:1%"><a href="/wiki/Help:Authority_control" title="Help:Authority control">Authority control</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><span class="nowrap"><a href="/wiki/Integrated_Authority_File" title="Integrated Authority File">GND</a>: <span class="uid"><a rel="nofollow" class="external text" href="https://d-nb.info/gnd/4209133-0">4209133-0</a></span></span></li>
+<li><span class="nowrap"><a href="/wiki/National_Diet_Library" title="National Diet Library">NDL</a>: <span class="uid"><a rel="nofollow" class="external text" href="https://id.ndl.go.jp/auth/ndlna/00966793">00966793</a></span></span></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1328
+Cached time: 20180613154829
+Cache expiry: 1900800
+Dynamic content: false
+CPU time usage: 0.312 seconds
+Real time usage: 0.411 seconds
+Preprocessor visited node count: 1708/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 121281/2097152 bytes
+Template argument size: 1329/2097152 bytes
+Highest expansion depth: 12/40
+Expensive parser function count: 5/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 12590/5000000 bytes
+Number of Wikibase entities loaded: 1/400
+Lua time usage: 0.153/10.000 seconds
+Lua memory usage: 4.87 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  330.753      1 -total
+ 29.41%   97.271      1 Template:Reflist
+ 24.34%   80.494      7 Template:Navbox
+ 18.21%   60.239      7 Template:Cite_book
+ 12.33%   40.768      1 Template:Cryptography_navbox
+ 11.09%   36.682      1 Template:Inadequate_lead
+ 10.21%   33.758      1 Template:Ambox
+  8.99%   29.719      2 Template:Citation_needed
+  8.47%   28.020      1 Template:Use_dmy_dates
+  8.45%   27.949      1 Template:Authority_control
+-->
+</div>
+<!-- Saved in parser cache with key enwiki:pcache:idhash:24222-0!canonical and timestamp 20180613154829 and revision id 843074271
+ -->
+<noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Public-key_cryptography&amp;oldid=843074271">https://en.wikipedia.org/w/index.php?title=Public-key_cryptography&amp;oldid=843074271</a>"					</div>
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Public-key_cryptography" title="Category:Public-key cryptography">Public-key cryptography</a></li><li><a href="/wiki/Category:Banking_technology" title="Category:Banking technology">Banking technology</a></li><li><a href="/wiki/Category:Public_key_infrastructure" title="Category:Public key infrastructure">Public key infrastructure</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:CS1_maint:_Uses_authors_parameter" title="Category:CS1 maint: Uses authors parameter">CS1 maint: Uses authors parameter</a></li><li><a href="/wiki/Category:Use_dmy_dates_from_July_2012" title="Category:Use dmy dates from July 2012">Use dmy dates from July 2012</a></li><li><a href="/wiki/Category:Wikipedia_introduction_cleanup_from_December_2015" title="Category:Wikipedia introduction cleanup from December 2015">Wikipedia introduction cleanup from December 2015</a></li><li><a href="/wiki/Category:All_pages_needing_cleanup" title="Category:All pages needing cleanup">All pages needing cleanup</a></li><li><a href="/wiki/Category:Articles_covered_by_WikiProject_Wikify_from_December_2015" title="Category:Articles covered by WikiProject Wikify from December 2015">Articles covered by WikiProject Wikify from December 2015</a></li><li><a href="/wiki/Category:All_articles_covered_by_WikiProject_Wikify" title="Category:All articles covered by WikiProject Wikify">All articles covered by WikiProject Wikify</a></li><li><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_August_2012" title="Category:Articles with unsourced statements from August 2012">Articles with unsourced statements from August 2012</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_November_2017" title="Category:Articles with unsourced statements from November 2017">Articles with unsourced statements from November 2017</a></li><li><a href="/wiki/Category:Wikipedia_articles_with_GND_identifiers" title="Category:Wikipedia articles with GND identifiers">Wikipedia articles with GND identifiers</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Public-key+cryptography" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Public-key+cryptography" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+							<li id="ca-nstab-main" class="selected"><span><a href="/wiki/Public-key_cryptography" title="View the content page [c]" accesskey="c">Article</a></span></li><li id="ca-talk"><span><a href="/wiki/Talk:Public-key_cryptography" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Talk</a></span></li>						</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+						<h3 id="p-variants-label">
+							<span>Variants</span>
+						</h3>
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+							<li id="ca-view" class="collapsible selected"><span><a href="/wiki/Public-key_cryptography">Read</a></span></li><li id="ca-edit" class="collapsible"><span><a href="/w/index.php?title=Public-key_cryptography&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></span></li><li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Public-key_cryptography&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>						</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+						<h3 id="p-cactions-label"><span>More</span></h3>
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+						<form action="/w/index.php" id="searchform">
+							<div id="simpleSearch">
+								<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/><input type="hidden" value="Special:Search" name="title"/><input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+			<div class="body">
+								<ul>
+					<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-interaction" aria-labelledby="p-interaction-label">
+			<h3 id="p-interaction-label">Interaction</h3>
+			<div class="body">
+								<ul>
+					<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+			<div class="body">
+								<ul>
+					<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Public-key_cryptography" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Public-key_cryptography" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Public-key_cryptography&amp;oldid=843074271" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Public-key_cryptography&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q201339" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Public-key_cryptography&amp;id=843074271" title="Information on how to cite this page">Cite this page</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-coll-print_export" aria-labelledby="p-coll-print_export-label">
+			<h3 id="p-coll-print_export-label">Print/export</h3>
+			<div class="body">
+								<ul>
+					<li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Public-key+cryptography">Create a book</a></li><li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=Special:ElectronPdf&amp;page=Public-key+cryptography&amp;action=show-download-screen">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Public-key_cryptography&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-wikibase-otherprojects" aria-labelledby="p-wikibase-otherprojects-label">
+			<h3 id="p-wikibase-otherprojects-label">In other projects</h3>
+			<div class="body">
+								<ul>
+					<li class="wb-otherproject-link wb-otherproject-commons"><a href="https://commons.wikimedia.org/wiki/Category:Public-key_cryptography" hreflang="en">Wikimedia Commons</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-lang" aria-labelledby="p-lang-label">
+			<h3 id="p-lang-label">Languages</h3>
+			<div class="body">
+								<ul>
+					<li class="interlanguage-link interwiki-af"><a href="https://af.wikipedia.org/wiki/Publiekesleutelkriptografie" title="Publiekesleutelkriptografie – Afrikaans" lang="af" hreflang="af" class="interlanguage-link-target">Afrikaans</a></li><li class="interlanguage-link interwiki-ar"><a href="https://ar.wikipedia.org/wiki/%D8%AA%D8%B4%D9%81%D9%8A%D8%B1_%D8%A8%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85_%D8%A7%D9%84%D9%85%D9%81%D8%AA%D8%A7%D8%AD_%D8%A7%D9%84%D8%B9%D8%A7%D9%85" title="تشفير باستخدام المفتاح العام – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target">العربية</a></li><li class="interlanguage-link interwiki-bn"><a href="https://bn.wikipedia.org/wiki/%E0%A6%AA%E0%A6%BE%E0%A6%AC%E0%A6%B2%E0%A6%BF%E0%A6%95_%E0%A6%95%E0%A7%80_%E0%A6%95%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%AA%E0%A7%8D%E0%A6%9F%E0%A7%8B%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%AB%E0%A6%BF" title="পাবলিক কী ক্রিপ্টোগ্রাফি – Bangla" lang="bn" hreflang="bn" class="interlanguage-link-target">বাংলা</a></li><li class="interlanguage-link interwiki-ca"><a href="https://ca.wikipedia.org/wiki/Criptografia_de_clau_p%C3%BAblica" title="Criptografia de clau pública – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target">Català</a></li><li class="interlanguage-link interwiki-cs"><a href="https://cs.wikipedia.org/wiki/Asymetrick%C3%A1_kryptografie" title="Asymetrická kryptografie – Czech" lang="cs" hreflang="cs" class="interlanguage-link-target">Čeština</a></li><li class="interlanguage-link interwiki-de"><a href="https://de.wikipedia.org/wiki/Asymmetrisches_Kryptosystem" title="Asymmetrisches Kryptosystem – German" lang="de" hreflang="de" class="interlanguage-link-target">Deutsch</a></li><li class="interlanguage-link interwiki-et"><a href="https://et.wikipedia.org/wiki/Avaliku_v%C3%B5tme_kr%C3%BCptograafia" title="Avaliku võtme krüptograafia – Estonian" lang="et" hreflang="et" class="interlanguage-link-target">Eesti</a></li><li class="interlanguage-link interwiki-el"><a href="https://el.wikipedia.org/wiki/%CE%9A%CF%81%CF%85%CF%80%CF%84%CE%BF%CE%B3%CF%81%CE%AC%CF%86%CE%B7%CF%83%CE%B7_%CE%94%CE%B7%CE%BC%CF%8C%CF%83%CE%B9%CE%BF%CF%85_%CE%9A%CE%BB%CE%B5%CE%B9%CE%B4%CE%B9%CE%BF%CF%8D" title="Κρυπτογράφηση Δημόσιου Κλειδιού – Greek" lang="el" hreflang="el" class="interlanguage-link-target">Ελληνικά</a></li><li class="interlanguage-link interwiki-es"><a href="https://es.wikipedia.org/wiki/Criptograf%C3%ADa_asim%C3%A9trica" title="Criptografía asimétrica – Spanish" lang="es" hreflang="es" class="interlanguage-link-target">Español</a></li><li class="interlanguage-link interwiki-eu"><a href="https://eu.wikipedia.org/wiki/Kriptografia_asimetriko" title="Kriptografia asimetriko – Basque" lang="eu" hreflang="eu" class="interlanguage-link-target">Euskara</a></li><li class="interlanguage-link interwiki-fa"><a href="https://fa.wikipedia.org/wiki/%D8%B1%D9%85%D8%B2%D9%86%DA%AF%D8%A7%D8%B1%DB%8C_%DA%A9%D9%84%DB%8C%D8%AF_%D8%B9%D9%85%D9%88%D9%85%DB%8C" title="رمزنگاری کلید عمومی – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target">فارسی</a></li><li class="interlanguage-link interwiki-fr"><a href="https://fr.wikipedia.org/wiki/Cryptographie_asym%C3%A9trique" title="Cryptographie asymétrique – French" lang="fr" hreflang="fr" class="interlanguage-link-target">Français</a></li><li class="interlanguage-link interwiki-ko"><a href="https://ko.wikipedia.org/wiki/%EA%B3%B5%EA%B0%9C_%ED%82%A4_%EC%95%94%ED%98%B8_%EB%B0%A9%EC%8B%9D" title="공개 키 암호 방식 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target">한국어</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.wikipedia.org/wiki/Crittografia_asimmetrica" title="Crittografia asimmetrica – Italian" lang="it" hreflang="it" class="interlanguage-link-target">Italiano</a></li><li class="interlanguage-link interwiki-he"><a href="https://he.wikipedia.org/wiki/%D7%9E%D7%A4%D7%AA%D7%97_%D7%A6%D7%99%D7%91%D7%95%D7%A8%D7%99" title="מפתח ציבורי – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target">עברית</a></li><li class="interlanguage-link interwiki-ka"><a href="https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A1%E1%83%98%E1%83%9B%E1%83%94%E1%83%A2%E1%83%A0%E1%83%98%E1%83%A3%E1%83%9A%E1%83%98_%E1%83%99%E1%83%A0%E1%83%98%E1%83%9E%E1%83%A2%E1%83%9D%E1%83%A1%E1%83%98%E1%83%A1%E1%83%A2%E1%83%94%E1%83%9B%E1%83%90" title="ასიმეტრიული კრიპტოსისტემა – Georgian" lang="ka" hreflang="ka" class="interlanguage-link-target">ქართული</a></li><li class="interlanguage-link interwiki-lv"><a href="https://lv.wikipedia.org/wiki/Publisk%C4%81s_atsl%C4%93gas_kriptogr%C4%81fija" title="Publiskās atslēgas kriptogrāfija – Latvian" lang="lv" hreflang="lv" class="interlanguage-link-target">Latviešu</a></li><li class="interlanguage-link interwiki-lt"><a href="https://lt.wikipedia.org/wiki/Vie%C5%A1ojo_rakto_kriptografija" title="Viešojo rakto kriptografija – Lithuanian" lang="lt" hreflang="lt" class="interlanguage-link-target">Lietuvių</a></li><li class="interlanguage-link interwiki-lmo"><a href="https://lmo.wikipedia.org/wiki/Crittografia_asimmetrega" title="Crittografia asimmetrega – Lombard" lang="lmo" hreflang="lmo" class="interlanguage-link-target">Lumbaart</a></li><li class="interlanguage-link interwiki-hu"><a href="https://hu.wikipedia.org/wiki/Nyilv%C3%A1nos_kulcs%C3%BA_rejtjelez%C3%A9s" title="Nyilvános kulcsú rejtjelezés – Hungarian" lang="hu" hreflang="hu" class="interlanguage-link-target">Magyar</a></li><li class="interlanguage-link interwiki-mg"><a href="https://mg.wikipedia.org/wiki/Sora-miafina_amin%27ny_fanidy_abaribary" title="Sora-miafina amin&#039;ny fanidy abaribary – Malagasy" lang="mg" hreflang="mg" class="interlanguage-link-target">Malagasy</a></li><li class="interlanguage-link interwiki-ml"><a href="https://ml.wikipedia.org/wiki/%E0%B4%AA%E0%B4%AC%E0%B5%8D%E0%B4%B2%E0%B4%BF%E0%B4%95%E0%B5%8D_%E0%B4%95%E0%B5%80_%E0%B4%95%E0%B5%8D%E0%B4%B0%E0%B4%BF%E0%B4%AA%E0%B5%8D%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%8B%E0%B4%97%E0%B5%8D%E0%B4%B0%E0%B4%AB%E0%B4%BF" title="പബ്ലിക് കീ ക്രിപ്റ്റോഗ്രഫി – Malayalam" lang="ml" hreflang="ml" class="interlanguage-link-target">മലയാളം</a></li><li class="interlanguage-link interwiki-ms"><a href="https://ms.wikipedia.org/wiki/Penyulitan_tak_bersimetri" title="Penyulitan tak bersimetri – Malay" lang="ms" hreflang="ms" class="interlanguage-link-target">Bahasa Melayu</a></li><li class="interlanguage-link interwiki-nl"><a href="https://nl.wikipedia.org/wiki/Asymmetrische_cryptografie" title="Asymmetrische cryptografie – Dutch" lang="nl" hreflang="nl" class="interlanguage-link-target">Nederlands</a></li><li class="interlanguage-link interwiki-ja"><a href="https://ja.wikipedia.org/wiki/%E5%85%AC%E9%96%8B%E9%8D%B5%E6%9A%97%E5%8F%B7" title="公開鍵暗号 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target">日本語</a></li><li class="interlanguage-link interwiki-no"><a href="https://no.wikipedia.org/wiki/Asymmetrisk_kryptering" title="Asymmetrisk kryptering – Norwegian" lang="no" hreflang="no" class="interlanguage-link-target">Norsk</a></li><li class="interlanguage-link interwiki-nn"><a href="https://nn.wikipedia.org/wiki/Asymmetrisk_kryptering" title="Asymmetrisk kryptering – Norwegian Nynorsk" lang="nn" hreflang="nn" class="interlanguage-link-target">Norsk nynorsk</a></li><li class="interlanguage-link interwiki-pl"><a href="https://pl.wikipedia.org/wiki/Kryptografia_klucza_publicznego" title="Kryptografia klucza publicznego – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target">Polski</a></li><li class="interlanguage-link interwiki-pt"><a href="https://pt.wikipedia.org/wiki/Criptografia_de_chave_p%C3%BAblica" title="Criptografia de chave pública – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target">Português</a></li><li class="interlanguage-link interwiki-ro"><a href="https://ro.wikipedia.org/wiki/Criptografie_asimetric%C4%83" title="Criptografie asimetrică – Romanian" lang="ro" hreflang="ro" class="interlanguage-link-target">Română</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/%D0%9A%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%81_%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%8B%D0%BC_%D0%BA%D0%BB%D1%8E%D1%87%D0%BE%D0%BC" title="Криптосистема с открытым ключом – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target">Русский</a></li><li class="interlanguage-link interwiki-simple"><a href="https://simple.wikipedia.org/wiki/Public-key_cryptography" title="Public-key cryptography – Simple English" lang="simple" hreflang="simple" class="interlanguage-link-target">Simple English</a></li><li class="interlanguage-link interwiki-sl"><a href="https://sl.wikipedia.org/wiki/Asimetri%C4%8Dna_enkripcija" title="Asimetrična enkripcija – Slovenian" lang="sl" hreflang="sl" class="interlanguage-link-target">Slovenščina</a></li><li class="interlanguage-link interwiki-sr"><a href="https://sr.wikipedia.org/wiki/%D0%90%D1%81%D0%B8%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%B0_%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%98%D0%B0" title="Асиметрична криптографија – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target">Српски / srpski</a></li><li class="interlanguage-link interwiki-fi"><a href="https://fi.wikipedia.org/wiki/Julkisen_avaimen_salaus" title="Julkisen avaimen salaus – Finnish" lang="fi" hreflang="fi" class="interlanguage-link-target">Suomi</a></li><li class="interlanguage-link interwiki-sv"><a href="https://sv.wikipedia.org/wiki/Asymmetrisk_kryptering" title="Asymmetrisk kryptering – Swedish" lang="sv" hreflang="sv" class="interlanguage-link-target">Svenska</a></li><li class="interlanguage-link interwiki-te"><a href="https://te.wikipedia.org/wiki/%E0%B0%AA%E0%B0%AC%E0%B1%8D%E0%B0%B2%E0%B0%BF%E0%B0%95%E0%B1%8D-%E0%B0%95%E0%B1%80_%E0%B0%97%E0%B1%82%E0%B0%A2_%E0%B0%B2%E0%B0%BF%E0%B0%AA%E0%B0%BF_%E0%B0%B6%E0%B0%BE%E0%B0%B8%E0%B1%8D%E0%B0%A4%E0%B1%8D%E0%B0%B0%E0%B0%82" title="పబ్లిక్-కీ గూఢ లిపి శాస్త్రం – Telugu" lang="te" hreflang="te" class="interlanguage-link-target">తెలుగు</a></li><li class="interlanguage-link interwiki-th"><a href="https://th.wikipedia.org/wiki/%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%A3%E0%B8%AB%E0%B8%B1%E0%B8%AA%E0%B8%A5%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%81%E0%B8%B8%E0%B8%8D%E0%B9%81%E0%B8%88%E0%B8%AD%E0%B8%AA%E0%B8%A1%E0%B8%A1%E0%B8%B2%E0%B8%95%E0%B8%A3" title="การเข้ารหัสลับแบบกุญแจอสมมาตร – Thai" lang="th" hreflang="th" class="interlanguage-link-target">ไทย</a></li><li class="interlanguage-link interwiki-tr"><a href="https://tr.wikipedia.org/wiki/A%C3%A7%C4%B1k_anahtarl%C4%B1_%C5%9Fifreleme" title="Açık anahtarlı şifreleme – Turkish" lang="tr" hreflang="tr" class="interlanguage-link-target">Türkçe</a></li><li class="interlanguage-link interwiki-uk"><a href="https://uk.wikipedia.org/wiki/%D0%90%D1%81%D0%B8%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D1%87%D0%BD%D1%96_%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D0%B8_%D1%88%D0%B8%D1%84%D1%80%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F" title="Асиметричні алгоритми шифрування – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target">Українська</a></li><li class="interlanguage-link interwiki-ur"><a href="https://ur.wikipedia.org/wiki/%D9%BE%D8%A8%D9%84%DA%A9_%DA%A9%DB%8C_%DA%A9%D8%B1%D9%BE%D9%B9%D9%88%DA%AF%D8%B1%D8%A7%D9%81%DB%8C" title="پبلک کی کرپٹوگرافی – Urdu" lang="ur" hreflang="ur" class="interlanguage-link-target">اردو</a></li><li class="interlanguage-link interwiki-vi"><a href="https://vi.wikipedia.org/wiki/M%E1%BA%ADt_m%C3%A3_h%C3%B3a_kh%C3%B3a_c%C3%B4ng_khai" title="Mật mã hóa khóa công khai – Vietnamese" lang="vi" hreflang="vi" class="interlanguage-link-target">Tiếng Việt</a></li><li class="interlanguage-link interwiki-zh"><a href="https://zh.wikipedia.org/wiki/%E5%85%AC%E5%BC%80%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86" title="公开密钥加密 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target">中文</a></li>				</ul>
+				<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q201339#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+				<div id="footer" role="contentinfo">
+						<ul id="footer-info">
+								<li id="footer-info-lastmod"> This page was last edited on 26 May 2018, at 17:56.</li>
+								<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+							</ul>
+						<ul id="footer-places">
+								<li id="footer-places-privacy"><a href="https://wikimediafoundation.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+								<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+								<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+								<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+								<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+								<li id="footer-places-cookiestatement"><a href="https://wikimediafoundation.org/wiki/Cookie_statement">Cookie statement</a></li>
+								<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Public-key_cryptography&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+							</ul>
+										<ul id="footer-icons" class="noprint">
+										<li id="footer-copyrightico">
+						<a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>					</li>
+										<li id="footer-poweredbyico">
+						<a href="//www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>					</li>
+									</ul>
+						<div style="clear: both;"></div>
+		</div>
+		
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.312","walltime":"0.411","ppvisitednodes":{"value":1708,"limit":1000000},"ppgeneratednodes":{"value":0,"limit":1500000},"postexpandincludesize":{"value":121281,"limit":2097152},"templateargumentsize":{"value":1329,"limit":2097152},"expansiondepth":{"value":12,"limit":40},"expensivefunctioncount":{"value":5,"limit":500},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":12590,"limit":5000000},"entityaccesscount":{"value":1,"limit":400},"timingprofile":["100.00%  330.753      1 -total"," 29.41%   97.271      1 Template:Reflist"," 24.34%   80.494      7 Template:Navbox"," 18.21%   60.239      7 Template:Cite_book"," 12.33%   40.768      1 Template:Cryptography_navbox"," 11.09%   36.682      1 Template:Inadequate_lead"," 10.21%   33.758      1 Template:Ambox","  8.99%   29.719      2 Template:Citation_needed","  8.47%   28.020      1 Template:Use_dmy_dates","  8.45%   27.949      1 Template:Authority_control"]},"scribunto":{"limitreport-timeusage":{"value":"0.153","limit":"10.000"},"limitreport-memusage":{"value":5103254,"limit":52428800}},"cachereport":{"origin":"mw1328","timestamp":"20180613154829","ttl":1900800,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":76,"wgHostname":"mw1331"});});</script>
+	</body>
+</html>

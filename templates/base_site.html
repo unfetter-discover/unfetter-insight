@@ -12,9 +12,9 @@
       <title>UNFetter Insight!</title>
 
       {% block styles %}
-        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/bootstrap/dist/css/bootstrap.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/font-awesome/css/font-awesome.min.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/nprogress/nprogress.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/bower_components/bootstrap/dist/css/bootstrap.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/bower_components/font-awesome/web-fonts-with-css/css/fontawesome.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendors/bower_components/nprogress/nprogress.css')}}">
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='build/css/custom.css')}}">        
       {% endblock styles %}
     {% endblock head %}
@@ -33,12 +33,12 @@
           {% endblock content %}
         </div>
       </div>
-        <script type="text/javascript" src="{{ url_for('static', filename='vendors/jquery/dist/jquery.min.js') }}"></script> 
-        <script type="text/javascript" src="{{ url_for('static', filename='vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>         
-        <script type="text/javascript" src="{{ url_for('static', filename='vendors/fastclick/lib/fastclick.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='vendors/nprogress/nprogress.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='vendors/jquery.hotkeys/jquery.hotkeys.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='vendors/bootstrap-notify/bootstrap-notify.js') }}"></script>       
+        <script type="text/javascript" src="{{ url_for('static', filename='vendors/bower_components/jquery-3.3.1.min/index.js') }}"></script> 
+        <script type="text/javascript" src="{{ url_for('static', filename='vendors/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>         
+        <script type="text/javascript" src="{{ url_for('static', filename='vendors/bower_components/fastclick/lib/fastclick.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='vendors/bower_components/nprogress/nprogress.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='vendors/bower_components/jquery.hotkeys/jquery.hotkeys.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='vendors/bower_components/bootstrap-notify/js/bootstrap-notify.js') }}"></script>       
         <script type="text/javascript" src="{{ url_for('static', filename='build/js/custom.js') }}"></script>
     {% endblock body %}
   </body>
