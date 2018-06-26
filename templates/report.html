@@ -6,7 +6,8 @@
 
 {% block content %}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
-      <div class="right_col" role="main">
+<script src="static/vendors/bower_components/jquery-3.3.1.min/index.js"></script>
+  <div class="right_col" role="main">
       <div class="">
         <div class="page-title">
           <div class="title_left">
@@ -97,7 +98,8 @@
                 </ul>
                 <div class="clearfix"></div>
               </div>
-              <div class="x_content pre-scrollable" >
+              <a href="javascript:;" id="print">Details</a>​
+              <div class="x_content pre-scrollable" id="toNewWindow" style="display:none">
                 {{ report }}
               </div>
             </div>
@@ -144,6 +146,18 @@
                                       legend: {display: false}
                                     }
                             });
+
+                            function nWin() {
+                              var w = window.open();
+                              //w.document.body.innerHTML = 'report';
+                              var html = $("#toNewWindow").html();
+                                $(w.document.body).html(html);
+                            }
+
+                            $(function() {  
+                                $("a#print").click(nWin);
+                            });
+
                          </script>
                         </div>
                         <div class="clearfix"></div>
