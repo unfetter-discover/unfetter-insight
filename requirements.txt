@@ -11,3 +11,4 @@ scikit-learn==0.17.1
 textract==1.6.1
 pdf2text==1.0.0
 requests==2.14.2
+gunicorn

@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  unfetter-insight:
+    build: .
+    container_name: unfetter-insight
+    image: unfetter-insight
+    ports:
+     - "8080:8080"
+    volumes:
+     - ./:/app
+    entrypoint:
+      - gunicorn
+      - --config
+      - gunicorn_config.py
+      - app:app
+    
