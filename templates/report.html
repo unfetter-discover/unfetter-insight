@@ -102,6 +102,9 @@
               <div class="x_content pre-scrollable" id="toNewWindow" style="display:none">
                 {{ report }}
               </div>
+              <div class="x_content pre-scrollable" id="toNewWindow2">
+                {{ report }}
+              </div>
             </div>
           </div>
         </div>
@@ -156,6 +159,16 @@
 
                             $(function() {  
                                 $("a#print").click(nWin);
+                                
+                                $( "#toNewWindow2" ).contents().filter(function() {
+                                  return this.nodeType === 3;
+                                })
+                                  .wrap( "<p></p>" )
+                                  .end()
+                                  .filter( "br" )
+                                  .remove();
+                                $('#toNewWindow2').contents().hide(); //hide all nodes directly under the body
+                                $('#toNewWindow2').find("font").show();
                             });
 
                          </script>
