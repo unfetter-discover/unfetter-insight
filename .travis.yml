@@ -5,8 +5,8 @@ python:
 
   - "2.7"
 install:
-  - pip install -y swig
-  - pip install -y libpulse-dev
+  - pip install swig
+  - pip install libpulse-dev
   - pip install --trusted-host pypi.python.org -r requirements.txt
 script:
   - pytest test_unit.py -sv
