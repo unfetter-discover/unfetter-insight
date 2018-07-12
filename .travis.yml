@@ -1,13 +1,15 @@
-sudo: false
+sudo: true
 language: python
 cache: pip
 python:
 
   - "2.7"
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y swig
+  - sudo apt-get install -y libpulse-dev
 install:
-  # apt-get install -y python-pip python-dev build-essential
-  - pip install swiglpk
-  - pip install libpulse-dev
   - pip install --trusted-host pypi.python.org -r requirements.txt
 script:
   - pytest test_unit.py -sv
