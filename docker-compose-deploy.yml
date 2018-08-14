@@ -5,7 +5,7 @@ services:
     container_name: unfetter-insight
     image: unfetter-insight
     ports:
-     - "8080:8080"
+     - "5000:5000"
     volumes:
      - ./:/app
     entrypoint:
@@ -13,4 +13,5 @@ services:
       - --config
       - gunicorn_config.py
       - app:app
+
     

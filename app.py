@@ -65,4 +65,4 @@ def report():
             message = "There does not seem to be enough confidence to determine a valid threat given the threshold used."
             return render_template('report.html', report=Markup(message), plotdata=plotdata, filename=filename)
 if __name__ == '__main__':
-    app.run(host="0.0.0.0",port=8080)
+    app.run(host="0.0.0.0",port=5000)
